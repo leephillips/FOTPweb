@@ -18,8 +18,10 @@ from django.forms import CharField
 #       model = Post
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('author', 'byline', 'title', 'publish', 'content')
+    list_display = ('byline', 'title', 'publish', 'pub_date')
     list_display_links = ('title',)
+    readonly_fields = ['pub_date'] 
+    exclude = ['author']
     # form = PostAdminForm
     def get_form(self, req, obj=None, **kwargs):
         # save the logged in user 
@@ -38,7 +40,9 @@ class PostAdmin(admin.ModelAdmin):
             return db_field.formfield(**kwargs)
         return super(PostAdmin, self).formfield_for_foreignkey(
                      db_field, request, **kwargs)
-    # formfield_overrides = {models.CharField: {'initial': 'hihihi'},}
+    def save_model(self, request, obj, form, change):
+       obj.author = request.user
+       obj.save()
 
 class DirectorAdmin(admin.ModelAdmin):
    def queryset(self, request):

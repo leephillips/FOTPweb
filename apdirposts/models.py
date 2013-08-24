@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime
 from django.db.models.signals import post_save
+from django.db.models.signals import pre_save
 
 # python manage.py dumpdata <your_app> > temp_data.json
 # python manage.py reset <your_app>
@@ -21,15 +22,15 @@ class Director(models.Model):
       return self.name()
 
 class Post(models.Model):
-   pub_date = models.DateTimeField('date published')
+   pub_date = models.DateTimeField('date published', blank = True, editable = False, null = True)
    title = models.CharField(max_length=200)
    author = models.ForeignKey(User)
    byline = models.CharField(max_length = 500)
    publish = models.BooleanField()
-   content = models.TextField()
-   def save(self, *args, **kwargs):
-      self.pub_date =  datetime.datetime.today()
-      super(Post, self).save(*args, **kwargs)
+   content = models.TextField(blank = True)
+   # def save(self, *args, **kwargs):
+   #    self.pub_date =  datetime.datetime.today()
+   #    super(Post, self).save(*args, **kwargs)
    def __unicode__(self):
       return "%s, by %s" % (self.title, self.author)
 
@@ -43,3 +44,10 @@ def on_new_user(sender, created, instance, **kwargs):
       nd.save()
 
 post_save.connect(on_new_user, sender = User, dispatch_uid="nuser")
+
+def on_dirpost_save(sender, instance, **kwargs):
+   p = instance
+   if p.publish and p.pub_date is None:
+      p.pub_date = datetime.datetime.now()
+
+pre_save.connect(on_dirpost_save, sender = Post, dispatch_uid="dirpsave")
