@@ -1,4 +1,5 @@
 from models import Post
+from models import Director
 from django.contrib import admin
 from django.db import models
 from django.forms import ModelForm
@@ -18,11 +19,13 @@ from django.forms import CharField
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('author', 'byline', 'title', 'publish', 'content')
+    list_display_links = ('title',)
     # form = PostAdminForm
     def get_form(self, req, obj=None, **kwargs):
         # save the logged in user 
         self.current_user = req.user
         return super(PostAdmin, self).get_form(req, obj, **kwargs)
+    # http://www.vimtips.org/2009/04/28/django-using-modeladmin-default-currently-logged-u/
     def formfield_for_dbfield(self, field, **kwargs):
        if field.name == "byline":
           return CharField(initial = self.current_user.get_full_name())
@@ -37,6 +40,25 @@ class PostAdmin(admin.ModelAdmin):
                      db_field, request, **kwargs)
     # formfield_overrides = {models.CharField: {'initial': 'hihihi'},}
 
+class DirectorAdmin(admin.ModelAdmin):
+   def queryset(self, request):
+      if request.user.is_superuser:
+          return Director.objects.all()
+      return Director.objects.filter(user=request.user)
+   list_display = ('title', 'nameinbyline', 'formalname')
+   list_display_links = ('title', 'nameinbyline', 'formalname')
+   def get_form(self, req, obj=None, **kwargs):
+      self.current_user = req.user
+      return super(DirectorAdmin, self).get_form(req, obj, **kwargs)
+   def formfield_for_dbfield(self, field, **kwargs):
+      if field.name == "nameinbyline":
+         return CharField(label = 'Name as byline', initial = self.current_user.get_full_name())
+   #    # elif field == "formalname":
+   #    #    return CharField(initial = self.current_user.title + ' ' + 
+   #    #                     self.current_user.get_full_name())
+      return super(DirectorAdmin, self).formfield_for_dbfield(field, **kwargs)
+
 admin.site.register(Post, PostAdmin)
+admin.site.register(Director, DirectorAdmin)
 
 
