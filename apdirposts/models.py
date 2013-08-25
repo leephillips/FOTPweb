@@ -21,6 +21,12 @@ class Director(models.Model):
    def __unicode__(self):
       return self.name()
 
+class Illustration(models.Model):
+   pic = models.ImageField(upload_to = 'illustrations', blank = True, null = True)
+   caption = models.TextField(blank = True)
+   credit = models.TextField(blank = True
+
+
 class Post(models.Model):
    pub_date = models.DateTimeField('date published', blank = True, editable = False, null = True)
    title = models.CharField(max_length=200)
@@ -28,9 +34,7 @@ class Post(models.Model):
    byline = models.CharField(max_length = 500)
    publish = models.BooleanField()
    content = models.TextField(blank = True)
-   # def save(self, *args, **kwargs):
-   #    self.pub_date =  datetime.datetime.today()
-   #    super(Post, self).save(*args, **kwargs)
+   illustrations = models.ManyToManyField(Illustration)
    def __unicode__(self):
       return "%s, by %s" % (self.title, self.author)
 
