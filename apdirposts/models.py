@@ -13,7 +13,7 @@ class Director(models.Model):
    user = models.OneToOneField(User)
    def name(self):
       return self.user.get_full_name()
-   title = models.CharField( 'Title: Ms., Mr., Dr., etc.', max_length=30)
+   title = models.CharField('Title: Ms., Mr., Dr., etc.', max_length=30)
    nameinbyline = models.CharField('Name in bylines', max_length = 200)
    formalname = models.CharField('Formal name', max_length = 200)
    bio = models.TextField()
@@ -26,7 +26,6 @@ class Illustration(models.Model):
    caption = models.TextField(blank = True)
    credit = models.TextField(blank = True
 
-
 class Post(models.Model):
    pub_date = models.DateTimeField('date published', blank = True, editable = False, null = True)
    title = models.CharField(max_length=200)
@@ -35,9 +34,23 @@ class Post(models.Model):
    publish = models.BooleanField()
    content = models.TextField(blank = True)
    illustrations = models.ManyToManyField(Illustration)
+   category = models.ForeignKey(Postcategory)
    def __unicode__(self):
       return "%s, by %s" % (self.title, self.author)
 
+class Postcategory(models.Model):
+   postcategory = models.CharField(max_length = 200)
+
+class Frontpost(Post):
+   def __unicode__(self):
+      return self.title
+
+class Event(Post):
+   on = models.DateTimeField('When')
+   ebcode = models.CharField('EventBrite Code', max_length = 400)
+   def __unicode__(self):
+      return "%s scheduled for %s" % (self.title, self.on)
+   
 # register a handler for the signal django.db.models.signals.post_save on the User model, and, in the handler, if created=True, create the associated user profile.
 
 def on_new_user(sender, created, instance, **kwargs):
