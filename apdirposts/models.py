@@ -17,7 +17,7 @@ class Director(models.Model):
    nameinbyline = models.CharField('Name in bylines', max_length = 200)
    formalname = models.CharField('Formal name', max_length = 200)
    bio = models.TextField()
-   # more fields: bio, contact
+   face = models.ImageField(upload_to = 'faces', blank = True, null = True)
    def __unicode__(self):
       return self.name()
 
