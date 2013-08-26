@@ -1,0 +1,7 @@
+<h1>{{ title }}</h1>
+{% for illustration in illustrations %}
+   <img src = "{{ illustration.pic.url }}" alt = "" />
+   {% if forloop.first %}
+      {{ content|safe }}
+   {% endif %}
+{% endfor %}
