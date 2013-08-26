@@ -1,5 +1,5 @@
 from models import Post
-from models import Director
+from models import Director, Illustration, Postcategory
 from django.contrib import admin
 from django.db import models
 from django.forms import ModelForm, CharField, TextInput
@@ -69,5 +69,7 @@ class DirectorAdmin(admin.ModelAdmin):
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Director, DirectorAdmin)
+admin.site.register(Illustration)
+admin.site.register(Postcategory)
 
 

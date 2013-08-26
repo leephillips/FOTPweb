@@ -24,7 +24,15 @@ class Director(models.Model):
 class Illustration(models.Model):
    pic = models.ImageField(upload_to = 'illustrations', blank = True, null = True)
    caption = models.TextField(blank = True)
-   credit = models.TextField(blank = True
+   credit = models.TextField(blank = True)
+   def __unicode__(self):
+      n = self.pic
+      return "%s: %s" % (n, self.caption[:70])
+
+class Postcategory(models.Model):
+   postcategory = models.CharField(max_length = 200)
+   def __unicode__(self):
+      return self.postcategory
 
 class Post(models.Model):
    pub_date = models.DateTimeField('date published', blank = True, editable = False, null = True)
@@ -33,17 +41,10 @@ class Post(models.Model):
    byline = models.CharField(max_length = 500)
    publish = models.BooleanField()
    content = models.TextField(blank = True)
-   illustrations = models.ManyToManyField(Illustration)
+   illustrations = models.ManyToManyField(Illustration, null = True)
    category = models.ForeignKey(Postcategory)
    def __unicode__(self):
       return "%s, by %s" % (self.title, self.author)
-
-class Postcategory(models.Model):
-   postcategory = models.CharField(max_length = 200)
-
-class Frontpost(Post):
-   def __unicode__(self):
-      return self.title
 
 class Event(Post):
    on = models.DateTimeField('When')
@@ -66,5 +67,7 @@ def on_dirpost_save(sender, instance, **kwargs):
    p = instance
    if p.publish and p.pub_date is None:
       p.pub_date = datetime.datetime.now()
+   if p.category is None:
+      p.category = Postcategory.get(category = "normal")
 
 pre_save.connect(on_dirpost_save, sender = Post, dispatch_uid="dirpsave")

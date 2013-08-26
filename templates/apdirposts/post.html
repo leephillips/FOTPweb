@@ -1,3 +1,5 @@
+{% extends "site.html" %}
+{% block body %}
 <h1>{{ title }}</h1>
 {% for illustration in illustrations %}
    <img src = "{{ illustration.pic.url }}" alt = "" />
@@ -5,3 +7,4 @@
       {{ content|safe }}
    {% endif %}
 {% endfor %}
+{% endblock %}
