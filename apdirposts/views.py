@@ -15,3 +15,6 @@ def post(request, which):
                              {'illustrations': pics,
                               'content': content,
                               'title': p.title})
+
+def front(request):
+   return render(request, 'front.html')

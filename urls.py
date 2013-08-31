@@ -16,4 +16,5 @@ urlpatterns = patterns('',
      url(r'^admin/', include(admin.site.urls)),
      (r'^bio/(.*)/$', 'ap.apdirposts.views.bio'),
      (r'^post/(.*)/$', 'ap.apdirposts.views.post'),
+     (r'^$', 'ap.apdirposts.views.front'),
 )
