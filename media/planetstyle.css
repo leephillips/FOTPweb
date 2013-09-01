@@ -8,12 +8,8 @@ body {
   margin-left: 0%;
   margin-top: 0%;
   width: 100%;
-  height: 50%;
-  /* min-height: 100%; */
+  min-height: 100%;
   background-image: url(tbg2.png), url(tbg1.png);
-}
-ul{
-   list-style: none;
 }
 .mainbanner{
    width: 43%;
@@ -27,40 +23,46 @@ ul{
 #mainlinklist{
    font-family: "Baumans", sans-serif;
    position: absolute;
-   left: 50%;
-   top: 0pt;
+   left: 60%;
+   top: 3%;
 }
-#mainlinklist li{
-   margin-top: 3em;
+#mainlinklist p{
+   margin-top: 0pt;
+   margin-bottom: 1em;
    text-indent: 0px;
+   font-size: 36px;
 }
-.mainlink a:link, .mainlink a:visited{
+#mainlinklist a:link, .mainlinklist a:visited{
    line-height: 0.4em;
-   font-size: 2.5em;
    color: #c35;
-   padding: 0.6em;
-   /* padding-top: 0.3em; */
-   padding-bottom: 0.3em;
 }
-.mainlink a:hover{
+#mainlinklist p:hover{
    background: black;
 }
 #mainarray {
    position: absolute;
-   /* left: 70px; */
-   /* top: 275px; */
-   left: 8%;
-   top: 36%;
-   width: 35%;
+   left: 42%;
+   top: 4%;
+   width: 15%;
 }
 #mainarray img{
-   width: 30%;
-   margin-bottom: 9%;
-   margin-right: 9.3%;
+   width: 100%;
+   margin-bottom: 10%;
+   margin-right: 15.3%;
 }
-#sun {
-   width: 35% !important;
-   margin-bottom: 6.3% !important;
+
+#frontlatest{
+   position: absolute;
+   left: 2.6%;
+   top: 39%;
+}
+#frontlatest p{
+   font-family: "Baumans", sans-serif;
+   color: #fff;
+   font-size: 24px;
+   text-indent: 0pt;
+   margin-bottom: 0.5em;
+   margin-top: 0pt;
 }
 .invisible {
     display: none;
@@ -277,8 +279,7 @@ span.fnclicked span.fntext span.fntext{
 }
 h1
 {
-   color: #000;
-    text-shadow: 0px 1px 0px #fff;
+   color: #fff;
     line-height: 1.1em;
 	text-align: left;
 	font-weight: normal;
@@ -287,19 +288,18 @@ h1
 	margin-top: 1em;
 	margin-bottom: 1em;
 	margin-left: 0cm;
-	border-width: 0.5mm;
-	border-style: none none solid none;
 }
 h2{
-    text-shadow: 0px 1px 0px #fff;
     line-height: 1.1em;
-    color: #000; font-size: 120%; font-weight: normal; text-align: center;}
+    color: #fff; font-size: 24px; font-weight: normal; text-align: left;
+    font-family: "Helvetica", sans-serif;
+ }
+
 
     
 h3 {
-    color: #000;
+    color: #fff;
     text-align: center;
-    text-shadow: 0px 1px 0px #fff;
     line-height: 1.1em;
     font-weight: normal;
     margin-left: 1.0cm;
