@@ -10,6 +10,7 @@ body {
   width: 100%;
   min-height: 100%;
   background-image: url(tbg2.png), url(tbg1.png);
+  background-size: 35% 35%, 30% 30%;
 }
 .mainbanner{
    width: 43%;

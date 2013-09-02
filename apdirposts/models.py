@@ -18,6 +18,7 @@ class Director(models.Model):
    formalname = models.CharField('Formal name', max_length = 200)
    bio = models.TextField()
    face = models.ImageField(upload_to = 'faces', blank = True, null = True)
+   email = models.EmailField()
    def __unicode__(self):
       return self.name()
 
@@ -51,6 +52,11 @@ class Event(Post):
    ebcode = models.CharField('EventBrite Code', max_length = 400)
    def __unicode__(self):
       return "%s scheduled for %s" % (self.title, self.on)
+
+class notice(Post):
+   """For the "In the News" page."""
+   on = models.DateTimeField('When')
+   newslink = models.URLField(blank = True)
    
 # register a handler for the signal django.db.models.signals.post_save on the User model, and, in the handler, if created=True, create the associated user profile.
 

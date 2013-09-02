@@ -1,10 +1,14 @@
 {% extends "site.html" %}
 {% block body %}
 <h1>{{ title }}</h1>
-{% for illustration in illustrations %}
-   <img src = "{{ illustration.pic.url }}" alt = "" />
-   {% if forloop.first %}
-      {{ content|safe }}
-   {% endif %}
-{% endfor %}
+{% if illustrations %}
+   {% for illustration in illustrations %}
+      <img src = "{{ illustration.pic.url }}" alt = "" />
+      {% if forloop.first %}
+         {{ content|safe }}
+      {% endif %}
+   {% endfor %}
+{% else %}
+   {{ content|safe }}
+{% endif %}
 {% endblock %}
