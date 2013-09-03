@@ -29,13 +29,14 @@ class PostAdmin(admin.ModelAdmin):
     # http://www.vimtips.org/2009/04/28/django-using-modeladmin-default-currently-logged-u/
     def formfield_for_dbfield(self, field, **kwargs):
        if field.name == "byline":
-          return CharField(initial = self.current_user.get_full_name(),
+          byline = Director.objects.filter(user=self.current_user)[0].nameinbyline
+          return CharField(initial = byline,
                            max_length = 500,
                            widget=TextInput(attrs={'size':'40'}))
-       elif field.name == "title":
-          return CharField(initial = self.current_user.get_full_name(),
-                           max_length = 500,
-                           widget=TextInput(attrs={'size':'80'}))
+       # elif field.name == "title":
+       #    return CharField(initial = self.current_user.get_full_name(),
+       #                     max_length = 500,
+       #                     widget=TextInput(attrs={'size':'80'}))
        return super(PostAdmin, self).formfield_for_dbfield(field, **kwargs)
   # Also see https://pypi.python.org/pypi/django-cuser/
     def formfield_for_foreignkey(self, db_field, request, **kwargs):

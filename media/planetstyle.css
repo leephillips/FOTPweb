@@ -1,16 +1,20 @@
 html {
   height: 100%;
 }
-
 body {
   /* font-family: "Dosis", sans-serif; */
-  font-size: 14px;
   margin-left: 0%;
   margin-top: 0%;
   width: 100%;
   min-height: 100%;
   background-image: url(tbg2.png), url(tbg1.png);
   background-size: 35% 35%, 30% 30%;
+}
+.postcontent{
+   width: 60%;
+   margin-top: 26%;
+   margin-left: 2.2%;
+   color: #fff;
 }
 .mainbanner{
    width: 43%;
@@ -20,9 +24,34 @@ body {
 }
 .mainbanner img{
    width: 100%;
+} 
+#dots{
+   position: absolute;
+   left: 45%;
+   top: 1%;
+   width: 55%;
+}
+
+#dots img{
+   width: 10%;
+}
+#dots p{
+   position: absolute;
+   left: 12%;
+   top: 76%;
+   font-size: 2.4em;
+   margin: 0pt;
+}
+
+.ll{
+   font-family: "Baumans", sans-serif;
+   color: #c35;
+}
+.ll a:link, .ll a:visited{
+   line-height: 0.4em;
+   color: #c35;
 }
 #mainlinklist{
-   font-family: "Baumans", sans-serif;
    position: absolute;
    left: 60%;
    top: 3%;
@@ -31,14 +60,17 @@ body {
    margin-top: 0pt;
    margin-bottom: 1em;
    text-indent: 0px;
-   font-size: 36px;
+   font-size: 2.4em;
 }
-#mainlinklist a:link, .mainlinklist a:visited{
-   line-height: 0.4em;
-   color: #c35;
-}
-#mainlinklist p:hover{
+#mainlinklist a:hover{
    background: black;
+}
+.bbull{
+   font-size: 15em !important;
+   margin-bottom: 0.0em !important;
+   margin-top: 0.0em !important;
+   line-height: 0em !important;
+   line-height: 0.3em !important;
 }
 #mainarray {
    position: absolute;
@@ -54,7 +86,7 @@ body {
 
 #frontlatest{
    position: absolute;
-   left: 2.6%;
+   left: 2.2%;
    top: 39%;
 }
 #frontlatest p{
@@ -281,10 +313,10 @@ span.fnclicked span.fntext span.fntext{
 h1
 {
    color: #fff;
-    line-height: 1.1em;
-	text-align: left;
-	font-weight: normal;
-    font-size: 130%;
+   line-height: 1.1em;
+   text-align: left;
+   font-weight: normal;
+   font-size: 130%;
         margin-right: 40%;
 	margin-top: 1em;
 	margin-bottom: 1em;
@@ -292,8 +324,9 @@ h1
 }
 h2{
     line-height: 1.1em;
-    color: #fff; font-size: 24px; font-weight: normal; text-align: left;
+    color: #fff; font-size: 1.8em; font-weight: normal; text-align: left;
     font-family: "Helvetica", sans-serif;
+    text-transform: uppercase;
  }
 
 
@@ -376,6 +409,7 @@ label{
 @media screen and (max-width: 700px){
 html, body{
   background-image: none;
+  background: #000;
   }
 .date-article{
    margin-bottom: 1em;

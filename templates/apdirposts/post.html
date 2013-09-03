@@ -1,6 +1,11 @@
 {% extends "site.html" %}
 {% block body %}
-<h1>{{ title }}</h1>
+   <div id = "dots" class = "ll">
+   <img src = "{{ MEDIA_URL }}dots.png" />
+   <p>Main Articles</p>
+</div>
+<div class = "postcontent">
+<h2>{{ title }}</h2>
 {% if illustrations %}
    {% for illustration in illustrations %}
       <img src = "{{ illustration.pic.url }}" alt = "" />
@@ -11,4 +16,5 @@
 {% else %}
    {{ content|safe }}
 {% endif %}
+</div>
 {% endblock %}

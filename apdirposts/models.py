@@ -42,7 +42,7 @@ class Post(models.Model):
    byline = models.CharField(max_length = 500)
    publish = models.BooleanField()
    content = models.TextField(blank = True)
-   illustrations = models.ManyToManyField(Illustration, null = True)
+   illustrations = models.ManyToManyField(Illustration, null = True, blank = True)
    category = models.ForeignKey(Postcategory)
    def __unicode__(self):
       return "%s, by %s" % (self.title, self.author)
@@ -53,7 +53,7 @@ class Event(Post):
    def __unicode__(self):
       return "%s scheduled for %s" % (self.title, self.on)
 
-class notice(Post):
+class Notice(Post):
    """For the "In the News" page."""
    on = models.DateTimeField('When')
    newslink = models.URLField(blank = True)
