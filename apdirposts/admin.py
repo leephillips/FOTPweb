@@ -29,7 +29,7 @@ class PostAdmin(admin.ModelAdmin):
     # http://www.vimtips.org/2009/04/28/django-using-modeladmin-default-currently-logged-u/
     def formfield_for_dbfield(self, field, **kwargs):
        if field.name == "byline":
-          byline = Director.objects.filter(user=self.current_user)[0].nameinbyline
+          byline = Director.objects.get(user=self.current_user).nameinbyline
           return CharField(initial = byline,
                            max_length = 500,
                            widget=TextInput(attrs={'size':'40'}))

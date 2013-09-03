@@ -13,12 +13,11 @@ class Director(models.Model):
    user = models.OneToOneField(User)
    def name(self):
       return self.user.get_full_name()
-   title = models.CharField('Title: Ms., Mr., Dr., etc.', max_length=30)
-   nameinbyline = models.CharField('Name in bylines', max_length = 200)
-   formalname = models.CharField('Formal name', max_length = 200)
-   bio = models.TextField()
+   title = models.CharField('Title: Ms., Mr., Dr., etc.', max_length=30, blank = True)
+   nameinbyline = models.CharField('Name in bylines', max_length = 200, blank = True)
+   formalname = models.CharField('Formal name', max_length = 200, blank = True)
+   bio = models.TextField(blank = True)
    face = models.ImageField(upload_to = 'faces', blank = True, null = True)
-   email = models.EmailField()
    def __unicode__(self):
       return self.name()
 
@@ -49,31 +48,44 @@ class Post(models.Model):
 
 class Event(Post):
    on = models.DateTimeField('When')
-   ebcode = models.CharField('EventBrite Code', max_length = 400)
+   ebcode = models.CharField('EventBrite Code', max_length = 400, blank = True)
    def __unicode__(self):
       return "%s scheduled for %s" % (self.title, self.on)
 
 class Notice(Post):
    """For the "In the News" page."""
-   on = models.DateTimeField('When')
+   on = models.DateTimeField('When', null = True)
    newslink = models.URLField(blank = True)
    
 # register a handler for the signal django.db.models.signals.post_save on the User model, and, in the handler, if created=True, create the associated user profile.
 
 def on_new_user(sender, created, instance, **kwargs):
-   if created == True:
+   if created:
       nd = Director(user = instance)
-      nd.nameinbyline = instance.get_full_name()
-      nd.formalname = instance.get_full_name()
       nd.save()
 
-post_save.connect(on_new_user, sender = User, dispatch_uid="nuser")
+def on_save_user(sender, instance, **kwargs):
+      try:
+         nd = Director.objects.get(user = instance.id)
+      except:
+         pass
+      else:
+         saveit = False
+         if not nd.nameinbyline: 
+            nd.nameinbyline = instance.get_full_name()
+            saveit = True
+         if not nd.formalname:
+            nd.formalname = nd.title + nd.nameinbyline
+            saveit = True
+         if saveit: nd.save()
 
 def on_dirpost_save(sender, instance, **kwargs):
    p = instance
    if p.publish and p.pub_date is None:
       p.pub_date = datetime.datetime.now()
-   if p.category is None:
-      p.category = Postcategory.get(category = "normal")
+   # if p.category is None:
+   #    p.category = Postcategory.get(category = "normal")
 
+post_save.connect(on_new_user, sender = User, dispatch_uid="nuser")
+pre_save.connect(on_save_user, sender = User, dispatch_uid="cuser")
 pre_save.connect(on_dirpost_save, sender = Post, dispatch_uid="dirpsave")
