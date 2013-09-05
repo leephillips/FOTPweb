@@ -1,5 +1,5 @@
 from models import Post
-from models import Director, Illustration, Postcategory
+from models import Director, Illustration, Postcategory, Event
 from django.contrib import admin
 from django.db import models
 from django.forms import ModelForm, CharField, TextInput
@@ -33,10 +33,6 @@ class PostAdmin(admin.ModelAdmin):
           return CharField(initial = byline,
                            max_length = 500,
                            widget=TextInput(attrs={'size':'40'}))
-       # elif field.name == "title":
-       #    return CharField(initial = self.current_user.get_full_name(),
-       #                     max_length = 500,
-       #                     widget=TextInput(attrs={'size':'80'}))
        return super(PostAdmin, self).formfield_for_dbfield(field, **kwargs)
   # Also see https://pypi.python.org/pypi/django-cuser/
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
@@ -49,6 +45,20 @@ class PostAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
        obj.author = request.user
        obj.save()
+
+class EventAdmin(PostAdmin):
+    list_display = ('title', 'publish', 'on', 'ebcode')
+    list_display_links = ('title',)
+    exclude = ['author', 'category']
+    def formfield_for_dbfield(self, field, **kwargs):
+       if field.name == "byline":
+          byline = Director.objects.get(user=self.current_user).nameinbyline
+          return CharField(initial = byline,
+                           max_length = 500,
+                           widget=TextInput(attrs={'size':'40'}))
+       if field.name == 'rpost':
+          kwargs['queryset'] = Post.objects.all().order_by('-pub_date')
+       return super(PostAdmin, self).formfield_for_dbfield(field, **kwargs)
 
 class DirectorAdmin(admin.ModelAdmin):
    def queryset(self, request):
@@ -72,5 +82,6 @@ admin.site.register(Post, PostAdmin)
 admin.site.register(Director, DirectorAdmin)
 admin.site.register(Illustration)
 admin.site.register(Postcategory)
+admin.site.register(Event, EventAdmin)
 
 
