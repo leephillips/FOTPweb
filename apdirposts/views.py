@@ -14,7 +14,15 @@ def post(request, which):
    return render(request, 'apdirposts/post.html',
                              {'illustrations': pics,
                               'content': content,
+                              'mainarticleone': 'thisone',
+                              'byline': p.byline,
                               'title': p.title})
+
+def posttop(request):
+   return render(request, 'apdirposts/posttop.html', 
+                 {'p': Post.objects.all().order_by('-pub_date'),
+                  'mainarticleone': 'thisone'
+                 })
 
 def front(request):
    return render(request, 'front.html')

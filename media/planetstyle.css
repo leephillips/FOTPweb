@@ -11,10 +11,15 @@ body {
   background-size: 35% 35%, 30% 30%;
 }
 .postcontent{
-   width: 60%;
+   width: 50%;
    margin-top: 26%;
    margin-left: 2.2%;
-   color: #fff;
+   color: #ddd;
+}
+.postcontent h2{
+   margin-top: 1em;
+   margin-bottom: 0.2em;
+   color: #ddd;
 }
 .mainbanner{
    width: 43%;
@@ -27,22 +32,18 @@ body {
 } 
 #dots{
    position: absolute;
-   left: 45%;
-   top: 1%;
-   width: 55%;
+   left: 47%;
+   top: 2.3%;
+   width: 5.5%;
 }
 
 #dots img{
-   width: 10%;
+   width: 100%;
 }
-#dots p{
-   position: absolute;
-   left: 12%;
-   top: 76%;
-   font-size: 2.4em;
-   margin: 0pt;
+.byline {
+   font-family: "Helvetica", sans-serif;
+   margin-bottom: 1.5em;
 }
-
 .ll{
    font-family: "Baumans", sans-serif;
    color: #c35;
@@ -50,6 +51,19 @@ body {
 .ll a:link, .ll a:visited{
    line-height: 0.4em;
    color: #c35;
+}
+.ll a:hover{
+   background: #006;
+}
+a.lnl:link{
+   line-height: 0.4em;
+   color: #c35;
+}
+a.lnl:visited{
+   color: #c68;
+}
+a.lnl:hover{
+   background: #006;
 }
 #mainlinklist{
    position: absolute;
@@ -63,14 +77,24 @@ body {
    font-size: 2.4em;
 }
 #mainlinklist a:hover{
-   background: black;
+   background: #006;
 }
-.bbull{
-   font-size: 15em !important;
-   margin-bottom: 0.0em !important;
-   margin-top: 0.0em !important;
-   line-height: 0em !important;
-   line-height: 0.3em !important;
+#littlelinklist{
+   position: absolute;
+   left: 60%;
+   top: 3%;
+}
+#littlelinklist p{
+   margin-top: 0pt;
+   margin-bottom: 1em;
+   text-indent: 0px;
+   font-size: 1.7em;
+}
+#littlelinklist p.thisone{
+   font-size: 2.4em;
+}
+#littlelinklist a:hover{
+   background: #006;
 }
 #mainarray {
    position: absolute;

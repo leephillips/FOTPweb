@@ -1,14 +1,10 @@
-{% extends "site.html" %}
-{% block body %}
-   <div id = "dots" class = "ll">
-   <img src = "{{ MEDIA_URL }}dots.png" />
-   <p>Main Articles</p>
-</div>
+{% extends "apdirposts/page.html" %}
+{% block pagecontent %}
 <div class = "postcontent">
-<h2>{{ title }}</h2>
+   <h2>{{ title }}</h2> <div class = "byline">by {{ byline }}</div>
 {% if illustrations %}
    {% for illustration in illustrations %}
-      <img src = "{{ illustration.pic.url }}" alt = "" />
+      <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
       {% if forloop.first %}
          {{ content|safe }}
       {% endif %}

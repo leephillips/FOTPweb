@@ -75,7 +75,7 @@ def on_save_user(sender, instance, **kwargs):
             nd.nameinbyline = instance.get_full_name()
             saveit = True
          if not nd.formalname:
-            nd.formalname = nd.title + nd.nameinbyline
+            nd.formalname = nd.nameinbyline
             saveit = True
          if saveit: nd.save()
 
