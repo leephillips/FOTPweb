@@ -58,6 +58,7 @@ class EventAdmin(PostAdmin):
                            widget=TextInput(attrs={'size':'40'}))
        if field.name == 'rpost':
           kwargs['queryset'] = Post.objects.all().order_by('-pub_date')
+          kwargs['label'] = "Related article"
        return super(PostAdmin, self).formfield_for_dbfield(field, **kwargs)
 
 class DirectorAdmin(admin.ModelAdmin):

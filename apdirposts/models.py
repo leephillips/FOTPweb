@@ -49,7 +49,7 @@ class Post(models.Model):
 class Event(Post):
    on = models.DateTimeField('When')
    ebcode = models.CharField('EventBrite Code', max_length = 400, blank = True)
-   rpost = models.ForeignKey(Post, related_name = "revent")
+   rpost = models.ForeignKey(Post, related_name = "revent", null = True, blank = True)
    def __unicode__(self):
       return "%s scheduled for %s" % (self.title, self.on)
 
@@ -88,7 +88,7 @@ def on_dirpost_save(sender, instance, **kwargs):
    #    p.category = Postcategory.get(category = "normal")
 
 def on_save_event(sender, instance, **kwargs):
-   instance.category = Postcategory.objects.get(pk = 1)
+   instance.category = Postcategory.objects.get(pk = 5)
 
 post_save.connect(on_new_user, sender = User, dispatch_uid="nuser")
 pre_save.connect(on_save_user, sender = User, dispatch_uid="cuser")
