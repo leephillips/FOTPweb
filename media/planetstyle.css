@@ -117,23 +117,33 @@ a.lnl:hover{
 #frontlatest p{
    font-family: "Baumans", sans-serif;
    color: #fff;
-   font-size: 24px;
+   font-size: 1.5em;
    text-indent: 0pt;
    margin-bottom: 0.5em;
    margin-top: 0pt;
 }
+#fronttlatest a:link {
+   color: #fff;
+}
+#frontlatest a:visited{
+   color: #999;
+}
 #pagelatest{
-   position: absolute;
-   left: 60%;
-   top: 39%;
+   margin-top: 3em;
 }
 #pagelatest p{
    font-family: "Baumans", sans-serif;
    color: #fff;
-   font-size: 24px;
+   font-size: 1.5em;
    text-indent: 0pt;
    margin-bottom: 0.5em;
    margin-top: 0pt;
+}
+#pagelatest a:link{
+   color: #fff;
+}
+#pagelatest a:visited{
+   color: #999;
 }
 .invisible {
     display: none;

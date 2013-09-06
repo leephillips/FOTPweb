@@ -43,4 +43,5 @@ def posttop(request):
                  })
 
 def front(request):
-   return render(request, 'front.html')
+   return render(request, 'front.html',
+                {'latest': latest()})
