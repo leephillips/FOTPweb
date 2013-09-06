@@ -48,6 +48,7 @@ class Post(models.Model):
 
 class Event(models.Model):
    author = models.ForeignKey(User)
+   title = models.CharField(max_length=200)
    pub_date = models.DateTimeField('date published', blank = True, editable = False, null = True)
    on = models.DateTimeField('When')
    ebcode = models.CharField('EventBrite Code', max_length = 400, blank = True)

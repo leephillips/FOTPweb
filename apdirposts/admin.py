@@ -49,7 +49,7 @@ class PostAdmin(admin.ModelAdmin):
 class EventAdmin(PostAdmin):
     list_display = ('title', 'publish', 'on', 'ebcode')
     list_display_links = ('title',)
-    exclude = ['author', 'category']
+    exclude = ['author']
     def formfield_for_dbfield(self, field, **kwargs):
        if field.name == "byline":
           byline = Director.objects.get(user=self.current_user).nameinbyline
@@ -68,8 +68,9 @@ class DirectorAdmin(admin.ModelAdmin):
       return Director.objects.filter(user=request.user)
    list_display = ('title', 'nameinbyline', 'formalname')
    list_display_links = ('title', 'nameinbyline', 'formalname')
+   exclude = ['user']
    def get_form(self, req, obj=None, **kwargs):
-      self.current_user = req.user
+      self.current_user = req.user #Just for capturing current user
       return super(DirectorAdmin, self).get_form(req, obj, **kwargs)
    def formfield_for_dbfield(self, field, **kwargs):
       if field.name == "nameinbyline":
