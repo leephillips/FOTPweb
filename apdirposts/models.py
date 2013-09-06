@@ -38,7 +38,7 @@ class Post(models.Model):
    pub_date = models.DateTimeField('date published', blank = True, editable = False, null = True)
    title = models.CharField(max_length=200)
    author = models.ForeignKey(User)
-   byline = models.CharField(max_length = 500)
+   byline = models.CharField(max_length = 500, blank = True)
    publish = models.BooleanField()
    content = models.TextField(blank = True)
    illustrations = models.ManyToManyField(Illustration, null = True, blank = True)
@@ -46,17 +46,27 @@ class Post(models.Model):
    def __unicode__(self):
       return "%s, by %s" % (self.title, self.author)
 
-class Event(Post):
+class Event(models.Model):
+   author = models.ForeignKey(User)
+   pub_date = models.DateTimeField('date published', blank = True, editable = False, null = True)
    on = models.DateTimeField('When')
    ebcode = models.CharField('EventBrite Code', max_length = 400, blank = True)
    rpost = models.ForeignKey(Post, related_name = "revent", null = True, blank = True)
+   publish = models.BooleanField()
+   content = models.TextField(blank = True)
+   illustrations = models.ManyToManyField(Illustration, null = True, blank = True)
    def __unicode__(self):
       return "%s scheduled for %s" % (self.title, self.on)
 
-class Notice(Post):
+class Notice(models.Model):
    """For the "In the News" page."""
    on = models.DateTimeField('When', null = True)
    newslink = models.URLField(blank = True)
+   pub_date = models.DateTimeField('date published', blank = True, editable = False, null = True)
+   title = models.CharField(max_length=200)
+   author = models.ForeignKey(User)
+   content = models.TextField(blank = True)
+   illustrations = models.ManyToManyField(Illustration, null = True, blank = True)
    
 # register a handler for the signal django.db.models.signals.post_save on the User model, and, in the handler, if created=True, create the associated user profile.
 
@@ -87,10 +97,7 @@ def on_dirpost_save(sender, instance, **kwargs):
    # if p.category is None:
    #    p.category = Postcategory.get(category = "normal")
 
-def on_save_event(sender, instance, **kwargs):
-   instance.category = Postcategory.objects.get(pk = 5)
 
 post_save.connect(on_new_user, sender = User, dispatch_uid="nuser")
 pre_save.connect(on_save_user, sender = User, dispatch_uid="cuser")
 pre_save.connect(on_dirpost_save, sender = Post, dispatch_uid="dirpsave")
-pre_save.connect(on_save_event, sender = Event, dispatch_uid="eventsave")
