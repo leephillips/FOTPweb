@@ -28,6 +28,11 @@ p.postlist a:hover{
 .eventdate{
     font-style: oblique;
  }
+ .face{
+    width: 33%;
+    float: left;
+    margin-right: 0.3em;
+ }
 .postcontent{
    width: 50%;
    margin-top: 26%;

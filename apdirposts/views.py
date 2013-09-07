@@ -34,7 +34,7 @@ def latest(exclude = None):
 
 def bio(request, who):
    n = Director.objects.get(user = int(who))
-   return render_to_response('apdirposts/bio.html', 
+   return render(request, 'apdirposts/bio.html', 
                              {'w': n.formalname, 
                               'face': n.face.url,
                               'bio': n.bio,
@@ -47,7 +47,7 @@ def post(request, which):
    return render(request, 'apdirposts/post.html',
                              {'illustrations': pics,
                               'content': content,
-#                              'author': p.author,
+                              'author': p.author,
                               'latest': latest(which),
                               'mainarticleone': 'thisone',
                               'byline': p.byline,

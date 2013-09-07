@@ -1,7 +1,7 @@
 {% extends "apdirposts/page.html" %}
 {% block pagecontent %}
 <div class = "postcontent">
-   <h2>{{ title }}</h2> <div class = "byline">by {{ byline }}</div>
+   <h2>{{ title }}</h2> <div class = "byline">by <a href="/bio/{{ author.id }}">{{ byline }}</a></div>
 {% if illustrations %}
    {% for illustration in illustrations %}
       <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
