@@ -4,23 +4,10 @@ from django.contrib import admin
 from django.db import models
 from django.forms import ModelForm, CharField, TextInput
 
-       
-# class BylineCharField(CharField):
-#    def __init__(self, *args, **kwargs):
-#       self.who = queryset(self)
-#       self.initial = self.who.get_full_name()
-#       return super(BylineCharField, self).__init__(*args, **kwargs)
-
-# class PostAdminForm(ModelForm):
-#    # byline = BylineCharField()
-#    class Meta:
-#       model = Post
-
 class PostAdmin(admin.ModelAdmin):
     list_display = ('byline', 'title', 'category', 'publish', 'pub_date')
     list_display_links = ('title',)
     readonly_fields = ['pub_date'] 
-    exclude = ['author']
     # form = PostAdminForm
     def get_form(self, req, obj=None, **kwargs):
         # save the logged in user 
@@ -42,9 +29,6 @@ class PostAdmin(admin.ModelAdmin):
             return db_field.formfield(**kwargs)
         return super(PostAdmin, self).formfield_for_foreignkey(
                      db_field, request, **kwargs)
-    def save_model(self, request, obj, form, change):
-       obj.author = request.user
-       obj.save()
 
 class EventAdmin(PostAdmin):
     list_display = ('title', 'publish', 'on', 'ebcode')

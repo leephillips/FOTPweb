@@ -95,9 +95,6 @@ def on_dirpost_save(sender, instance, **kwargs):
    p = instance
    if p.publish and p.pub_date is None:
       p.pub_date = datetime.datetime.now()
-   # if p.category is None:
-   #    p.category = Postcategory.get(category = "normal")
-
 
 post_save.connect(on_new_user, sender = User, dispatch_uid="nuser")
 pre_save.connect(on_save_user, sender = User, dispatch_uid="cuser")
