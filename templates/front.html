@@ -1,0 +1,25 @@
+{% extends "site.html" %}
+{% block body %}
+<div id = "mainlinklist" class = "ll">
+<p><a href="/events">Events &amp; Shows</a></p>
+<p><a href="/post">Main Articles</a></p>
+<p><a href="events">In the News</a></p>
+<p><a href="events">Science</a></p>
+<p><a href="events">Directors’ Corner</a></p>
+<p><a href="events">About the Planetarium</a></p>
+<p><a href="events">Join, Donate, Subscribe</a></p>
+</div>
+<div id = "frontlatest">
+   {% for p in latest %}
+   <p> <a href = "/post/{{ p.id }}">{{ p.title }}</a></p>
+   {% endfor %}
+</div>
+<div id = "mainarray">
+   <img src = "{{ MEDIA_URL }}currentmoon.png" alt="" title = "Current Moon" />
+   <img src = "{{ MEDIA_URL }}azgt.png" alt="" title = "Star Chart" />
+   <a href="http://cleardarksky.com/c/USNOkey.html?1"><img src = "{{ MEDIA_URL }}csc.png" alt="" title = "Observing Conditions" /></a>
+   <img id = "sun" src = "{{ MEDIA_URL }}currentsun.png" alt="" title = "Current Sun" />
+</div>
+
+
+{% endblock %}

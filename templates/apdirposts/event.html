@@ -1,0 +1,18 @@
+{% extends "apdirposts/page.html" %}
+{% block pagecontent %}
+<div class = "postcontent">
+   <h2>{{ title }}</h2> 
+   <p class = 'eventdate'>{{ on }}</p>
+{% if illustrations %}
+   {% for illustration in illustrations %}
+      <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
+      {% if forloop.first %}
+         {{ content|safe }}
+      {% endif %}
+   {% endfor %}
+{% else %}
+   {{ content|safe }}
+{% endif %}
+</div>
+<iframe  src="http://www.eventbrite.com/tickets-external?eid={{ ebcode }}&ref=etckt&v=2" frameborder="0" height="320" width="50%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
+{% endblock %}

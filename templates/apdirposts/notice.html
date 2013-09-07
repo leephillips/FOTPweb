@@ -1,0 +1,17 @@
+{% extends "apdirposts/page.html" %}
+{% block pagecontent %}
+<div class = "postcontent">
+   <h2>{{ title }}</h2>
+   <p>Link: {{ newslink }}</p>
+{% if illustrations %}
+   {% for illustration in illustrations %}
+      <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
+      {% if forloop.first %}
+         {{ content|safe }}
+      {% endif %}
+   {% endfor %}
+{% else %}
+   {{ content|safe }}
+{% endif %}
+</div>
+{% endblock %}

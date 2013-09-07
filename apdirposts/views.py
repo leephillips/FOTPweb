@@ -54,15 +54,15 @@ def post(request, which):
                               'title': p.title})
 
 def event(request, which):
-   p = event.objects.get(id = which)
+   p = Event.objects.get(id = which)
    pics = Illustration.objects.filter(notice=which)
-   return render(request, 'apdirposts/notice.html',
+   return render(request, 'apdirposts/event.html',
                              {'illustrations': pics,
                               'content': p.content,
                               'latest': latest(which),
                               'eventone': 'thisone',
-                              'on', p.on,
-                              'ebcode', p.ebcode,
+                              'on': p.on,
+                              'ebcode': p.ebcode,
                               'title': p.title})
                  
 def notice(request, which):
@@ -89,6 +89,20 @@ def noticetop(request):
                  {'p': Notice.objects.all().order_by('-pub_date'),
                   'inthenewsone': 'thisone',
                   'latest': latest('notice'),
+                 })
+
+def cornertop(request):
+   return render(request, 'apdirposts/cornertop.html', 
+                 {'p': Post.objects.filter(category__postcategory = "corner").order_by('-pub_date'),
+                  'cornerone': 'thisone',
+                  'latest': latest('corner'),
+                 })
+
+def sciencetop(request):
+   return render(request, 'apdirposts/sciencetop.html', 
+                 {'p': Post.objects.filter(category__postcategory = "science").order_by('-pub_date'),
+                  'scienceone': 'thisone',
+                  'latest': latest('science'),
                  })
 
 def posttop(request):
