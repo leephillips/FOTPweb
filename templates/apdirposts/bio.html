@@ -1,2 +1,8 @@
-Bio of {{ w }}.<br />
-Picture: <img src = "{{ face }}" alt = "" />.
+{% extends "apdirposts/page.html" %}
+{% block pagecontent %}
+<div class = "postcontent">
+   <h2>{{ w }}</h2>
+   <img src = "{{ face }}" alt = "" />.
+   {{ bio }}
+</div>
+{% endblock %}

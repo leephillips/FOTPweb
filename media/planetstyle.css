@@ -10,6 +10,24 @@ body {
   background-image: url(tbg2.png), url(tbg1.png);
   background-size: 35% 35%, 30% 30%;
 }
+p.postlist{
+   font-size: 1.4em;
+   text-indent: 0em;
+   font-family: "Helvetica", sans-serif;
+   margin-top: 1.5em;
+}
+p.postlist a:link{
+   color: #ddd;
+}
+p.postlist a:visited{
+   color: #999;
+}
+p.postlist a:hover{
+   background: #006;
+}
+.eventdate{
+    font-style: oblique;
+ }
 .postcontent{
    width: 50%;
    margin-top: 26%;
@@ -113,6 +131,7 @@ a.lnl:hover{
    position: absolute;
    left: 2.2%;
    top: 39%;
+   width: 36%;
 }
 #frontlatest p{
    font-family: "Baumans", sans-serif;
@@ -127,6 +146,9 @@ a.lnl:hover{
 }
 #frontlatest a:visited{
    color: #999;
+}
+#frontlatest a:hover {
+   background: #006;
 }
 #pagelatest{
    margin-top: 3em;

@@ -8,15 +8,17 @@ RECENT = today - timedelta(days = 180)
 SOON   = today + timedelta(days = 60)
 
 def latest(exclude = None):
-   #articles from the past RECENT days:
    try:
       xid = int(exclude)
    except:
       xid = 0
+    #articles from the past RECENT days:
    articles = list(Post.objects.filter(pub_date__range = (RECENT, today)).exclude(
                    category__postcategory = exclude).exclude(id = xid))
+   articles = zip(len(articles)*['post'],articles)[:4]
    #news mentions from the past RECENT days:
    notices = list(Notice.objects.filter(on__range = (RECENT, today)))
+   notices = zip(len(notices)*['notice'],notices)[:4]
    #events coming up SOON:
    #if they're not described in a related post:
    if exclude == "events":
@@ -24,13 +26,19 @@ def latest(exclude = None):
    else:
       rawevents = Event.objects.filter(on__range = (today, SOON))
       events = [e for e in rawevents if not e.rpost]
+      events = zip(len(events)*['event'],events)[:4]
+   if exclude == "notices":
+      notices = []
    #combine these into a list:
-   return events + articles[:4] + notices[:4]
+   return events + articles + notices
 
 def bio(request, who):
    n = Director.objects.get(user = int(who))
-   return render_to_response('apdirposts/bio.html', {'w': n.formalname, 
-                                                     'face': n.face.url })
+   return render_to_response('apdirposts/bio.html', 
+                             {'w': n.formalname, 
+                              'face': n.face.url,
+                              'bio': n.bio,
+                             })
 
 def post(request, which):
    p = Post.objects.get(id = which)
@@ -39,16 +47,55 @@ def post(request, which):
    return render(request, 'apdirposts/post.html',
                              {'illustrations': pics,
                               'content': content,
+#                              'author': p.author,
                               'latest': latest(which),
                               'mainarticleone': 'thisone',
                               'byline': p.byline,
                               'title': p.title})
 
+def event(request, which):
+   p = event.objects.get(id = which)
+   pics = Illustration.objects.filter(notice=which)
+   return render(request, 'apdirposts/notice.html',
+                             {'illustrations': pics,
+                              'content': p.content,
+                              'latest': latest(which),
+                              'eventone': 'thisone',
+                              'on', p.on,
+                              'ebcode', p.ebcode,
+                              'title': p.title})
+                 
+def notice(request, which):
+   p = Notice.objects.get(id = which)
+   pics = Illustration.objects.filter(notice=which)
+   return render(request, 'apdirposts/notice.html',
+                             {'illustrations': pics,
+                              'content': p.content,
+                              'latest': latest(which),
+                              'inthenewsone': 'thisone',
+                              'newslink': p.newslink,
+                              'title': p.title})
+                 
+   
+def eventtop(request):
+   return render(request, 'apdirposts/eventtop.html', 
+                 {'p': Event.objects.filter(on__gte = today).order_by('on'),
+                  'latest': latest('events'),
+                  'eventone': 'thisone',
+                 })
+
+def noticetop(request):
+   return render(request, 'apdirposts/noticetop.html', 
+                 {'p': Notice.objects.all().order_by('-pub_date'),
+                  'inthenewsone': 'thisone',
+                  'latest': latest('notice'),
+                 })
+
 def posttop(request):
    return render(request, 'apdirposts/posttop.html', 
-                 {'p': Post.objects.filter(category__postcategory = "front").order_by('-pub_date'),
+                 {'p': Post.objects.filter(category__postcategory = "main").order_by('-pub_date'),
                   'mainarticleone': 'thisone',
-                  'latest': latest('front'),
+                  'latest': latest('main'),
                  })
 
 def front(request):
