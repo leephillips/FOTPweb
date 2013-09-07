@@ -8,7 +8,6 @@ from django.db.models.signals import pre_save
 # python manage.py reset <your_app>
 # python manage.py loaddata temp_data.json
 
-
 class Director(models.Model):
    user = models.OneToOneField(User)
    def name(self):

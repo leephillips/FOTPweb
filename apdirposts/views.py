@@ -36,14 +36,20 @@ def latest(exclude = None):
 
 def bio(request, who):
    n = Director.objects.get(user = int(who))
+   try:
+      face = n.face.url
+   except:
+      face = ""
    return render(request, 'apdirposts/bio.html', 
                              {'w': n.formalname, 
-                              'face': n.face.url,
+                              'face': face,
                               'bio': n.bio,
                              })
 
 def post(request, which):
    p = Post.objects.get(id = which)
+   categoryclass = ['mainarticleone', 'cornerone', 'scienceone'][
+                   ['main', 'corner', 'science'].index('science')]
    if p.publish:
       pics = Illustration.objects.filter(post=which)
       content = p.content
@@ -52,7 +58,7 @@ def post(request, which):
                                  'content': content,
                                  'author': p.author,
                                  'latest': latest(which),
-                                 'mainarticleone': 'thisone',
+                                 categoryclass: 'thisone',
                                  'byline': p.byline,
                                  'title': p.title})
    else:
