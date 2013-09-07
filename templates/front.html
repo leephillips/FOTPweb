@@ -1,17 +1,17 @@
 {% extends "site.html" %}
 {% block body %}
 <div id = "mainlinklist" class = "ll">
-<p><a href="/events">Events &amp; Shows</a></p>
+<p><a href="/event">Events &amp; Shows</a></p>
+<p><a href="events">Join, Donate, Subscribe</a></p>
 <p><a href="/post">Main Articles</a></p>
 <p><a href="events">In the News</a></p>
 <p><a href="events">Science</a></p>
 <p><a href="events">Directors’ Corner</a></p>
 <p><a href="events">About the Planetarium</a></p>
-<p><a href="events">Join, Donate, Subscribe</a></p>
 </div>
 <div id = "frontlatest">
    {% for p in latest %}
-   <p> <a href = "/post/{{ p.id }}">{{ p.title }}</a></p>
+      <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
    {% endfor %}
 </div>
 <div id = "mainarray">
