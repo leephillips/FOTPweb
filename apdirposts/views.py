@@ -75,6 +75,7 @@ def event(request, which):
                                  'eventone': 'thisone',
                                  'on': p.on,
                                  'ebcode': p.ebcode,
+                                 'rpost': p.rpost,
                                  'title': p.title})
    else:
       return HttpResponseRedirect("/")
