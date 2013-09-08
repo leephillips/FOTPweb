@@ -48,7 +48,7 @@ def bio(request, who):
 
 def post(request, which):
    p = Post.objects.get(id = which)
-   r = Event.objects.filter(rpost = p)
+   r = Event.objects.filter(rpost = p).order_by('on')
    category = p.category.postcategory
    categoryclass = ['mainarticleone', 'cornerone', 'scienceone'][
                    ['main', 'corner', 'science'].index(category)]
@@ -62,7 +62,7 @@ def post(request, which):
                                  'latest': latest(which),
                                  categoryclass: 'thisone',
                                  'byline': p.byline,
-                                 'relatedevents': r,
+                                 'events': r,
                                  'title': p.title})
    else:
       return HttpResponseRedirect("/")

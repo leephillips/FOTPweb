@@ -17,15 +17,17 @@
    {{ content|safe }}
 {% endif %}
 <div class = "plannav">
-   <h2>Shows</h2>
-
+   <h3>Shows</h3>
    <table>
-   {% for r in relatedevents %}
-      
+   {% regroup events by on|date:'D' as days %}
+   {% for day in days %}
+   <tr><td class = "daycell">{{ day.grouper }}<br />{{ day.list.0.on|date:'jM' }}</td>
+         {% for show in day.list %}
+            <td>{{ show.on|date:'f A' }}<br />{{ show.title }}</td>
+         {% endfor %}
+      </tr>
    {% endfor %}
    </table>
-
-      {{ r }}
 </div>
 </div>
 {% endblock %}

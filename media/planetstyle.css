@@ -11,7 +11,7 @@ body {
 }
 /* Shows table */
      div.plannav{
-         width: 550px;
+         float: right;
          background: black;
          color: #00aaff;
       }
@@ -30,9 +30,9 @@ body {
       div.plannav table td:hover{
          background: #333;
       }
-      div.plannav table tr.dayrow{
+      div.plannav table td.daycell{
          font-weight: bold;
-         font-size: 125%;
+         font-size: 1.25em;
       }
 /* ******************** */
 .ebrite{
@@ -448,21 +448,18 @@ h2{
     font-family: "Helvetica", sans-serif;
     text-transform: uppercase;
  }
-
-
     
 h3 {
     color: #fff;
-    text-align: center;
+    text-align: left;
     line-height: 1.1em;
     font-weight: normal;
-    margin-left: 1.0cm;
     margin-top: 1em;
     margin-bottom: 1em;
-    font-size: 100%;
-    font-style: oblique;
+    font-size: 1.4em;
     }
     
+
 
 p.warn {
     border: solid #f3f 0.6mm;
