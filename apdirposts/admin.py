@@ -33,7 +33,7 @@ class PostAdmin(admin.ModelAdmin):
 class EventAdmin(PostAdmin):
     list_display = ('title', 'publish', 'on', 'ebcode')
     list_display_links = ('title',)
-    exclude = ['author']
+    # exclude = ['author']
     def formfield_for_dbfield(self, field, **kwargs):
        if field.name == "byline":
           byline = Director.objects.get(user=self.current_user).nameinbyline

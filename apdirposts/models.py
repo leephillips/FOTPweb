@@ -8,6 +8,11 @@ from django.db.models.signals import pre_save
 # python manage.py reset <your_app>
 # python manage.py loaddata temp_data.json
 
+def dayname(d):
+   """Reuturns the name of the day of the week in the datetime object d."""
+   week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+   return week[d.weekday()]
+
 class Director(models.Model):
    user = models.OneToOneField(User)
    def name(self):

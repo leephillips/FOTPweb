@@ -3,7 +3,7 @@
    <div class = "postcontent">
       <h2>Future Events</h2>
    {% for event in p %}
-   <p class = "postlist"><a href = "/event/{{ event.id }}"><span class = "eventdate">{{ event.on }}</span>: {{ event.title }}</a></p>
+   <p class = "postlist"><a class = "lnl" href = "/event/{{ event.id }}"><span class = "eventdate">{{ event.on }}</span>: {{ event.title }}</a></p>
    {% endfor %}
    </div>
 {% endblock %}

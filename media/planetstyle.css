@@ -2,13 +2,46 @@ html {
   height: 100%;
 }
 body {
-  /* font-family: "Dosis", sans-serif; */
   margin-left: 0%;
   margin-top: 0%;
   width: 100%;
   min-height: 100%;
   background-image: url(tbg2.png), url(tbg1.png);
   background-size: 35% 35%, 30% 30%;
+}
+/* Shows table */
+     div.plannav{
+         width: 550px;
+         background: black;
+         color: #00aaff;
+      }
+      div.plannav a:link, div.plannav a:visited{
+         color: #00aaff;
+         text-decoration: none;
+      }
+      div.plannav a{
+         display: block;
+      }
+      div.plannav table td{
+         padding: 29px;
+         padding-top: 9px;
+         padding-bottom: 9px;
+      }
+      div.plannav table td:hover{
+         background: #333;
+      }
+      div.plannav table tr.dayrow{
+         font-weight: bold;
+         font-size: 125%;
+      }
+/* ******************** */
+.ebrite{
+   margin-left: 2.2%;
+}
+.rpost{
+   font-size: 1.4em;
+   font-family: "Helvetica", sans-serif;
+   margin-top: 1.5em;
 }
 p.postlist{
    font-size: 1.4em;
@@ -31,7 +64,7 @@ p.postlist a:hover{
  .face{
     width: 33%;
     float: left;
-    margin-right: 0.3em;
+    margin-right: 0.5em;
  }
 .postcontent{
    width: 50%;
@@ -40,6 +73,14 @@ p.postlist a:hover{
    margin-bottom: 2.5em;
    color: #ddd;
    line-height: 1.5em;
+}
+.postcontent a:link{
+   background: #006;
+   color: #ddd;
+}
+.postcontent a:visited{
+   background: #336;
+   color: #ddd;
 }
 .postcontent h2{
    margin-top: 1em;
@@ -82,10 +123,12 @@ p.postlist a:hover{
 }
 a.lnl:link{
    line-height: 0.4em;
-   color: #c35;
+   color: #ddd;
+   background: none;
 }
 a.lnl:visited{
-   color: #c68;
+   color: #999;
+   background: none;
 }
 a.lnl:hover{
    background: #006;
@@ -117,6 +160,7 @@ a.lnl:hover{
 }
 #littlelinklist p.thisone{
    font-size: 2.4em;
+   margin-bottom: 0.7em;
 }
 #littlelinklist a:hover{
    background: #006;
