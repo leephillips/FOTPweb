@@ -17,7 +17,9 @@
 <div class = 'rpost'>For more information, see <a href = "/post/{{ rpost.id }}">{{ rpost.title }}</a></div>
 {% endif %}
 </div>
+{% if ebcode %}
 <div class = 'ebrite'>
 <iframe  src="http://www.eventbrite.com/tickets-external?eid={{ ebcode }}&ref=etckt&v=2" frameborder="0" height="320" width="50%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
 </div>
+{% endif %}
 {% endblock %}
