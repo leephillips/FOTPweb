@@ -11,24 +11,23 @@ body {
 }
 /* Shows table */
      div.plannav{
-         float: right;
-         background: black;
-         color: #00aaff;
       }
       div.plannav a:link, div.plannav a:visited{
-         color: #00aaff;
-         text-decoration: none;
+         background: none;
+      }
+      div.plannav a:hover{
+         background: #006;
       }
       div.plannav a{
          display: block;
       }
-      div.plannav table td{
-         padding: 29px;
-         padding-top: 9px;
-         padding-bottom: 9px;
+      div.plannav table{
+         border: solid 0.5mm #ddd;
       }
-      div.plannav table td:hover{
-         background: #333;
+      div.plannav table td{
+         padding: 1em;
+         padding-top: 1em;
+         padding-bottom: 1em;
       }
       div.plannav table td.daycell{
          font-weight: bold;

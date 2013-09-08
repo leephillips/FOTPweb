@@ -23,7 +23,7 @@
    {% for day in days %}
    <tr><td class = "daycell">{{ day.grouper }}<br />{{ day.list.0.on|date:'jM' }}</td>
          {% for show in day.list %}
-            <td>{{ show.on|date:'f A' }}<br />{{ show.title }}</td>
+         <td><a href="/event/{{ show.id }}">{{ show.on|date:'f A' }}<br />{{ show.title }}</a></td>
          {% endfor %}
       </tr>
    {% endfor %}
