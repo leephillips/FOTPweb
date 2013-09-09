@@ -97,6 +97,12 @@ def notice(request, which):
    else:
       return HttpResponseRedirect("/")
    
+def join(request):
+   return render(request, 'apdirposts/join.html',
+                 {'joinone': 'thisone',
+                  'latest': latest()}
+                )
+
 def eventtop(request):
    return render(request, 'apdirposts/eventtop.html', 
                  {'p': Event.objects.filter(on__gte = today).order_by('on').exclude(

@@ -16,6 +16,7 @@
 {% else %}
    {{ content|safe }}
 {% endif %}
+{% if events %}
 <div class = "plannav">
    <h3>Shows</h3>
    <table>
@@ -29,5 +30,6 @@
    {% endfor %}
    </table>
 </div>
+{% endif %}
 </div>
 {% endblock %}
