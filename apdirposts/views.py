@@ -109,6 +109,12 @@ def about(request):
                   'latest': latest()}
                 )
 
+def movies(request):
+   return render(request, 'apdirposts/movies.html',
+                 {'aboutone': 'thisone',
+                  'latest': latest()}
+                )
+
 def donate(request):
    return render(request, 'apdirposts/donate.html',
                  {'joinone': 'thisone',
