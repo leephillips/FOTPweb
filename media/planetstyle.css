@@ -231,6 +231,17 @@ a.lnl:hover{
 #pagelatest a:visited{
    color: #999;
 }
+#ulate{
+   margin-top: 3em;
+}
+#ulate p{
+   font-family: "Baumans", sans-serif;
+   color: #fff;
+   font-size: 1.0em;
+   text-indent: 0pt;
+   margin-bottom: 0.5em;
+   margin-top: 0pt;
+}
 .invisible {
     display: none;
 }

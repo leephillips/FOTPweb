@@ -16,6 +16,10 @@
             <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
          {% endfor %}
       </div>
+      <div id = "ulate">
+         {% block ulate %}
+         {% endblock %}
+      </div>
    </div>
 {% block pagecontent %}
 {% endblock %}
