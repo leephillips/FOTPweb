@@ -103,6 +103,12 @@ def join(request):
                   'latest': latest()}
                 )
 
+def donate(request):
+   return render(request, 'apdirposts/donate.html',
+                 {'joinone': 'thisone',
+                  'latest': latest()}
+                )
+
 def eventtop(request):
    return render(request, 'apdirposts/eventtop.html', 
                  {'p': Event.objects.filter(on__gte = today).order_by('on').exclude(

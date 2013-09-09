@@ -9,6 +9,25 @@ body {
   background-image: url(tbg2.png), url(tbg1.png);
   background-size: 35% 35%, 30% 30%;
 }
+.stickright{
+   float: right;
+   margin: 0.7em;
+   margin-right: -25%;
+}
+.donateform{
+   width: 80%;
+   border: solid 0.5mm #ddd;
+   padding: 1.2em;
+}
+.donateform p{
+   text-indent: 0em;
+   margin-bottom: 0.7em;
+   margin-top: 1.0em !important;
+}
+.donateform input{
+   margin-top: 0.5em;
+   margin-left: 25%;
+}
 .joinform{
    width: 30%;
    float: left;
@@ -75,12 +94,17 @@ p.postlist a:hover{
 .eventdate{
     font-style: oblique;
  }
+ .address {
+    font-family: monospace;
+    font-size: 1.7em; /*to compensate for default small monospace*/
+ }
  .face{
     width: 33%;
     float: left;
     margin-right: 0.5em;
  }
 .postcontent{
+   font-family: "Noticia Text", serif;
    width: 50%;
    margin-top: 26%;
    margin-left: 2.2%;
@@ -239,8 +263,6 @@ a.lnl:hover{
    color: #fff;
    font-size: 1.0em;
    text-indent: 0pt;
-   margin-bottom: 0.5em;
-   margin-top: 0pt;
 }
 .invisible {
     display: none;
@@ -261,19 +283,7 @@ a.lnl:hover{
    line-height: 1.2em;
 }
 p { 
-text-indent: 1em; margin-top: 1.8em; margin-bottom: 0;
-}
-p:first-child {
-   text-indent: 0em;
-}
-h2 + p {
-   text-indent: 0em;
-}
-h1 + p {
-   text-indent: 0em;
-}
-h3 + p {
-   text-indent: 0em;
+margin-top: 1.8em; margin-bottom: 0;
 }
 div.headlinesummary{
 display: inline;

@@ -31,7 +31,7 @@
 <h3>How to Become a Friend of the Planetarium:</h3>
 <p>
 <b>Online</b>: Select the category of membership from the drop-down menu at the left and click <b>Add to Cart</b>. You can pay online with your credit card via PayPal.<br />
-<b>Check</b>: Send a check to the Friends of the Planetarium, P.O. Box 7029, Arlington, VA 22207. Please include a copy of the completed membership application form. 
+<b>Check</b>: Send a check to the Friends of the Planetarium, P.O. Box 7029, Arlington, VA 22207. Please include a copy of the completed <a href = "{{ MEDIA_URL }}FOP-Application-for-Membership.pdf">membership application form</a>. 
 <h3>Types of Membership:</h3>
 <ul>
 <li>Student ($10/year): good for one student
@@ -52,5 +52,10 @@ Memberships can begin at any time during the year, and expire on the next Septem
    </div>
 {% endblock %}
 {% block ulate %}
-<p>I'm right here.</p>
+<form class = "donateform" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="MQKTXL3EDRM74">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<p>We're raising funds to purchase new digital, full-dome programs; training for teachers; and a scholarship for students. Please help us <a href = "/donate">reach our goal!</a></p>
+</form>
 {% endblock %}
