@@ -608,10 +608,10 @@ html, body{
    font-size: 1.7em;
    margin-bottom: 0.5em;
 }
-#pagelatest{
+#pagelatest, #frontlatest{
    width: 100%;
 }
-#frontlatest p{
+#frontlatest p, #pagelatest p{
    font-size: 1em;
 }
 .stickright{
