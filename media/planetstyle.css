@@ -9,6 +9,12 @@ body {
   background-image: url(tbg2.png), url(tbg1.png);
   background-size: 35% 35%, 30% 30%;
 }
+.maintextbanner{
+   display: none;
+}
+.afternotes{
+   font-size: 0.7em;
+}
 .stickright{
    float: right;
    margin: 0.7em;
@@ -283,7 +289,7 @@ a.lnl:hover{
    line-height: 1.2em;
 }
 p { 
-margin-top: 1.5em; margin-bottom: 1.5;
+margin-top: 1.5em; margin-bottom: 1.5em;
 }
 div.headlinesummary{
 display: inline;
@@ -563,11 +569,57 @@ html, body{
   background-image: none;
   background: #000;
   }
-.date-article{
-   margin-bottom: 1em;
-}
 .mainbanner{
    display: none;
+}
+.maintextbanner{
+   display: block;
+   color: black;
+   background: #ddf;
+   font-family: "Helvetica", sans-serif;
+   font-size: 2em;
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+}
+#mainarray, #dots{
+   display: none;
+}
+.postcontent{
+   width: 100%;
+   margin-top: 1em;
+   margin-left: 0px;
+   margin-bottom: 1em;
+   color: #ddd;
+   line-height: 1.8em;
+}
+#littlelinklist, #mainlinklist, #frontlatest{
+   position: relative;
+   left: auto;
+   top: auto;
+   margin-top: 1em;
+   width: 100%;
+}
+#littlelinklist p.thisone{
+   font-size: 2.0em;
+   font-weight: bold;
+   margin-bottom: 0.5em;
+}
+#mainlinklist p, #littlelinklist p{
+   font-size: 1.7em;
+   margin-bottom: 0.5em;
+}
+#pagelatest{
+   width: 100%;
+}
+#frontlatest p{
+   font-size: 1em;
+}
+.stickright{
+   float: right;
+   margin: 0.7em;
+}
+.date-article{
+   margin-bottom: 1em;
 }
 .epigraph{
   text-align: center;
