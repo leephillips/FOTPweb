@@ -1,6 +1,6 @@
 {% extends "apdirposts/page.html" %}
 {% block pagecontent %}
-   <div class = "postcontent">
+   <div class = "postcontent" id = "target">
    {% for post in p %}
    <h2><a href = "/notice/{{ post.id }}" class = "lnl">{{ post.title }}</a></h2> 
    {% endfor %}

@@ -4,16 +4,16 @@
    <img src = "{{ MEDIA_URL }}dots.png" />
    </div>
    <div id = "littlelinklist" class = "ll">
-   <p class = "{{ eventone }}"><a href="/event">Events &amp; Shows</a></p>
-   <p class = "{{ joinone }}"><a href="/join">Join, Donate, Subscribe</a></p>
-   <p class = "{{ mainarticleone }}"><a href="/post">Main Articles</a></p>
-   <p class = "{{ inthenewsone }}"><a href="/notice">In the News</a></p>
-   <p class = "{{ scienceone }}"><a href="/science">Science</a></p>
-   <p class = "{{ cornerone }}"><a href="/corner">Directors’ Corner</a></p>
-   <p class = "{{ aboutone }}"><a href="/about">About the Planetarium</a></p>
+   <p class = "{{ eventone }}"><a href="/event#target">Events &amp; Shows</a></p>
+   <p class = "{{ joinone }}"><a href="/join#target">Join, Donate, Subscribe</a></p>
+   <p class = "{{ mainarticleone }}"><a href="/post#target">Main Articles</a></p>
+   <p class = "{{ inthenewsone }}"><a href="/notice#target">In the News</a></p>
+   <p class = "{{ scienceone }}"><a href="/science#target">Science</a></p>
+   <p class = "{{ cornerone }}"><a href="/corner#target">Directors’ Corner</a></p>
+   <p class = "{{ aboutone }}"><a href="/about#target">About the Planetarium</a></p>
       <div id = "pagelatest">
          {% for p in latest %}
-            <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
+            <p> <a href = "/{{ p.0 }}/{{ p.1.id }}#target">{{ p.1.title }}</a></p>
          {% endfor %}
       </div>
       <div id = "ulate">

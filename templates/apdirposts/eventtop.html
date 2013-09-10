@@ -1,6 +1,6 @@
 {% extends "apdirposts/page.html" %}
 {% block pagecontent %}
-   <div class = "postcontent">
+   <div class = "postcontent" id = "target">
       <h2>Future Events</h2>
    {% for event in p %}
    <p class = "postlist"><a class = "lnl" href = "/event/{{ event.id }}"><span class = "eventdate">{{ event.on }}</span>: {{ event.title }}</a></p>
