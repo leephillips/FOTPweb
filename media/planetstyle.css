@@ -112,7 +112,8 @@ p.postlist a:hover{
 .postcontent{
    font-family: "Noticia Text", serif;
    width: 50%;
-   margin-top: 26%;
+   margin-top: 0%;
+   padding-top: 26%;
    margin-left: 2.2%;
    margin-bottom: 2.5em;
    color: #ddd;
@@ -577,7 +578,8 @@ html, body{
    color: black;
    background: #ddf;
    font-family: "Helvetica", sans-serif;
-   font-size: 2em;
+   font-size: 1em;
+   font-weight: bold;
    padding-top: 0.5em;
    padding-bottom: 0.5em;
 }
@@ -587,6 +589,7 @@ html, body{
 .postcontent{
    width: 100%;
    margin-top: 1em;
+   padding-top: 0pt;
    margin-left: 0px;
    margin-bottom: 1em;
    color: #ddd;

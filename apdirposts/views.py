@@ -85,17 +85,15 @@ def event(request, which):
                  
 def notice(request, which):
    p = Notice.objects.get(id = which)
-   if p.publish:
-      pics = Illustration.objects.filter(notice=which)
-      return render(request, 'apdirposts/notice.html',
-                                {'illustrations': pics,
-                                 'content': p.content,
-                                 'latest': latest(which),
-                                 'inthenewsone': 'thisone',
-                                 'newslink': p.newslink,
-                                 'title': p.title})
-   else:
-      return HttpResponseRedirect("/")
+   pics = Illustration.objects.filter(notice=which)
+   return render(request, 'apdirposts/notice.html',
+                             {'illustrations': pics,
+                              'content': p.content,
+                              'on': p.on,
+                              'latest': latest(which),
+                              'inthenewsone': 'thisone',
+                              'newslink': p.newslink,
+                              'title': p.title})
    
 def join(request):
    return render(request, 'apdirposts/join.html',

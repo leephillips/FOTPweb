@@ -2,7 +2,7 @@
 {% block pagecontent %}
 <div class = "postcontent">
    <h2>{{ title }}</h2>
-   <p>Link: {{ newslink }}</p>
+   <p>Link: <a href="{{ newslink }}">{{ newslink }}</a></p>
 {% if illustrations %}
    {% for illustration in illustrations %}
       <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />

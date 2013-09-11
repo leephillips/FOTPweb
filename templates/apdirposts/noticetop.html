@@ -2,7 +2,8 @@
 {% block pagecontent %}
    <div class = "postcontent" id = "target">
    {% for post in p %}
-   <h2><a href = "/notice/{{ post.id }}" class = "lnl">{{ post.title }}</a></h2> 
+   <h2><a href = "/notice/{{ post.id }}" class = "lnl">{{ post.title }}</a></h2>
+   {{ post.on|date:"F j, Y" }}
    {% endfor %}
    </div>
 {% endblock %}

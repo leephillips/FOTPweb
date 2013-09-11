@@ -1,5 +1,5 @@
 from models import Post
-from models import Director, Illustration, Postcategory, Event
+from models import Director, Illustration, Postcategory, Event, Notice
 from django.contrib import admin
 from django.db import models
 from django.forms import ModelForm, CharField, TextInput
@@ -29,6 +29,19 @@ class PostAdmin(admin.ModelAdmin):
             return db_field.formfield(**kwargs)
         return super(PostAdmin, self).formfield_for_foreignkey(
                      db_field, request, **kwargs)
+
+class NoticeAdmin(admin.ModelAdmin):
+    list_display = ('title', 'on')
+    list_display_links = ('title',)
+    readonly_fields = ['pub_date'] 
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == 'author':
+            self.who = request.user.id
+            kwargs['initial'] = self.who
+            return db_field.formfield(**kwargs)
+        return super(PostAdmin, self).formfield_for_foreignkey(
+                     db_field, request, **kwargs)
+
 
 class EventAdmin(PostAdmin):
     list_display = ('title', 'publish', 'on', 'ebcode')
@@ -68,6 +81,7 @@ admin.site.register(Post, PostAdmin)
 admin.site.register(Director, DirectorAdmin)
 admin.site.register(Illustration)
 admin.site.register(Postcategory)
+admin.site.register(Notice, NoticeAdmin)
 admin.site.register(Event, EventAdmin)
 
 
