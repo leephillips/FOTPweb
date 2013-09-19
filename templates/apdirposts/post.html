@@ -2,9 +2,15 @@
 {% block pagecontent %}
 <div class = "postcontent" id = "target">
    {% if author.director.bio|length > 2 %}
-      <h2>{{ title }}</h2> <div class = "byline">by <a href="/bio/{{ author.id }}">{{ byline }}</a></div>
+   <h2>{{ title }}</h2> 
+      {% if byline %} 
+         <div class = "byline">by <a href="/bio/{{ author.id }}">{{ byline }}</a></div>
+      {% endif %}
    {% else %}
-      <h2>{{ title }}</h2> <div class = "byline">by {{ byline }}</div>
+      <h2>{{ title }}</h2> 
+      {% if byline %} 
+         <div class = "byline">by <a href="/bio/{{ author.id }}">{{ byline }}</a></div>
+      {% endif %}
    {% endif %}
 {% if illustrations %}
    {% for illustration in illustrations %}

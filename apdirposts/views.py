@@ -16,10 +16,10 @@ def latest(exclude = None):
    articles = list(Post.objects.filter(pub_date__range = (RECENT, today)).exclude(
                    category__postcategory = exclude).exclude(id = xid).exclude(
                    publish = False))
-   articles = zip(len(articles)*['post'],articles)[:4]
+   articles = zip(len(articles)*['post'],articles)[:9]
    #news mentions from the past RECENT days:
    notices = list(Notice.objects.filter(on__range = (RECENT, today)))
-   notices = zip(len(notices)*['notice'],notices)[:4]
+   notices = zip(len(notices)*['notice'],notices)[:9]
    #events coming up SOON:
    #if they're not described in a related post:
    if exclude == "events":
@@ -28,7 +28,7 @@ def latest(exclude = None):
       rawevents = Event.objects.filter(on__range = (today, SOON)).exclude(
                                        publish = False)
       events = [e for e in rawevents if not e.rpost]
-      events = zip(len(events)*['event'],events)[:4]
+      events = zip(len(events)*['event'],events)[:9]
    if exclude == "notices":
       notices = []
    #combine these into a list:
