@@ -63,8 +63,8 @@ class DirectorAdmin(admin.ModelAdmin):
       if request.user.is_superuser:
           return Director.objects.all()
       return Director.objects.filter(user=request.user)
-   list_display = ('title', 'nameinbyline', 'formalname')
-   list_display_links = ('title', 'nameinbyline', 'formalname')
+   list_display = ('user', 'nameinbyline', 'formalname')
+   list_display_links = ('user', 'nameinbyline', 'formalname')
    exclude = ['user']
    def get_form(self, req, obj=None, **kwargs):
       self.current_user = req.user #Just for capturing current user
