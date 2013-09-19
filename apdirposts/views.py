@@ -71,12 +71,14 @@ def event(request, which):
    p = Event.objects.get(id = which)
    if p.publish:
       pics = Illustration.objects.filter(notice=which)
+      doors = p.on - timedelta(minutes = 15)
       return render(request, 'apdirposts/event.html',
                                 {'illustrations': pics,
                                  'content': p.content,
                                  'latest': latest(which),
                                  'eventone': 'thisone',
                                  'on': p.on,
+                                 'doors': doors,
                                  'ebcode': p.ebcode,
                                  'rpost': p.rpost,
                                  'title': p.title})

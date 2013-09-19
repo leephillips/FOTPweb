@@ -16,6 +16,7 @@
 {% if rpost %}
 <div class = 'rpost'>For more information, see <a href = "/post/{{ rpost.id }}">{{ rpost.title }}</a></div>
 {% endif %}
+<p><b>Doors open:</b> {{ doors|date:"f a" }} <b>Show begins:</b> {{ on|date:"f a" }}</p>
 </div>
 {% if ebcode %}
 <div class = 'ebrite'>
