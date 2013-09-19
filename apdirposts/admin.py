@@ -14,13 +14,15 @@ class PostAdmin(admin.ModelAdmin):
         self.current_user = req.user
         return super(PostAdmin, self).get_form(req, obj, **kwargs)
     # http://www.vimtips.org/2009/04/28/django-using-modeladmin-default-currently-logged-u/
-    def formfield_for_dbfield(self, field, **kwargs):
-       if field.name == "byline":
+    def formfield_for_dbfield(self, db_field, **kwargs):
+       if db_field.name == "byline":
           byline = Director.objects.get(user=self.current_user).nameinbyline
-          return CharField(initial = byline,
-                           max_length = 500,
+          # return CharField(
+          return db_field.formfield(
+                           initial = byline,
+                           max_length = 500, 
                            widget=TextInput(attrs={'size':'40'}))
-       return super(PostAdmin, self).formfield_for_dbfield(field, **kwargs)
+       return super(PostAdmin, self).formfield_for_dbfield(db_field, **kwargs)
   # Also see https://pypi.python.org/pypi/django-cuser/
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'author':
