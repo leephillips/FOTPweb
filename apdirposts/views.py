@@ -70,7 +70,7 @@ def post(request, which):
 def event(request, which):
    p = Event.objects.get(id = which)
    if p.publish:
-      pics = Illustration.objects.filter(notice=which)
+      pics = Illustration.objects.filter(event=which)
       doors = p.on - timedelta(minutes = 15)
       return render(request, 'apdirposts/event.html',
                                 {'illustrations': pics,
