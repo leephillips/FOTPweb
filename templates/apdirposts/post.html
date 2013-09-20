@@ -9,7 +9,7 @@
    {% else %}
       <h2>{{ title }}</h2> 
       {% if byline %} 
-         <div class = "byline">by <a href="/bio/{{ author.id }}">{{ byline }}</a></div>
+         <div class = "byline">by {{ byline }}</div>
       {% endif %}
    {% endif %}
 {% if illustrations %}
