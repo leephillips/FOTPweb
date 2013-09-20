@@ -2,8 +2,25 @@
 {% block pagecontent %}
    <div class = "postcontent" id = "target">
       <h2>Future Events</h2>
+      {% regroup p by rpost as rp %}
+      {% for r in rp %}
+         {% if r.grouper %}
+            <h3 class = "eventgrouptitle">
+               <a class = "lnl" href="/post/{{ r.grouper.id }}/">{{ r.grouper.title }}</a>
+            </h3>
+            <div class = "relatedevents">
+               {% for event in r.list %}
+      <p class = "postlist"><a class = "lnl" href = "/event/{{ event.id }}"><span class = "eventdate">{{ event.on }}</span>: {{ event.title }}</a></p>         
+               {% endfor %}
+            </div>
+         {% else %}
+               {% for event in r.list %}
+      <p class = "postlist"><a class = "lnl" href = "/event/{{ event.id }}"><span class = "eventdate">{{ event.on }}</span>: {{ event.title }}</a></p>         
+               {% endfor %}
+         {% endif %}
+      {% endfor %}
    {% for event in p %}
-   <p class = "postlist"><a class = "lnl" href = "/event/{{ event.id }}"><span class = "eventdate">{{ event.on }}</span>: {{ event.title }}</a></p>
+   
    {% endfor %}
    </div>
 {% endblock %}

@@ -15,6 +15,9 @@ body {
 .afternotes{
    font-size: 0.7em;
 }
+.postillustration{
+   max-width: 100%;
+}
 .stickright{
    float: right;
    margin: 0.7em;
@@ -277,11 +280,27 @@ a.lnl:hover{
 .smallcaps {
     font-variant: small-caps;
 }
+.eventgrouptitle{
+   color: #a66;
+   margin-bottom: 0pt;
+}
+.relatedevents{
+   border-left: dotted #c35 2mm;
+   margin-top: 0pt;
+   padding-left: 1.2em;
+   padding-top: 1em;
+}
+.relatedevents p{
+   margin-top: 0pt;
+}
+
 .caption{
-   color: #666;
-   margin-left: 3em;
-   font-size: 85%;
+   color: #866;
+   margin-left: 0em;
+   font-size: 80%;
    line-height: 1.2em;
+   margin-top: 1px;
+   text-indent: 0pt;
 }
 .hugepicture .caption{
    color: #666;
@@ -493,11 +512,12 @@ h2{
     
 h3 {
     color: #fff;
+    font-family: "Helvetica", sans-serif;
     text-align: left;
     line-height: 1.1em;
     font-weight: normal;
     margin-top: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 0.0em;
     font-size: 1.4em;
     }
     

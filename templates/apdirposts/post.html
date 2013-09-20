@@ -15,6 +15,7 @@
 {% if illustrations %}
    {% for illustration in illustrations %}
       <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
+      <p class = "caption">{{ illustration.caption }}</p>
       {% if forloop.first %}
          {{ content|safe }}
       {% endif %}
