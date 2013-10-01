@@ -12,13 +12,13 @@ def latest(exclude = None):
       xid = int(exclude)
    except:
       xid = 0
-    #articles from the past RECENT days:
-   articles = list(Post.objects.filter(pub_date__range = (RECENT, today)).exclude(
+    #articles from the past RECENT days (changed to SOON to deal with stale "today"):
+   articles = list(Post.objects.filter(pub_date__range = (RECENT, SOON)).exclude(
                    category__postcategory = exclude).exclude(id = xid).exclude(
-                   publish = False))
+                   publish = False).order_by('-pub_date'))
    articles = zip(len(articles)*['post'],articles)[:9]
    #news mentions from the past RECENT days:
-   notices = list(Notice.objects.filter(on__range = (RECENT, today)))
+   notices = list(Notice.objects.filter(on__range = (RECENT, SOON)).order_by('-pub_date'))
    notices = zip(len(notices)*['notice'],notices)[:9]
    #events coming up SOON:
    #if they're not described in a related post:
@@ -55,7 +55,12 @@ def post(request, which):
    if p.publish:
       pics = Illustration.objects.filter(post=which)
       content = p.content
-      return render(request, 'apdirposts/post.html',
+      if ("<iframe" in content or "<object" in content or
+         "<embed" in content):
+            template = "objpage.html"
+      else:
+            template = "post.html"
+      return render(request, 'apdirposts/'+template,
                                 {'illustrations': pics,
                                  'content': content,
                                  'author': p.author,
