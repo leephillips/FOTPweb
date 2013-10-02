@@ -3,6 +3,7 @@
 {% block pagecontent %}
    <div class = "postcontent" id = "target">
       <h2>Future Events</h2>
+      <p style = "font-weight:bold;"><a href="http://friendsoftheplanetarium.org/post/12/">See the schedule</a> for this year’s Friends’ weekends.</p>
       {% regroup p by rpost as rp %}
       {% for r in rp %}
          {% if r.grouper %}
