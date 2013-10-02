@@ -15,6 +15,33 @@ body {
 .afternotes{
    font-size: 0.7em;
 }
+#shoplink{
+   display: inline-block;
+   vertical-align: middle;
+}
+#shopitem{
+   display: inline-block;
+   vertical-align: middle;
+   margin-left: 2em;
+   margin-top: -1.7em;
+}
+div.eventlist{
+   margin-top: 1.5em;
+}
+div.eventlist p{
+   border-bottom: dotted rgb(52, 19, 226) 0.5mm;
+   margin-bottom: 2.3em;
+   position: relative;
+}
+div.eventlist span.eventlistdate{
+   font-weight: bold;
+   position: absolute;
+   left: 0pt;
+}
+div.eventlist span.eventlisttitle{
+   position: absolute;
+   right: 0pt;
+}
 .postillustration{
    max-width: 100%;
 }
@@ -188,7 +215,7 @@ a.lnl:hover{
 }
 #mainlinklist p{
    margin-top: 0pt;
-   margin-bottom: 1em;
+   margin-bottom: 0.9em;
    text-indent: 0px;
    font-size: 2.4em;
 }
@@ -640,6 +667,12 @@ html, body{
 .stickright{
    float: right;
    margin: 0.7em;
+}
+#shopitem{
+   display: none;
+}
+#shoplink{
+   margin-top: 1em;
 }
 .date-article{
    margin-bottom: 1em;
