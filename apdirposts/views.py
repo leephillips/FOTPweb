@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response, render
+from django.shortcuts import render_to_response, render, get_object_or_404
 from models import Director, Post, Illustration, Notice, Event
 from datetime import datetime, timedelta
 
@@ -18,7 +18,7 @@ def latest(exclude = None):
                    publish = False).order_by('-pub_date'))
    articles = zip(len(articles)*['post'],articles)[:9]
    #news mentions from the past RECENT days:
-   notices = list(Notice.objects.filter(on__range = (RECENT, SOON)).order_by('-pub_date'))
+   notices = list(Notice.objects.filter(on__range = (RECENT, SOON)).exclude(id = xid).order_by('-pub_date'))
    notices = zip(len(notices)*['notice'],notices)[:9]
    #events coming up SOON:
    #if they're not described in a related post:
@@ -47,7 +47,7 @@ def bio(request, who):
                              })
 
 def post(request, which):
-   p = Post.objects.get(id = which)
+   p = get_object_or_404(Post, id = which)
    r = Event.objects.filter(rpost = p).order_by('on')
    category = p.category.postcategory
    categoryclass = ['mainarticleone', 'cornerone', 'scienceone'][
@@ -73,6 +73,7 @@ def post(request, which):
       return HttpResponseRedirect("/")
 
 def event(request, which):
+   p = get_object_or_404(Event, id = which)
    p = Event.objects.get(id = which)
    if p.publish:
       pics = Illustration.objects.filter(event=which)
@@ -91,7 +92,7 @@ def event(request, which):
       return HttpResponseRedirect("/")
                  
 def notice(request, which):
-   p = Notice.objects.get(id = which)
+   p = get_object_or_404(Notice, id = which)
    pics = Illustration.objects.filter(notice=which)
    return render(request, 'apdirposts/notice.html',
                              {'illustrations': pics,
