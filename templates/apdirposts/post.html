@@ -15,29 +15,34 @@
    {% endif %}
 {% if illustrations %}
    {% for illustration in illustrations %}
-      <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
-      <p class = "caption">{{ illustration.caption }}</p>
       {% if forloop.first %}
+         {% if illustration.pic.width  > 300 %}
+            <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
+         {% else %}
+            <img class = "postfloatleftillustration" src = "{{ illustration.pic.url }}" alt = "" />
+         {% endif %}
          {{ content|safe }}
+      {% else %}
+         <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
       {% endif %}
    {% endfor %}
 {% else %}
    {{ content|safe }}
 {% endif %}
 {% if events %}
-<div class = "plannav">
    <h3>Shows</h3>
-   <table>
+<div class = "plannav">
    {% regroup events by on|date:'D' as days %}
    {% for day in days %}
-   <tr><td class = "daycell">{{ day.grouper }}<br />{{ day.list.0.on|date:'jM' }}</td>
-         {% for show in day.list %}
-         <td><a href="/event/{{ show.id }}">{{ show.on|date:'f A' }}<br />{{ show.title }}</a></td>
-         {% endfor %}
-      </tr>
+   <div class = "tr">
+      <div class = "daycell">{{ day.grouper }}<br />{{ day.list.0.on|date:'jM' }}</div>
+    {% for show in day.list %}
+    <div class = "timecell"><a href="/event/{{ show.id }}">{{ show.on|date:'f A' }}<br />{{ show.title }}</a></div>
+    {% endfor %}
+   </div>
    {% endfor %}
-   </table>
 </div>
+<p>&nbsp;</p>
 {% endif %}
 </div>
 {% endblock %}

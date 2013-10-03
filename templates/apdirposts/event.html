@@ -6,9 +6,15 @@
    <p class = 'eventdate'>{{ on }}</p>
 {% if illustrations %}
    {% for illustration in illustrations %}
-      <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
       {% if forloop.first %}
+         {% if illustration.pic.width  > 300 %}
+            <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
+         {% else %}
+            <img class = "postfloatleftillustration" src = "{{ illustration.pic.url }}" alt = "" />
+         {% endif %}
          {{ content|safe }}
+      {% else %}
+         <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
       {% endif %}
    {% endfor %}
 {% else %}
@@ -21,7 +27,7 @@
 </div>
 {% if ebcode %}
 <div class = 'ebrite'>
-<iframe  src="http://www.eventbrite.com/tickets-external?eid={{ ebcode }}&ref=etckt&v=2" frameborder="0" height="320" width="50%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
+<iframe  src="http://www.eventbrite.com/tickets-external?eid={{ ebcode }}&ref=etckt&v=2" frameborder="0" height="520"  vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
 </div>
 {% endif %}
 {% endblock %}

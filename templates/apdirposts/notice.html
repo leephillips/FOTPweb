@@ -5,9 +5,15 @@
    <p>Link: <a href="{{ newslink }}">{{ newslink }}</a></p>
 {% if illustrations %}
    {% for illustration in illustrations %}
-      <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
       {% if forloop.first %}
+         {% if illustration.pic.width  > 300 %}
+            <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
+         {% else %}
+            <img class = "postfloatleftillustration" src = "{{ illustration.pic.url }}" alt = "" />
+         {% endif %}
          {{ content|safe }}
+      {% else %}
+         <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
       {% endif %}
    {% endfor %}
 {% else %}

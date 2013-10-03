@@ -15,15 +15,16 @@ body {
 .afternotes{
    font-size: 0.7em;
 }
+#shoplinkdiv{
+   margin-top: -0.7em;
+}
 #shoplink{
    display: inline-block;
-   vertical-align: middle;
 }
 #shopitem{
    display: inline-block;
    vertical-align: middle;
-   margin-left: 2em;
-   margin-top: -1.7em;
+   margin-left: 70px;
 }
 div.eventlist{
    margin-top: 1.5em;
@@ -44,6 +45,11 @@ div.eventlist span.eventlisttitle{
 }
 .postillustration{
    max-width: 100%;
+}
+.postfloatleftillustration{
+   max-width: 100%;
+   float: left;
+   margin-right: 7px;
 }
 .stickright{
    float: right;
@@ -80,33 +86,44 @@ div.eventlist span.eventlisttitle{
    margin-bottom: 0.7em;
 }
 /* Shows table */
-     div.plannav{
-      }
       div.plannav a:link, div.plannav a:visited{
          background: none;
       }
-      div.plannav a:hover{
+      div.plannav div.timecell:hover{
          background: #006;
       }
       div.plannav a{
-         display: block;
+         /* display: block; */
       }
-      div.plannav table{
-         border: solid 0.5mm #ddd;
+      div.plannav {
+        border: solid 0.5mm #ddd;
+        margin-bottom: 1em;
+        line-height: 1.4em;
+        display: table;
       }
-      div.plannav table td{
+      div.plannav div{
+         padding: 0.2em;
+         padding-bottom: 0.4em;
+      }
+      div.plannav div.tr{
+         display: table-row;
+      }
+      div.plannav div.daycell{
+         display: table-cell;
          padding: 1em;
-         padding-top: 1em;
-         padding-bottom: 1em;
-      }
-      div.plannav table td.daycell{
          font-weight: bold;
          font-size: 1.25em;
       }
+      div.plannav div.timecell{
+         display: table-cell;
+      }
 /* ******************** */
 .ebrite{
-   margin-left: 2.2%;
+ margin-left: 2.2%;
 }
+.ebrite iframe{
+ width: 56%;
+ }
 .rpost{
    font-size: 1.4em;
    font-family: "Helvetica", sans-serif;
@@ -221,6 +238,14 @@ a.lnl:hover{
 }
 #mainlinklist a:hover{
    background: #006;
+}
+#shoplinkdiv a:hover{
+   background: none;
+}
+#shoplinkdiv:hover{
+   /* background-image: url("http://embrogl.io/apmedia/hovershop.jpg"); */
+   background-image: url("hovershop.png");
+   background-repeat: no-repeat;
 }
 #littlelinklist{
    position: absolute;
@@ -658,6 +683,9 @@ html, body{
    font-size: 1.7em;
    margin-bottom: 0.5em;
 }
+.ebrite iframe{
+ width: 98%;
+ }
 #pagelatest, #frontlatest{
    width: 100%;
 }
