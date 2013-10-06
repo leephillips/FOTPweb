@@ -5,7 +5,9 @@
    {% if author.director.bio|length > 2 %}
    <h2>{{ title }}</h2> 
       {% if byline %} 
-         <div class = "byline">by <a href="/bio/{{ author.id }}">{{ byline }}</a></div>
+      <div class = "byline">by <a href="/bio/{{ author.id }}">{{ byline }}</a> — <span class = "articledate">{{ date|date:'N j, Y' }}</span></div>
+         {% else %}
+         <div class = "byline"><span class="articledate">{{ date|date:'N j, Y' }}</span></div>  
       {% endif %}
    {% else %}
       <h2>{{ title }}</h2> 

@@ -6,7 +6,9 @@ from datetime import datetime, timedelta
 today = datetime.now()
 RECENT = today - timedelta(days = 180)
 SOON   = today + timedelta(days = 60)
-
+# mm = Post.objects.get(id = 6)
+# mm.pub_date = datetime.datetime(2013, 8, 1, 13, 13, 13)
+# mm.save()
 def latest(exclude = None):
    try:
       xid = int(exclude)
@@ -67,6 +69,7 @@ def post(request, which):
                                  'latest': latest(which),
                                  categoryclass: 'thisone',
                                  'byline': p.byline,
+                                 'date' : p.pub_date,
                                  'events': r,
                                  'title': p.title})
    else:
