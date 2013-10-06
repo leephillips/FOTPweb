@@ -1,7 +1,10 @@
 {% extends "apdirposts/page.html" %}
+{% block title %}Support the Planetarium{% endblock %}
 {% block pagecontent %}
    <div class = "postcontent" id = "target">
-<h2>Support the Friends of the Planetarium</h2><p>Friends of Arlington's Planetarium also plans to continue hosting community events, such as our popular Sunday Science lecture series, Nights at the Planetarium, and more! We also plan to purchase new digital programming for community shows, sponsor planetarium training sessions for Arlington Public School (APS) teachers, and start a scholarship for APS students. With your generous support, we'll be able to accomplish these goals. Please consider making a tax deductible donation to Friends of Arlington's Planetarium, a 501(c)(3) non-profit organization, today to support science education and outreach in the DC Metro area!</p><h3>1. PayPal - Online</h3><p>You can make a donation via &nbsp;PayPal <strong>(see the form to the right)</strong>.&nbsp;It is a secure, encrypted transaction. Friends of Arlington's Planetarium is a 501(c)(3) non-profit organization. All donations are tax deductible.</p><h3>2. Check - Mail</h3><p>You can even send your donations via check to our P.O Box!</p><ul>
+      <h2>Support the Friends of the Planetarium</h2><p>Friends of Arlington's Planetarium plans to continue hosting community events, such as our popular Sunday Science lecture series, Nights at the Planetarium, and more! We also plan to purchase new digital programming for community shows, sponsor planetarium training sessions for Arlington Public School (APS) teachers, and start a scholarship for APS students. With your generous support, we'll be able to accomplish these goals. Please consider making a tax deductible donation to Friends of Arlington's Planetarium, a 501(c)(3) non-profit organization, today to support science education and outreach in the DC Metro area!</p>
+      <p>We would like to extend a special thanks to our <a href="{{ MEDIA_URL }}corporatepartners.pdf">corporate partners</a> [1.6 MB PDF] for supporting the mission and activities of the Friends of the Planetarium through their generous support.</p>
+      <h3>1. PayPal - Online</h3><p>You can make a donation via &nbsp;PayPal <strong>(see the form to the right)</strong>.&nbsp;It is a secure, encrypted transaction. Friends of Arlington's Planetarium is a 501(c)(3) non-profit organization. All donations are tax deductible.</p><h3>2. Check - Mail</h3><p>You can even send your donations via check to our P.O Box!</p><ul>
 <li> Please make checks payable to <strong>"Friends of the Planetarium"</strong></li>
 <li> Please mail checks to <strong>P.O. Box 7029, Arlington, VA 22207</strong></li></ul><h3>3. Become a Major Donor</h3>
 
@@ -11,10 +14,10 @@
    </div>
 {% endblock %}
 {% block ulate %}
-<form class = "donateform" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<form class = "donateform rhform" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="MQKTXL3EDRM74">
-<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
 <p>We're raising funds to purchase new digital, full-dome programs; training for teachers; and a scholarship for students. Please help us reach our goal!</p>
 </form>
 {% endblock %}

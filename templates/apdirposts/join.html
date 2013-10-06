@@ -26,7 +26,7 @@
 	<option value="Sponsor">Sponsor $50.00</option>
 </select> 
 <input type="hidden" name="currency_code" value="USD">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
 </form> 
 </div>
 <h3>How to Become a Friend of the Planetarium:</h3>
@@ -53,10 +53,18 @@ Memberships can begin at any time during the year, and expire on the next Septem
    </div>
 {% endblock %}
 {% block ulate %}
-<form class = "donateform" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<form class = "donateform rhform" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="MQKTXL3EDRM74">
-<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
 <p>We're raising funds to purchase new digital, full-dome programs; training for teachers; and a scholarship for students. Please help us <a href = "/donate">reach our goal!</a></p>
 </form>
+
+        <form class = "newsletterform rhform" action="http://visitor.r20.constantcontact.com/manage/optin/ea?v=001W5diFgtotcJqeyW9quwGew%3D%3D" method="post">
+<p>Please enter your email address below to sign up for our email newsletter:</p>
+            <input type="hidden" name="ref" value="" />
+                        <!--<label for="emailAddr">email:</label>-->
+              <input size = "20" id="emailAddr" name="emailAddr" type="text" value="" maxlength="80" />
+              <input name="_save" type="image" src="https://www.paypal.com/en_US/i/btn/btn_subscribe_LG.gif" alt = "Click to subscribe" />
+        </form>
 {% endblock %}
