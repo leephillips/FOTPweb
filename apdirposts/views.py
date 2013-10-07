@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, render, get_object_or_404
 from models import Director, Post, Illustration, Notice, Event
 from datetime import datetime, timedelta
+import re
 
 today = datetime.now()
 RECENT = today - timedelta(days = 180)
@@ -48,6 +49,25 @@ def bio(request, who):
                               'bio': n.bio,
                              })
 
+def picparse(s, pics):
+   p = {}
+   for i in pics:
+     p[i.pic.url] = i.pic.width > 300 and 'postillustration' or 'postfloatleftillustration'
+   while s.find('<<') >= 0:
+      o = s.find('<<') 
+      c = s.find('>>') 
+      if c > 0:
+         a = s[o+2 : c]
+         for pic in p.keys():
+            if a in pic:
+               s = s.replace(s[o:c+2], '<img class = "%s" src = "%s" alt = "" />' % 
+                                     (p[pic], pic))
+      else:
+         # Missing an end tag
+         return s
+   return s
+
+
 def post(request, which):
    p = get_object_or_404(Post, id = which)
    r = Event.objects.filter(rpost = p).order_by('on')
@@ -57,6 +77,9 @@ def post(request, which):
    if p.publish:
       pics = Illustration.objects.filter(post=which)
       content = p.content
+      if '<<' in  content and '>>' in content: # Author using our special picture insertion markup
+         content = picparse(content, pics)
+         pics = None # To bypass illustration insertion by template
       if ("<iframe" in content or "<object" in content or
          "<embed" in content):
             template = "objpage.html"
