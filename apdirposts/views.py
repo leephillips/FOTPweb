@@ -67,7 +67,6 @@ def picparse(s, pics):
          return s
    return s
 
-
 def post(request, which):
    p = get_object_or_404(Post, id = which)
    r = Event.objects.filter(rpost = p).order_by('on')
@@ -163,7 +162,7 @@ def donate(request):
 
 def eventtop(request):
    return render(request, 'apdirposts/eventtop.html', 
-                 {'p': Event.objects.filter(on__gte = today).order_by('on').exclude(
+                 {'p': Event.objects.filter(on__gte = today).order_by('-on').exclude(
                   publish = False),
                   'latest': latest('events'),
                   'eventone': 'thisone',
@@ -171,7 +170,7 @@ def eventtop(request):
 
 def noticetop(request):
    return render(request, 'apdirposts/noticetop.html', 
-                 {'p': Notice.objects.all().order_by('-pub_date'),
+                 {'p': Notice.objects.all().order_by('-on'),
                   'inthenewsone': 'thisone',
                   'latest': latest('notice'),
                  })
