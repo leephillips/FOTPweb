@@ -21,6 +21,8 @@ body {
 }
 #shoplinkdiv{
    margin-top: -0.7em;
+   display: inline-block;
+   width: 100%;
 }
 #shoplink{
    display: inline-block;
