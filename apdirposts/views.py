@@ -162,7 +162,7 @@ def donate(request):
 
 def eventtop(request):
    return render(request, 'apdirposts/eventtop.html', 
-                 {'p': Event.objects.filter(on__gte = today).order_by('-on').exclude(
+                 {'p': Event.objects.filter(on__gte = today).order_by('on').exclude(
                   publish = False),
                   'latest': latest('events'),
                   'eventone': 'thisone',
