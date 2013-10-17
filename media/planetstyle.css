@@ -5,9 +5,37 @@ body {
   margin-left: 0%;
   margin-top: 0%;
   width: 100%;
-  min-height: 100%;
   background-image: url(tbg2.png), url(tbg1.png);
   background-size: 35% 35%, 30% 30%;
+}
+#maincontainer{
+   height: 100%;
+}
+img {
+     border-width: 0;
+}
+#planetfooter{
+   position: relative;
+   height: 4%;
+   margin-top: 7%;
+   font-size: 0.8em;
+   background: rgba(45, 40, 70, 0.65);
+   padding: 0.7em;
+   padding-left: 2.3%;
+   border-top: solid rgba(40, 40, 150, 0.53) 1mm;
+} 
+#planetfooter .footerlinks a{
+   display: inline-block;
+   margin-right: 2em;
+}
+#planetfooter .footerlinks a:visited{
+   color: #6060C5;
+}
+#planetfooter .footerlinks a:link{
+   color: #6060C5;
+}
+#planetfooter .footerlinks a:hover{
+   background: rgba(20, 20, 20, 0.65);
 }
 .maintextbanner{
    display: none;
@@ -187,6 +215,7 @@ p.postlist a:hover{
    margin-bottom: 2.5em;
    color: #ddd;
    line-height: 1.8em;
+   min-height: 800px;
 }
 .postcontent a:link{
    background: #006;
@@ -300,9 +329,9 @@ a.lnl:hover{
 }
 
 #frontlatest{
-   position: absolute;
-   left: 2.2%;
-   top: 39%;
+   position: relative;
+   margin-left: 2.2%;
+   margin-top: 22%;
    width: 36%;
 }
 #frontlatest p{

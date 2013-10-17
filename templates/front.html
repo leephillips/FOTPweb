@@ -11,17 +11,15 @@
 <p><a href="/about#target">About the Planetarium</a></p>
 <div id = "shoplinkdiv"><a href="http://www.cafepress.com/friendsarlplanetarium/8533104"><div id = "shoplink"><p>Shop</p></div><div id = "shopitem"><img alt = "mugshot" width = "80" src={{ MEDIA_URL }}mugforsale.png /></div></a></div>
 </div>
-<div id = "frontlatest">
-   {% for p in latest %}
-      <p> <a href = "/{{ p.0 }}/{{ p.1.id }}#target">{{ p.1.title }}</a></p>
-   {% endfor %}
-</div>
 <div id = "mainarray">
    <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "http://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon" /></a>
    <a href = "/starchart"><img src = "{{ MEDIA_URL }}azgt.png" alt="Star Chart" title = "Star Chart" /></a>
    <a href="http://cleardarksky.com/c/USNOkey.html?1"><img src = "{{ MEDIA_URL }}csc.png" alt="Observing Conditions" title = "Observing Conditions" /></a>
    <a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "http://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
 </div>
-
-
+<div id = "frontlatest">
+   {% for p in latest %}
+      <p> <a href = "/{{ p.0 }}/{{ p.1.id }}#target">{{ p.1.title }}</a></p>
+   {% endfor %}
+</div>
 {% endblock %}
