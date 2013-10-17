@@ -35,7 +35,7 @@ def latest(exclude = None):
    if exclude == "notices":
       notices = []
    #combine these into a list:
-   return events + articles + notices
+   return (events + articles + notices)[:9]
 
 def bio(request, who):
    n = Director.objects.get(user = int(who))
