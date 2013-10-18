@@ -19,13 +19,28 @@
    {% for illustration in illustrations %}
       {% if forloop.first %}
          {% if illustration.pic.width  > 300 %}
-            <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
+            <div class = "postillustration">
+               <img src = "{{ illustration.pic.url }}" alt = "" />
+               <p class = "caption">{{ illustration.caption }} 
+               <span class = "picturecredit"><span class = "creditcredit">
+               Credit:</span>{{ illustration.credit }}</span></p>
+            </div>
          {% else %}
-            <img class = "postfloatleftillustration" src = "{{ illustration.pic.url }}" alt = "" />
+            <div class = "postfloatleftillustration">
+               <img src = "{{ illustration.pic.url }}" alt = "" />
+               <p class = "caption">{{ illustration.caption }} 
+               <span class = "picturecredit"><span class = "creditcredit">
+               Credit:</span>{{ illustration.credit }}</span></p>
+            </div>
          {% endif %}
          {{ content|safe }}
       {% else %}
-         <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
+         <div class = "postillustration">
+            <img src = "{{ illustration.pic.url }}" alt = "" />
+            <p class = "caption">{{ illustration.caption }} 
+            <span class = "picturecredit"><span class = "creditcredit">
+            Credit:</span>{{ illustration.credit }}</span></p>
+         </div>
       {% endif %}
    {% endfor %}
 {% else %}

@@ -42,6 +42,7 @@ img {
 }
 .afternotes{
    font-size: 0.7em;
+   line-height: 1.3em;
 }
 .articledate{
    font-style: oblique;
@@ -80,10 +81,13 @@ div.eventlist span.eventlisttitle{
 .postillustration{
    max-width: 100%;
 }
+.postillustration img{
+   width: 100%;
+}
 .postfloatleftillustration{
    max-width: 100%;
    float: left;
-   margin-right: 7px;
+   margin-right: 14px;
 }
 .stickright{
    float: right;
@@ -398,12 +402,18 @@ a.lnl:hover{
 }
 
 .caption{
-   color: #866;
+   color: #5F88B4;
    margin-left: 0em;
    font-size: 80%;
    line-height: 1.2em;
    margin-top: 1px;
    text-indent: 0pt;
+}
+.picturecredit{
+   margin-left: 1.5em;
+}
+.creditcredit{
+   font-weight: bold;
 }
 .hugepicture .caption{
    color: #666;
