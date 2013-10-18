@@ -59,7 +59,7 @@ def piccredit(caption, credit):
       if credit[-1] not in ".!?":
          credit = credit + "."
       credit = """<span class = "picturecredit"><span class = "creditcredit">
-                Credit:</span>%s</span>""" % credit
+                Credit: </span>%s</span>""" % credit
    return caption + credit
 
 def picparse(s, pics):
@@ -91,7 +91,7 @@ def picparse(s, pics):
       return s
    else:
       pk = p.keys()
-      s = s + picins % (p[pk[0]], widths[pk[0]], pk[0], captions[pk[0]])
+      s = picins % (p[pk[0]], widths[pk[0]], pk[0], captions[pk[0]]) + s
       if len(pk) == 1:
          return s
       return s + "\n".join([picins % (p[pic], widths[pic], pic, captions[pic]) 
@@ -106,17 +106,15 @@ def post(request, which):
    if p.publish:
       pics = Illustration.objects.filter(post=which)
       content = p.content
-      if '<<' in  content and '>>' in content: # Author using our special picture insertion markup
+      if len(pics) > 0:
          content = picparse(content, pics)
-         pics = None # To bypass illustration insertion by template
       if ("<iframe" in content or "<object" in content or
          "<embed" in content):
             template = "objpage.html"
       else:
             template = "post.html"
       return render(request, 'apdirposts/'+template,
-                                {'illustrations': pics,
-                                 'content': content,
+                                {'content': content,
                                  'author': p.author,
                                  'latest': latest(which),
                                  categoryclass: 'thisone',
@@ -132,10 +130,13 @@ def event(request, which):
    p = Event.objects.get(id = which)
    if p.publish:
       pics = Illustration.objects.filter(event=which)
+      if len(pics) > 0:
+         content = picparse(p.content, pics)
+      else:
+         content = p.content
       doors = p.on - timedelta(minutes = 15)
       return render(request, 'apdirposts/event.html',
-                                {'illustrations': pics,
-                                 'content': p.content,
+                                {'content': content,
                                  'latest': latest(which),
                                  'eventone': 'thisone',
                                  'on': p.on,
@@ -149,9 +150,12 @@ def event(request, which):
 def notice(request, which):
    p = get_object_or_404(Notice, id = which)
    pics = Illustration.objects.filter(notice=which)
+   if len(pics) > 0:
+      content = picparse(p.content, pics)
+   else:
+      content = p.content
    return render(request, 'apdirposts/notice.html',
-                             {'illustrations': pics,
-                              'content': p.content,
+                             {'content': content,
                               'on': p.on,
                               'latest': latest(which),
                               'inthenewsone': 'thisone',

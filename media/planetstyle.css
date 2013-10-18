@@ -410,10 +410,10 @@ a.lnl:hover{
    text-indent: 0pt;
 }
 .picturecredit{
-   margin-left: 1.5em;
+   margin-left: 1.1em;
+   font-style: oblique;
 }
 .creditcredit{
-   font-weight: bold;
 }
 .hugepicture .caption{
    color: #666;

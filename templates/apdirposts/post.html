@@ -15,37 +15,7 @@
          <div class = "byline">by {{ byline }}</div>
       {% endif %}
    {% endif %}
-{% if illustrations %}
-   {% for illustration in illustrations %}
-      {% if forloop.first %}
-         {% if illustration.pic.width  > 300 %}
-            <div class = "postillustration">
-               <img src = "{{ illustration.pic.url }}" alt = "" />
-               <p class = "caption">{{ illustration.caption }} 
-               <span class = "picturecredit"><span class = "creditcredit">
-               Credit:</span>{{ illustration.credit }}</span></p>
-            </div>
-         {% else %}
-            <div class = "postfloatleftillustration">
-               <img src = "{{ illustration.pic.url }}" alt = "" />
-               <p class = "caption">{{ illustration.caption }} 
-               <span class = "picturecredit"><span class = "creditcredit">
-               Credit:</span>{{ illustration.credit }}</span></p>
-            </div>
-         {% endif %}
-         {{ content|safe }}
-      {% else %}
-         <div class = "postillustration">
-            <img src = "{{ illustration.pic.url }}" alt = "" />
-            <p class = "caption">{{ illustration.caption }} 
-            <span class = "picturecredit"><span class = "creditcredit">
-            Credit:</span>{{ illustration.credit }}</span></p>
-         </div>
-      {% endif %}
-   {% endfor %}
-{% else %}
-   {{ content|safe }}
-{% endif %}
+{{ content|safe }}
 {% if events %}
    <h3>Shows</h3>
 <div class = "plannav">
