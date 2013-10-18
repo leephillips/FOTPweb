@@ -23,5 +23,6 @@ urlpatterns = patterns('',
      (r'^event/$', 'ap.apdirposts.views.eventtop'),
      (r'^corner/$', 'ap.apdirposts.views.cornertop'),
      (r'^science/$', 'ap.apdirposts.views.sciencetop'),
+     (r'^website/$', 'ap.apdirposts.views.website'),
      (r'^$', 'ap.apdirposts.views.front'),
 )
