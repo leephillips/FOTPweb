@@ -17,7 +17,7 @@ img {
 #planetfooter{
    position: relative;
    height: 4%;
-   margin-top: 7%;
+   margin-top: 12%;
    font-size: 0.8em;
    background: rgba(45, 40, 70, 0.65);
    padding: 0.7em;
@@ -410,7 +410,7 @@ a.lnl:hover{
    text-indent: 0pt;
 }
 .picturecredit{
-   margin-left: 1.1em;
+   margin-left: 0.7em;
    font-style: oblique;
 }
 .creditcredit{

@@ -5,21 +5,6 @@
    <h2>{{ title }}</h2>
    <p>{{ on|date:'N j, Y' }}</p>
    <p>Link: <a href="{{ newslink }}">{{ newslink }}</a></p>
-{% if illustrations %}
-   {% for illustration in illustrations %}
-      {% if forloop.first %}
-         {% if illustration.pic.width  > 300 %}
-            <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
-         {% else %}
-            <img class = "postfloatleftillustration" src = "{{ illustration.pic.url }}" alt = "" />
-         {% endif %}
-         {{ content|safe }}
-      {% else %}
-         <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
-      {% endif %}
-   {% endfor %}
-{% else %}
    {{ content|safe }}
-{% endif %}
 </div>
 {% endblock %}
