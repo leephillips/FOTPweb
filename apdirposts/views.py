@@ -78,6 +78,7 @@ def picparse(s, pics):
         widths[i.pic.url] = "100%"
    if '<<' in  s and '>>' in s: # Author using our special picture insertion markup
       while s.find('<<') >= 0:
+         picmatch = False
          o = s.find('<<') 
          c = s.find('>>') 
          if c > 0:
@@ -85,6 +86,11 @@ def picparse(s, pics):
             for pic in p.keys():
                if a in pic:
                   s = s.replace(s[o:c+2], picins % (p[pic], widths[pic], pic, captions[pic]))
+                  picmatch = True
+                  break
+            if not picmatch:
+               #Author must have made a mistake (misspelled key?).
+               s = s.replace(s[o:c+2], '')
          else:
             # Missing an end tag
             return s
@@ -242,3 +248,5 @@ def posttop(request):
 def front(request):
    return render(request, 'front.html',
                 {'latest': latest()})
+
+
