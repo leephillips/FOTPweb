@@ -15,9 +15,8 @@
          <div class = "byline">by {{ byline }}</div>
       {% endif %}
    {% endif %}
-{{ content|safe }}
 {% if events %}
-   <h3>Shows</h3>
+   <h3>Click on a show to buy tickets</h3>
 <div class = "plannav">
    {% regroup events by on|date:'D' as days %}
    {% for day in days %}
@@ -29,7 +28,21 @@
    </div>
    {% endfor %}
 </div>
-<p>&nbsp;</p>
+{% endif %}
+{{ content|safe }}
+{% if events %}
+   <h3>Click on a show to buy tickets</h3>
+<div class = "plannav">
+   {% regroup events by on|date:'D' as days %}
+   {% for day in days %}
+   <div class = "tr">
+      <div class = "daycell">{{ day.grouper }}<br />{{ day.list.0.on|date:'jM' }}</div>
+    {% for show in day.list %}
+    <div class = "timecell"><a href="/event/{{ show.id }}">{{ show.on|date:'f A' }}<br />{{ show.title }}</a></div>
+    {% endfor %}
+   </div>
+   {% endfor %}
+</div>
 {% endif %}
 </div>
 {% endblock %}

@@ -221,6 +221,9 @@ p.postlist a:hover{
    line-height: 1.8em;
    min-height: 800px;
 }
+.postcontent blockquote{
+   line-height: 1.3em;
+}
 .postcontent a:link{
    background: #006;
    color: #ddd;
@@ -690,6 +693,40 @@ label{
 #share img {
     margin-left: 4px;
     margin-right: 4px;
+}
+@media print{
+html, body{
+  background-image: none;
+  background: #fff;
+}
+div.plannav{
+   display: none;
+}
+.postillustration, .postfloatleftillustration{
+   width: 30%;
+   max-width: 30%;
+   float:left;
+}
+.mainbanner{
+   display: none;
+}
+.maintextbanner{
+   display: block;
+   color: black;
+   background: #ddf;
+   font-family: "Helvetica", sans-serif;
+   font-size: 1em;
+   font-weight: bold;
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+}
+#mainarray, #dots, #littlelinklist, #planetfooter{
+   display: none;
+}
+.postcontent{
+   width: 100%;
+}
+
 }
 @media screen and (max-width: 700px){
 html, body{
