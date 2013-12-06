@@ -1,4 +1,4 @@
-from models import Annualreport, Minutes
+from models import Annualreport, Minutes, Agenda
 from django.contrib import admin
 from django.db import models
 from django.forms import ModelForm, CharField, TextInput
