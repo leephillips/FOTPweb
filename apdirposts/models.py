@@ -17,6 +17,9 @@ class Director(models.Model):
    formalname = models.CharField('Formal name', max_length = 200, blank = True)
    bio = models.TextField(blank = True)
    face = models.ImageField(upload_to = 'faces', blank = True, null = True)
+   email = models.EmailField('Primary email', blank = True)
+   phone = models.CharField('Primary phone', blank = True, max_length = 15)
+   notes = models.TextField('Private notes', blank = True)
    def __unicode__(self):
       return self.name()
 
