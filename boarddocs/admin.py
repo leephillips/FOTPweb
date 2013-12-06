@@ -15,6 +15,8 @@ class BoardfileAdmin(admin.ModelAdmin):
         return super(BoardfileAdmin, self).formfield_for_foreignkey(
                      db_field, request, **kwargs)
 
+class BudgetreportAdmin(BoardfileAdmin):
+    list_display = ('name', 'whenUploaded', 'user', 'startDate', 'endDate')
 
 class AnnualreportAdmin(BoardfileAdmin):
     list_display = ('name', 'whenUploaded', 'user', 'startDate', 'endDate')
@@ -25,6 +27,19 @@ class AgendaAdmin(BoardfileAdmin):
 class MinutesAdmin(BoardfileAdmin):
     list_display = ('name', 'whenUploaded', 'user', 'meetingDate')
 
+class LegalDocAdmin(BoardfileAdmin):
+    list_display = ('name', 'whenUploaded', 'user')
+
+class HistoricalAdmin(BoardfileAdmin):
+    list_display = ('name', 'whenUploaded', 'user')
+
+class PictureAdmin(BoardfileAdmin):
+    list_display = ('pic.name', 'caption', 'whenUploaded', 'user')
+
 admin.site.register(Annualreport, AnnualreportAdmin)
 admin.site.register(Minutes, MinutesAdmin)
 admin.site.register(Agenda, AgendaAdmin)
+admin.site.register(Boardfile, BoardfileAdmin)
+admin.site.register(Budgetreport, BudgetreportAdmin)
+admin.site.register(LegalDoc, LegalDocAdmin)
+admin.site.register(Picture, PictureAdmin)
