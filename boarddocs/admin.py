@@ -1,4 +1,4 @@
-from models import Annualreport, Minutes, Agenda
+from models import Annualreport, Minutes, Agenda, Boardfile, LegalDoc, Historical, Picture, Budgetreport
 from django.contrib import admin
 from django.db import models
 from django.forms import ModelForm, CharField, TextInput
@@ -33,8 +33,9 @@ class LegalDocAdmin(BoardfileAdmin):
 class HistoricalAdmin(BoardfileAdmin):
     list_display = ('name', 'whenUploaded', 'user')
 
-class PictureAdmin(BoardfileAdmin):
-    list_display = ('pic.name', 'caption', 'whenUploaded', 'user')
+class PictureAdmin(admin.ModelAdmin):
+    list_display = ('pic', 'caption')
+    list_display_links = ('pic',)
 
 admin.site.register(Annualreport, AnnualreportAdmin)
 admin.site.register(Minutes, MinutesAdmin)
