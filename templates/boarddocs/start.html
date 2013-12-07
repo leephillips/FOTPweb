@@ -13,7 +13,9 @@
       <p><a href="../pictures">Gallery</a></p>
       <h2>Annual Reports</h2>
          {% for post in p %}
-            <p><a href = "{{ post.thefile.url }}" class = "lnl">{{ post.name }}</a></p>
+         <p><a href = "{{ post.thefile.url }}" class = "lnl">{{ post.name }}</a>
+         covering {{ post.startDate }} to {{ post.endDate }}.
+         </p>
          {% endfor %}
    </div>
 {% endblock %}
