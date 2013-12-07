@@ -17,13 +17,45 @@ def loginrequired(f):
    return securedf
       
 @loginrequired
+def start(request):
+   return render(request, 'boarddocs/start.html')
+
+@loginrequired
 def minutetop(request):
       n = Minutes.objects.all()
       return render(request, 'boarddocs/minutetop.html', 
                                 {'p': n, })
 
 @loginrequired
-def start(request):
-   return render(request, 'boarddocs/start.html')
+def otherfilestop(request):
+      n = Boardfile.objects.all()
+   return render(request, 'boarddocs/otherfilestop.html', {'p': n, })
+
+@loginrequired
+def budgettop(request):
+      n = Budgetreport.objects.all()
+   return render(request, 'boarddocs/budgettop.html', {'p': n, })
+
+@loginrequired
+def agendatop(request):
+      n = Agenda.objects.all()
+   return render(request, 'boarddocs/agendatop.html', {'p': n, })
+
+@loginrequired
+def legaltop(request):
+      n = LegalDoc.objects.all()
+   return render(request, 'boarddocs/legaltop.html', {'p': n, })
+
+@loginrequired
+def historicaltop(request):
+      n = Historical.objects.all()
+   return render(request, 'boarddocs/historicaltop.html', {'p': n, })
+
+@loginrequired
+def gallery(request):
+      n = Picture.objects.all()
+   return render(request, 'boarddocs/gallery.html', {'p': n, })
+
+
 
 
