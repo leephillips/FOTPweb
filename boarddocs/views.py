@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, render, get_object_or_404
-from models import Minutes, Agenda, Annualreport
+from models import Minutes, Agenda, Annualreport, Boardfile, Budgetreport, LegalDoc, Historical, Picture
 from datetime import datetime, timedelta
 import re
 from ap.settings import ADMINURL
@@ -18,43 +18,43 @@ def loginrequired(f):
       
 @loginrequired
 def start(request):
-   return render(request, 'boarddocs/start.html')
+   n = Annualreport.objects.all()
+   return render(request, 'boarddocs/start.html', {'p': n, })
 
 @loginrequired
 def minutetop(request):
       n = Minutes.objects.all()
-      return render(request, 'boarddocs/minutetop.html', 
-                                {'p': n, })
+      return render(request, 'boarddocs/minutetop.html', {'p': n, })
 
 @loginrequired
 def otherfilestop(request):
       n = Boardfile.objects.all()
-   return render(request, 'boarddocs/otherfilestop.html', {'p': n, })
+      return render(request, 'boarddocs/otherfilestop.html', {'p': n, })
 
 @loginrequired
 def budgettop(request):
       n = Budgetreport.objects.all()
-   return render(request, 'boarddocs/budgettop.html', {'p': n, })
+      return render(request, 'boarddocs/budgettop.html', {'p': n, })
 
 @loginrequired
 def agendatop(request):
       n = Agenda.objects.all()
-   return render(request, 'boarddocs/agendatop.html', {'p': n, })
+      return render(request, 'boarddocs/agendatop.html', {'p': n, })
 
 @loginrequired
 def legaltop(request):
       n = LegalDoc.objects.all()
-   return render(request, 'boarddocs/legaltop.html', {'p': n, })
+      return render(request, 'boarddocs/legaltop.html', {'p': n, })
 
 @loginrequired
 def historicaltop(request):
       n = Historical.objects.all()
-   return render(request, 'boarddocs/historicaltop.html', {'p': n, })
+      return render(request, 'boarddocs/historicaltop.html', {'p': n, })
 
 @loginrequired
 def gallery(request):
       n = Picture.objects.all()
-   return render(request, 'boarddocs/gallery.html', {'p': n, })
+      return render(request, 'boarddocs/gallery.html', {'p': n, })
 
 
 
