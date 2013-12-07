@@ -1,0 +1,10 @@
+{% extends "boarddocs/page.html" %}
+{% block title %}Gallery{% endblock %}
+{% block pagecontent %}
+<h1>Gallery</h1>
+   <div class = "postcontent" id = "target">
+      {% for post in p %}
+      <img src = "{{ post.thefile.url }}" />
+      {% endfor %}
+   </div>
+{% endblock %}

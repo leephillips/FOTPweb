@@ -1,0 +1,54 @@
+{% extends "site.html" %}
+{% block body %}
+   <div id = "dots" class = "ll" alt="">
+   <img src = "{{ MEDIA_URL }}dots.png" />
+   </div>
+   <div id = "littlelinklist" class = "ll">
+   <p class = "{{ eventone }}"><a href="/event">Events &amp; Shows</a></p>
+   <p class = "{{ joinone }}"><a href="/join">Join, Donate, Subscribe</a></p>
+   <p class = "{{ mainarticleone }}"><a href="/post">Main Articles</a></p>
+</div>
+{% block pagecontent %}
+{% autoescape off %}
+<div class = "postcontent" id = "target">
+   {% if author.director.bio|length > 2 %}
+   <h2>{{ title }}</h2> 
+      {% if byline %} 
+         <div class = "byline">by <a href="/bio/{{ author.id }}">{{ byline }}</a></div>
+      {% endif %}
+   {% else %}
+      <h2>{{ title }}</h2> 
+      {% if byline %} 
+         <div class = "byline">by {{ byline }}</div>
+      {% endif %}
+   {% endif %}
+{% if illustrations %}
+   {% for illustration in illustrations %}
+      <img class = "postillustration" src = "{{ illustration.pic.url }}" alt = "" />
+      <p class = "caption">{{ illustration.caption }}</p>
+      {% if forloop.first %}
+         {{ content|safe }}
+      {% endif %}
+   {% endfor %}
+{% else %}
+   {{ content|safe }}
+{% endif %}
+{% if events %}
+<div class = "plannav">
+   <h3>Shows</h3>
+   <table>
+   {% regroup events by on|date:'D' as days %}
+   {% for day in days %}
+   <tr><td class = "daycell">{{ day.grouper }}<br />{{ day.list.0.on|date:'jM' }}</td>
+         {% for show in day.list %}
+         <td><a href="/event/{{ show.id }}">{{ show.on|date:'f A' }}<br />{{ show.title }}</a></td>
+         {% endfor %}
+      </tr>
+   {% endfor %}
+   </table>
+</div>
+{% endif %}
+</div>
+{% endautoescape %}
+{% endblock %}
+{% endblock %}

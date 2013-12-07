@@ -1,0 +1,10 @@
+{% extends "boarddocs/page.html" %}
+{% block title %}Meeting Agendas{% endblock %}
+{% block pagecontent %}
+<h1>Meeting Agendas</h1>
+   <div class = "postcontent" id = "target">
+      {% for post in p %}
+         <h2><a href = "{{ post.thefile.url }}" class = "lnl">{{ post.name }}</a></h2> 
+      {% endfor %}
+   </div>
+{% endblock %}
