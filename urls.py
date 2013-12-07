@@ -5,8 +5,15 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-     (r'^admin/minutes/$', 'ap.boarddocs.views.minutetop'), 
      (r'^admin/start/$', 'ap.boarddocs.views.start'), 
+     (r'^admin/minutes/$', 'ap.boarddocs.views.minutetop'), 
+     (r'^admin/otherfiles/$', 'ap.boarddocs.views.otherfilestop'), 
+     (r'^admin/budget/$', 'ap.boarddocs.views.budgettop'), 
+     (r'^admin/agenda/$', 'ap.boarddocs.views.agendatop'), 
+     (r'^admin/legal/$', 'ap.boarddocs.views.legaltop'), 
+     (r'^admin/history/$', 'ap.boarddocs.views.historicaltop'), 
+     (r'^admin/otherfiles/$', 'ap.boarddocs.views.othertop'), 
+     (r'^admin/pictures/$', 'ap.boarddocs.views.gallery'), 
      url(r'^admin/', include(admin.site.urls)),
      (r'^bio/(.*)/$', 'ap.apdirposts.views.bio'),
      (r'^post/(.*)/$', 'ap.apdirposts.views.post'),

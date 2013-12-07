@@ -20,11 +20,10 @@ def loginrequired(f):
 def minutetop(request):
       n = Minutes.objects.all()
       return render(request, 'boarddocs/minutetop.html', 
-                                {'p': n, 
-                                })
+                                {'p': n, })
 
-
+@loginrequired
 def start(request):
-   return render(request, 'start.html')
+   return render(request, 'boarddocs/start.html')
 
 
