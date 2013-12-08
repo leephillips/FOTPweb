@@ -6,6 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
      (r'^admin/start/$', 'ap.boarddocs.views.start'), 
+     (r'^admin/directory/$', 'ap.boarddocs.views.directory'), 
      (r'^admin/minutes/$', 'ap.boarddocs.views.minutetop'), 
      (r'^admin/otherfiles/$', 'ap.boarddocs.views.otherfilestop'), 
      (r'^admin/budget/$', 'ap.boarddocs.views.budgettop'), 

@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, render, get_object_or_404
 from models import Minutes, Agenda, Annualreport, Boardfile, Budgetreport, LegalDoc, Historical, Picture
+from ap.apdirposts.models import Director
 from datetime import datetime, timedelta
 import re
 from ap.settings import ADMINURL
@@ -20,6 +21,11 @@ def loginrequired(f):
 def start(request):
    n = Annualreport.objects.all()
    return render(request, 'boarddocs/start.html', {'p': n, })
+
+@loginrequired
+def directory(request):
+   n = Director.objects.all().order_by("formalname")
+   return render(request, 'boarddocs/directory.html', {'p': n, })
 
 @loginrequired
 def minutetop(request):
