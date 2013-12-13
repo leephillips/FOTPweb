@@ -1,0 +1,26 @@
+html, body{
+   background: ddd;
+}
+.loginnotice{
+   font-size: 0.75em;
+}
+
+.directoryface{
+   width: 100px;
+}
+.direntry{
+   position: relative;
+}
+.dirnotes{
+   display: none;
+   background: #ccf;
+   max-width: 40em;
+   margin-bottom: 1em;
+}
+.dirnotes:target{
+   display: block;
+}
+
+@media screen and (max-width: 700px){
+
+}

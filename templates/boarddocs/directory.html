@@ -1,0 +1,34 @@
+{% extends "boarddocs/page.html" %}
+{% block title %}Directory of Directors{% endblock %}
+{% block pagecontent %}
+<h1>Directory of Directors</h1>
+   <div id = "directorinfo"></div>
+   <div class = "postcontent" id = "target">
+      {% for post in p %}
+      <div class = "direntry">
+         <div class="dirnotes" id = "{{post.id}}">
+            {{ post.notes|safe }}
+           {% if post.notes %} <hr /> {% endif %}
+            {{ post.bio|safe }}
+         </div>
+         {% if post.face %}
+            <img class = "directoryface" src = "{{ MEDIA_URL}}{{ post.face }}" alt = "" />
+         {% endif %}
+         <p>
+            {% if post.bio or post.notes %}
+               <a href="#{{post.id}}">{{ post.name }}</a>
+            {% else %}
+               {{ post.name }}
+            {% endif %}
+            <br />
+            <a href="mailto:{{post.email}}">{{ post.email }}</a>
+            {% if post.email and post.phone %}
+               &nbsp;⊙&nbsp;
+            {% endif %}
+            {{ post.phone }}
+         </p> 
+         <hr />
+      </div>
+      {% endfor %}
+   </div>
+{% endblock %}
