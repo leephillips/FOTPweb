@@ -2,8 +2,10 @@
 {% block title %}Directors’ Page{% endblock %}
 {% block pagecontent %}
 <h1>Directors’ Page</h1>
-<p><a href="http://friendsoftheplanetarium.org/">Public Site</a>&nbsp;⊙&nbsp;<a href="https://fotp.embrogl.io/fotpsecure/admin/">Administrative Site</a></p>
+<p><a href="http://friendsoftheplanetarium.org/">Public Site</a>&nbsp;⊙&nbsp;<a href="https://fotp.embrogl.io/fotpsecure/admin/">Administrative Site</a> ☜ To upload and view documents.</p>
    <div class = "postcontent" id = "target">
+      <h2>To browse documents:</h2>
+      <p><a href="../directory">Board Directory</a></p>
       <p><a href="../minutes/">Meeting Minutes</a></p>
       <p><a href="../budget/">Financial Reports</a></p>
       <p><a href="../agenda/">Meeting Agendas</a></p>
@@ -11,7 +13,7 @@
       <p><a href="../history">Historical Documents</a></p>
       <p><a href="../otherfiles">Other Documents</a></p>
       <p><a href="../pictures">Gallery</a></p>
-      <h2>Annual Reports</h2>
+      <h3>Annual Reports</h3>
          {% for post in p %}
          <p><a href = "{{ post.thefile.url }}" class = "lnl">{{ post.name }}</a>
          covering {{ post.startDate }} to {{ post.endDate }}.

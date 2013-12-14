@@ -7,12 +7,14 @@
       {% for post in p %}
       <div class = "direntry">
          <div class="dirnotes" id = "{{post.id}}">
-            {{ post.notes|safe }}
-           {% if post.notes %} <hr /> {% endif %}
+            {% if post.notes %} 
+               {{ post.notes|safe }}
+               <hr /> 
+            {% endif %}
             {{ post.bio|safe }}
          </div>
          {% if post.face %}
-            <img class = "directoryface" src = "{{ MEDIA_URL}}{{ post.face }}" alt = "" />
+            <img class = "directoryface" src = "{{ SECURE_MEDIA_URL}}{{ post.face }}" alt = "" />
          {% endif %}
          <p>
             {% if post.bio or post.notes %}
