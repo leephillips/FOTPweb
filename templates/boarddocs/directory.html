@@ -8,7 +8,9 @@
       <div class = "direntry">
          <div class="dirnotes" id = "{{post.id}}">
             {% if post.notes %} 
-               {{ post.notes|safe }}
+               <div class = "dirnotesnotes">
+                  {{ post.notes|safe }}
+               </div>
                <hr /> 
             {% endif %}
             {{ post.bio|safe }}

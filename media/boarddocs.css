@@ -17,6 +17,9 @@ html, body{
    max-width: 40em;
    margin-bottom: 1em;
 }
+.dirnotesnotes{
+   background: #B6372C;
+}
 .dirnotes:target{
    display: block;
 }
