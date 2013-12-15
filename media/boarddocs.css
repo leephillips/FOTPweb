@@ -16,9 +16,11 @@ html, body{
    background: #ccf;
    max-width: 40em;
    margin-bottom: 1em;
+   padding: 3px;
 }
 .dirnotesnotes{
    background: #B6372C;
+   color: white;
 }
 .dirnotes:target{
    display: block;
