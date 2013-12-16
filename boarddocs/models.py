@@ -4,6 +4,7 @@ from ap import settings
 import datetime
 from django.db.models.signals import post_save
 from django.db.models.signals import pre_save
+import os
 
 
 class Boardfile(models.Model):
@@ -89,6 +90,7 @@ def on_annualreport_save(sender, instance, **kwargs):
 def on_otherdoc_save(sender, instance, **kwargs):
    p = instance
    p.whenUploaded = datetime.datetime.now()
+   p.name = os.path.basename(instance.thefile.name)
 
 pre_save.connect(on_annualreport_save, sender = Annualreport, dispatch_uid="apfilesave")
 pre_save.connect(on_annualreport_save, sender = Minutes, dispatch_uid="minutessave")

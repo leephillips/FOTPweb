@@ -4,7 +4,9 @@
 <h1>Gallery</h1>
    <div class = "postcontent" id = "target">
       {% for post in p %}
-      <img src = "{{ post.thefile.url }}" />
+      <img src = "{{ post.pic.url }}" />
+      <br />
+      <p>{{ post.caption }}</p>
       {% endfor %}
    </div>
 {% endblock %}

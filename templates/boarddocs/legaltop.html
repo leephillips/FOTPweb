@@ -4,7 +4,7 @@
 <h1>Legal Documents</h1>
    <div class = "postcontent" id = "target">
       {% for post in p %}
-         <h2><a href = "{{ post.thefile.url }}" class = "lnl">{{ post.name }}</a></h2> 
+         <p><a href = "{{ post.thefile.url }}" class = "lnl">{{ post.name }}</a></p> 
       {% endfor %}
    </div>
 {% endblock %}

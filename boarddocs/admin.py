@@ -2,6 +2,7 @@ from models import Annualreport, Minutes, Agenda, Boardfile, LegalDoc, Historica
 from django.contrib import admin
 from django.db import models
 from django.forms import ModelForm, CharField, TextInput
+# import os
 
 class BoardfileAdmin(admin.ModelAdmin):
     list_display = ('name', 'whenUploaded', 'user')
