@@ -12,6 +12,7 @@
    <p class = "{{ cornerone }}"><a href="/corner#target">Directors’ Corner</a></p>
    <p class = "{{ aboutone }}"><a href="/about#target">About the Planetarium</a></p>
       <div id = "pagelatest">
+         <h2>Other Recent Items:</h2>
          {% for p in latest %}
             <p> <a href = "/{{ p.0 }}/{{ p.1.id }}#target">{{ p.1.title }}</a></p>
          {% endfor %}

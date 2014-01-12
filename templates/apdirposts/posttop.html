@@ -2,11 +2,14 @@
 {% block title %}Main Articles{% endblock %}
 {% block pagecontent %}
    <div class = "postcontent" id = "target">
+   <div class = "articlelist">
    {% for post in p %}
-   <h2><a href = "/post/{{ post.id }}#target" class = "lnl">{{ post.title }}</a></h2> 
+   <p><a href = "/post/{{ post.id }}#target" class = "lnl">{{ post.title }}</a> 
       {% if post.byline %}
-         by {{ post.byline }}
+      <span class="byline">by {{ post.byline }}</span>
       {% endif %}
+      </p>
    {% endfor %}
+   </div>
    </div>
 {% endblock %}

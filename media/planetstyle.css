@@ -8,6 +8,15 @@ body {
   background-image: url(tbg2.png), url(tbg1.png);
   background-size: 35% 35%, 30% 30%;
 }
+.articlelist p{
+   font-size: 1.4em;
+   margin-top: 1em;
+   margin-bottom: 1em;
+}
+span.byline{
+   font-size: 0.6em;
+   font-style: oblique;
+}
 #maincontainer{
    height: 100%;
 }
@@ -214,7 +223,7 @@ p.postlist a:hover{
    font-family: "Noticia Text", serif;
    width: 50%;
    margin-top: 0%;
-   padding-top: 26%;
+   padding-top: 22%;
    margin-left: 2.2%;
    margin-bottom: 2.5em;
    color: #ddd;
@@ -615,8 +624,8 @@ h1
 h2{
     line-height: 1.1em;
     color: #fff; font-size: 1.8em; font-weight: normal; text-align: left;
-    font-family: "Helvetica", sans-serif;
-    text-transform: uppercase;
+    /* font-family: "Helvetica", sans-serif; */
+    /* text-transform: uppercase; */
  }
     
 h3 {
@@ -626,7 +635,7 @@ h3 {
     line-height: 1.1em;
     font-weight: normal;
     margin-top: 1em;
-    margin-bottom: 0.0em;
+    margin-bottom: 1.0em;
     font-size: 1.4em;
     }
     
@@ -850,14 +859,3 @@ span.fnclicked span.fntext span.fntext{
    display: none;
 }
 }
-
-@media print{
-.document {
-   background: white;
-   width: 90%;
-}
-
-}
-
-
-

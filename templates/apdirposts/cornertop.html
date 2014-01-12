@@ -2,11 +2,15 @@
 {% block title %}Articles from the Board of Directors{% endblock %}
 {% block pagecontent %}
    <div class = "postcontent" id = "target">
+   <div class = "articlelist">
+      <h2>By Members of the Board:</h2>
    {% for post in p %}
-   <h2><a href = "/post/{{ post.id }}" class = "lnl">{{ post.title }}</a></h2> 
+   <p><a href = "/post/{{ post.id }}" class = "lnl">{{ post.title }}</a> 
       {% if post.byline %}
-         by {{ post.byline }}
+      <span class="byline">by {{ post.byline }}</span>  
       {% endif %}
+      </p>
    {% endfor %}
+   </div>
    </div>
 {% endblock %}

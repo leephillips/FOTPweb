@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from ap import settings
 import datetime
-from django.db.models.signals import post_save
 from django.db.models.signals import pre_save
 import os
 
