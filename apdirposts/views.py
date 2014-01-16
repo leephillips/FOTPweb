@@ -47,6 +47,7 @@ def bio(request, who):
                              {'w': n.formalname, 
                               'face': face,
                               'bio': n.bio,
+                              'latest': latest()
                              })
 
 def piccredit(caption, credit):
@@ -239,10 +240,10 @@ def sciencetop(request):
 
 def posttop(request):
    return render(request, 'apdirposts/posttop.html', 
-                 {'p': Post.objects.filter(category__postcategory = "main").order_by(
+                 {'p': Post.objects.order_by(
                   '-pub_date').exclude(publish = False),
                   'mainarticleone': 'thisone',
-                  'latest': latest('main'),
+                  'latest': '' ,
                  })
 
 def front(request):

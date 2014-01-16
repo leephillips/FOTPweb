@@ -8,10 +8,26 @@ body {
   background-image: url(tbg2.png), url(tbg1.png);
   background-size: 35% 35%, 30% 30%;
 }
-.articlelist p{
-   font-size: 1.4em;
+.floatbuster{
+   clear:both;
+}
+.listimage{
+   width: 15%;
+   float: left;
+   clear: left;
+   margin-right: 0.4em;
    margin-top: 1em;
-   margin-bottom: 1em;
+   margin-bottom: 0em;
+}
+.listimage img{
+   width: 100%;
+}
+.articlelist p{
+   display: inline-block;
+   font-size: 1.4em;
+   margin-top: 0.5em;
+   margin-bottom: 0em;
+   width: 80%;
 }
 span.byline{
    font-size: 0.6em;
@@ -23,7 +39,11 @@ span.byline{
 img {
      border-width: 0;
 }
+.push{
+   clear: both;
+}
 #planetfooter{
+   clear: both;
    position: relative;
    height: 4%;
    margin-top: 12%;
@@ -220,6 +240,7 @@ p.postlist a:hover{
     margin-right: 0.5em;
  }
 .postcontent{
+   float: left;
    font-family: "Noticia Text", serif;
    width: 50%;
    margin-top: 0%;
@@ -293,13 +314,13 @@ a.lnl:hover{
    background: #006;
 }
 #mainlinklist{
-   position: absolute;
-   left: 60%;
-   top: 3%;
+   float: right;
+   width: 40%;
+   margin-top: 1.5%;
 }
 #mainlinklist p{
    margin-top: 0pt;
-   margin-bottom: 0.9em;
+   margin-bottom: 1.1em;
    text-indent: 0px;
    font-size: 2.4em;
 }
@@ -325,27 +346,33 @@ a.lnl:hover{
    text-indent: 0px;
    font-size: 1.7em;
 }
-#littlelinklist p.thisone{
-   font-size: 2.4em;
-   margin-bottom: 0.7em;
+#mainlinklist p.thisone a:link{
+   color: #F5EB08;
+}
+#mainlinklist p.thisone a:visited{
+   color: #F5EB08;
 }
 #littlelinklist a:hover{
    background: #006;
 }
 #mainarray {
-   position: absolute;
-   left: 42%;
-   top: 4%;
+   /* position: absolute; */
+   /* left: 42%; */
+   /* top: 4%; */
+   /* float: left; */
    width: 15%;
+   margin-left: 42%;
 }
 #mainarray img{
+   float: left;
    width: 100%;
    margin-bottom: 10%;
    margin-right: 15.3%;
 }
 
 #frontlatest{
-   position: relative;
+   /* position: relative; */
+   float: left;
    margin-left: 2.2%;
    margin-top: 22%;
    width: 36%;
@@ -425,8 +452,6 @@ a.lnl:hover{
    margin-left: 0.7em;
    font-style: oblique;
 }
-.creditcredit{
-}
 .hugepicture .caption{
    color: #666;
    margin-left: 5em;
@@ -448,6 +473,17 @@ display: inline;
 div.authorlist-article + p {
    text-indent: 0em;
 }
+.sitenewsitem {
+text-indent: 0em; margin-top: 1em; margin-bottom: 1em;
+line-height: 1.2em;
+font-family: "Noticia Text", serif;
+font-size: 0.85em;
+}
+.newsdate {color: #DF88F5; font-weight: normal;}
+.headlinesummary{
+  color: white; 
+}
+
 div.title-article + p {
    text-indent: 0em;
 }
@@ -600,14 +636,9 @@ span.fnclicked span.fntext span.fntext{
    content: " — "
    }
 .title-article {
-	text-align: center;
-	color: #369;
-    font-size: 150%;
-	margin-top: 0ex;
-	margin-bottom: 1.5em;
-        clear: both;
-    text-shadow: 0px 1px 0px #fff;
     line-height: 1.1em;
+    color: #fff; font-size: 1.8em; font-weight: normal; text-align: left;
+    margin-bottom: 1em;
 }
 h1
 {
@@ -773,11 +804,6 @@ html, body{
    top: auto;
    margin-top: 1em;
    width: 100%;
-}
-#littlelinklist p.thisone{
-   font-size: 2.0em;
-   font-weight: bold;
-   margin-bottom: 0.5em;
 }
 #mainlinklist p, #littlelinklist p{
    font-size: 1.7em;

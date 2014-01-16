@@ -1,15 +1,29 @@
 {% extends "apdirposts/page.html" %}
-{% block title %}Main Articles{% endblock %}
+{% block title %}Articles and Things{% endblock %}
+   {% block ulate %}
+      {% ssi /home/lee/www/arlplanet/astronews.html %}
+   {% endblock %}
 {% block pagecontent %}
    <div class = "postcontent" id = "target">
    <div class = "articlelist">
-   {% for post in p %}
-   <p><a href = "/post/{{ post.id }}#target" class = "lnl">{{ post.title }}</a> 
-      {% if post.byline %}
-      <span class="byline">by {{ post.byline }}</span>
-      {% endif %}
-      </p>
-   {% endfor %}
+      {% for post in p %}
+         <a href = "/post/{{ post.id }}" class = "lnl">
+         {% if post.illustrations %}
+            {% for illustration in post.illustrations.all %}
+               {% if forloop.first %}
+               <div class = "listimage">
+                  <img src="{{ illustration.pic.url }}" />
+               </div>
+               {% endif %}
+            {% endfor %}
+         {% endif %}
+         <p>{{ post.title }}</a> 
+         {% if post.byline %}
+            <span class="byline">by {{ post.byline }}</span></p>
+         {% endif %}
+         <div class="floatbuster">&nbsp;</div>
+      {% endfor %}
    </div>
-   </div>
+   <p><a href="/starchart/">Star chart for Arlington</a></p>
+</div>
 {% endblock %}

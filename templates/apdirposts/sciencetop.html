@@ -5,12 +5,24 @@
    <div class = "articlelist">
       <h2>Science Articles:</h2>
       {% for post in p %}
-      <p><a href = "/post/{{ post.id }}" class = "lnl">{{ post.title }}</a> <span class="byline">by {{ post.byline }}</span></p>
+         <a href = "/post/{{ post.id }}" class = "lnl">
+         {% if post.illustrations %}
+            {% for illustration in post.illustrations.all %}
+               {% if forloop.first %}
+               <div class = "listimage">
+                  <img src="{{ illustration.pic.url }}" />
+               </div>
+               {% endif %}
+            {% endfor %}
+         {% endif %}
+         <p>{{ post.title }}</a> 
+         <span class="byline">by {{ post.byline }}</span></p>
+         <div class="floatbuster">&nbsp;</div>
       {% endfor %}
    </div>
    <p><a href="/starchart/">Star chart for Arlington</a></p>
    <div class = "astronews">
-   <iframe style="margin-left:7px;margin-top: 2em;background-color: rgba(154, 160, 187, 0.8); display:inline-block; vertical-align:top;" width="450" height="725" src="http://lee-phillips.org/arlplanet/astronews.html"></iframe>
+      {% ssi /home/lee/www/arlplanet/astronews.html %}
    </div>
 </div>
 {% endblock %}
