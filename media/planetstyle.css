@@ -267,6 +267,15 @@ p.postlist a:hover{
    margin-bottom: 0.2em;
    color: #ddd;
 }
+.articlelist a:visited{
+   background: none;
+}
+.articlelist a:link{
+   background: none;
+}
+/* .articlelist a:hover{ */
+/*    background: #006; */
+/* } */
 .mainbanner{
    width: 43%;
    position: absolute;
@@ -317,6 +326,7 @@ a.lnl:hover{
    float: right;
    width: 40%;
    margin-top: 1.5%;
+   margin-right: 0.2em;
 }
 #mainlinklist p{
    margin-top: 0pt;
@@ -334,6 +344,12 @@ a.lnl:hover{
    /* background-image: url("http://embrogl.io/apmedia/hovershop.jpg"); */
    background-image: url("hovershop.png");
    background-repeat: no-repeat;
+}
+.sitenewsitem a:visited{
+   color: #F38C90;
+}
+.sitenewsitem a:link{
+   color: #F38C90;
 }
 #littlelinklist{
    position: absolute;
