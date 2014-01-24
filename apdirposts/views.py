@@ -197,7 +197,7 @@ def starchart(request):
 
 def movies(request):
    return render(request, 'apdirposts/movies.html',
-                 {'aboutone': 'thisone',
+                 {'moviesone': 'thisone',
                   'latest': latest()}
                 )
 

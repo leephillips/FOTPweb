@@ -4,11 +4,12 @@
       <img src = "{{ MEDIA_URL }}dots.png" alt = " " />
    </div>
    <div id = "mainlinklist" class = "ll">
-   <p class = "{{ eventone }}"><a href="/event">Events &amp; Shows</a></p>
-   <p class = "{{ joinone }}"><a href="/join">Join, Donate, Subscribe</a></p>
-   <p class = "{{ mainarticleone }}"><a href="/post">Articles &amp; Things</a></p>
-   <p class = "{{ inthenewsone }}"><a href="/notice">In the News</a></p>
-   <p class = "{{ aboutone }}"><a href="/about">About the Planetarium</a></p>
+   <p><a class = "{{ eventone }}" href="/event">Events &amp; Shows</a></p>
+   <p><a class = "{{ joinone }}" href="/join">Join, Donate, Subscribe</a></p>
+   <p><a class = "{{ mainarticleone }}" href="/post">Articles &amp; Things</a></p>
+   <p><a class = "{{ inthenewsone }}" href="/notice">In the News</a>
+               ● <a class = "{{ moviesone }}" href="/movies">Movies</a></p>
+   <p><a class = "{{ aboutone }}" href="/about">About the Planetarium</a></p>
    <div id = "shoplinkdiv"><a href="http://www.cafepress.com/friendsarlplanetarium/8533104"><div id = "shoplink"><p>Shop</p></div><div id = "shopitem"><img alt = "mugshot" width = "80" src="{{ MEDIA_URL }}mugforsale.png" /></div></a></div>
       <div id = "pagelatest">
          {% if latest %}
