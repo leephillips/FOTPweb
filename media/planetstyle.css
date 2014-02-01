@@ -1,7 +1,9 @@
 html {
   height: 100%;
+  font-size: 100%;
 }
 body {
+  font-size: 100%;
   margin-left: 0%;
   margin-top: 0%;
   width: 100%;
@@ -24,7 +26,7 @@ body {
 }
 .articlelist p{
    display: inline-block;
-   font-size: 1.4em;
+   font-size: 1.2em;
    margin-top: 0.5em;
    margin-bottom: 0em;
    width: 70%;
@@ -47,7 +49,7 @@ img {
    position: relative;
    height: 4%;
    margin-top: 12%;
-   font-size: 0.8em;
+   font-size: 0.75em;
    background: rgba(45, 40, 70, 0.65);
    padding: 0.7em;
    padding-left: 2.3%;
@@ -179,9 +181,10 @@ div.eventlist span.eventlisttitle{
          /* display: block; */
       }
       div.plannav {
+        font-size: 1.0rem;
+        line-height: 1.1em;
         border: solid 0.5mm #ddd;
         margin-bottom: 1em;
-        line-height: 1.4em;
         display: table;
       }
       div.plannav div{
@@ -213,10 +216,9 @@ div.eventlist span.eventlisttitle{
    margin-top: 1.5em;
 }
 p.postlist{
-   font-size: 1.4em;
    text-indent: 0em;
-   font-family: "Helvetica", sans-serif;
    margin-top: 1.5em;
+   line-height: 1.1em;
 }
 p.postlist a:link{
    color: #ddd;
@@ -232,7 +234,7 @@ p.postlist a:hover{
  }
  .address {
     font-family: monospace;
-    font-size: 1.7em; /*to compensate for default small monospace*/
+    font-size: 1.2em; /*to compensate for default small monospace*/
  }
  .face{
     width: 33%;
@@ -241,15 +243,25 @@ p.postlist a:hover{
  }
 .postcontent{
    float: left;
-   font-family: "Noticia Text", serif;
+   font-family: Alegreya, serif;
+   line-height: 1.5em;
+   font-size: 1.4em;
    width: 50%;
    margin-top: 0%;
    padding-top: 22%;
    margin-left: 2.2%;
    margin-bottom: 2.5em;
    color: #ddd;
-   line-height: 1.8em;
    min-height: 800px;
+}
+abbr {
+  cursor: pointer;
+  text-transform: lowercase;
+  font-family: "Alegreya SC", serif;
+}
+.smallcaps {
+  text-transform: lowercase;
+  font-family: "Alegreya SC", serif;
 }
 .postcontent blockquote{
    line-height: 1.3em;
@@ -260,11 +272,6 @@ p.postlist a:hover{
 }
 .postcontent a:visited{
    background: #336;
-   color: #ddd;
-}
-.postcontent h2{
-   margin-top: 1em;
-   margin-bottom: 0.2em;
    color: #ddd;
 }
 .articlelist a:visited{
@@ -297,6 +304,7 @@ p.postlist a:hover{
 }
 .byline {
    font-family: "Helvetica", sans-serif;
+   font-size: 0.85em;
    margin-bottom: 1.5em;
 }
 .ll{
@@ -438,9 +446,6 @@ a.lnl:hover{
 }
 .invisible {
     display: none;
-}
-.smallcaps {
-    font-variant: small-caps;
 }
 .eventgrouptitle{
    color: #a66;
@@ -658,32 +663,33 @@ span.fnclicked span.fntext span.fntext{
 }
 h1
 {
-   color: #fff;
-   line-height: 1.1em;
+   text-transform: uppercase;
+   line-height: 0.8em;
    text-align: left;
    font-weight: normal;
-   font-size: 130%;
-        margin-right: 40%;
-	margin-top: 1em;
-	margin-bottom: 1em;
-	margin-left: 0cm;
+   font-size: 1.4em;
+   font-weight: normal;
+   margin-top: 1em;
+   margin-bottom: 0.2em;
 }
 h2{
-    line-height: 1.1em;
-    color: #fff; font-size: 1.8em; font-weight: normal; text-align: left;
-    /* font-family: "Helvetica", sans-serif; */
-    /* text-transform: uppercase; */
- }
-    
+   text-transform: uppercase;
+   line-height: 0.8em;
+   font-size: 1.2em;
+   margin-top: 1em;
+   margin-bottom: 0.2em;
+   font-weight: normal;
+}
 h3 {
-    color: #fff;
-    font-family: "Helvetica", sans-serif;
+    font-family: Baumans, sans-serif;
     text-align: left;
     line-height: 1.1em;
     font-weight: normal;
     margin-top: 1em;
     margin-bottom: 1.0em;
-    font-size: 1.4em;
+    font-size: 1.0em;
+    border-top: solid #c35 0.5mm;
+    padding-top: 0.7em;
     }
     
 
