@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response, render, get_object_or_404
 from models import Director, Post, Illustration, Notice, Event
 from datetime import datetime, timedelta
@@ -105,7 +105,10 @@ def picparse(s, pics):
                             for pic in pk[1:]])
 
 def post(request, which):
-   p = get_object_or_404(Post, id = which)
+   try:
+      p = get_object_or_404(Post, id = which)
+   except:
+      raise Http404
    r = Event.objects.filter(rpost = p).order_by('on')
    category = p.category.postcategory
    categoryclass = ['mainarticleone', 'cornerone', 'scienceone'][
@@ -133,7 +136,10 @@ def post(request, which):
       return HttpResponseRedirect("/")
 
 def event(request, which):
-   p = get_object_or_404(Event, id = which)
+   try:
+      p = get_object_or_404(Event, id = which)
+   except:
+      raise Http404
    p = Event.objects.get(id = which)
    if p.publish:
       pics = Illustration.objects.filter(event=which)
@@ -155,7 +161,10 @@ def event(request, which):
       return HttpResponseRedirect("/")
                  
 def notice(request, which):
-   p = get_object_or_404(Notice, id = which)
+   try:
+      p = get_object_or_404(Notice, id = which)
+   except:
+      raise Http404
    pics = Illustration.objects.filter(notice=which)
    if len(pics) > 0:
       content = picparse(p.content, pics)
