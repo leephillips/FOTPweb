@@ -10,6 +10,13 @@ body {
   background-image: url(tbg2.png), url(tbg1.png);
   background-size: 35% 35%, 30% 30%;
 }
+#social a{
+ color: #999;
+ font-size: 0.45em;
+}
+#social img{
+  width: 0.8em;
+}
 .floatbuster{
    clear:both;
 }
