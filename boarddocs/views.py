@@ -23,6 +23,11 @@ def start(request):
    return render(request, 'boarddocs/start.html', {'p': n, })
 
 @loginrequired
+def todo(request):
+   n = Annualreport.objects.all()
+   return render(request, 'todo/base.html', {'p': n, })
+
+@loginrequired
 def directory(request):
    n = Director.objects.all().order_by("formalname")
    return render(request, 'boarddocs/directory.html', {'p': n, })
