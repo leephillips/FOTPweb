@@ -1,9 +1,8 @@
 from django.conf.urls import patterns, include, url
-
 from django.contrib import admin
-admin.autodiscover()
 
 urlpatterns = patterns('',
+     (r'^admin/', include(admin.site.urls)),
      (r'^admin/start/$', 'ap.boarddocs.views.start'), 
      (r'^admin/todo/$', 'ap.boarddocs.views.todo'), 
      (r'^admin/directory/$', 'ap.boarddocs.views.directory'), 
@@ -16,7 +15,6 @@ urlpatterns = patterns('',
      (r'^admin/otherfiles/$', 'ap.boarddocs.views.otherfilestop'), 
      (r'^admin/pictures/$', 'ap.boarddocs.views.gallery'), 
      (r'^todo/', include('todo.urls')),
-     url(r'^admin/', include(admin.site.urls)),
      (r'^bio/(.*)/$', 'ap.apdirposts.views.bio'),
      (r'^post/(.*)/$', 'ap.apdirposts.views.post'),
      (r'^event/(.*)/$', 'ap.apdirposts.views.event'),
