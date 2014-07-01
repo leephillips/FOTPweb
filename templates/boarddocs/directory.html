@@ -16,7 +16,7 @@
             {{ post.bio|safe }}
          </div>
          {% if post.face %}
-            <img class = "directoryface" src = "{{ SECURE_MEDIA_URL}}{{ post.face }}" alt = "" />
+            <img class = "directoryface" src = "/static/faces/{{ post.face }}" alt = "" />
          {% endif %}
          <p>
             {% if post.bio or post.notes %}

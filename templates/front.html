@@ -14,7 +14,7 @@
 <p><a href="/notice">In the News</a> ● <a href="/movies">Movies</a></p>
 <p><a href="/about">About the Planetarium</a></p>
 
-<div id = "shoplinkdiv"><a href="http://www.cafepress.com/friendsarlplanetarium/8533104"><div id = "shoplink"><p>Shop</p></div><div id = "shopitem"><img alt = "mugshot" width = "80" src="{{ MEDIA_URL }}mugforsale.png" /></div></a></div>
+<div id = "shoplinkdiv"><a href="http://www.cafepress.com/friendsarlplanetarium/8533104"><div id = "shoplink"><p>Shop</p></div><div id = "shopitem"><img alt = "mugshot" width = "80" src="/static/mugforsale.png" /></div></a></div>
 
 <script>
   (function() {
@@ -31,16 +31,15 @@
 <div class="gcse-search"></div>
 
 <div id = "social">
-<p><a href="http://facebook.com/friendsoftheplanetarium"><img src = "{{ MEDIA_URL }}fb.png" alt="" />acebook</a>&nbsp;
-<a href="http://twitter.com/FrnzPlanetarium"><img src = "{{ MEDIA_URL }}twit.png" alt="" />witter</a>&nbsp;
-<a href="http://instagram.com/FrnzPlanetarium"><img src = "{{ MEDIA_URL }}insta.png" alt="" />Instagram</a></p>
+<p><a href="http://facebook.com/friendsoftheplanetarium"><img src = "/static/fb.png" alt="" />acebook</a>&nbsp;
+<a href="http://twitter.com/FrnzPlanetarium"><img src = "/static/twit.png" alt="" />witter</a>&nbsp;
+<a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/insta.png" alt="" />Instagram</a></p>
 </div>
 </div>
 <div id = "mainarray">
    <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "http://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon" /></a>
-   <a href = "/starchart"><img src = "{{ MEDIA_URL }}azgt.png" alt="Star Chart" title = "Star Chart" /></a>
-   <a href="http://cleardarksky.com/c/USNOkey.html?1"><img src = "{{ MEDIA_URL }}csc.png" alt="Observing Conditions" title = "Observing Conditions" /></a>
-   <!--<a href="http://www.isoncampaign.org/"><img style = "height:160px;" src = "{{ MEDIA_URL }}cometison.png" alt="Comet ISON" title = "NASA Comet ISON Observing Campaign" /></a>-->
+   <a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a>
+   <a href="http://cleardarksky.com/c/USNOkey.html?1"><img src = "/static/csc.png" alt="Observing Conditions" title = "Observing Conditions" /></a>
    <a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "http://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
 </div>
 {% endblock %}
