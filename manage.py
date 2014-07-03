@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+sys.path.append('/home/lee/')
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ap.settings")
