@@ -1,16 +1,37 @@
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response, render, get_object_or_404
-from models import Director, Post, Illustration, Notice, Event
+from django.views.decorators.clickjacking import xframe_options_exempt
+from models import Director, Post, Illustration, Notice, Event, Smile, CommunityEvent
 from datetime import datetime, timedelta
 import re
 
+now = datetime.now # to be called in views to get the fresh now
 today = datetime.now()
 RECENT = today - timedelta(days = 180)
 SOON   = today + timedelta(days = 60)
+REALSOON  = today + timedelta(days = 4)
 # mm = Post.objects.get(id = 6)
 # mm.pub_date = datetime.datetime(2013, 8, 1, 13, 13, 13)
 # mm.save()
+
+def thermo000888(request):
+   today = now()
+   latestentries = latest()
+   smiled = request.session.get('smiled')
+   rsevents = Event.objects.filter(on__range = (today, REALSOON)).exclude(
+                                       publish = False).count()
+   return render(request, 'front-thermo.html', locals())
+
+def smile(request):
+  now = datetime.now()
+  smiled = request.session.get('smiled')
+  if not smiled:
+    request.session['smiled'] = str(now)
+    Smile(click_date = now, session_id = str(now)).save() 
+  return HttpResponseRedirect("http://smile.amazon.com/ch/27-2760025")
+
 def latest(exclude = None):
+   today = now()
    try:
       xid = int(exclude)
    except:
@@ -135,6 +156,25 @@ def post(request, which):
    else:
       return HttpResponseRedirect("/")
 
+def community_event(request, which):
+   try:
+      p = get_object_or_404(CommunityEvent, id = which)
+   except:
+      raise Http404
+   p = CommunityEvent.objects.get(id = which)
+   if p.publish:
+      pics = Illustration.objects.filter(event=which)
+      if len(pics) > 0:
+         content = picparse(p.content, pics)
+      else:
+         content = p.content
+      return render(request, 'apdirposts/community_event.html',
+                                {'content': content,
+                                 'on': p.on,
+                                 'title': p.title})
+   else:
+      return HttpResponseRedirect("/")
+
 def event(request, which):
    try:
       p = get_object_or_404(Event, id = which)
@@ -147,7 +187,7 @@ def event(request, which):
          content = picparse(p.content, pics)
       else:
          content = p.content
-      doors = p.on - timedelta(minutes = 15)
+      doors = p.on - timedelta(minutes = 30)
       return render(request, 'apdirposts/event.html',
                                 {'content': content,
                                  'latest': latest(which),
@@ -187,7 +227,9 @@ def website(request):
 def join(request):
    return render(request, 'apdirposts/join.html',
                  {'joinone': 'thisone',
-                  'latest': latest()}
+                  'latest': latest(),
+                  'smiled': request.session.get('smiled')
+                 }
                 )
 
 def about(request):
@@ -217,11 +259,15 @@ def donate(request):
                 )
 
 def eventtop(request):
+   today = now()
    return render(request, 'apdirposts/eventtop.html', 
                  {'p': Event.objects.filter(on__gte = today).order_by('on').exclude(
                   publish = False),
                   'latest': latest('events'),
                   'eventone': 'thisone',
+                  'community_events': CommunityEvent.objects.filter(
+                             on__gte = today).order_by('on').exclude(publish = False),
+
                  })
 
 def noticetop(request):
@@ -256,7 +302,18 @@ def posttop(request):
                  })
 
 def front(request):
-   return render(request, 'front.html',
-                {'latest': latest()})
+   today = now()
+   latestentries = latest()
+   smiled = request.session.get('smiled')
+   rsevents = Event.objects.filter(on__range = (today, REALSOON)).exclude(
+                                       publish = False).count()
+   return render(request, 'front.html', locals())
+
+@xframe_options_exempt
+def aps_banner(request):
+   today = now()
+   rsevents = Event.objects.filter(on__range = (today, REALSOON)).exclude(
+                                       publish = False)
+   return render(request, 'aps_banner.html', locals())
 
 

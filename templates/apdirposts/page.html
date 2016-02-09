@@ -6,8 +6,8 @@
    <div id = "mainlinklist" class = "ll">
    <p><a class = "{{ eventone }}" href="/event">Events &amp; Shows</a></p>
    <p><a class = "{{ joinone }}" href="/join">Join, Donate, Subscribe</a></p>
-   <p><a class = "{{ mainarticleone }}" href="/post">Articles &amp; Things</a></p>
-   <p><a class = "{{ inthenewsone }}" href="/notice">In the News</a>
+   <p><a class = "{{ mainarticleone }}" href="/post">Articles &amp; News</a></p>
+   <p><a class = "{{ inthenewsone }}" href="/notice">Press</a>
                ● <a class = "{{ moviesone }}" href="/movies">Movies</a></p>
    <p><a class = "{{ aboutone }}" href="/about">About the Planetarium</a></p>
    <div id = "shoplinkdiv"><a href="http://www.cafepress.com/friendsarlplanetarium/8533104"><div id = "shoplink"><p>Shop</p></div><div id = "shopitem"><img alt = "mugshot" width = "80" src="{{ STATIC_URL }}mugforsale.png" /></div></a></div>
@@ -16,7 +16,7 @@
             <h2>Other Recent Items:</h2>
          {% endif %}
          {% for p in latest %}
-            <p> <a href = "/{{ p.0 }}/{{ p.1.id }}#target">{{ p.1.title }}</a></p>
+            <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
          {% endfor %}
       </div>
       <div id = "ulate">

@@ -7,8 +7,9 @@
        <h3>Members Receive:</h3>
        <ul>
 <li>Friends of the Planetarium e-newsletter (approximately monthly)
-<li>Reduced admission fees and advance notification of Friends-sponsored events including new planetarium shows, schedules, and science programs
-<li>Invitation to members-only events
+<li>Advance notification of Friends-sponsored events including new planetarium shows, schedules, and science programs
+<li>FREE members-only show in December
+<li>FREE tickets and new Friends’ window clings for all members!</li>
 <li>Voting rights at the annual meeting
 <li>Friends of the Planetarium is a 501(c)(3) non-profit organization, so all membership dues are 100% tax deductible  
       </ul>
@@ -36,7 +37,6 @@
 <b>Check</b>: Send a check to the Friends of the Planetarium, P.O. Box 7029, Arlington, VA 22207. Please include a copy of the completed <a href = "{{ STATIC_URL }}FOP-Application-for-Membership.pdf">membership application form</a>. 
 <h3>Types of Membership:</h3>
 <ul>
-<li>Student ($10/year): good for one student
 <li>Individual ($15/year): good for one person
 <li>Family ($25/year): covers all household family members
 <li>Sponsor ($50/year): a higher level of tax-deductible donation as well as individual or family membership
@@ -48,7 +48,7 @@ All membership dues allow the purchase of new digital programming for community 
 </p>
 <h3>How Long Does Membership Last?</h3>
 <p>
-The membership year has been set to coincide with the academic school year calendar.  Our membership drive kicks off in September of each year, and the membership period runs from September 1 to September 30 of the following year. 
+The membership year has been set to coincide with the academic school year calendar.  Our membership drive kicks off in September of each year, and the membership period runs from October 1 to September 30 of the following year. 
 </p><p>
 Memberships can begin at any time during the year, and expire on the next September 30th.  Since summer months can be a bit uneventful, if you become a member between June 30 and September 30, your membership will be extended through the next membership year.  
 </p>
@@ -69,4 +69,9 @@ Memberships can begin at any time during the year, and expire on the next Septem
               <input size = "20" id="emailAddr" name="emailAddr" type="text" value="" maxlength="80" />
               <input name="_save" type="image" src="https://www.paypal.com/en_US/i/btn/btn_subscribe_LG.gif" alt = "Click to subscribe" />
         </form>
+        <div class = "newsletterform rhform"><p>Support the Planetarium every time you buy from Amazon, at no cost to you:</p><a href="/smile/"><img alt="Amazon Smile" src="/static/smile.png" /></a>
+     {% if smiled %}
+        <p class = "tinynote">Thanks! ☺</p>
+     {% endif %}
+        </div>
 {% endblock %}

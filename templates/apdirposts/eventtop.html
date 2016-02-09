@@ -2,8 +2,9 @@
 {% block title %}Upcoming Events{% endblock %}
 {% block pagecontent %}
    <div class = "postcontent" id = "target">
-      <h2>Future Events</h2>
-      <p style = "font-weight:bold;"><a href="http://friendsoftheplanetarium.org/post/12/">See an overview</a> of the Friends’ weekends for the entire season.</p>
+      <h1>Upcoming Events</h1>
+      <h2>In the Planetarium</h2>
+      <p style = "font-weight:bold;"><a href="http://friendsoftheplanetarium.org/post/58/">See an overview</a> of the Friends’ weekends for the entire season.</p>
       {% regroup p by rpost as rp %}
       {% for r in rp %}
          {% if r.grouper %}
@@ -21,6 +22,11 @@
                {% endfor %}
          {% endif %}
       {% endfor %}
+      <h2>In the Community</h2>
+        {% for e in community_events %}
+          <h3 class = "eventgrouptitle"><a href = '/community_event/{{e.id}}'>{{e.title}}</a>:
+           <span class = "eventdate">{{ e.on }}</span></h3>
+        {% endfor %}
       <h2>APS Programming</h2>
       <p>
 The Arlington Planetarium is open for public multimedia programs on
@@ -35,7 +41,14 @@ Additionally, <i>Stars Tonight</i>, a live sky show under the dome, highlighting
 the celestial sights of the coming month, is offered the first Monday of
 each school month at 7:30 PM (moved to second Monday during holidays).</p> 
 <p>
-For these regularly scheduled weekend shows, simply come to the Planetarium 15-20 minutes before the start of the show.  Seating is first come, first served, and no advance reservations are necessary.  There is an admission charge of $3 for ages from 12 to 60, $2 otherwise, cash only. Sky theater has a 58 seat capacity; once this is reached, the doors will be closed.
+For these regularly scheduled weekend shows, simply come to the Planetarium 15-20 minutes before the start of the show.  Seating is first come, first served, and no advance reservations are necessary.  There is an admission charge of $5 for ages from 13 to 59, $3 otherwise, cash only. Sky theater has a 58 seat capacity; once this is reached, the doors will be closed.
 </p>
+<h2>Planetarium Calendar</h2>
+<p>Here is a Google calendar containing all shows and events at the Arlington Planetarium,
+including regularly scheduled APS events as well as Friends weekends.
+If you use Google Calendars, you can <a href = 'https://www.google.com/calendar/embed?src=u2k0tc9r2o3vt4s495itgnrol4%40group.calendar.google.com&ctz=America/New_York'>subscribe</a>
+to this calendar. Or, you can <a href = '/static/ArlingtonPlanetarium.ics'>download the ICS file</a>
+for importation into almost any calendaring system.</p>
+<iframe src="https://www.google.com/calendar/embed?src=u2k0tc9r2o3vt4s495itgnrol4%40group.calendar.google.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
    </div>
 {% endblock %}

@@ -1,5 +1,5 @@
 from models import Post
-from models import Director, Illustration, Postcategory, Event, Notice
+from models import Director, Illustration, Postcategory, Event, Notice, CommunityEvent
 from django.contrib import admin
 from django.db import models
 from django.forms import ModelForm, CharField, TextInput
@@ -44,7 +44,17 @@ class NoticeAdmin(admin.ModelAdmin):
         return super(PostAdmin, self).formfield_for_foreignkey(
                      db_field, request, **kwargs)
 
-
+class CommunityEventAdmin(PostAdmin): 
+    list_display = ('title', 'publish', 'on') 
+    list_display_links = ('title',)
+    # def formfield_for_dbfield(self, field, **kwargs):
+    #    if field.name == "author":
+    #       byline = Director.objects.get(user=self.current_user).nameinbyline
+    #       return CharField(initial = byline,
+    #                        max_length = 500,
+    #                        widget=TextInput(attrs={'size':'40'}))
+    #    return super(CommunityEventAdmin, self).formfield_for_dbfield(field, **kwargs)
+     
 class EventAdmin(PostAdmin):
     list_display = ('title', 'publish', 'on', 'ebcode')
     list_display_links = ('title',)
@@ -85,5 +95,6 @@ admin.site.register(Illustration)
 admin.site.register(Postcategory)
 admin.site.register(Notice, NoticeAdmin)
 admin.site.register(Event, EventAdmin)
+admin.site.register(CommunityEvent, CommunityEventAdmin)
 
 

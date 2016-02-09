@@ -2,16 +2,26 @@
 {% block title %}The Friends of Arlington’s Planetarium{% endblock %}
 {% block body %}
 <div id = "frontlatest">
+      <div class="upcoming">
+        <p>This weekend: 
+       <!-- <a href='/post/67/'>A Friends of the Planetarium Special Weekend:-->
+       <!--“All About Time” </a>-->
+       <!--  (reservations recommended).-->
+        <!--<a href='http://www.apsva.us/Page/2706'> Season of Light.</a>-->
+        <a href='http://www.apsva.us/Page/2706'>Arlington Public Schools programming.</a>
+      <!--</p>-->
+      </div>
+    
          <h2>Recent Items:</h2>
-   {% for p in latest %}
-      <p> <a href = "/{{ p.0 }}/{{ p.1.id }}#target">{{ p.1.title }}</a></p>
+   {% for p in latestentries %}
+      <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
    {% endfor %}
 </div>
 <div id = "mainlinklist" class = "ll">
 <p><a href="/event">Events &amp; Shows</a></p>
 <p><a href="/join">Join, Donate, Subscribe</a></p>
-<p><a href="/post">Articles &amp; Things</a></p>
-<p><a href="/notice">In the News</a> ● <a href="/movies">Movies</a></p>
+<p><a href="/post">Articles &amp; News</a></p>
+<p><a href="/notice">Press</a> ● <a href="/movies">Movies</a></p>
 <p><a href="/about">About the Planetarium</a></p>
 
 <div id = "shoplinkdiv"><a href="http://www.cafepress.com/friendsarlplanetarium/8533104"><div id = "shoplink"><p>Shop</p></div><div id = "shopitem"><img alt = "mugshot" width = "80" src="/static/mugforsale.png" /></div></a></div>
@@ -35,11 +45,18 @@
 <a href="http://twitter.com/FrnzPlanetarium"><img src = "/static/twit.png" alt="" />witter</a>&nbsp;
 <a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/insta.png" alt="" />Instagram</a></p>
 </div>
+
+{% if not smiled %}
+  <div class = "newsletterform rhform">
+  <p class="normal_font_size">Support the Planetarium every time you buy from Amazon, at no cost to you:</p><a href="/smile/"><img alt="Amazon Smile" src="/static/smile.png" /></a>
+{% endif %}
+</div>
 </div>
 <div id = "mainarray">
    <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "http://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon" /></a>
-   <a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a>
-   <a href="http://cleardarksky.com/c/USNOkey.html?1"><img src = "/static/csc.png" alt="Observing Conditions" title = "Observing Conditions" /></a>
-   <a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "http://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
+   <img src = '/static/xmas-red.png' alt = 'merry' style = 'width:80%; margin-left:10%;' />
+   <a href = "http://www.nasa.gov/image-feature/psychedelic-pluto">
+     <img src = '/static/pschopluto.png' alt="Pluto" title = "“New Horizons scientists made this false color image of Pluto using a technique called principal component analysis to highlight the many subtle color differences between Pluto's distinct regions. The image data were collected by the spacecraft’s Ralph/MVIC color camera on July 14 at 11:11 AM UTC, from a range of 22,000 miles (35,000 kilometers). This image was presented by Will Grundy of the New Horizons’ surface composition team on Nov. 9 at the Division for Planetary Sciences (DPS) meeting of the American Astronomical Society (AAS) in National Harbor, Maryland.”" /></a>
+   <img src = '/static/xmas-blue.png' alt = 'merry' style = 'width:80%; margin-left:10%;' />
 </div>
 {% endblock %}

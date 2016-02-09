@@ -48,6 +48,17 @@ class Post(models.Model):
    def __unicode__(self):
       return "%s, by %s" % (self.title, self.author)
 
+class CommunityEvent(models.Model):
+   author = models.ForeignKey(User)
+   title = models.CharField(max_length=200)
+   pub_date = models.DateTimeField('date published', blank = True, editable = False, null = True)
+   on = models.DateTimeField('When')
+   publish = models.BooleanField()
+   content = models.TextField(blank = True)
+   illustrations = models.ManyToManyField(Illustration, null = True, blank = True)
+   def __unicode__(self):
+     return self.title
+
 class Event(models.Model):
    author = models.ForeignKey(User)
    title = models.CharField(max_length=200)
@@ -71,6 +82,11 @@ class Notice(models.Model):
    content = models.TextField(blank = True)
    illustrations = models.ManyToManyField(Illustration, null = True, blank = True)
    
+class Smile(models.Model):
+  """Just to keep track of people clicking on the Amazon smile links."""
+  click_date = models.DateTimeField('date clicked', blank = True, null = True)
+  session_id = models.CharField(max_length=400, blank = True, null = True)
+
 # register a handler for the signal django.db.models.signals.post_save on the User model, and, in the handler, if created=True, create the associated user profile.
 
 def on_new_user(sender, created, instance, **kwargs):

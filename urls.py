@@ -1,5 +1,8 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from apdirposts.views import smile
+
+admin.autodiscover()
 
 urlpatterns = patterns('',
      (r'^admin/', include(admin.site.urls)),
@@ -15,9 +18,12 @@ urlpatterns = patterns('',
      (r'^admin/otherfiles/$', 'ap.boarddocs.views.otherfilestop'), 
      (r'^admin/pictures/$', 'ap.boarddocs.views.gallery'), 
      # (r'^todo/', include('todo.urls')),
+     (r'^smile/$', smile),
      (r'^bio/(.*)/$', 'ap.apdirposts.views.bio'),
+     (r'^thermo000888/$', 'ap.apdirposts.views.thermo000888'),
      (r'^post/(.*)/$', 'ap.apdirposts.views.post'),
      (r'^event/(.*)/$', 'ap.apdirposts.views.event'),
+     (r'^community_event/(.*)/$', 'ap.apdirposts.views.community_event'),
      (r'^join/$', 'ap.apdirposts.views.join'),
      (r'^donate/$', 'ap.apdirposts.views.donate'),
      (r'^about/$', 'ap.apdirposts.views.about'),
@@ -33,5 +39,6 @@ urlpatterns = patterns('',
      (r'^corner/$', 'ap.apdirposts.views.posttop'),
      (r'^science/$', 'ap.apdirposts.views.posttop'),
      (r'^website/$', 'ap.apdirposts.views.website'),
+     (r'^aps_banner/$', 'ap.apdirposts.views.aps_banner'),
      (r'^$', 'ap.apdirposts.views.front'),
 )
