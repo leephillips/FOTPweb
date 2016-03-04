@@ -4,21 +4,22 @@
 <title>2016 Science Fiction Festival</title>
 <style>
 @-webkit-keyframes animatedBackground {
-	from { background-position: 0 0; }
-	to { background-position:  100% 0; }
+	from { background-position: 0 0px; }
+	to { background-position: 0 3000px; }
 }
 
 @keyframes animatedBackground {
 	from { background-position: 0 0; }
-	to { background-position: 100% 0; }
+	to { background-position: 0 3000px; }
         }
 body{  color: #99f;
-  background-color: #222; 
-	background-image: url({{STATIC_URL}}head.png);
+  background-size: 900px, 3000px;
+  background-color: #000; 
+	background-image: url({{STATIC_URL}}sfbg.jpg);
 	background-position: 0px 50px;
-	background-repeat: no-repeat;
+	background-repeat: repeat;
 	animation: animatedBackground 40s linear infinite;
-	-webkit-animation: animatedBackground 10s linear infinite;
+	-webkit-animation: animatedBackground 40s linear infinite;
 }
 </style>
 </head>
