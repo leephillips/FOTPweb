@@ -224,6 +224,14 @@ def website(request):
                   'latest': latest()}
                 )
 
+def sf2016(request):
+   return render(request, 'apdirposts/sf2016.html',
+                 {'joinone': 'thisone',
+                  'latest': latest(),
+                  'smiled': request.session.get('smiled')
+                 }
+                )
+
 def join(request):
    return render(request, 'apdirposts/join.html',
                  {'joinone': 'thisone',
