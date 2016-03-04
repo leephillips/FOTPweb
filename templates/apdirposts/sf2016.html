@@ -3,6 +3,10 @@
 <link rel="image_src" href="{{ STATIC_URL }}hfbs.png" />
 <title>2016 Science Fiction Festival</title>
 <style>
+@font-face {
+  font-family: "Telegrama";
+  src: url(telegrama_render.otf) format("opentype");
+}
 @-webkit-keyframes animatedBackground {
 	from { background-position: 0 0px; }
 	to { background-position: 0 3000px; }
@@ -12,7 +16,9 @@
 	from { background-position: 0 0; }
 	to { background-position: 0 3000px; }
         }
-body{  color: #99f;
+body{  
+  font-family: "Telegrama", serif;
+  color: #7f9;
   background-size: 900px, 3000px;
   background-color: #000; 
 	background-image: url({{STATIC_URL}}sfbg.jpg);
@@ -25,7 +31,7 @@ body{  color: #99f;
 </head>
 <body >
    <div class = "mainbanner"><a href="/"><img src = "{{ STATIC_URL }}head.png" alt="" /></a></div>
-   <div style = "font-size: 4em;  position: absolute; left:45%; top: 23pt;">
+   <div style = "font-size: 3.5em;  position: absolute; left:45%; top: 11pt;">
    2016 Science Fiction Festival
    </div>
    <div class = "maintextbanner">Friends of Arlington’s Planetarium</div>
