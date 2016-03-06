@@ -21,6 +21,10 @@ class NewArticleForm(forms.Form):
 
 def newarticle(request):
    form = NewArticleForm()
+   if request.method == 'POST':
+     k = 1./0
+     with open("tinymcetestfile", 'w') as f:
+       f.write(request.POST.get('content'))
    return render(request, 'newarticle.html', locals())
 
 def thermo000888(request):
