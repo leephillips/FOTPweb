@@ -40,6 +40,8 @@ urlpatterns = patterns('',
      (r'^corner/$', 'ap.apdirposts.views.posttop'),
      (r'^science/$', 'ap.apdirposts.views.posttop'),
      (r'^website/$', 'ap.apdirposts.views.website'),
+     (r'^newarticle/$', 'ap.apdirposts.views.newarticle'),
      (r'^aps_banner/$', 'ap.apdirposts.views.aps_banner'),
+     (r'^tinymce/', include('tinymce.urls')),
      (r'^$', 'ap.apdirposts.views.front'),
 )

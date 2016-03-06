@@ -4,6 +4,8 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 from models import Director, Post, Illustration, Notice, Event, Smile, CommunityEvent
 from datetime import datetime, timedelta
 import re
+from django import forms
+from tinymce.widgets import TinyMCE
 
 now = datetime.now # to be called in views to get the fresh now
 today = datetime.now()
@@ -13,6 +15,13 @@ REALSOON  = today + timedelta(days = 4)
 # mm = Post.objects.get(id = 6)
 # mm.pub_date = datetime.datetime(2013, 8, 1, 13, 13, 13)
 # mm.save()
+
+class NewArticleForm(forms.Form):
+  content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
+
+def newarticle(request):
+   form = NewArticleForm()
+   return render(request, 'newarticle.html', locals())
 
 def thermo000888(request):
    today = now()
