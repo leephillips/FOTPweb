@@ -25,16 +25,19 @@ class NewArticleForm(forms.Form):
   publish = forms.BooleanField()
 
 @login_required
-def newarticle(request):
+def newarticle(request, pid = None):
    user = request.user
    existingposts = Post.objects.all().order_by('-pub_date')
-   form = NewArticleForm(initial = {'author': user.id})
+   if pid:
+     existingpost = Post.objects.get(id = pid)
+     form = NewArticleForm(initial = {'author': user.id, 'content': existingpost.content,
+                                      'byline': existingpost.byline, 'title': existingpost.title,
+                                      'publish': existingpost.publish})
+   else:
+     form = NewArticleForm(initial = {'author': user.id})
    if request.method == 'POST':
      with open("tinymcetestfile", 'w') as f:
        f.write(request.POST.get('content'))
-   elif request.method == 'GET':
-     if 'loadexisting' in request.GET:
-       form = NewArticleForm()
    return render(request, 'newarticle.html', locals())
 
 def thermo000888(request):

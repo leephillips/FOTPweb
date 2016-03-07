@@ -3,16 +3,39 @@
 <script type="text/javascript" src="/static/js/jquery-1.10.2.js">
 </script>
 {{form.media}}
+<style>
+  .na input, .na textarea {
+    margin-bottom: 1em;
+  }
+  .natitle input{
+    width: 60%;
+  }
+  .na button {
+    color: green;
+    font-size: 2em;
+    display: inline-block;
+  }
+  .na .publish {
+    width: 20%;
+    border: solid red 1mm;
+    padding: 2mm;
+    display: inline-block;
+  }
+</style>
 </head>
 
 <body style = "background: white; color: black;">
-  <form action = '/newarticle/' method = 'POST'>
+  <form class = 'na' action = '/newarticle/' method = 'POST'>
     {% csrf_token %}
-    {{form}}
+    <div class = 'natitle'>Title: {{form.title}}</div>
+    Byline: {{form.byline}}<br />
+    {{form.content}}<br />
     <button type = 'submit'>Save</button> 
+    <div class = 'publish'>Publish: {{form.publish}} If this is checked the article will appear immediately
+    on the public website when you click the Save button!</div>
   </form>
   <h2>Load an existing article for editing:</h2>
-  <div style = 'height: 300em; width = 100em; overflow = auto;'>
+  <div style = 'height: 30em; width: 60%; overflow: auto;'>
     {% for post in existingposts %}
        <a href = '/newarticle/{{post.id}}'><p>{{post.title}} by {{post.byline}}</p</a>
     {% endfor %}
