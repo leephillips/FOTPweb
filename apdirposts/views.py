@@ -18,7 +18,8 @@ REALSOON  = today + timedelta(days = 4)
 # mm.save()
 
 class NewArticleForm(forms.Form):
-  author = forms.CharField(max_length = '100')
+  byline = forms.CharField(max_length = '500')
+  author = forms.CharField(widget=forms.HiddenInput())
   title = forms.CharField(max_length = '300')
   content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
   publish = forms.BooleanField()
@@ -26,10 +27,14 @@ class NewArticleForm(forms.Form):
 @login_required
 def newarticle(request):
    user = request.user
-   form = NewArticleForm(initial = {'content': '<b>hi</b> there!', 'author': user.director.name})
+   existingposts = Post.objects.all().order_by('-pub_date')
+   form = NewArticleForm(initial = {'author': user.id})
    if request.method == 'POST':
      with open("tinymcetestfile", 'w') as f:
        f.write(request.POST.get('content'))
+   elif request.method == 'GET':
+     if 'loadexisting' in request.GET:
+       form = NewArticleForm()
    return render(request, 'newarticle.html', locals())
 
 def thermo000888(request):

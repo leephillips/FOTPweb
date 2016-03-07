@@ -1,0 +1,22 @@
+<!DOCTYPE HTML><html><head><meta content="text/html;charset=utf-8" http-equiv="Content-Type" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><link href="{{ STATIC_URL }}favicon_v4.png" rel="shortcut icon" type="image/png" /><link href="//fonts.googleapis.com/css?family=Alegreya:normal,italic,bold%7CAlegreya+SC:normal,italic,bold%7CBaumans" rel = "stylesheet" media = "all" type = "text/css" />
+<title>{% block title %}{% endblock %}</title>
+<script type="text/javascript" src="/static/js/jquery-1.10.2.js">
+</script>
+{{form.media}}
+</head>
+
+<body style = "background: white; color: black;">
+  <form action = '/newarticle/' method = 'POST'>
+    {% csrf_token %}
+    {{form}}
+    <button type = 'submit'>Save</button> 
+  </form>
+  <h2>Load an existing article for editing:</h2>
+  <div style = 'height: 300em; width = 100em; overflow = auto;'>
+    {% for post in existingposts %}
+       <a href = '/newarticle/{{post.id}}'><p>{{post.title}} by {{post.byline}}</p</a>
+    {% endfor %}
+
+  </div>
+</body>
+</html>
