@@ -5,6 +5,7 @@ from models import Director, Post, Illustration, Notice, Event, Smile, Community
 from datetime import datetime, timedelta
 import re
 from django import forms
+from django.contrib.auth.decorators import login_required, user_passes_test, permission_required
 from tinymce.widgets import TinyMCE
 
 now = datetime.now # to be called in views to get the fresh now
@@ -17,12 +18,16 @@ REALSOON  = today + timedelta(days = 4)
 # mm.save()
 
 class NewArticleForm(forms.Form):
+  author = forms.CharField(max_length = '100')
+  title = forms.CharField(max_length = '300')
   content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
+  publish = forms.BooleanField()
 
+@login_required
 def newarticle(request):
-   form = NewArticleForm()
+   user = request.user
+   form = NewArticleForm(initial = {'content': '<b>hi</b> there!', 'author': user.director.name})
    if request.method == 'POST':
-     k = 1./0
      with open("tinymcetestfile", 'w') as f:
        f.write(request.POST.get('content'))
    return render(request, 'newarticle.html', locals())
