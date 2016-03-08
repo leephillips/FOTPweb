@@ -21,6 +21,25 @@
     padding: 2mm;
     display: inline-block;
   }
+  .na .articleedit textarea {
+    float: left;
+    width: 60%;
+    height: 50em;
+  }
+  .na .illist {
+    width: 10%;
+    margin-right: 20%;
+    height: 50em;
+    overflow: auto;
+    float: right;
+  }
+  .na .illist img {
+    width: 100%;
+  }
+  .na .impbuttons {
+    clear: both;
+    margin-top: 1em;
+  }
 </style>
 </head>
 
@@ -29,10 +48,17 @@
     {% csrf_token %}
     <div class = 'natitle'>Title: {{form.title}}</div>
     Byline: {{form.byline}}<br />
-    {{form.content}}<br />
-    <button type = 'submit'>Save</button> 
-    <div class = 'publish'>Publish: {{form.publish}} If this is checked the article will appear immediately
-    on the public website when you click the Save button!</div>
+    <div class = 'illist'>
+      {% for illustration in illustrations %}
+        <img src="/static/{{ illustration.pic }}" /><br />
+      {% endfor %}
+    </div>
+    <div class = 'articleedit'>{{form.content}}</div>
+    <div class = 'impbuttons'>
+      <button type = 'submit'>Save</button> 
+      <div class = 'publish'>Publish: {{form.publish}} If this is checked the article will appear immediately
+      on the public website when you click the Save button!</div>
+    </div>
   </form>
   <h2>Load an existing article for editing:</h2>
   <div style = 'height: 30em; width: 60%; overflow: auto;'>

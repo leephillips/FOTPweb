@@ -28,13 +28,14 @@ class NewArticleForm(forms.Form):
 def newarticle(request, pid = None):
    user = request.user
    existingposts = Post.objects.all().order_by('-pub_date')
+   illustrations = Illustration.objects.all()
    if pid:
      existingpost = Post.objects.get(id = pid)
      form = NewArticleForm(initial = {'author': user.id, 'content': existingpost.content,
                                       'byline': existingpost.byline, 'title': existingpost.title,
                                       'publish': existingpost.publish})
    else:
-     form = NewArticleForm(initial = {'author': user.id})
+     form = NewArticleForm(initial = {'author': user.id, 'byline': user.director.name})
    if request.method == 'POST':
      with open("tinymcetestfile", 'w') as f:
        f.write(request.POST.get('content'))
