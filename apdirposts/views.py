@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response, render, get_object_or_404
 from django.views.decorators.clickjacking import xframe_options_exempt
-from models import Director, Post, Illustration, Notice, Event, Smile, CommunityEvent
+from models import Director, Post, Postcategory, Illustration, Notice, Event, Smile, CommunityEvent
 from datetime import datetime, timedelta
 import re
 from django import forms
@@ -24,19 +24,41 @@ class NewArticleForm(forms.Form):
   content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
   publish = forms.BooleanField()
 
+def inscap(s):
+  #s is the path of a image in our illustrations database
+  mim = Illustration.objects.filter(pic = s)
+  if len(mim) != 0:
+    return (mim[0].caption, mim[0].credit)
+
+def process_newarticle(s):
+  ire = re.sub('<img src="/static/(illustrations/.*?)" alt="" />', inscap, s)
+
 @login_required
 def newarticle(request, pid = None):
+   main = Postcategory.objects.filter(postcategory = 'main')[0]
    user = request.user
    existingposts = Post.objects.all().order_by('-pub_date')
    illustrations = Illustration.objects.all()
    if pid:
+     newone = False
      existingpost = Post.objects.get(id = pid)
      form = NewArticleForm(initial = {'author': user.id, 'content': existingpost.content,
                                       'byline': existingpost.byline, 'title': existingpost.title,
                                       'publish': existingpost.publish})
    else:
      form = NewArticleForm(initial = {'author': user.id, 'byline': user.director.name})
+     newone = True
    if request.method == 'POST':
+     if request.POST.get('publish') == 'on':
+       publish = True
+     else:
+       publish = False
+     if newone:
+       # kill = 1./0
+       newpost = Post(title = request.POST.get('title'), author = user, publish = publish,
+                      content = request.POST.get('content'), category = main,
+                      byline = request.POST.get('byline'))
+       newpost.save()
      with open("tinymcetestfile", 'w') as f:
        f.write(request.POST.get('content'))
    return render(request, 'newarticle.html', locals())
