@@ -24,12 +24,12 @@
   .na .articleedit textarea {
     float: left;
     width: 60%;
-    height: 50em;
+    height: 40em;
   }
   .na .illist {
     width: 10%;
     margin-right: 20%;
-    height: 50em;
+    height: 35em;
     overflow: auto;
     float: right;
   }
@@ -50,7 +50,7 @@
     Byline: {{form.byline}}<br />
     <div class = 'illist'>
       {% for illustration in illustrations %}
-        <img src="/static/{{ illustration.pic }}" /><br />
+        <a href = '/admin/apdirposts/illustration/{{illustration.id}}'><img src="/static/{{ illustration.pic }}" /></a><br />
       {% endfor %}
     </div>
     <div class = 'articleedit'>{{form.content}}</div>
