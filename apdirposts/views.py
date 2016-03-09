@@ -45,12 +45,12 @@ def newarticle(request, pid = None):
      else:
        publish = False
      if pid == None: # New article
-       # kill = 1./0
        newpost = Post(title = request.POST.get('title'), author = user, publish = publish,
                       content = request.POST.get('content'), category = main,
                       byline = request.POST.get('byline'))
        newpost.save()
        pid = newpost.id
+       # kill = 1./0
      else: # Editing existing article
        existingpost = Post.objects.get(id = pid)
        existingpost.content = request.POST.get('content')

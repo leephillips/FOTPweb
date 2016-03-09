@@ -52,7 +52,11 @@
 </head>
 
 <body style = "background: white; color: black;">
-  <form class = 'na' action = '/newarticle/{{pid}}/' method = 'POST'>
+  {% if pid %}
+    <form class = 'na' action = '/newarticle/{{pid}}/' method = 'POST'>
+  {% else %}
+    <form class = 'na' action = '/newarticle/' method = 'POST'>
+  {% endif %}
     {% csrf_token %}
     <div class = 'natitle'>Title: {{form.title}}</div>
     Byline: {{form.byline}}<br />
