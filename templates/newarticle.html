@@ -15,6 +15,14 @@
     font-size: 2em;
     display: inline-block;
   }
+  .blink {
+    border: solid black 1mm;
+    background: #aaa;
+    width: 6em;
+    padding: 2mm;
+    display: inline-block;
+    margin: 0;
+  }
   .na .publish {
     width: 20%;
     border: solid red 1mm;
@@ -58,6 +66,7 @@
       <button type = 'submit'>Save</button> 
       <div class = 'publish'>Publish: {{form.publish}} If this is checked the article will appear immediately
       on the public website when you click the Save button!</div>
+      <div class = "blink"><a href = '/newarticle/'>New Article</a></div>
     </div>
   </form>
   <h2>Load an existing article for editing:</h2>
