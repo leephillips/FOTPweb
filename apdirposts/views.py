@@ -39,28 +39,39 @@ def newarticle(request, pid = None):
    user = request.user
    existingposts = Post.objects.all().order_by('-pub_date')
    illustrations = Illustration.objects.all()
-   if pid:
-     newone = False
-     existingpost = Post.objects.get(id = pid)
-     form = NewArticleForm(initial = {'author': user.id, 'content': existingpost.content,
-                                      'byline': existingpost.byline, 'title': existingpost.title,
-                                      'publish': existingpost.publish})
-   else:
-     form = NewArticleForm(initial = {'author': user.id, 'byline': user.director.name})
-     newone = True
-   if request.method == 'POST':
+   if request.method == 'POST': #Hit the Save button
      if request.POST.get('publish') == 'on':
        publish = True
      else:
        publish = False
-     if newone:
+     if pid == None: # New article
        # kill = 1./0
        newpost = Post(title = request.POST.get('title'), author = user, publish = publish,
                       content = request.POST.get('content'), category = main,
                       byline = request.POST.get('byline'))
        newpost.save()
-     with open("tinymcetestfile", 'w') as f:
-       f.write(request.POST.get('content'))
+       pid = newpost.id
+     else: # Editing existing article
+       existingpost = Post.objects.get(id = pid)
+       existingpost.content = request.POST.get('content')
+       existingpost.title = request.POST.get('title')
+       existingpost.publish = publish
+       existingpost.byline = request.POST.get('byline')
+       existingpost.save()
+     thepost = Post.objects.get(id = pid) #retrieve saved version for populating form
+     form = NewArticleForm(initial = {'content': thepost.content,
+                                      'byline': thepost.byline, 'title': thepost.title,
+                                      'publish': thepost.publish})
+   else: #Did not hit the Save button
+     if pid:
+       newone = False
+       existingpost = Post.objects.get(id = pid)
+       form = NewArticleForm(initial = {'content': existingpost.content,
+                                        'byline': existingpost.byline, 'title': existingpost.title,
+                                        'publish': existingpost.publish})
+     else:
+       form = NewArticleForm(initial = {'author': user.id, 'byline': user.director.name})
+       newone = True
    return render(request, 'newarticle.html', locals())
 
 def thermo000888(request):

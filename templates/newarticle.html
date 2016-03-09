@@ -44,7 +44,7 @@
 </head>
 
 <body style = "background: white; color: black;">
-  <form class = 'na' action = '/newarticle/' method = 'POST'>
+  <form class = 'na' action = '/newarticle/{{pid}}/' method = 'POST'>
     {% csrf_token %}
     <div class = 'natitle'>Title: {{form.title}}</div>
     Byline: {{form.byline}}<br />
