@@ -24,14 +24,16 @@ class NewArticleForm(forms.Form):
   content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
   publish = forms.BooleanField()
 
-def inscap(s):
+def inscap(m):
   #s is the path of a image in our illustrations database
+  s = m.group(1)
+  moreattributes = m.group(2)
   mim = Illustration.objects.filter(pic = s)
   if len(mim) != 0:
-    return (mim[0].caption, mim[0].credit)
+    return '<div><img class="captioned" src="/static/%s" alt=""%s /><p class = "caption">%s<span class = "picturecredit"><span class = "creditcredit"> Credit: </span>%s</span></p></div><p>&nbsp;</p>' % (s, moreattributes, mim[0].caption, mim[0].credit)
 
 def process_newarticle(s):
-  ire = re.sub('<img src="/static/(illustrations/.*?)" alt="" />', inscap, s)
+  return re.sub('<img src="/static/(illustrations/.*?)" alt=""(.*?) />', inscap, s)
 
 @login_required
 def newarticle(request, pid = None):
@@ -44,16 +46,17 @@ def newarticle(request, pid = None):
        publish = True
      else:
        publish = False
+     munged = process_newarticle(request.POST.get('content'))
      if pid == None: # New article
        newpost = Post(title = request.POST.get('title'), author = user, publish = publish,
-                      content = request.POST.get('content'), category = main,
+                      content = munged, category = main,
                       byline = request.POST.get('byline'))
        newpost.save()
        pid = newpost.id
        # kill = 1./0
      else: # Editing existing article
        existingpost = Post.objects.get(id = pid)
-       existingpost.content = request.POST.get('content')
+       existingpost.content = munged
        existingpost.title = request.POST.get('title')
        existingpost.publish = publish
        existingpost.byline = request.POST.get('byline')
