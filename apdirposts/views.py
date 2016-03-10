@@ -24,18 +24,6 @@ class NewArticleForm(forms.Form):
   content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
   publish = forms.BooleanField()
 
-def inscap(m):
-  #s is the path of a image in our illustrations database
-  s = m.group(2)
-  someattributes = m.group(1)
-  moreattributes = m.group(3)
-  mim = Illustration.objects.filter(pic = s)
-  if len(mim) != 0:
-    return '<div><img %s class="captioned" src="/static/%s" alt=""%s /><p class = "caption">%s<span class = "picturecredit"><span class = "creditcredit"> Credit: </span>%s</span></p></div><p>&nbsp;</p>' % (someattributes, s, moreattributes, mim[0].caption, mim[0].credit)
-
-def process_newarticle(s):
-  return re.sub('<img (.*?) src="/static/(illustrations/.*?)" alt=""(.*?) />', inscap, s)
-
 @login_required
 def newarticle(request, pid = None):
    main = Postcategory.objects.filter(postcategory = 'main')[0]
@@ -47,7 +35,7 @@ def newarticle(request, pid = None):
        publish = True
      else:
        publish = False
-     munged = process_newarticle(request.POST.get('content'))
+     munged = request.POST.get('content')
      if pid == None: # New article
        newpost = Post(title = request.POST.get('title'), author = user, publish = publish,
                       content = munged, category = main,
