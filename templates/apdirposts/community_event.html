@@ -1,0 +1,14 @@
+{% extends "apdirposts/page.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block pagecontent %}
+<div class = "postcontent">
+   <h2>{{ title }}</h2> 
+   <p class = 'eventdate'>{{ on }}</p>
+   {{ content|safe }}
+   <hr />
+   <p><i>Are you organizing an event in the DC area related to astronomy, 
+   other sciences, engineering, or mathematics? If you think the Planetarium
+   community would like to know about it, we'd love to promote it here.
+   Please <a href = 'mailto:lee.phillips@alogus.com'>write to us</a> with all the details.</i></p>
+</div>
+{% endblock %}
