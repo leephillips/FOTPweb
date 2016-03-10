@@ -742,13 +742,15 @@ span.fnclicked span.fntext span.fntext{
    content: " — "
    }
 .title-article {
+    text-transform: uppercase;
     line-height: 1.1em;
-    color: #fff; font-size: 1.8em; font-weight: normal; text-align: left;
+    font-size: 1.8em; font-weight: bold; text-align: left;
     margin-bottom: 1em;
 }
 h1
 {
-   text-transform: uppercase;
+    padding-top: 0.7em;
+   border-top: solid #c35 0.5mm;
    line-height: 0.8em;
    text-align: left;
    font-weight: normal;
@@ -758,26 +760,36 @@ h1
    margin-bottom: 0.2em;
 }
 h2{
-   text-transform: uppercase;
-   color: white;
+    padding-top: 0.7em;
+   border-top: solid #c35 0.5mm;
    line-height: 1.0em;
+   text-align: left;
    font-size: 1.2em;
    margin-top: 1em;
    margin-bottom: 0.2em;
    font-weight: normal;
 }
 h3 {
-    font-family: Baumans, sans-serif;
     text-align: left;
     line-height: 1.1em;
     font-weight: normal;
     margin-top: 1em;
-    margin-bottom: 1.0em;
+   margin-bottom: 0.2em;
     font-size: 1.0em;
     border-top: solid #c35 0.5mm;
     padding-top: 0.7em;
     }
     
+h4 {
+    text-align: center;
+    line-height: 1.1em;
+    font-weight: normal;
+    margin-top: 1em;
+   margin-bottom: 0.2em;
+    font-size: 1.0em;
+    padding-top: 0.7em;
+    font-style: oblique;
+    }
 
 
 p.warn {
