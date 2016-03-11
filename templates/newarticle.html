@@ -49,6 +49,33 @@
     clear: both;
     margin-top: 1em;
   }
+  .gethelp {
+    border: solid black 0.5mm;
+    background: #f99;
+    width: 1em;
+    display: inline;
+    margin-left: 2mm;
+    padding-left: 1mm;
+    padding-right: 1mm;
+  }
+  .gethelp a:link, .gethelp a:visited {
+    color: black;
+    text-decoration: none;
+  }
+  .help {
+    visibility: hidden;
+    border: solid #a33 1mm;
+    padding: 3mm;
+    font-size: 0.75em;
+    background: #c33;
+    opacity: 0.8;
+    position: absolute;
+    left: 5%;
+    top: 15%;
+  }
+  .help:target {
+    visibility: visible;
+  }
 </style>
 </head>
 
@@ -59,7 +86,9 @@
     <form class = 'na' action = '/newarticle/' method = 'POST'>
   {% endif %}
     {% csrf_token %}
-    <div class = 'natitle'>Title: {{form.title}}</div>
+    <div class = 'natitle'>Title: {{form.title}}<div class = 'gethelp'><a href='#titlehelp'>?</a>
+    </div></div>
+    
     Byline: {{form.byline}}<br />
     <div class = 'illist'>
       {% for illustration in illustrations %}
