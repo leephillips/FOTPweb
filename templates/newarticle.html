@@ -92,6 +92,7 @@
     </div>
     
     Byline: {{form.byline}} <a href = '#bylinehelp' class = 'gethelp'>?</a><br />
+    <a style = "float: right;" class = 'gethelp' href = '#imagehelp'>?</a>
     <div class = 'illist'>
       {% for illustration in illustrations %}
         <a href = '/admin/apdirposts/illustration/{{illustration.id}}'><img src="/static/{{ illustration.pic }}" /></a><br />
