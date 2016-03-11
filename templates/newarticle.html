@@ -49,34 +49,42 @@
     clear: both;
     margin-top: 1em;
   }
+  .helpinput {
+    position: absolute;
+    left: -9999px;
+  }
   .gethelp {
     border: solid black 0.5mm;
     background: #f99;
-    width: 1em;
-    display: inline;
+    width: 0.5em;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
     margin-left: 2mm;
     padding-left: 1mm;
     padding-right: 1mm;
-  }
-  .gethelp a:link, .gethelp a:visited, a.gethelp {
-    color: black;
-    text-decoration: none;
+    cursor: pointer;
   }
   .help {
     opacity: 0;
+    z-index: -10;
     border: solid #a33 1mm;
     background: #f99;
     padding: 2em;
     font-size: 0.75em;
-    position: fixed;
-    left: -2000px;
-    top: 0;
     width: 55%;
+    position: absolute;
+    margin-top: -1.2em;
   }
-  .help:target {
-    left: 20px;
-    top: 0px;
+  .helpinput:checked ~ div.help {
     opacity: 0.9;
+    z-index: 100;
+  }
+  .helpinput:checked + label {
+    background: #ccc;
+  }
+  .helpinput:checked + label:before {
+    content: 'X';
   }
 </style>
 </head>
@@ -88,11 +96,25 @@
     <form class = 'na' action = '/newarticle/' method = 'POST'>
   {% endif %}
     {% csrf_token %}
-    <div class = 'natitle'>Title: {{form.title}}<a class = 'gethelp' href='#titlehelp'>?</a>
+    <div>
+      <input type = 'checkbox' id = 'titlehelp' class = 'helpinput' />
+      <label class = 'gethelp' for = 'titlehelp'>?</label>
+      <div class = 'natitle'>Title: {{form.title}} </div>
+      <div class = 'help' style = 'top: 6%;'>
+        This title will show up as the article title on the web page, and identify the
+        article in the administrative interface. There is no need
+        to repeat it in the article body.
+      </div>
+    </div>   
+    <div>
+      Byline: {{form.byline}} 
+      <input type = 'checkbox' id = 'bylinehelp' class = 'helpinput' />
+      <label class = 'gethelp' for = 'bylinehelp'>?</label>
+      <div class = 'help' style = 'left: 20%;'>
+        You can change the byline, or make it blank for anonymous articles.
+        It will appear as the author of the article.
+      </div>
     </div>
-    
-    Byline: {{form.byline}} <a href = '#bylinehelp' class = 'gethelp'>?</a><br />
-    <a style = "float: right;" class = 'gethelp' href = '#imagehelp'>?</a>
     <div class = 'illist'>
       {% for illustration in illustrations %}
         <a href = '/admin/apdirposts/illustration/{{illustration.id}}'><img src="/static/{{ illustration.pic }}" /></a><br />
@@ -112,15 +134,6 @@
     {% for post in existingposts %}
        <a href = '/newarticle/{{post.id}}'><p>{{post.title}} by {{post.byline}}</p></a>
     {% endfor %}
-  </div>
-  <div class = 'help' id = 'titlehelp'>
-    This title will show up as the article title on the web page, and identify the
-    article in the administrative interface. There is no need
-    to repeat it in the article body. <a href = "#" class = 'gethelp'>OK</a>
-  </div> 
-  <div class = 'help' id = 'bylinehelp'>
-    You can change the byline, or make it blank for anonymous articles.
-    It will appear as the author of the article. <a href = "#" class = 'gethelp'>OK</a>
   </div>
   <div class = 'help' id = 'savehelp'>
     Save your draft as often as you like. When you are ready for the article to appear,
