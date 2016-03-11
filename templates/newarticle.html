@@ -58,23 +58,25 @@
     padding-left: 1mm;
     padding-right: 1mm;
   }
-  .gethelp a:link, .gethelp a:visited {
+  .gethelp a:link, .gethelp a:visited, a.gethelp {
     color: black;
     text-decoration: none;
   }
   .help {
-    visibility: hidden;
+    opacity: 0;
     border: solid #a33 1mm;
-    padding: 3mm;
+    background: #f99;
+    padding: 2em;
     font-size: 0.75em;
-    background: #c33;
-    opacity: 0.8;
-    position: absolute;
-    left: 5%;
-    top: 15%;
+    position: fixed;
+    left: -2000px;
+    top: 0;
+    width: 55%;
   }
   .help:target {
-    visibility: visible;
+    left: 20px;
+    top: 0px;
+    opacity: 0.9;
   }
 </style>
 </head>
@@ -86,10 +88,10 @@
     <form class = 'na' action = '/newarticle/' method = 'POST'>
   {% endif %}
     {% csrf_token %}
-    <div class = 'natitle'>Title: {{form.title}}<div class = 'gethelp'><a href='#titlehelp'>?</a>
-    </div></div>
+    <div class = 'natitle'>Title: {{form.title}}<a class = 'gethelp' href='#titlehelp'>?</a>
+    </div>
     
-    Byline: {{form.byline}}<br />
+    Byline: {{form.byline}} <a href = '#bylinehelp' class = 'gethelp'>?</a><br />
     <div class = 'illist'>
       {% for illustration in illustrations %}
         <a href = '/admin/apdirposts/illustration/{{illustration.id}}'><img src="/static/{{ illustration.pic }}" /></a><br />
@@ -97,6 +99,7 @@
     </div>
     <div class = 'articleedit'>{{form.content}}</div>
     <div class = 'impbuttons'>
+      <a class = 'gethelp' href = '#savehelp'>?</a>
       <button type = 'submit'>Save</button> 
       <div class = 'publish'>Publish: {{form.publish}} If this is checked the article will appear immediately
       on the public website when you click the Save button!</div>
@@ -106,9 +109,21 @@
   <h2>Load an existing article for editing:</h2>
   <div style = 'height: 30em; width: 60%; overflow: auto;'>
     {% for post in existingposts %}
-       <a href = '/newarticle/{{post.id}}'><p>{{post.title}} by {{post.byline}}</p</a>
+       <a href = '/newarticle/{{post.id}}'><p>{{post.title}} by {{post.byline}}</p></a>
     {% endfor %}
-
+  </div>
+  <div class = 'help' id = 'titlehelp'>
+    This title will show up as the article title on the web page, and identify the
+    article in the administrative interface. There is no need
+    to repeat it in the article body. <a href = "#" class = 'gethelp'>OK</a>
+  </div> 
+  <div class = 'help' id = 'bylinehelp'>
+    You can change the byline, or make it blank for anonymous articles.
+    It will appear as the author of the article. <a href = "#" class = 'gethelp'>OK</a>
+  </div>
+  <div class = 'help' id = 'savehelp'>
+    Save your draft as often as you like. When you are ready for the article to appear,
+    check "publish" and save again. <a href = "#" class = 'gethelp'>OK</a>
   </div>
 </body>
 </html>
