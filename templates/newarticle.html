@@ -115,6 +115,16 @@
         It will appear as the author of the article.
       </div>
     </div>
+    <div>
+      <input type = 'checkbox' id = 'pichelp' class = 'helpinput' />
+      <label style = 'float: left; margin-left: 68%;' class = 'gethelp' for = 'pichelp'>?</label>
+      <div class = 'help' style = 'left: 30%; top:19.5%;'>
+        This is our illustration collection. Drag images from here to the edit box.
+        You can also drag from any web page (secure usage and hotlinking permissions
+        from other sites). Click on an image to see the database entry with caption and
+        credit line.
+      </div>
+    </div>
     <div class = 'illist'>
       {% for illustration in illustrations %}
         <a href = '/admin/apdirposts/illustration/{{illustration.id}}'><img src="/static/{{ illustration.pic }}" /></a><br />
@@ -122,7 +132,12 @@
     </div>
     <div class = 'articleedit'>{{form.content}}</div>
     <div class = 'impbuttons'>
-      <a class = 'gethelp' href = '#savehelp'>?</a>
+      <input type = 'checkbox' id = 'savehelp' class = 'helpinput' />
+      <label class = 'gethelp' for = 'savehelp' style = 'vertical-align: middle;'>?</label>
+      <div class = 'help' id = 'savehelp'>
+        Save your draft as often as you like. When you are ready for the article to appear,
+        check "publish" and save again.
+      </div>
       <button type = 'submit'>Save</button> 
       <div class = 'publish'>Publish: {{form.publish}} If this is checked the article will appear immediately
       on the public website when you click the Save button!</div>
@@ -134,10 +149,6 @@
     {% for post in existingposts %}
        <a href = '/newarticle/{{post.id}}'><p>{{post.title}} by {{post.byline}}</p></a>
     {% endfor %}
-  </div>
-  <div class = 'help' id = 'savehelp'>
-    Save your draft as often as you like. When you are ready for the article to appear,
-    check "publish" and save again. <a href = "#" class = 'gethelp'>OK</a>
   </div>
 </body>
 </html>
