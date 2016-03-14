@@ -1,0 +1,9 @@
+This repository contains all the code for the friendsoftheplanetarium.org website.
+The site uses the Django Python web framework (v. djv1.7rc1 as of 14Mar2016);
+a Postgresql database for storing user information, article texts, and event
+information; the Apache2 webserver; Django templates coded to the HTML5 specification;
+and Python v. 2.7. It is installed in a Debian Linux server. The repository includes
+all the backend code, templates, stylesheets, assorted javascript directories
+that are included into templates, a database backup, and the Apache2 site
+configuration file. Installation is standard and an experienced administrator
+should be able to have the site running on a new server in a couple of hours.
