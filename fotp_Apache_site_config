@@ -1,0 +1,66 @@
+<VirtualHost *:80>
+  WSGIDaemonProcess ap python-path=/home/lee
+  WSGIProcessGroup ap
+  ServerName friendsoftheplanetarium.org
+  ServerAlias www.friendsoftheplanetarium.org
+  RewriteEngine on
+  RewriteCond %{HTTP_HOST} ^www\.friendsoftheplanetarium.org$ [NC]
+  RewriteRule ^/(.*)$ http://friendsoftheplanetarium.org/$1 [R=301,L]
+  WSGIScriptAlias /              /home/lee/ap/wsgi.py
+  RedirectMatch permanent /admin/(.*) https://friendsoftheplanetarium.org/admin/$1
+  RedirectMatch permanent /static/admin/(.*) https://friendsoftheplanetarium.org/static/admin/$1
+  # RedirectMatch permanent /s/(.*) http://friendsoftheplanetarium.org/apmedia/$1
+  # RedirectMatch permanent /static/(.*) http://friendsoftheplanetarium.org/apmedia/$1
+  DocumentRoot /home/lee/wwwemb
+  Alias /static/ "/home/lee/ap/static/"
+  Alias /media/ "/home/lee/ap/static/"
+  Alias /apmedia/ "/home/lee/ap/media/"
+  LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+  CustomLog /home/lee/fotp.log combined
+  <Directory /home/lee/wwwemb/>
+     Options none
+     #  Options Indexes
+     Options FollowSymLinks
+     AllowOverride none
+     Order allow,deny
+     allow from all
+  </Directory>
+    ErrorLog ${APACHE_LOG_DIR}/errorfotp.log
+</VirtualHost>
+
+<VirtualHost *:443>
+  WSGIDaemonProcess fotpsecure python-path=/home/lee
+  WSGIProcessGroup fotpsecure
+  ServerName friendsoftheplanetarium.org
+  # RedirectMatch permanent /s/(.*) http://friendsoftheplanetarium.org/apmedia/$1
+  # RedirectMatch permanent /static/(.*) http://friendsoftheplanetarium.org/apmedia/$1
+  # RedirectMatch permanent /static/admin/(.*) https://friendsoftheplanetarium.org/static/admin/$1
+  # Alias /static/admin/ /home/lee/ap/static/admin/
+  Alias /static/ /home/lee/ap/static/
+  Alias /media/ /home/lee/ap/media/
+  # RedirectMatch permanent /fotpsecure/*$   http://friendsoftheplanetarium.org
+  # RedirectMatch permanent /fotpsecure/[^a][^d][^m]   http://friendsoftheplanetarium.org
+  WSGIScriptAlias /         /home/lee/ap/wsgi.py
+  # DocumentRoot /home/lee/wwwmessages/nothing/
+  DocumentRoot /home/lee/wwwemb
+  <Directory /home/lee/wwwemb/>
+     Options none
+     #  Options Indexes
+     Options FollowSymLinks
+     AllowOverride none
+     Order allow,deny
+     allow from all
+  </Directory>
+    # <Directory /home/lee/wwwmessages/nothing/>
+    #        Options none
+    #        AllowOverride None
+    #        Order allow,deny
+    #        allow from all
+    # </Directory>
+  LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
+  CustomLog /home/lee/fotp.embrogl.io.443.log combined
+  SSLEngine on
+  SSLCertificateKeyFile /etc/apache2/ssl/lee-phillips.org-decr.key
+  SSLCertificateFile /etc/apache2/ssl/lee-phillips.org-ssl-cert.pem
+</VirtualHost>
+
