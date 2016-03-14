@@ -1,0 +1,43 @@
+// Run line in crontab:
+// xvfb-run -a --server-args='-screen 0 1280x960x24' /usr/bin/stellarium --fov=190 --landscape=ocean --startup-script=/home/lee/jsprojects/stellarium/arlsky.ssc && /usr/local/bin/up2lporg && rm /home/lee/www/arlplanet/skymaps/*.png 
+
+core.setObserverLocation(-77.08, 38.89, 35, 1, "Arlington, VA", "Earth");
+core.setTimeRate(0.0);
+// SolarSystem.setFlagPlanets(false);
+core.wait(10);
+var dms = 24*1000*60*60;
+p = Date.now();
+today = new Date(p);
+tomorrow = new Date(p+dms);
+today.setMinutes(0);
+today.setSeconds(0.0);
+tomorrow.setMinutes(0);
+tomorrow.setSeconds(0.0);
+core.wait(10);
+core.moveToAltAzi(90, 0);
+core.wait(10);
+for (i = 0; i < 24; i++){
+ if (i<10)
+    {date = tomorrow;}   // In the summer in the Eastern time zone we want
+ else                   //  maps from 6 am our time to 5 am the following day.
+    {date = today;}
+ date.setHours(i);             
+ core.setDate(date.toISOString().replace('Z', ''));
+ core.wait(5);
+ core.screenshot("base", false,  "/home/lee/www/arlplanet/skymaps/"+i);
+ GridLinesMgr.setFlagAzimuthalGrid(true);
+ core.wait(1);
+ core.screenshot("grid", false,  "/home/lee/www/arlplanet/skymaps/"+i);
+ GridLinesMgr.setFlagAzimuthalGrid(false);
+ ConstellationMgr.setFlagLines(true);
+ ConstellationMgr.setFlagLabels(true);
+ core.wait(1);
+ core.screenshot("constellations", false,  "/home/lee/www/arlplanet/skymaps/"+i);
+ ConstellationMgr.setFlagLines(false);
+ ConstellationMgr.setFlagLabels(false);
+ ConstellationMgr.setFlagArt(true);
+ core.wait(1);
+ core.screenshot("constellationArt", false,  "/home/lee/www/arlplanet/skymaps/"+i);
+ ConstellationMgr.setFlagArt(false);
+}
+core.quitStellarium();

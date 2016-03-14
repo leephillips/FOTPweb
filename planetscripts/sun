@@ -1,0 +1,7 @@
+#! /bin/bash
+wget http://umbra.nascom.nasa.gov/images/latest_aia_171_tn.gif -O sun.gif
+convert sun.gif -resize 100x100 sun.png
+convert -size 100x100 xc:none -fill white -draw 'circle 50,50 50,100' circle.png
+composite -compose Dst_In -gravity center circle.png sun.png -alpha Set out.png
+convert out.png -fuzz 25% -transparent black /home/lee/www/arlplanet/currentsun.png
+chmod 644 /home/lee/www/arlplanet/currentsun.png

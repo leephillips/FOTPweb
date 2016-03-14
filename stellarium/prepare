@@ -1,0 +1,34 @@
+e=24
+h=0
+day=`date +"%-d"`
+year=`date +"%Y"`
+month=`date +"%-m"`
+plusday=`date -d "tomorrow" +"%-d"`
+plusyear=`date -d "tomorrow" +"%Y"`
+plusmonth=`date -d "tomorrow" +"%-m"`
+cd /home/lee/www/arlplanet/skymaps/
+while [ $h -lt $e ] 
+   do 
+      if [ $h -lt 10 ] 
+         then dd=$plusday; mm=$plusmonth; yy=$plusyear
+         else dd=$day; mm=$month; yy=$year
+      fi
+      cd $h
+      convert base000.png  -shave 110x12 -gravity South -chop 0x12 base.png
+      convert constellations000.png  -shave 110x12 -gravity South -chop 0x12 constellations.png
+      convert constellationArt000.png  -shave 110x12 -gravity South -chop 0x12 constellationArt.png
+      convert grid000.png  -shave 110x12 -gravity South -chop 0x12 grid.png
+      composite base.png constellations.png -compose ChangeMask +constellations.png
+      composite base.png constellationArt.png -compose ChangeMask +constellationArt.png
+      composite base.png grid.png -compose ChangeMask +grid.png
+      convert base.png -quality 65 base.jpg
+      pngnq -f +constellationArt.png && mv +constellationArt-nq8.png +constellationArt.png
+      pngnq -f +constellations.png && mv +constellations-nq8.png +constellations.png
+      pngnq -f +grid.png && mv +grid-nq8.png +grid.png
+      annotation="Arlington $yy-$mm-$dd $h:00 UTC"
+      mogrify -fill yellow -pointsize 20 -annotate +2+20 "$annotation" base.jpg 
+      rm *000* base.png constellationArt.png constellations.png grid.png
+      cd ..
+      h=$((h+1))
+   done
+

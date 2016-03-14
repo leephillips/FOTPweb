@@ -1,0 +1,4 @@
+#! /bin/bash
+cd /home/lee/ap
+./manage.py dumpdata apdirposts > /home/lee/planetscripts/apdirpostsPostgresDumps/`date +%F-%H-%M`.json
+./manage.py dumpdata auth > /home/lee/planetscripts/apAuthPostgresDumps/`date +%F-%H-%M`.json
