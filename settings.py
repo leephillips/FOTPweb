@@ -1,7 +1,7 @@
 # Django settings for ap project.
 
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 # TEMPLATE_DEBUG = True
 TEMPLATE_DEBUG = False
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)

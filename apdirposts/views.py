@@ -82,6 +82,35 @@ def smile(request):
     Smile(click_date = now, session_id = str(now)).save() 
   return HttpResponseRedirect("http://smile.amazon.com/ch/27-2760025")
 
+def preview_latest(exclude = None):
+   today = now()
+   try:
+      xid = int(exclude)
+   except:
+      xid = 0
+   #draft articles 
+   articles = list(Post.objects.all().exclude(publish = True))
+   for a in articles:
+     if len(a.title) == 0:
+       a.title = 'UNTITLED'
+   articles = zip(len(articles)*['post'],articles)
+   # articles = list(Post.objects.all().exclude(publish = True))
+   #news mentions from the past RECENT days:
+   # notices = list(Notice.objects.filter(on__range = (RECENT, SOON)).exclude(id = xid).order_by('-pub_date'))
+   # notices = zip(len(notices)*['notice'],notices)[:9]
+   # #events coming up SOON:
+   # #if they're not described in a related post:
+   # if exclude == "events":
+   events = []
+   # else:
+   #    rawevents = Event.objects.filter(on__range = (today, SOON))
+   #    events = [e for e in rawevents if not e.rpost]
+   #    events = zip(len(events)*['event'],events)[:9]
+   # if exclude == "notices":
+   notices = []
+   #combine these into a list:
+   return (events + articles + notices)
+
 def latest(exclude = None):
    today = now()
    try:
@@ -176,6 +205,32 @@ def picparse(s, pics):
          return s
       return s + "\n".join([picins % (p[pic], widths[pic], pic, captions[pic]) 
                             for pic in pk[1:]])
+
+@login_required
+def preview_post(request, which):
+   p = get_object_or_404(Post, id = which)
+   r = Event.objects.filter(rpost = p).order_by('on')
+   category = p.category.postcategory
+   categoryclass = ['mainarticleone', 'cornerone', 'scienceone'][
+                   ['main', 'corner', 'science'].index(category)]
+   pics = Illustration.objects.filter(post=which)
+   content = p.content
+   if len(pics) > 0:
+      content = picparse(content, pics)
+   if ("<iframe" in content or "<object" in content or
+      "<embed" in content):
+         template = "objpage.html"
+   else:
+         template = "post.html"
+   return render(request, 'apdirposts/'+template,
+                            {'content': content,
+                             'author': p.author,
+                             'latest': latest(which),
+                             categoryclass: 'thisone',
+                             'byline': p.byline,
+                             'date' : p.pub_date,
+                             'events': r,
+                             'title': p.title})
 
 def post(request, which):
    try:
@@ -360,6 +415,14 @@ def posttop(request):
                   'mainarticleone': 'thisone',
                   'latest': '' ,
                  })
+
+@login_required
+def preview_front(request):
+   today = now()
+   latestentries = preview_latest()
+   smiled = request.session.get('smiled')
+   rsevents = Event.objects.filter(on__range = (today, REALSOON)).count()
+   return render(request, 'preview_front.html', locals())
 
 def front(request):
    today = now()
