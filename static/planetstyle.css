@@ -485,9 +485,11 @@ a.lnl:hover{
    margin-top: 22%;
    width: 36%;
 }
-#frontlatest p{
+#frontlatest {
    font-family: "Baumans", sans-serif;
    color: #fff;
+}
+#frontlatest p{
    font-size: 1.5em;
    text-indent: 0pt;
    margin-bottom: 0.5em;
