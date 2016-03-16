@@ -1,0 +1,16 @@
+#! /bin/bash
+# ImageMagick must be installed.
+# Makes a picture (in png format) into a circularly masked png, with transparent
+# edges, for use on the FOTP website front page. Start with an image that is at
+# least 150 px square, with the element of interest centered. The mask image 
+# maske.png (stored in /static) must be available. But it can be reconstructed
+# with: 
+
+#     convert -size 150x150 xc:none -fill black -stroke white -strokewidth .5 -draw "circle 75,75 22.5,22.5" mask1.png
+#     convert mask1.png -alpha extract maske.png
+
+# (The values 22.5 above should be (1 - 1/sqrt(2))*150, but that was too big (roundoff?).
+
+# The output file in argument 2 must support transparancy (png is good).
+
+convert $1 maske.png -alpha Off -compose CopyOpacity -composite $2
