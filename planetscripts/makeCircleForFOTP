@@ -15,3 +15,6 @@
 # Input file (argument 1) should be resized to 150x150 (can use “convert in.png -resize 150x150\! out.png”).
 
 convert $1 maske.png -alpha Off -compose CopyOpacity -composite $2
+
+# To make a gif movie out of a set of frames, do 
+# convert -delay 90 *pngout.png +repage sfSlides2.gif
