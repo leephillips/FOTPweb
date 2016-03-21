@@ -18,3 +18,7 @@ convert $1 maske.png -alpha Off -compose CopyOpacity -composite $2
 
 # To make a gif movie out of a set of frames, do 
 # convert -delay 90 *pngout.png +repage sfSlides2.gif
+
+# And here is the Python used to make the plane towing a banner:
+# for i in range(75):
+# ...   c.getoutput('convert towshipWithBanner.png -crop 150x150+%i+0 -background white -extent 150x150 tt%05i.png' % (i*(900./75), i))
