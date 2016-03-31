@@ -11,7 +11,18 @@ body {
   margin-left: 0%;
   margin-top: 0%;
   width: 100%;
+  color: black;
 }
+a:link {
+  color: black;
+}
+a:visited {
+  color: black;
+}
+a:hover, a:hover p {
+  background: blue;
+}
+
 #picturebackground {
   background-image: url(koBg.jpg);
   background-repeat: no-repeat;
@@ -19,8 +30,9 @@ body {
   background-attachment: fixed;
 }
 #pictureoverlay {
-  /* background-color: rgb(100, 100, 255); */ /*fallback*/
-  background-image: linear-gradient(rgba(45, 40, 70, 0.0), rgba(100, 100, 255, 1.0) 600px);
+  background-image: none;  /*fallback*/
+  background-image: linear-gradient(rgba(179, 210, 245, 0.0), rgba(179, 210, 245, 1.0) 700px);
+  webkit–background-image: linear-gradient(rgba(179, 210, 245, 0.0), rgba(179, 210, 245, 1.0) 700px);
 }
 p { 
 margin-top: 1.0em; margin-bottom: 1.0em;
@@ -332,7 +344,6 @@ p.postlist a:hover{
    padding-top: 22%;
    margin-left: 2.2%;
    margin-bottom: 2.5em;
-   color: #ddd;
    min-height: 800px;
 }
 .morecontent{
@@ -344,7 +355,6 @@ p.postlist a:hover{
    margin-top: 0em;
    margin-left: 2.2%;
    margin-bottom: 2.5em;
-   color: #ddd;
 }
 abbr {
   cursor: pointer;
@@ -358,23 +368,15 @@ abbr {
 .postcontent blockquote{
    line-height: 1.3em;
 }
-.postcontent a:link{
-   background: #006;
-   color: #ddd;
-}
-.postcontent a:visited{
-   background: #336;
-   color: #ddd;
-}
+.articlelist {
+  color: black;
+  }
 .articlelist a:visited{
    background: none;
 }
 .articlelist a:link{
    background: none;
 }
-/* .articlelist a:hover{ */
-/*    background: #006; */
-/* } */
 .mainbanner{
    width: 43%;
    position: absolute;
@@ -384,6 +386,9 @@ abbr {
 .mainbanner img{
    width: 100%;
 } 
+.mainbanner a:hover {
+  background: none;
+  }
 #dots{
    position: absolute;
    left: 47%;
@@ -408,7 +413,7 @@ abbr {
    color: #96203A;
 }
 .ll a:hover{
-   background: #006;
+   background: blue;
 }
 a.lnl:link{
    line-height: 0.4em;
@@ -435,7 +440,7 @@ a.lnl:hover{
    font-size: 2.4em;
 }
 #mainlinklist a:hover{
-   background: #006;
+   background: blue;
 }
 #shoplinkdiv a:hover{
    background: none;
@@ -494,7 +499,7 @@ a.lnl:hover{
 }
 #frontlatest {
    font-family: "Baumans", sans-serif;
-   color: #fff;
+   color: black;
 }
 #frontlatest p{
    font-size: 1.5em;
@@ -503,13 +508,13 @@ a.lnl:hover{
    margin-top: 0pt;
 }
 #frontlatest a:link {
-   color: #fff;
+   color: black;
 }
 #frontlatest a:visited{
-   color: #999;
+   color: black;
 }
 #frontlatest a:hover {
-   background: #006;
+   background: blue;
 }
 #pagelatest{
    margin-top: 3em;
@@ -806,26 +811,6 @@ p.warn {
     padding: 2mm;
     text-indent: 0em;
 }
-
-a:link {
-    color: #9cf;
-    border-color: transparent;
-    border-style: none none dotted none;
-    border-width: 0.1em;
-    text-decoration: none;
-}
-
-a:visited {
-    color: #f99;
-    border-color: transparent;
-    border-width: 0.1em;
-    border-style: none none dotted none;
-    text-decoration: none;
-
-}
-a:active
-{
-    background: black;
 
 }
 sup{
