@@ -3,19 +3,23 @@
 <link rel="image_src" href="{{ STATIC_URL }}hfbs.png" />
 <title>{% block title %}{% endblock %}</title></head>
 <body>
-   <div class = "mainbanner"><a href="/"><img src = "{{ STATIC_URL }}logo_new.png" alt="" /></a></div>
-   <div class = "maintextbanner">Friends of Arlington’s Planetarium</div>
-   {% block body %}
-   {% endblock %}
-   <div id = "planetfooter">
-      <div class = "footerlinks">
-         <a href = "/post/7/">About the corporation</a> 
-         <a href = "http://www.apsva.us/Page/2706">Arlington Public Schools</a>
-         <a href = "/about/">Contact the Friends</a>
-         <a href = "/website/">About the website</a>
-         <a href = "mailto:lee.phillips@alogus.com">Contact the webmaster</a>
-         <a href = "/join/">Keep the Planetarium open</a>
-      </div>
-   </div>
+  <div id = 'picturebackground'>
+    <div id = 'pictureoverlay'>
+     <div class = "mainbanner"><a href="/"><img src = "{{ STATIC_URL }}logo_new.png" alt="" /></a></div>
+     <div class = "maintextbanner">Friends of Arlington’s Planetarium</div>
+     {% block body %}
+     {% endblock %}
+     <div id = "planetfooter">
+        <div class = "footerlinks">
+           <a href = "/post/7/">About the corporation</a> 
+           <a href = "http://www.apsva.us/Page/2706">Arlington Public Schools</a>
+           <a href = "/about/">Contact the Friends</a>
+           <a href = "/website/">About the website</a>
+           <a href = "mailto:lee.phillips@alogus.com">Contact the webmaster</a>
+           <a href = "/join/">Keep the Planetarium open</a>
+        </div>
+     </div>
+    </div>
+  </div>
 </body>
 </html>

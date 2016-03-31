@@ -11,7 +11,16 @@ body {
   margin-left: 0%;
   margin-top: 0%;
   width: 100%;
-  background: #99f;
+}
+#picturebackground {
+  background-image: url(koBg.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+#pictureoverlay {
+  /* background-color: rgb(100, 100, 255); */ /*fallback*/
+  background-image: linear-gradient(rgba(45, 40, 70, 0.0), rgba(100, 100, 255, 1.0) 30%);
 }
 p { 
 margin-top: 1.0em; margin-bottom: 1.0em;
