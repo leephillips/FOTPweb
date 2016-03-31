@@ -1,21 +1,21 @@
 {% extends "site.html" %}
 {% block title %}The Friends of Arlington’s Planetarium{% endblock %}
 {% block body %}
+  <div id="upcoming">
+    <p>This weekend: 
+     <!--(reservations recommended).-->
+    <!--<a href='http://www.apsva.us/Page/2706'> Season of Light.</a>-->
+    <a href='http://www.apsva.us/Page/2706'>Arlington Public Schools programming.</a>
+  </p>
+  </div>
   <div id = "frontlatest">
-      <div class="upcoming">
-        <p>This weekend: 
-         <!--(reservations recommended).-->
-        <!--<a href='http://www.apsva.us/Page/2706'> Season of Light.</a>-->
-        <a href='http://www.apsva.us/Page/2706'>Arlington Public Schools programming.</a>
-      </p>
-      </div>
     
          <h2>Recent Items:</h2>
    {% for p in latestentries %}
       <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
    {% endfor %}
 </div>
-<div id = "mainlinklist" class = "ll">
+<div id = "frontnav">
 <p><a href="/event">Events &amp; Shows</a></p>
 <p><a href="/join">Join, Donate, Subscribe</a></p>
 <p><a href="/post">Articles &amp; News</a></p>
@@ -37,7 +37,7 @@
   })();
 </script>
 <div class="gcse-search"></div>
-
+</div>
 <div id = "social">
 <p><a href="http://facebook.com/friendsoftheplanetarium"><img src = "/static/fb.png" alt="" />acebook</a>&nbsp;
 <a href="http://twitter.com/FrnzPlanetarium"><img src = "/static/twit.png" alt="" />witter</a>&nbsp;
@@ -47,19 +47,18 @@
 {% if not smiled %}
   <div class = "newsletterform rhform">
   <p class="normal_font_size">Support the Planetarium every time you buy from Amazon, at no cost to you:</p><a href="/smile/"><img alt="Amazon Smile" src="/static/smile.png" /></a>
+  </div>
 {% endif %}
-</div>
-</div>
 <div id = "mainarray">
 
    <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "http://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon" /></a>
+<a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "http://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
    <a href = 'http://www.nasa.gov/feature/goddard/2016/mars-gravity-map' title = '”A new map of Mars’ gravity made with three NASA spacecraft is the most detailed to date, providing a revealing glimpse into the hidden interior of the Red Planet.”'>
      <img src = '/static/northMarsGravity.png' alt = 'Gravity map of Mars northern hemisphere' />
    </a>
-   <a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a>
+   <!--<a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a>-->
    <!--<a href="http://cleardarksky.com/c/USNOkey.html?1"><img src = "/static/csc.png" alt="Observing Conditions" title = "Observing Conditions" /></a>-->
    <a href = 'http://www.nasa.gov/feature/ames/Kepler/caught-for-the-first-time-the-early-flash-of-an-exploding-star' title = '”The brilliant flash of an exploding star’s shockwave—what astronomers call the “shock breakout”—has been captured for the first time in the optical wavelength or visible light by NASA’s planet-hunter, the Kepler space telescope.”'><img src = '/static/starshock_decor.png' alt = '' /></a>
-<a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "http://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
 
 </div>
-{{pid}}/{% endblock %}
+{{pid}}{% endblock %}

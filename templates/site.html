@@ -4,7 +4,7 @@
 <title>{% block title %}{% endblock %}</title></head>
 <body>
   <div id = 'picturebackground'>
-    <div id = 'pictureoverlay'>
+    <div id = 'pictureoverlay'></div>
      <div class = "mainbanner"><a href="/"><img src = "{{ STATIC_URL }}logo_new.png" alt="" /></a></div>
      <div class = "maintextbanner">Friends of Arlington’s Planetarium</div>
      {% block body %}
@@ -19,7 +19,6 @@
            <a href = "/join/">Keep the Planetarium open</a>
         </div>
      </div>
-    </div>
   </div>
 </body>
 </html>

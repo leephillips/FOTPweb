@@ -15,9 +15,13 @@ body {
 }
 a:link {
   color: black;
+  text-decoration: none;
+  border-bottom: solid #BC87C2; 2mm;
 }
 a:visited {
   color: black;
+  text-decoration: none;
+  border-bottom: solid #97B5D3; 2mm;
 }
 a:hover, a:hover p {
   background: blue;
@@ -210,13 +214,21 @@ div.eventlist span.eventlisttitle{
 .rhform img {
   margin-left: 25%;
 }
-.upcoming {
+#upcoming {
+   position: absolute;
+   top: 10%;
+   left: 50%;
    border: solid 0.5mm #ddd;
    padding: 1.2em;
    font-size: 80%;
-   background: rgba(250, 100, 100, 0.3);
+   background: rgba(250, 100, 100, 0.6);
    text-align: center;
 }
+#frontnav {
+   position: absolute;
+   top: 40%;
+   left: 2%;
+   }
 .normal_font_size {
   font-size: 22px !important;
 }
@@ -389,6 +401,9 @@ abbr {
 .mainbanner a:hover {
   background: none;
   }
+.mainbanner a {
+  border: none;
+  }
 #dots{
    position: absolute;
    left: 47%;
@@ -428,11 +443,14 @@ a.lnl:hover{
    background: #006;
 }
 #mainlinklist{
-   float: right;
+   position: absolute;
    width: 40%;
-   margin-top: 1.5%;
-   margin-right: 0.2em;
+   top: 20%;
+   left: 2%;
 }
+#mainlinklist a {
+  border: none;
+  }
 #mainlinklist p{
    margin-top: 0pt;
    margin-bottom: 1.1em;
@@ -476,20 +494,22 @@ a.lnl:hover{
    background: #006;
 }
 #mainarray {
-   /* position: absolute; */
-   /* left: 42%; */
-   /* top: 4%; */
-   /* float: left; */
-   width: 15%;
-   margin-left: 42%;
+   position: absolute;
+   left: 12%;
+   top: 33%;
+   width: 100%;
 }
 #mainarray img{
-   float: left;
-   width: 100%;
+   width: 10%;
    margin-bottom: 10%;
-   margin-right: 15.3%;
+   margin-right: 10.3%;
 }
-
+#mainarray a {
+  border: none;
+  }
+#mainarray a:hover {
+  background: none;
+  }
 #frontlatest{
    /* position: relative; */
    float: left;
