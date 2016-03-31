@@ -11,9 +11,7 @@ body {
   margin-left: 0%;
   margin-top: 0%;
   width: 100%;
-  background: black;/*fallback*/
-  background-image: url(tbg2.png), url(tbg1.png);
-  background-size: 35% 35%, 30% 30%;
+  background: #99f;
 }
 p { 
 margin-top: 1.0em; margin-bottom: 1.0em;
@@ -371,8 +369,8 @@ abbr {
 .mainbanner{
    width: 43%;
    position: absolute;
-   left: 0pt;
-   top: 0pt;
+   left: 5pt;
+   top: 5pt;
 }
 .mainbanner img{
    width: 100%;
@@ -394,11 +392,11 @@ abbr {
 }
 .ll{
    font-family: "Baumans", sans-serif;
-   color: #c35;
+   color: #96203A;
 }
 .ll a:link, .ll a:visited{
    line-height: 0.4em;
-   color: #c35;
+   color: #96203A;
 }
 .ll a:hover{
    background: #006;
@@ -908,7 +906,7 @@ div.plannav{
   border: none;
   margin: 0mm;
   /* margin-top: -0.3em !important; */
-  color: #c35 !important;
+  color: #96203A !important;
   font-size: 1.6em !important;
   font-weight: normal !important;
   font-family:  "Baumans", sans-serif !important;
