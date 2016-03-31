@@ -7,6 +7,7 @@ html {
   font-size: 100%;
 }
 body {
+  position: relative;
   font-size: 100%;
   margin-left: 0%;
   margin-top: 0%;
@@ -16,27 +17,30 @@ body {
 a:link {
   color: black;
   text-decoration: none;
-  border-bottom: solid #BC87C2; 2mm;
+  border-bottom: solid #565A84 1.5mm;
 }
 a:visited {
   color: black;
   text-decoration: none;
-  border-bottom: solid #97B5D3; 2mm;
+  border-bottom: solid #725176 1.5mm;
 }
 a:hover, a:hover p {
   background: blue;
 }
 
 #picturebackground {
+  background-position: 0 0;
   background-image: url(koBg.jpg);
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100%;
   background-attachment: fixed;
+  z-index: 0;
 }
 #pictureoverlay {
+  background-position: 0 0;
   background-image: none;  /*fallback*/
   background-image: linear-gradient(rgba(179, 210, 245, 0.0), rgba(179, 210, 245, 1.0) 700px);
-  webkit–background-image: linear-gradient(rgba(179, 210, 245, 0.0), rgba(179, 210, 245, 1.0) 700px);
+  z-index: 11;
 }
 p { 
 margin-top: 1.0em; margin-bottom: 1.0em;
@@ -107,7 +111,7 @@ img {
    background: rgba(20, 20, 20, 0.65);
 }
 .maintextbanner{
-   display: none;
+  visibility: hidden;
 }
 .afternotes{
    font-size: 0.7em;
@@ -216,14 +220,19 @@ div.eventlist span.eventlisttitle{
 }
 #upcoming {
    position: absolute;
-   top: 10%;
+   top: 8%;
    left: 50%;
+   width: 40%;
    border: solid 0.5mm #ddd;
    padding: 1.2em;
    font-size: 80%;
    background: rgba(250, 100, 100, 0.6);
    text-align: center;
 }
+#upcoming a {
+  border: none;
+  text-decoration: underline;
+  }
 #frontnav {
    position: absolute;
    top: 40%;
@@ -512,7 +521,6 @@ a.lnl:hover{
   }
 #frontlatest{
    /* position: relative; */
-   float: left;
    margin-left: 2.2%;
    margin-top: 22%;
    width: 36%;
@@ -832,7 +840,6 @@ p.warn {
     text-indent: 0em;
 }
 
-}
 sup{
    font-size: 75%;
 }
