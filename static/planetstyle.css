@@ -900,6 +900,9 @@ label{
 	to { opacity: 1.0; }
 }
 
+@-webkit-keyframes slideFadeIn {
+	from { opacity: 0.0; }
+	to { opacity: 1.0; }
 @media print{
 html, body{
   background-image: none;
