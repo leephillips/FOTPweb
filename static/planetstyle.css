@@ -566,8 +566,8 @@ a.lnl:hover{
   background: none;
   }
 .slideshow {
-  animation: slideFadeIn 10s linear;
-  -webkit-animation: slideFadeIn 10s linear;
+  /* animation: slideFadeIn 10s linear; */
+  /* -webkit-animation: slideFadeIn 10s linear; */
   margin-top: 20%;
   width: 700px;
   height: 467px;
