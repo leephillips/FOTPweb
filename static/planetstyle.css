@@ -45,6 +45,14 @@ a:hover, a:hover p {
 p { 
 margin-top: 1.0em; margin-bottom: 1.0em;
 }
+#smile {
+  margin-top: 80%;
+  width: 40%;
+  margin-left: 55%;
+  }
+#smile a {
+  border: none;
+  }
 #social a{
  color: #999;
  font-size: 0.45em;
@@ -212,7 +220,7 @@ div.eventlist span.eventlisttitle{
 }
 .rhform{
    width: 80%;
-   border: solid 0.5mm #ddd;
+   border: solid 0.5mm black;
    padding: 1.2em;
 }
 .rhform img {
@@ -220,7 +228,7 @@ div.eventlist span.eventlisttitle{
 }
 #upcoming {
    position: absolute;
-   top: 8%;
+   top: 2%;
    left: 50%;
    width: 40%;
    border: solid 0.5mm #ddd;
@@ -504,14 +512,14 @@ a.lnl:hover{
 }
 #mainarray {
    position: absolute;
-   left: 9%;
-   top: 28%;
+   left: 4%;
+   top: 68%;
    width: 100%;
 }
 #mainarray img{
    width: 13%;
    margin-bottom: 10%;
-   margin-right: 10.3%;
+   margin-right: 6.3%;
 }
 #mainarray a {
   border: none;
@@ -519,6 +527,14 @@ a.lnl:hover{
 #mainarray a:hover {
   background: none;
   }
+.slideshow {
+  margin-top: 20%;
+  width: 80%;
+  height: 400px;
+  margin-left: 10%;
+  margin-right: 5%;
+}
+
 #frontlatest{
    /* position: relative; */
    margin-left: 2.2%;
