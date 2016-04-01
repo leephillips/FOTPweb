@@ -504,12 +504,12 @@ a.lnl:hover{
 }
 #mainarray {
    position: absolute;
-   left: 12%;
-   top: 33%;
+   left: 9%;
+   top: 28%;
    width: 100%;
 }
 #mainarray img{
-   width: 10%;
+   width: 13%;
    margin-bottom: 10%;
    margin-right: 10.3%;
 }
@@ -943,13 +943,13 @@ div.plannav{
 @media screen and (max-width: 700px){
 html, body{
   background-image: none;
-  background: #000;
+  background: rgb(179, 210, 245);
   }
 .mainbanner{
    display: none;
 }
 .maintextbanner{
-   display: block;
+   visibility: visible;
    color: black;
    background: #ddf;
    font-family: "Helvetica", sans-serif;
@@ -961,6 +961,17 @@ html, body{
 #mainarray, #dots{
    display: none;
 }
+#picturebackground {
+  background-position: 0 0;
+  background-image: none;
+}
+#pictureoverlay {
+  background-image: none;  /*fallback*/
+}
+#pictureoverlay {
+  visibility: invisible;
+  }
+
 .postcontent{
    width: 100%;
    margin-top: 1em;
