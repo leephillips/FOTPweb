@@ -420,6 +420,7 @@ def posttop(request):
 def preview_front(request):
    today = now()
    latestentries = preview_latest()
+   slides = Illustration.objects.filter(slideshow = True)
    smiled = request.session.get('smiled')
    rsevents = Event.objects.filter(on__range = (today, REALSOON)).count()
    return render(request, 'preview_front.html', locals())
@@ -427,6 +428,7 @@ def preview_front(request):
 def front(request):
    today = now()
    latestentries = latest()
+   slides = Illustration.objects.filter(slideshow = True)
    smiled = request.session.get('smiled')
    rsevents = Event.objects.filter(on__range = (today, REALSOON)).exclude(
                                        publish = False).count()

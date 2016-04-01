@@ -52,18 +52,14 @@
 
      <div class = 'slideshow'>
       <ul id="slideshow">
+        {% for slide in slides %}
           <li>
-            <h3>Tycho and Kepler</h3>
-            <span>/media/illustrations/TychoandKepler.jpg</span>
-            <p>Two illustrious astronomers visit the Planetarium</p>
-            <a href='/'><img src = '/media/illustrations/TychoandKepler.jpg' /></a>
+            <h3>{{ slide.caption }}</h3>
+            <span>{{ slide.pic.url }}</span>
+            <p>{{ slide.credit }}</p>
+            <a href='/'><img src = '{{ slide.pic.url }}' /></a>
           </li>
-          <li>
-            <h3>Dr. Michelle Thaller</h3>
-            <span>/media/illustrations/thaller.jpg</span>
-            <p>Dr. Michelle Thaller</p>
-            <a href='/'><img src = '/media/illustrations/thaller.jpg' /></a>
-          </li>
+        {% endfor %}
       </ul>
     
     <div id="wrapper">
