@@ -129,19 +129,14 @@ img {
    font-style: oblique;
    font-size: 0.9em;
 }
-#shoplinkdiv{
-   margin-top: -0.7em;
-   display: inline-block;
-   width: 100%;
-}
-#shoplink{
-   display: inline-block;
-}
 #shopitem{
    display: inline-block;
    vertical-align: middle;
-   margin-left: 70px;
+   width: 2em;
 }
+#shopitem img {
+ width: 100%;
+ }
 div.eventlist{
    margin-top: 1.5em;
 }
@@ -242,10 +237,24 @@ div.eventlist span.eventlisttitle{
   text-decoration: underline;
   }
 #frontnav {
-   position: absolute;
-   top: 40%;
-   left: 2%;
+   margin-top: 5em;
+   margin-left: 10%;
+   padding: 3mm;
+   width: 80%;
+   font-size: 1.5em;
+   border: solid black 1mm;
+   line-height: 2em;
    }
+#frontnav a {
+  border: none;
+}
+#frontnav p {
+  display: inline;
+  white-space: nowrap;
+  }
+#frontnav p:after {
+  content: ' ●';
+  }
 .normal_font_size {
   font-size: 22px !important;
 }
@@ -476,13 +485,6 @@ a.lnl:hover{
 }
 #mainlinklist a:hover{
    background: blue;
-}
-#shoplinkdiv a:hover{
-   background: none;
-}
-#shoplinkdiv:hover{
-   background-image: url("hovershop.png");
-   background-repeat: no-repeat;
 }
 .sitenewsitem a:visited{
    color: #F38C90;
@@ -1033,7 +1035,7 @@ html, body{
    float: right;
    margin: 0.7em;
 }
-#shopitem{
+#shopitem img{
    display: none;
 }
 #shoplink{

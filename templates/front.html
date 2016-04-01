@@ -105,21 +105,14 @@
         }
     </script>
 
-  <div id = "frontlatest">
-    
-         <h2>Recent Items:</h2>
-   {% for p in latestentries %}
-      <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
-   {% endfor %}
-</div>
 <div id = "frontnav">
 <p><a href="/event">Events &amp; Shows</a></p>
 <p><a href="/join">Join, Donate, Subscribe</a></p>
 <p><a href="/post">Articles &amp; News</a></p>
-<p><a href="/notice">Press</a> ● <a href="/movies">Movies</a></p>
+<p><a href="/notice">Press</a></p>
+<p><a href="/movies">Movies</a></p>
 <p><a href="/about">About the Planetarium</a></p>
-
-<div id = "shoplinkdiv"><a href="http://www.cafepress.com/friendsarlplanetarium/8533104"><div id = "shoplink"><p>Shop</p></div><div id = "shopitem"><img alt = "mugshot" width = "80" src="/static/mugforsale.png" /></div></a></div>
+<p><a href="http://www.cafepress.com/friendsarlplanetarium/8533104">Shop<span id = "shopitem"><img alt = "mugshot" src="/static/mugforsale.png" /></a></span></p>
 
 <script>
   (function() {
@@ -134,6 +127,13 @@
   })();
 </script>
 <div class="gcse-search"></div>
+</div>
+  <div id = "frontlatest">
+    
+         <h2>Recent Items:</h2>
+   {% for p in latestentries %}
+      <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
+   {% endfor %}
 </div>
 <div id = "social">
 <p><a href="http://facebook.com/friendsoftheplanetarium"><img src = "/static/fb.png" alt="" />acebook</a>&nbsp;
