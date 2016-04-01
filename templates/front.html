@@ -57,7 +57,7 @@
             <h3>{{ slide.caption }}</h3>
             <span>{{ slide.pic.url }}</span>
             <p>{{ slide.credit }}</p>
-            <a href='/'><img src = '{{ slide.pic.url }}' /></a>
+            <a href='{{ slide.target }}'><img src = '{{ slide.pic.url }}' /></a>
           </li>
         {% endfor %}
       </ul>

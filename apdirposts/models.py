@@ -28,6 +28,7 @@ class Illustration(models.Model):
    caption = models.TextField(blank = True)
    credit = models.TextField(blank = True)
    slideshow = models.BooleanField(default = False)
+   target = models.URLField(blank = True, null = True)
    def __unicode__(self):
       n = self.pic
       return "%s: %s" % (n, self.caption[:70])
