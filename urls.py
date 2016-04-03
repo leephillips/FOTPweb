@@ -47,4 +47,5 @@ urlpatterns = patterns('',
      (r'^tinymce/', include('tinymce.urls')),
      (r'^$', 'ap.apdirposts.views.front'),
      (r'^preview/$', 'ap.apdirposts.views.preview_front'),
+     (r'^configure_slideshow/$', 'ap.apdirposts.views.configure_slideshow'),
 )

@@ -82,6 +82,11 @@ def smile(request):
     Smile(click_date = now, session_id = str(now)).save() 
   return HttpResponseRedirect("http://smile.amazon.com/ch/27-2760025")
 
+@login_required
+def configure_slideshow(request):
+   illustrations = Illustration.objects.all().order_by('-slideshow')
+   return render(request, 'configure_slideshow.html', locals())
+  
 def preview_latest(exclude = None):
    today = now()
    try:
