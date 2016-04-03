@@ -1,0 +1,157 @@
+<!DOCTYPE HTML><html><head><meta content="text/html;charset=utf-8" http-equiv="Content-Type" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><link href="{{ STATIC_URL }}favicon_v4.png" rel="shortcut icon" type="image/png" /><link href="//fonts.googleapis.com/css?family=Alegreya:normal,italic,bold%7CAlegreya+SC:normal,italic,bold%7CBaumans" rel = "stylesheet" media = "all" type = "text/css" />
+<title>{% block title %}{% endblock %}</title>
+<script type="text/javascript" src="/static/js/jquery-1.10.2.js">
+</script>
+<script type="text/javascript" src="/static/js/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="/static/django_tinymce/init_tinymce.js"></script>
+<style>
+  .illist {
+    margin-top: 3em;
+    }
+  .na input, .na textarea {
+    margin-bottom: 1em;
+  }
+  .na button {
+    color: green;
+    font-size: 2em;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  #savehelp {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40%;
+    margin-left: 1.5em;
+    }
+  .blink {
+    border: solid black 1mm;
+    background: #aaa;
+    width: 6em;
+    padding: 2mm;
+    display: inline-block;
+    margin: 0;
+  }
+  .na .publish {
+    width: 20%;
+    border: solid red 1mm;
+    padding: 2mm;
+    display: inline-block;
+  }
+  .na .articleedit textarea {
+    float: left;
+    width: 60%;
+    height: 40em;
+  }
+  .na .illist {
+    width: 90%;
+    overflow: auto;
+  }
+  .illist .picture {
+    display: inline-block;
+    width: 20%;
+    }
+  .illist .picdata {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0em;
+    width: 60%;
+    }
+  .na .illist .picture img {
+    width: 100%;
+  }
+  p.photoname {
+    color: #339;
+    margin-top: 0;
+    margin-bottom: 0.3em;
+    }
+  .na .illist input[type=text] {
+    width: 20em;
+    }
+  .na .impbuttons {
+    clear: both;
+    margin-top: 1em;
+  }
+  .helpinput {
+    position: absolute;
+    left: -9999px;
+  }
+  .gethelp {
+    border: solid black 0.5mm;
+    background: #f99;
+    width: 0.5em;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 2mm;
+    padding-left: 1mm;
+    padding-right: 1mm;
+    cursor: pointer;
+  }
+  .help {
+    opacity: 0;
+    z-index: -10;
+    border: solid #a33 1mm;
+    background: #f99;
+    padding: 2em;
+    font-size: 0.75em;
+    width: 55%;
+    position: absolute;
+    margin-top: -1.2em;
+  }
+  .helpinput:checked ~ div.help {
+    opacity: 0.9;
+    z-index: 100;
+  }
+  .helpinput:checked + label {
+    background: #ccc;
+  }
+  .helpinput:checked + label:before {
+    content: 'X';
+  }
+  .endrow td{
+    border-bottom: solid black 1mm;
+    }
+  .picblock {
+    width: 100%;
+    border-bottom: solid black 1mm;
+    margin-bottom: 1em;
+    }
+    
+</style>
+</head>
+<h1>Slideshow Configuration</h1>
+<body style = "background: white; color: black;">
+  <form class = 'na' action = '/set_slides/' method = 'POST'>
+    <button type = 'submit'>Save</button> 
+    <div id = 'savehelp'>
+      Click to save changes to slideshow inclusion, captions, targets, and
+      credits.  Slideshow will immediately reflect your changes.
+      Go <a href= 'http://127.0.0.1:8001/admin/apdirposts/illustration/add/'>here</a>
+      to add a new picture. Pictures currently in the slideshow are listed first below.
+    </div>
+    <div class = 'illist'>
+      {% for illustration in illustrations %}
+        <div class = 'picblock'>
+          <div class = 'picture'>
+            <img src="/static/{{ illustration.pic }}" />
+          </div>
+          <div class = 'picdata'>
+            <p class = 'photoname'>{{illustration.pic|cut:"illustrations/"}}</p>
+            <input type = 'checkbox' name = 'slideshow' value = '{{illustration.slideshow}}' 
+               {% if illustration.slideshow %} checked {% endif %} />
+               Include in slideshow <br />
+            <input type = 'text' name = 'description' value = '{{illustration.caption}}' />
+              Caption <br />
+            <input type = 'text' name = 'credit' value = '{{illustration.credit}}' />
+              Credit <br />
+            <input type = 'text' name = 'target' value = '{{illustration.target}}' />
+              Link target <br />
+            <span class = 'divider'></span>
+          </div>
+        </div>
+          
+        {% endfor %}
+    </div>
+  </form>
+</body>
+</html>
