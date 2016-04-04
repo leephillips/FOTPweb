@@ -5,6 +5,7 @@ from models import Director, Post, Postcategory, Illustration, Notice, Event, Sm
 from datetime import datetime, timedelta
 import re
 from django import forms
+from django.forms.models import modelformset_factory
 from django.contrib.auth.decorators import login_required, user_passes_test, permission_required
 from tinymce.widgets import TinyMCE
 
@@ -23,6 +24,13 @@ class NewArticleForm(forms.Form):
   title = forms.CharField(max_length = '300')
   content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
   publish = forms.BooleanField()
+
+@login_required
+def set_slides(request):
+   if request.method == 'POST': #Hit the Save button
+     pass
+   else:
+     return front(request)
 
 @login_required
 def newarticle(request, pid = None):
@@ -84,7 +92,8 @@ def smile(request):
 
 @login_required
 def configure_slideshow(request):
-   illustrations = Illustration.objects.all().order_by('-slideshow')
+   ilform = modelformset_factory(Illustration, extra = 0)
+   ilformset = ilform(queryset = Illustration.objects.all().order_by('-slideshow'))
    return render(request, 'configure_slideshow.html', locals())
   
 def preview_latest(exclude = None):

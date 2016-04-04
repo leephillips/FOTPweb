@@ -48,4 +48,5 @@ urlpatterns = patterns('',
      (r'^$', 'ap.apdirposts.views.front'),
      (r'^preview/$', 'ap.apdirposts.views.preview_front'),
      (r'^configure_slideshow/$', 'ap.apdirposts.views.configure_slideshow'),
+     (r'^set_slides/$', 'ap.apdirposts.views.set_slides'),
 )

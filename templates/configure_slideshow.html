@@ -98,16 +98,6 @@
     position: absolute;
     margin-top: -1.2em;
   }
-  .helpinput:checked ~ div.help {
-    opacity: 0.9;
-    z-index: 100;
-  }
-  .helpinput:checked + label {
-    background: #ccc;
-  }
-  .helpinput:checked + label:before {
-    content: 'X';
-  }
   .endrow td{
     border-bottom: solid black 1mm;
     }
@@ -122,6 +112,7 @@
 <h1>Slideshow Configuration</h1>
 <body style = "background: white; color: black;">
   <form class = 'na' action = '/set_slides/' method = 'POST'>
+    {% csrf_token %} 
     <button type = 'submit'>Save</button> 
     <div id = 'savehelp'>
       Click to save changes to slideshow inclusion, captions, targets, and
@@ -130,21 +121,23 @@
       to add a new picture. Pictures currently in the slideshow are listed first below.
     </div>
     <div class = 'illist'>
-      {% for illustration in illustrations %}
+      {{ ilformset.management_form }}
+      {% for f in ilformset %}
         <div class = 'picblock'>
+          {{ f.id }}
           <div class = 'picture'>
-            <img src="/static/{{ illustration.pic }}" />
+            <img src="/static/{{ f.pic.value }}" />
           </div>
           <div class = 'picdata'>
-            <p class = 'photoname'>{{illustration.pic|cut:"illustrations/"}}</p>
-            <input type = 'checkbox' name = 'slideshow' value = '{{illustration.slideshow}}' 
-               {% if illustration.slideshow %} checked {% endif %} />
+            <p class = 'photoname'>{{f.pic.value|cut:"illustrations/"}}</p>
+            <input type = 'checkbox' name = 'slideshow' value = '{{f.slideshow.value}}' 
+               {% if f.slideshow.value %} checked {% endif %} />
                Include in slideshow <br />
-            <input type = 'text' name = 'description' value = '{{illustration.caption}}' />
+            <input type = 'text' name = 'description' value = '{{f.caption.value}}' />
               Caption <br />
-            <input type = 'text' name = 'credit' value = '{{illustration.credit}}' />
+            <input type = 'text' name = 'credit' value = '{{f.credit.value}}' />
               Credit <br />
-            <input type = 'text' name = 'target' value = '{{illustration.target}}' />
+            <input type = 'text' name = 'target' value = '{{f.target.value}}' />
               Link target <br />
             <span class = 'divider'></span>
           </div>
