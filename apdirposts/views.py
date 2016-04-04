@@ -26,13 +26,6 @@ class NewArticleForm(forms.Form):
   publish = forms.BooleanField()
 
 @login_required
-def set_slides(request):
-   if request.method == 'POST': #Hit the Save button
-     pass
-   else:
-     return front(request)
-
-@login_required
 def newarticle(request, pid = None):
    main = Postcategory.objects.filter(postcategory = 'main')[0]
    user = request.user
@@ -93,7 +86,13 @@ def smile(request):
 @login_required
 def configure_slideshow(request):
    ilform = modelformset_factory(Illustration, extra = 0, widgets = {'caption': forms.TextInput(), 'credit': forms.TextInput()})
-   ilformset = ilform(queryset = Illustration.objects.all().order_by('-slideshow'))
+   if request.method == 'POST':
+     ilformset = ilform(request.POST)
+     if ilformset.is_valid():
+       ilformset.save() 
+   else:
+     ilformset = ilform(queryset = Illustration.objects.all().order_by('-slideshow'))
+
    return render(request, 'configure_slideshow.html', locals())
   
 def preview_latest(exclude = None):

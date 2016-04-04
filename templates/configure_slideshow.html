@@ -108,7 +108,7 @@
 </head>
 <h1>Slideshow Configuration</h1>
 <body style = "background: white; color: black;">
-  <form class = 'na' action = '/set_slides/' method = 'POST'>
+  <form class = 'na' action = '/configure_slideshow/' method = 'POST'>
     {% csrf_token %} 
     <button type = 'submit'>Save</button> 
     <div id = 'savehelp'>
@@ -127,9 +127,8 @@
           </div>
           <div class = 'picdata'>
             <p class = 'photoname'>{{f.pic.value|cut:"illustrations/"}}</p>
-            <input type = 'checkbox' name = 'slideshow' value = '{{f.slideshow.value}}' 
-               {% if f.slideshow.value %} checked {% endif %} />
-               Include in slideshow <br />
+              {{ f.slideshow }}
+              Include in slideshow <br />
               {{ f.caption }}
               Caption <br />
               {{ f.credit }}
