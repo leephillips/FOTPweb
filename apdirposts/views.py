@@ -92,7 +92,7 @@ def smile(request):
 
 @login_required
 def configure_slideshow(request):
-   ilform = modelformset_factory(Illustration, extra = 0)
+   ilform = modelformset_factory(Illustration, extra = 0, widgets = {'caption': forms.TextInput(), 'credit': forms.TextInput()})
    ilformset = ilform(queryset = Illustration.objects.all().order_by('-slideshow'))
    return render(request, 'configure_slideshow.html', locals())
   

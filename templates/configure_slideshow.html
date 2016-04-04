@@ -37,13 +37,7 @@
     padding: 2mm;
     display: inline-block;
   }
-  .na .articleedit textarea {
-    float: left;
-    width: 60%;
-    height: 40em;
-  }
   .na .illist {
-    width: 90%;
     overflow: auto;
   }
   .illist .picture {
@@ -65,7 +59,10 @@
     margin-bottom: 0.3em;
     }
   .na .illist input[type=text] {
-    width: 20em;
+    width: 40em;
+    }
+  .na .illist input[type=url] {
+    width: 40em;
     }
   .na .impbuttons {
     clear: both;
@@ -133,11 +130,11 @@
             <input type = 'checkbox' name = 'slideshow' value = '{{f.slideshow.value}}' 
                {% if f.slideshow.value %} checked {% endif %} />
                Include in slideshow <br />
-            <input type = 'text' name = 'description' value = '{{f.caption.value}}' />
+              {{ f.caption }}
               Caption <br />
-            <input type = 'text' name = 'credit' value = '{{f.credit.value}}' />
+              {{ f.credit }}
               Credit <br />
-            <input type = 'text' name = 'target' value = '{{f.target.value}}' />
+              {{ f.target }}
               Link target <br />
             <span class = 'divider'></span>
           </div>
