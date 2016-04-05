@@ -5,6 +5,7 @@ from models import Director, Post, Postcategory, Illustration, Notice, Event, Sm
 from datetime import datetime, timedelta
 import re
 from django import forms
+from django.forms.models import modelformset_factory
 from django.contrib.auth.decorators import login_required, user_passes_test, permission_required
 from tinymce.widgets import TinyMCE
 
@@ -82,6 +83,18 @@ def smile(request):
     Smile(click_date = now, session_id = str(now)).save() 
   return HttpResponseRedirect("http://smile.amazon.com/ch/27-2760025")
 
+@login_required
+def configure_slideshow(request):
+   ilform = modelformset_factory(Illustration, extra = 0, widgets = {'caption': forms.TextInput(), 'credit': forms.TextInput()})
+   if request.method == 'POST':
+     ilformset = ilform(request.POST)
+     if ilformset.is_valid():
+       ilformset.save() 
+     return HttpResponseRedirect("")
+   else:
+     ilformset = ilform(queryset = Illustration.objects.all().order_by('-slideshow'))
+   return render(request, 'configure_slideshow.html', locals())
+  
 def preview_latest(exclude = None):
    today = now()
    try:
@@ -420,6 +433,7 @@ def posttop(request):
 def preview_front(request):
    today = now()
    latestentries = preview_latest()
+   slides = Illustration.objects.filter(slideshow = True)
    smiled = request.session.get('smiled')
    rsevents = Event.objects.filter(on__range = (today, REALSOON)).count()
    return render(request, 'preview_front.html', locals())
@@ -427,10 +441,20 @@ def preview_front(request):
 def front(request):
    today = now()
    latestentries = latest()
+   slides = Illustration.objects.filter(slideshow = True)
    smiled = request.session.get('smiled')
    rsevents = Event.objects.filter(on__range = (today, REALSOON)).exclude(
                                        publish = False).count()
    return render(request, 'front.html', locals())
+
+def x7297(request):
+   today = now()
+   latestentries = latest()
+   slides = Illustration.objects.filter(slideshow = True)
+   smiled = request.session.get('smiled')
+   rsevents = Event.objects.filter(on__range = (today, REALSOON)).exclude(
+                                       publish = False).count()
+   return render(request, 'preview_slideshow.html', locals())
 
 @xframe_options_exempt
 def aps_banner(request):
