@@ -18,7 +18,7 @@
     }
   #slideshow {list-style:none; color:#fff}
   #slideshow span {display:none}
-  #wrapper {width:100%; height: 100%; margin:5px auto; margin-top:10px; margin-bottom:150px;}
+  #wrapper {width:100%; height: 100%; margin:0px auto; margin-top:10px; margin-bottom:0px;}
   #wrapper * {margin:0; padding:0}
   #fullsize {overflow:hidden; position:relative; width:100%; height:100%; padding:2px; border:1px solid #ccc; background:#000}
   #information {position:absolute; bottom:0; width:100%; height:0; background:#000; color:#fff; overflow:hidden; z-index:200; opacity:.7; filter:alpha(opacity=70)}
@@ -125,24 +125,27 @@
 <div id = 'searchbox'>
   <div class="gcse-search"></div>
 </div>
+<div id = "social">
+  <p><a href="http://facebook.com/friendsoftheplanetarium"><img src = "/static/fb.png" alt="" />acebook</a>&nbsp;
+  <a href="http://twitter.com/FrnzPlanetarium"><img src = "/static/twit.png" alt="" />witter</a>&nbsp;
+  <a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/insta.png" alt="" />Instagram</a>
+  <span style = 'visibility: hidden;'>Spacexx</span>
+  </p>
+</div>
+<div id = 'frontcontent'>
   <div id = "frontlatest">
-    
-         <h2>Recent Items:</h2>
+   <h1>Recent:</h1>
    {% for p in latestentries %}
       <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
    {% endfor %}
-</div>
-<div id = "social">
-<p><a href="http://facebook.com/friendsoftheplanetarium"><img src = "/static/fb.png" alt="" />acebook</a>&nbsp;
-<a href="http://twitter.com/FrnzPlanetarium"><img src = "/static/twit.png" alt="" />witter</a>&nbsp;
-<a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/insta.png" alt="" />Instagram</a></p>
-</div>
-
-{% if not smiled %}
-  <div id = 'smile' class = "newsletterform rhform">
-  <p class="normal_font_size">Support the Planetarium every time you buy from Amazon, at no cost to you:</p><a href="/smile/"><img alt="Amazon Smile" src="/static/smile.png" /></a>
   </div>
-{% endif %}
+
+  {% if not smiled %}
+    <div id = 'smile' class = "newsletterform rhform">
+    <p>Support the Planetarium every time you buy from Amazon, at no cost to you: <a href="/smile/"><img alt="Amazon Smile" src="/static/smile.png" /></a></p>
+    </div>
+  {% endif %}
+</div>
 <div id = "mainarray">
 
    <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "http://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon" /></a>

@@ -124,7 +124,7 @@ def preview_latest(exclude = None):
    #combine these into a list:
    return (events + articles + notices)
 
-def latest(exclude = None):
+def latest(exclude = None, number = 9):
    today = now()
    try:
       xid = int(exclude)
@@ -134,10 +134,10 @@ def latest(exclude = None):
    articles = list(Post.objects.filter(pub_date__range = (RECENT, SOON)).exclude(
                    category__postcategory = exclude).exclude(id = xid).exclude(
                    publish = False).order_by('-pub_date'))
-   articles = zip(len(articles)*['post'],articles)[:9]
+   articles = zip(len(articles)*['post'],articles)[:number]
    #news mentions from the past RECENT days:
    notices = list(Notice.objects.filter(on__range = (RECENT, SOON)).exclude(id = xid).order_by('-pub_date'))
-   notices = zip(len(notices)*['notice'],notices)[:9]
+   notices = zip(len(notices)*['notice'],notices)[:number]
    #events coming up SOON:
    #if they're not described in a related post:
    if exclude == "events":
@@ -146,11 +146,11 @@ def latest(exclude = None):
       rawevents = Event.objects.filter(on__range = (today, SOON)).exclude(
                                        publish = False)
       events = [e for e in rawevents if not e.rpost]
-      events = zip(len(events)*['event'],events)[:9]
+      events = zip(len(events)*['event'],events)[:number]
    if exclude == "notices":
       notices = []
    #combine these into a list:
-   return (events + articles + notices)[:9]
+   return (events + articles + notices)[:number]
 
 def bio(request, who):
    n = Director.objects.get(user = int(who))
@@ -449,7 +449,7 @@ def front(request):
 
 def x7297(request):
    today = now()
-   latestentries = latest()
+   latestentries = latest(3)
    slides = Illustration.objects.filter(slideshow = True)
    smiled = request.session.get('smiled')
    rsevents = Event.objects.filter(on__range = (today, REALSOON)).exclude(
