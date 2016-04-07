@@ -1,4 +1,5 @@
 #! /bin/bash
 wget http://api.usno.navy.mil/imagery/moon.png -O rawmoon.png
-convert rawmoon.png -trim -resize 100x100 -transparent black /home/lee/www/arlplanet/currentmoon.png
+convert rawmoon.png -trim -resize 150x150\! moon.png
+convert moon.png maske.png -alpha Off -compose CopyOpacity -composite /home/lee/www/arlplanet/currentmoon.png
 chmod 644 /home/lee/www/arlplanet/currentmoon.png
