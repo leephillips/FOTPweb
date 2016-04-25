@@ -1,5 +1,5 @@
 #! /bin/bash
 wget http://umbra.nascom.nasa.gov/images/latest_aia_171_tn.gif -O sun.gif
 convert sun.gif -resize 150x150\! sun.png
-convert sun.png maske.png -alpha Off -compose CopyOpacity -composite /home/lee/www/arlplanet/currentsun.png
+convert sun.png /home/lee/ap/static/maske.png -alpha Off -compose CopyOpacity -composite /home/lee/www/arlplanet/currentsun.png
 chmod 644 /home/lee/www/arlplanet/currentsun.png
