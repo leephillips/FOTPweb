@@ -292,6 +292,7 @@ div.eventlist span.eventlisttitle{
   background: #f00;
 }
 #frontnav {
+   text-align: center;
    margin: 0em auto;
    padding: 3mm;
    width: 80%;
@@ -558,7 +559,7 @@ a.lnl:hover{
    margin: 2em auto;
    width: 20%;
 }
-#sponsors h2 {
+#sponsors h2, #mainarray h2 {
    font-size: 1em;
    text-align: center;
    border: none;
@@ -934,7 +935,7 @@ h1
    margin-bottom: 0.5em;
 }
 h2{
-    padding-top: 0.7em;
+   padding-top: 0.7em;
    border-top: solid #c35 0.5mm;
    line-height: 1.0em;
    text-align: left;
