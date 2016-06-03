@@ -86,12 +86,17 @@ p {
 margin-top: 1.0em; margin-bottom: 1.0em;
 }
 #social {
-  width: auto;
+  /* width: auto; */
+  width: 500px;
   text-align: center;
   font-family: "Baumans", sans-serif;
-  margin: -1em auto 0em;
+  margin: -1em auto;
   font-size: 1.2em;
   color: black;
+}
+#social p {
+  text-indent: 0;
+  text-align: center;
 }
 #social a{
  color: black;
@@ -549,6 +554,21 @@ a.lnl:hover{
    text-indent: 0px;
    font-size: 1.7em;
 }
+#sponsors {
+   margin: 2em auto;
+   width: 20%;
+}
+#sponsors h2 {
+   font-size: 1em;
+   text-align: center;
+   border: none;
+}
+#sponsorlogos {
+   width: 100px;
+   height: 50px;
+   margin: .2em auto;
+   border: solid 1mm black;
+}
 #mainlinklist a.thisone:link{
    color: #F5EB08;
 }
@@ -565,7 +585,7 @@ a.lnl:hover{
 }
 #mainarray div.maincircle {
    width: 15%;
-   margin-right: 2.3%;
+   margin-right: 4.0%;
    display: inline-block;
 }
 #mainarray div.maincircle img {
@@ -591,8 +611,15 @@ a.lnl:hover{
 }
 #frontcontent {
   width: 90%;
-  margin: 2em auto;
+  margin: 4em auto;
   text-align: center;
+}
+#centerline {
+  position:absolute;
+  border: solid red 0.3mm;
+  height: 100%;
+  left: 50%;
+  top: 0;
 }
 #smile {
   text-align: center;
@@ -610,10 +637,8 @@ a.lnl:hover{
   vertical-align: middle;
 }
 #frontlatest{
-   /* text-align: center; */
-   display: inline-block;
-   vertical-align: top;
-   margin: 1em 2em 0 0;
+   text-align: center;
+   margin: 1em auto;
    width: 36%;
    font-family: "Baumans", sans-serif;
    font-size: 1.2em;
@@ -623,14 +648,15 @@ a.lnl:hover{
   margin-top: 0;
   padding-top: 0;
   text-align: left;
-  margin-left: 30%;
+  margin-left: 0%;
+  text-align: center;
 }
 #frontlatest p{
    text-indent: 0pt;
    margin-bottom: 0.5em;
    margin-top: 0pt;
-   margin-left: 30%;
-   text-align: left;
+   margin-left: 0%;
+   text-align: center;
 }
 #frontlatest a:link {
    border: none;
