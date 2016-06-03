@@ -344,6 +344,14 @@ def website(request):
                   'latest': latest()}
                 )
 
+def planets(request):
+   return render(request, 'apdirposts/planets.html',
+                 {'joinone': 'thisone',
+                  'latest': latest(),
+                  'smiled': request.session.get('smiled')
+                 }
+                )
+
 def sf2016(request):
    return render(request, 'apdirposts/sf2016.html',
                  {'joinone': 'thisone',

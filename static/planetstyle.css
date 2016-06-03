@@ -148,6 +148,10 @@ div.eventlist span.eventlisttitle{
 .smalldivider img {
   width: 100px;
 }
+.centerbanner {
+  width: 80%;
+  text-align: center;
+}
 .centerpic{
   width: 100%;
 }
