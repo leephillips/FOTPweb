@@ -564,11 +564,19 @@ a.lnl:hover{
    border: none;
 }
 #sponsorlogos {
-   width: 100px;
-   height: 50px;
+   width: 150px;
+   height: 75px;
    margin: .2em auto;
    border: solid 1mm black;
+   position: relative;
+   overflow: hidden;
 }
+#sponsorlogos img {
+  animation: sponsorslide 10s linear infinite alternate;
+  webkit-animation: sponsorslide 10s linear infinite;
+  position:absolute;
+}
+
 #mainlinklist a.thisone:link{
    color: #F5EB08;
 }
@@ -1007,4 +1015,12 @@ label{
 @-webkit-keyframes slideFadeIn {
 	from { opacity: 0.0; }
 	to { opacity: 1.0; }
-
+      }
+@keyframes sponsorslide {
+        from { left: 0; }
+        to   { left: -429px; }
+      }
+@-webkit-keyframes sponsorslide {
+        from { left: 0; }
+        to   { left: -429px; }
+      }
