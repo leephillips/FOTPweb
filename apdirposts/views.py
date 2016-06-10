@@ -245,6 +245,38 @@ def preview_post(request, which):
                              'events': r,
                              'title': p.title})
 
+@login_required
+def postx(request, which):
+   try:
+      p = get_object_or_404(Post, id = which)
+   except:
+      raise Http404
+   r = Event.objects.filter(rpost = p).order_by('on')
+   category = p.category.postcategory
+   categoryclass = ['mainarticleone', 'cornerone', 'scienceone'][
+                   ['main', 'corner', 'science'].index(category)]
+   if p.publish:
+      pics = Illustration.objects.filter(post=which)
+      content = p.content
+      if len(pics) > 0:
+         content = picparse(content, pics)
+      if ("<iframe" in content or "<object" in content or
+         "<embed" in content):
+            template = "objpage.html"
+      else:
+            template = "postx7297.html"
+      return render(request, 'apdirposts/'+template,
+                                {'content': content,
+                                 'author': p.author,
+                                 'latest': latest(which),
+                                 categoryclass: 'thisone',
+                                 'byline': p.byline,
+                                 'date' : p.pub_date,
+                                 'events': r,
+                                 'title': p.title})
+   else:
+      return HttpResponseRedirect("/")
+
 def post(request, which):
    try:
       p = get_object_or_404(Post, id = which)

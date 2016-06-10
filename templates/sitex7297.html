@@ -1,7 +1,9 @@
 <!DOCTYPE HTML><html><head><meta content="text/html;charset=utf-8" http-equiv="Content-Type" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><link href="{{ STATIC_URL }}planetstylex7297v2.css" media="all" rel="stylesheet" type="text/css" /><link href="{{ STATIC_URL }}favicon_v4.png" rel="shortcut icon" type="image/png" /><link href="//fonts.googleapis.com/css?family=Alegreya:normal,italic,bold%7CAlegreya+SC:normal,italic,bold%7CBaumans" rel = "stylesheet" media = "all" type = "text/css" />
 
 <link rel="image_src" href="{{ STATIC_URL }}hfbs.png" />
-<title>{% block title %}{% endblock %}</title></head>
+<title>{% block title %}{% endblock %}</title>
+{% block style %}{% endblock %}
+  </head>
 <body>
   <div id = 'picturebackground'>
     <div id = 'pictureoverlay'>

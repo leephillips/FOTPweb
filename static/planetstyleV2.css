@@ -1045,3 +1045,40 @@ span.fnclicked span.fntext span.fntext{
    display: none;
 }
 }
+
+#parl {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.4em;
+  background: rgb(179, 230, 245);
+  color: black;
+  font-size: 1.7em;
+  line-height: 1em;
+}
+#parl h2 {
+  border: none;
+}
+#parl p {
+  width: 50%;
+  margin-left: 25%;
+  text-indent: 0;
+  margin-top: 1.4em;
+  padding-bottom: 1em;
+}
+#parl a:link {
+  background: none;
+  color: #966;
+}
+#parl a:visited {
+  background: none;
+  color: #666;
+}
+#parl div.cback {
+  background-size: 50%;
+  background-position: 50% bottom;
+  background-attachment: fixed;
+  background-repeat: repeat-y;
+}
+}

@@ -1,0 +1,48 @@
+{% extends "apdirposts/page.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block pagecontent %}
+<div class = "postcontent" id = "target">
+   {% if author.director.bio|length > 2 %}
+   <div class='title-article'>{{ title }}</div> 
+      {% if byline %} 
+      <div class = "byline">by <a href="/bio/{{ author.id }}">{{ byline }}</a> — <span class = "articledate">{{ date|date:'N j, Y' }}</span></div>
+         {% else %}
+         <div class = "byline"><span class="articledate">{{ date|date:'N j, Y' }}</span></div>  
+      {% endif %}
+   {% else %}
+      <div class='title-article'>{{ title }}</div> 
+      {% if byline %} 
+         <div class = "byline">by {{ byline }}</div>
+      {% endif %}
+   {% endif %}
+{% if events %}
+   <h1>Click on a show to buy tickets</h1>
+<div class = "plannav">
+   {% regroup events by on|date:'D' as days %}
+   {% for day in days %}
+   <div class = "tr">
+      <div class = "daycell">{{ day.grouper }}<br />{{ day.list.0.on|date:'jM' }}</div>
+    {% for show in day.list %}
+    <div class = "timecell"><a href="/event/{{ show.id }}">{{ show.on|date:'f A' }}<br />{{ show.title }}</a></div>
+    {% endfor %}
+   </div>
+   {% endfor %}
+</div>
+{% endif %}
+{{ content|safe }}
+{% if events %}
+   <h1>Click on a show to buy tickets</h1>
+<div class = "plannav">
+   {% regroup events by on|date:'D' as days %}
+   {% for day in days %}
+   <div class = "tr">
+      <div class = "daycell">{{ day.grouper }}<br />{{ day.list.0.on|date:'jM' }}</div>
+    {% for show in day.list %}
+    <div class = "timecell"><a href="/event/{{ show.id }}">{{ show.on|date:'f A' }}<br />{{ show.title }}</a></div>
+    {% endfor %}
+   </div>
+   {% endfor %}
+</div>
+{% endif %}
+</div>
+{% endblock %}
