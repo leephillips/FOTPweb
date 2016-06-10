@@ -1051,6 +1051,7 @@ span.fnclicked span.fntext span.fntext{
   position: absolute;
   top: 0;
   left: 0;
+  width: 97.5%;
   padding: 0.4em;
   background: rgb(179, 230, 245);
   color: black;
