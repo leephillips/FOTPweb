@@ -1,18 +1,19 @@
 \documentclass{article}
-\usepackage[absolute]{textpos}
-% \usepackage{multicol}
+% \usepackage[absolute]{textpos}
+\usepackage{multicol}
 \usepackage[cm-default]{fontspec}
 % \defaultfontfeatures{Ligatures=TeX}
 \usepackage[margin=0.25in]{geometry}
 \usepackage{graphicx}
  % \usepackage{floatflt}
 \usepackage{wrapfig}
-\setlength{\TPHorizModule}{1in}
-\setlength{\TPVertModule}{\TPHorizModule}
-\textblockorigin{0.125in}{0.125in} % start everything near the top-left corner
+% \setlength{\TPHorizModule}{1in}
+% \setlength{\TPVertModule}{\TPHorizModule}
+% \textblockorigin{0.125in}{0.125in} % start everything near the top-left corner
 \setlength{\parindent}{0pt}
 \setlength{\intextsep}{0pt}
-\setlength{\columnsep}{3pt}
+\setlength{\columnsep}{0.24in}
+% \setlength{\linewidth}{3in}
 % \begin{minipage}[pos][height][contentpos]{width} text \end{minipage}
 
 % 1/8 in margins with 2 col and 1/4 in space between col = colwidth of 4 in,
@@ -20,74 +21,62 @@
 % Reduce col width to 3.8 in to handle overfulls.
 
 \begin{document}
-\includegraphics[width=\textwidth]{../NewDMBHeader}
+\includegraphics[width=\textwidth]{../media/NewDMBHeader}
 % \begin{textblock}{7.5}(0,2.5)
    \begin{centering}
-     {\fontsize{28}{8}\fontspec{Impact}
+     {\fontsize{28}{8}\fontspec{STIXGeneral}
   
         June 17 – 19, 2016: PLANETS!
      }
 
      {\fontsize{19}{19}\fontspec{Liberation Sans Narrow}
       
-        A weekend at the Arlington Planetarium devoted to 
+        A weekend at the Arlington Planetarium\break devoted to 
         planets in the solar system and beyond.
 
      }
   
    \end{centering}
-   
 
-\begin{textblock}{4}(0,3.4)
-   \begin{wrapfigure}[9]{l}{1.8in}
-     \includegraphics[width=1.7in]{dynamicEarth2.jpg}
-   \end{wrapfigure}      
+% \begin{multicols}{2}
 
-     {\fontsize{20}{22}\fontspec{Linux Biolinum O}
-      \textbf{\textit{Dynamic Earth}\\ Fri  6:30 pm}: Ride along on swirling ocean and wind currents, dive into the heart of a monster hurricane, come face-to-face with sharks and gigantic whales, and fly into roiling volcanoes in this full-dome movie.
+     {\fontsize{20}{22}\fontspec{STIXGeneral}
+
+     \begin{wrapfigure}[5]{l}{0pt}
+       \includegraphics[width=3.8in]{dynamicEarth2}
+     \end{wrapfigure}      
+     
+      \textbf{Fri  6:30 pm}: Ride along on swirling ocean and wind currents, dive into the heart of a monster hurricane, come face-to-face with sharks and gigantic whales, and fly into roiling volcanoes in this full-dome movie.
 
        }
        
 
-\end{textblock}
+   {\fontsize{20}{24}\fontspec{STIXGeneral}
 
-\begin{textblock}{4}(0,6.9)
-
-   {\fontsize{20}{21}\fontspec{Linux Biolinum O}
-
-   \textbf{Michael Neufeld: The New Horizons Mission to Pluto}
-   \begin{wrapfigure}{r}{1.1in}
-      \includegraphics[width=1.2in]{../media/illustrations/michaelNeufeld.jpg}
+   \begin{wrapfigure}[3]{l}{0pt}
+      \includegraphics[width=0.6in]{../media/illustrations/michaelNeufeld}
    \end{wrapfigure}      
    
-   \textbf{Fri., 7:30 pm}:
+   \textbf{Michael Neufeld: The New Horizons Mission to Pluto}: 
       The story of one of the most ambitious planetary flyby missions ever attempted: the New Horizons mission to Pluto,
-      told by a Senior Curator at the Smithsonian Air & Space Museum.
+      told by a Senior Curator at the Smithsonian Air \& Space Museum.
+      
+   }
+
+
+   {\fontsize{18}{20}\fontspec{STIXGeneral}
+
+
+ \begin{wrapfigure}[6]{l}{0pt}
+   \includegraphics[width=1.0in]{../media/illustrations/Exploding_Universe.jpeg}
+ \end{wrapfigure}      
+
+     \textbf{Exploding Universe: Sat, 6:30}: From supernovas to volcanoes, this film looks at the beautiful and creative power of explosive phenomena to shape planets, stars, and the entire universe.
 
    }
 
-\end{textblock}
 
-\begin{textblock}{3.85}(4.25,3.4)
-   {\fontsize{18}{20}\fontspec{Linux Biolinum O}
-
-   \begin{centering}
-
-     \textit{Inherit the Wind}:
-     \textbf{Sat.,  7:30}
-
-
-   \includegraphics[width=3.2in]{inherit}
-
-   \end{centering}
-
-Based on a 1925 trial, two famous law\-yers debate the case of a science teacher accused of the crime of teaching evolution (1960, 128 min.).
-
-   }
-\end{textblock}
-
-
-\begin{textblock}{3.8}(4.25,7.0)
+% \begin{textblock}{3.8}(4.25,7.0)
 
      {\fontsize{19}{19}\fontspec{Liberation Sans Narrow}
 
@@ -98,34 +87,40 @@ Based on a 1925 trial, two famous law\-yers debate the case of a science teacher
      }
 
 
-\end{textblock}
+% \end{textblock}
 
-\begin{textblock}{4}(4.25,8.1)
+% \begin{textblock}{4}(4.25,8.1)
 
-   {\fontsize{16}{27}\fontspec{LMRomanDunh10}
+% \end{multicols}
+
+   {\fontsize{16}{18}\fontspec{Ubuntu Mono}
 
 Admission for all programs is \$3 for Children (up to age 12), \$5 for Friends, Members, and Seniors (60+), and \$7 for teens and adults.
 
    }
-\end{textblock}
+% \end{textblock}
 
-\begin{textblock}{7}(0.65,10)
+% \begin{textblock}{7}(0.65,10)
 
-   {\fontsize{18}{24}\fontspec{Telegrama}
+
+   {\fontsize{18}{24}\fontspec{Ubuntu Mono}
 
 \begin{wrapfigure}{r}{0.8in}
-   \includegraphics[width=0.8in]{qrCodeLIFE.png}
+   \includegraphics[width=0.8in]{QRplanets2016.jpg}
 \end{wrapfigure}      
 
-For tickets and more information, go to
+\begin{centering}
+  
+For tickets and more information, go to\break
 http://friendsoftheplanetarium.org.
+
+\end{centering}
 
 }
 
 
 
-\end{textblock}
-
+% \end{textblock}
 \end{document}
 
 
