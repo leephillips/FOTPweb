@@ -153,7 +153,10 @@ def latest(exclude = None, number = 9):
    return (events + articles + notices)[:number]
 
 def bio(request, who):
-   n = Director.objects.get(user = int(who))
+   try:
+       n = get_object_or_404(Director, user = int(who))
+   except:
+      raise Http404
    try:
       face = n.face.url
    except:
