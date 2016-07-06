@@ -10,6 +10,7 @@
       </div>
     
          <h2>Recent Items:</h2>
+         <b>{{ thehell }}</b>
    {% for p in latestentries %}
       <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
    {% endfor %}
@@ -55,7 +56,8 @@
 
 <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "http://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon" /></a>
 <a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a>
-<a href="http://cleardarksky.com/c/USNOkey.html?1"><img src = "/static/csc.png" alt="Observing Conditions" title = "Observing Conditions" /></a>
+<a href = 'http://www.nasa.gov/feature/goddard/2016/hubble-captures-vivid-auroras-in-jupiter-s-atmosphere'><img src = '/static/jupiterauroraC.png' alt = ' ' title = 'Hubble Captures Vivid Auroras in Jupiter’s Atmosphere' /></a>
+<!--<a href="http://cleardarksky.com/c/USNOkey.html?1"><img src = "/static/csc.png" alt="Observing Conditions" title = "Observing Conditions" /></a>-->
 <a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "http://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
 
 </div>

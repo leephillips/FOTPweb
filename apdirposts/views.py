@@ -482,6 +482,8 @@ def preview_front(request):
    return render(request, 'preview_front.html', locals())
 
 def front(request):
+   randomdict = dict()
+   randomdict['thehell'] = 17
    today = now()
    latestentries = latest()
    slides = Illustration.objects.filter(slideshow = True)
