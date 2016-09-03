@@ -27,21 +27,19 @@ class NewArticleForm(forms.Form):
   publish = forms.BooleanField()
 
 class SetdonationForm(forms.Form):
-  amount = forms.FloatField(blank = True, null = True)
+  amount = forms.FloatField()
 
 @login_required
 def setdonation(request):
     user = request.user
+    form = SetdonationForm()
     if request.method == 'POST':
         form = SetdonationForm(request.POST)
         if form.is_valid():
             amount = request.POST.get('amount')
             open(settings.STATIC_ROOT + '/donationamount', 'w').write(amount)
             return HttpResponseRedirect("/")
-    return render(request, 'setdonation.html', locals())
-
-
-
+    return render(request, 'apdirposts/setdonation.html', locals())
 
 @login_required
 def newarticle(request, pid = None):

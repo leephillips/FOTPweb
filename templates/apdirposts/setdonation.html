@@ -9,7 +9,8 @@
   a new number is entered here.</p>
   <p>
   <form method = 'POST' action = '/setdonation'>
-     {{ form }} 
+    {% csrf_token %} 
+    {{ form }}  <button type = 'submit'>Save</button>
   </form>
   </p>
 </div>
