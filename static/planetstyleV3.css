@@ -59,6 +59,16 @@ img {
 .push{
    clear: both;
 }
+#planetfooter1000{
+   position: absolute;
+   top: 250%;
+   height: 4%;
+   font-size: 0.75em;
+   background: rgba(45, 40, 70, 0.65);
+   padding: 0.7em;
+   padding-left: 2.3%;
+   border-top: solid rgba(40, 40, 150, 0.53) 1mm;
+} 
 #planetfooter{
    clear: both;
    position: relative;
@@ -70,6 +80,19 @@ img {
    padding-left: 2.3%;
    border-top: solid rgba(40, 40, 150, 0.53) 1mm;
 } 
+#planetfooter1000 .footerlinks a{
+   display: inline-block;
+   margin-right: 2em;
+}
+#planetfooter1000 .footerlinks a:visited{
+   color: #6060C5;
+}
+#planetfooter1000 .footerlinks a:link{
+   color: #6060C5;
+}
+#planetfooter1000 .footerlinks a:hover{
+   background: rgba(20, 20, 20, 0.65);
+}
 #planetfooter .footerlinks a{
    display: inline-block;
    margin-right: 2em;
@@ -437,6 +460,21 @@ a.lnl:hover{
    margin-top: 1.5%;
    margin-right: 0.2em;
 }
+#mainlinklist1000{
+   position: absolute;
+   top: 90%;
+   left: 60%;
+   width: 40%;
+}
+#mainlinklist1000 p{
+   margin-top: 0pt;
+   margin-bottom: 1.1em;
+   text-indent: 0px;
+   font-size: 2.4em;
+}
+#mainlinklist1000 a:hover{
+   background: #006;
+}
 #mainlinklist p{
    margin-top: 0pt;
    margin-bottom: 1.1em;
@@ -485,13 +523,13 @@ a.lnl:hover{
    top: 0%;
 }
 #thermometer img {
-   width: 190px;
+   width: 240px;
  }
 #mercury {
    position: absolute;
-   left: 46.1%;
-   bottom: 41.5%;
-   width: 30px;
+   left: 47.3%;
+   bottom: 26.2%;
+   width: 35px;
    /* height: 100px; */
    background: red;
 }
@@ -935,6 +973,8 @@ div.plannav{
 }
 .gsc-input input {
    background-position: 50% 50% !important;
+}
+#gsearch {
 }
 .gsc-search-button{
   border: none;
