@@ -32,7 +32,8 @@ class SetdonationForm(forms.Form):
 @login_required
 def setdonation(request):
     user = request.user
-    form = SetdonationForm()
+    amount = open(settings.STATIC_ROOT + '/donationamount', 'r').read()
+    form = SetdonationForm({'amount': amount})
     if request.method == 'POST':
         form = SetdonationForm(request.POST)
         if form.is_valid():
