@@ -39,8 +39,22 @@ def setdonation(request):
         if form.is_valid():
             amount = request.POST.get('amount')
             open(settings.STATIC_ROOT + '/donationamount', 'w').write(amount)
-            return HttpResponseRedirect("/")
+            return HttpResponseRedirect("/donatetest")
     return render(request, 'apdirposts/setdonation.html', locals())
+
+def donatetest(request):
+   amount = open(settings.STATIC_ROOT + '/donationamount', 'r').read()
+   goal = 1000.00
+   height = (float(amount)/goal) * 189./210*420
+   randomdict = dict()
+   randomdict['thehell'] = 17
+   today = now()
+   latestentries = latest()
+   slides = Illustration.objects.filter(slideshow = True)
+   smiled = request.session.get('smiled')
+   rsevents = Event.objects.filter(on__range = (today, REALSOON)).exclude(
+                                       publish = False).count()
+   return render(request, 'donatetest.html', locals())
 
 @login_required
 def newarticle(request, pid = None):

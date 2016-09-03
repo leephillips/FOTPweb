@@ -479,6 +479,22 @@ a.lnl:hover{
 #littlelinklist a:hover{
    background: #006;
 }
+#thermometer {
+   position: absolute;
+   left: 42%;
+   top: 0%;
+}
+#thermometer img {
+   width: 190px;
+ }
+#mercury {
+   position: absolute;
+   left: 46.1%;
+   bottom: 41.5%;
+   width: 30px;
+   /* height: 100px; */
+   background: red;
+}
 #mainarray {
    /* position: absolute; */
    /* left: 42%; */
