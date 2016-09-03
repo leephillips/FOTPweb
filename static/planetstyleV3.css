@@ -525,6 +525,17 @@ a.lnl:hover{
 #thermometer img {
    width: 240px;
  }
+ #campaigndescription {
+   position: absolute;
+   top: 0%;
+   left: 64%;
+   font-size: 1.4em;
+   width: 30%;
+   color: white;
+ }
+ #campaigndescription h1 {
+   border: none;
+ }
 #mercury {
    position: absolute;
    left: 47.3%;
