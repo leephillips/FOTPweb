@@ -1,4 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.conf import settings
 from django.shortcuts import render_to_response, render, get_object_or_404
 from django.views.decorators.clickjacking import xframe_options_exempt
 from models import Director, Post, Postcategory, Illustration, Notice, Event, Smile, CommunityEvent
@@ -24,6 +25,23 @@ class NewArticleForm(forms.Form):
   title = forms.CharField(max_length = '300')
   content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
   publish = forms.BooleanField()
+
+class SetdonationForm(forms.Form):
+  amount = forms.FloatField(blank = True, null = True)
+
+@login_required
+def setdonation(request):
+    user = request.user
+    if request.method == 'POST':
+        form = SetdonationForm(request.POST)
+        if form.is_valid():
+            amount = request.POST.get('amount')
+            open(settings.STATIC_ROOT + '/donationamount', 'w').write(amount)
+            return HttpResponseRedirect("/")
+    return render(request, 'setdonation.html', locals())
+
+
+
 
 @login_required
 def newarticle(request, pid = None):

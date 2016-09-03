@@ -1,0 +1,16 @@
+{% extends "apdirposts/page.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block pagecontent %}
+<div class = "postcontent" id = "target">
+  <p>Hello, {{user}}. The form below shows the current
+  donation amount. If you change the number and click
+  the Save button, the campaign graphic will reflect
+  the new amount. This is immediate and permanent, until
+  a new number is entered here.</p>
+  <p>
+  <form method = 'POST' action = '/setdonation'>
+     {{ form }} 
+  </form>
+  </p>
+</div>
+{% endblock %}
