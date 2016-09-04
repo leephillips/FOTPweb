@@ -521,9 +521,10 @@ a.lnl:hover{
    position: absolute;
    left: 42%;
    top: 0%;
+   width: 10%;
 }
 #thermometer img {
-   width: 240px;
+  width: 100%;
  }
  #campaigndescription {
    position: absolute;
