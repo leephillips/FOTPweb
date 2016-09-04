@@ -46,8 +46,8 @@ def donatetest(request):
    amount = open(settings.STATIC_ROOT + '/donationamount', 'r').read()
    goal = 1000.00
    progress = float(amount)/goal
-   top = 0 - progress * 4 + 29.65
-   height =  progress * 4 + 2. 
+   top = 0 - progress * 4 + 30.3
+   height =  top - 28.9
    randomdict = dict()
    randomdict['thehell'] = 17
    today = now()
