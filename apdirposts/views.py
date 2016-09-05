@@ -39,7 +39,7 @@ def setdonation(request):
         if form.is_valid():
             amount = request.POST.get('amount')
             open(settings.STATIC_ROOT + '/donationamount', 'w').write(amount)
-            return HttpResponseRedirect("/donatetest")
+            return HttpResponseRedirect("/")
     return render(request, 'apdirposts/setdonation.html', locals())
 
 def front(request):
