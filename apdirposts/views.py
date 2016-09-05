@@ -42,7 +42,7 @@ def setdonation(request):
             return HttpResponseRedirect("/donatetest")
     return render(request, 'apdirposts/setdonation.html', locals())
 
-def donatetest(request):
+def front(request):
    amount = open(settings.STATIC_ROOT + '/donationamount', 'r').read()
    goal = 1000.00
    top = 30.2 - 24.7 * float(amount)/goal
@@ -54,7 +54,7 @@ def donatetest(request):
    smiled = request.session.get('smiled')
    rsevents = Event.objects.filter(on__range = (today, REALSOON)).exclude(
                                        publish = False).count()
-   return render(request, 'donatetest.html', locals())
+   return render(request, 'front.html', locals())
 
 @login_required
 def newarticle(request, pid = None):
@@ -511,17 +511,6 @@ def preview_front(request):
    smiled = request.session.get('smiled')
    rsevents = Event.objects.filter(on__range = (today, REALSOON)).count()
    return render(request, 'preview_front.html', locals())
-
-def front(request):
-   randomdict = dict()
-   randomdict['thehell'] = 17
-   today = now()
-   latestentries = latest()
-   slides = Illustration.objects.filter(slideshow = True)
-   smiled = request.session.get('smiled')
-   rsevents = Event.objects.filter(on__range = (today, REALSOON)).exclude(
-                                       publish = False).count()
-   return render(request, 'front.html', locals())
 
 def x7297(request):
    today = now()
