@@ -1028,6 +1028,9 @@ html, body{
 .anncep {
   color: white; background: rgb(0,0,0); width: 98%; width: auto; margin-left: 0;
 }
+#planetfooter {
+  margin-top: 10rem; 
+}
 #csfa {
 position:relative; left: 0; width: 98%; color: white; top: 7rem; height: auto;
 }
@@ -1035,10 +1038,10 @@ position:relative; left: 0; width: 98%; color: white; top: 7rem; height: auto;
  color: rgb(0,0,0); background: black; font-size: 1.4rem; font-weight: bold; position:relative; left: 0rem; width: 96%; background-image: none; top: 8rem; padding: 2mm;
 }
 #mlt {
-position:relative; left: 0rem; font-size: 1.4rem; width: 96%; 
+position:relative; left: 0rem; font-size: 1.4rem; width: 96%; top: 120rem;
 }
 #mml {
-position:relative; font-size: 2rem; 
+position:relative; font-size: 2rem;  left: 0; top: 120rem;
 }
 .mpic {
 position: static;
@@ -1077,6 +1080,7 @@ float: right;width: 30%;
 }
 .postcontent{
    width: 98%;
+   left: 0;
    margin-top: 15em;
    padding-top: 0pt;
    margin-left: 0px;
@@ -1103,6 +1107,10 @@ float: right;width: 30%;
 }
 #frontlatest p, #pagelatest p{
    font-size: 1em;
+}
+#frontlatest { /* defined enough times yet? */
+  left: 1rem;
+  width: 90%;
 }
 .stickright{
    float: right;
