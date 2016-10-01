@@ -1,21 +1,51 @@
-{% extends "site.html" %}
+<!DOCTYPE HTML><meta content="text/html;charset=utf-8" http-equiv="Content-Type" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><link href="{{ STATIC_URL }}planetstyleV4.css" media="all" rel="stylesheet" type="text/css" /><link href="{{ STATIC_URL }}favicon_v4.png" rel="shortcut icon" type="image/png" /><link href="//fonts.googleapis.com/css?family=Alegreya:normal,italic,bold%7CAlegreya+SC:normal,italic,bold%7CBaumans" rel = "stylesheet" media = "all" type = "text/css" />
 {% block title %}The Friends of Arlington’s Planetarium{% endblock %}
+<link rel="image_src" href="{{ STATIC_URL }}hfbs.png" />
+<div class = "mainbanner"><a href="/"><img src = "{{ STATIC_URL }}head.png" alt="" /></a></div>
+<div class = "maintextbanner">Friends of Arlington’s Planetarium</div>
 {% block body %}
   <div id = "frontlatest">
       <div class="upcoming">
-        <p>This weekend: 
+       <p>This weekend: 
          <!--(Reservations recommended for these special programs).-->
         <a href='http://www.apsva.us/Page/2706'>Arlington Public Schools programming.</a>
       </p>
       </div>
     
+</div>
+<div style = 'position:absolute; top: 2rem; left: 45%; height: 20.3rem; width: 40rem; color: white;' class = 'll annce'>
+
+  <h1>Friends of the Planetarium October Weekend:
+      Commercial Space Flight and a Specially 
+      Commissioned Artwork
+  </h1>
+
+  <p>
+    On October 14–16 the Planetarium will be host to a special program devoted to
+    full-dome children’s shows, a special guest lecture about the commercial space
+    program, and the world premiere of a work of video art designed specially for 
+    our facility.
+  </p>
+
+</div>
+
+<div style = 'color: rgb(0,0,0); font-size: 1.7rem; font-weight: bold; position:absolute; top: 25rem; left: 1rem; width: 96%; background-image: url(/static/morsebg.jpg);
+     background-repeat: no-repeat; background-size: 100%; height: 50rem;'
+     class = ' ll annce'>
+
+  <p style = ' background: rgba(100,100,100,0.7)'>
+  We are proud to present an exclusive, specially commissioned full dome video, <i>In This Convex Hull</i>, made exclusively for the David M. Brown Planetarium by artist <a href='www.coplanar.org'>Brandon Morse</a>. Thanks to your generous donations to the Morse Video fund, and our partnership with the Arlington Cultural Affairs Department, we get to share this new artwork with you FREE of charge!  We will have several free showings of the piece each night. Just go <a href = 'https://www.eventbrite.com/e/in-this-convex-hull-a-full-dome-projection-by-brandon-morse-tickets-27152890025?aff=eac2'>here</a> for reservations, and a 
+  description of the artist’s concept.
+  </p>
+
+</div>
+
+
+<div style = 'position:absolute; left: 1rem; top: 80rem;' >
          <h2>Recent Items:</h2>
-         <b>{{ thehell }}</b>
    {% for p in latestentries %}
       <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
    {% endfor %}
-</div>
-<div id = "mainlinklist" class = "ll">
 <p><a href="/event">Events &amp; Shows</a></p>
 <p><a href="/join">Join, Donate, Subscribe</a></p>
 <p><a href="/post">Articles &amp; News</a></p>
@@ -51,20 +81,5 @@
 <p>&nbsp;</p>
 {% endif %}
 <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;bgcolor=%23999999&amp;src=u2k0tc9r2o3vt4s495itgnrol4%40group.calendar.google.com&amp;color=%2328754E&amp;ctz=America%2FNew_York" style="border:solid 1px #777" width="300" height="400" frameborder="0" scrolling="no"></iframe>
-</div>
-<div id = "mainarray">
-
-<a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "http://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon" /></a>
-<a href = 'http://www.nasa.gov/feature/katherine-johnson-the-girl-who-loved-to-count'>
-  <img src = '/static/katherineJohnsonC.png' title = 'Katherine Johnson’s birthday is August 26, 1918. (Image by Department of Energy, Washington, DC. Office of Public Affairs. [Public domain])' />
-</a>
-<!--<a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a>-->
-<a href = 'http://www.nasa.gov/feature/goddard/2016/nasa-camera-shows-moon-crossing-face-of-earth-for-2nd-time-in-a-year'>
-  <img src = '/static/epicmoon5jul2016C.png' title = '”For only the second time in a year, a NASA camera aboard the Deep Space Climate Observatory (DSCOVR) satellite captured a view of the moon as it moved in front of the sunlit side of Earth.”'  
-       alt = ';)' />
-</a>
-<!--<a href="http://cleardarksky.com/c/USNOkey.html?1"><img src = "/static/csc.png" alt="Observing Conditions" title = "Observing Conditions" /></a>-->
-<a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "http://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
-
 </div>
 {{pid}}/{% endblock %}
