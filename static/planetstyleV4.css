@@ -15,6 +15,16 @@ body {
   background-image: url(tbg2.png), url(tbg1.png);
   background-size: 35% 35%, 30% 30%;
 }
+.vdiv *{
+  position:static;
+  margin-top: 1rem;
+}
+.vdiv *:first-child {
+  margin-top: 0;
+}
+.vdiv *:last-child {
+  margin-bottom: 0;
+}
 #csfa {
 position:absolute; top: 2rem; left: 45%; height: 20.3rem; width: 40rem; color: white; 
 }
@@ -75,9 +85,9 @@ img {
    clear: both;
 }
 #planetfooter{
-   clear: both;
    position: absolute;
-   top: 500rem;
+   top: 280rem;
+   bottom: 5px;
    height: 4%;
    font-size: 0.75em;
    background: rgba(45, 40, 70, 0.65);
@@ -347,7 +357,6 @@ p.postlist a:hover{
     margin-right: 0.5em;
  }
 .postcontent{
-   float: left;
    font-family: Alegreya, serif;
    line-height: 1.5em;
    font-size: 1.4em;
@@ -451,7 +460,7 @@ abbr {
   color: rgb(0,0,175);
 }
 .anncep {
-  background: rgba(100,100,100,0.7); width: 70%; margin-left: 15%; margin-top: 5rem;
+  background: rgba(200,200,200,0.7); width: 70%; margin-left: 15%; margin-top: 5rem;
 }
 a.lnl:link{
    line-height: 0.4em;
@@ -1040,7 +1049,7 @@ h2 {
 position:static; left: 0; width: 98%; color: white; margin-top: 7rem; height: auto;
 }
 #mbg {
- color: rgb(0,0,0); background: black; font-size: 1.4rem; font-weight: bold; position:static; left: 0rem; width: 96%; background-image: none; margin-top: 1rem; padding: 2mm;
+ color: rgb(0,0,0); background: black; font-size: 1.4rem; font-weight: bold; position:static; left: 0rem; width: 96%; background-image: none; margin-top: 1rem; padding: 2mm; height: auto;
 }
 #mlt {
 position:static; left: 0rem; font-size: 1.4rem; width: 96%; margin-top: 5rem;
