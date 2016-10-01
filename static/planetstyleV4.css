@@ -1028,20 +1028,25 @@ html, body{
 .anncep {
   color: white; background: rgb(0,0,0); width: 98%; width: auto; margin-left: 0;
 }
+h2 {
+   border-top: none;
+ }
 #planetfooter {
-  margin-top: 10rem; 
+  float: none;
+  position:static;
+  margin-top: 7rem; 
 }
 #csfa {
-position:relative; left: 0; width: 98%; color: white; top: 7rem; height: auto;
+position:static; left: 0; width: 98%; color: white; margin-top: 7rem; height: auto;
 }
 #mbg {
- color: rgb(0,0,0); background: black; font-size: 1.4rem; font-weight: bold; position:relative; left: 0rem; width: 96%; background-image: none; top: 8rem; padding: 2mm;
+ color: rgb(0,0,0); background: black; font-size: 1.4rem; font-weight: bold; position:static; left: 0rem; width: 96%; background-image: none; margin-top: 1rem; padding: 2mm;
 }
 #mlt {
-position:relative; left: 0rem; font-size: 1.4rem; width: 96%; top: 120rem;
+position:static; left: 0rem; font-size: 1.4rem; width: 96%; margin-top: 5rem;
 }
 #mml {
-position:relative; font-size: 2rem;  left: 0; top: 120rem;
+position:static; font-size: 2rem;  left: 0; margin-top: 2rem;
 }
 .mpic {
 position: static;
@@ -1079,12 +1084,13 @@ float: right;width: 30%;
    display: none;
 }
 .postcontent{
+   float: none;
+   position:static;
    width: 98%;
    left: 0;
-   margin-top: 15em;
+   margin-top: 2em;
    padding-top: 0pt;
    margin-left: 0px;
-   margin-bottom: 1em;
    color: #ddd;
    line-height: 1.2em;
 }
