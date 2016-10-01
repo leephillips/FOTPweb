@@ -4,7 +4,7 @@
 <div class = "mainbanner"><a href="/"><img src = "{{ STATIC_URL }}head.png" alt="" /></a></div>
 <div class = "maintextbanner">Friends of Arlington’s Planetarium</div>
 {% block body %}
-  <div id = "frontlatest">
+  <div id = "frontlatest" >
       <div class="upcoming">
        <p>This weekend: 
          <!--(Reservations recommended for these special programs).-->
@@ -13,7 +13,7 @@
       </div>
     
 </div>
-<div style = 'position:absolute; top: 2rem; left: 45%; height: 20.3rem; width: 40rem; color: white;' class = 'll annce'>
+<div id = 'csfa' class = 'll annce'>
 
   <h1>Friends of the Planetarium October Weekend:
       Commercial Space Flight and a Specially 
@@ -29,15 +29,13 @@
 
 </div>
 
-<div style = 'color: rgb(0,0,0); font-size: 1.7rem; font-weight: bold; position:absolute; top: 25rem; left: 1rem; width: 96%; background-image: url(/static/morsebg.jpg);
-     background-repeat: no-repeat; background-size: 100%; height: 45rem;'
-     class = ' ll annce'>
+<div id = 'mbg' class = ' ll annce'>
 
-  <p style = ' background: rgba(100,100,100,0.7); width: 70%; margin-left: 15%; margin-top: 5rem;'>
-  We are proud to present an exclusive, specially commissioned full dome video, <i>In This Convex Hull</i>, made exclusively for the David M. Brown Planetarium by artist <a href='www.coplanar.org'>Brandon Morse</a>. Thanks to your generous donations to the Morse Video fund, and our partnership with the Arlington Cultural Affairs Department, we get to share this new artwork with you FREE of charge!  We will have several free showings of the piece each night. Just go <a href = 'https://www.eventbrite.com/e/in-this-convex-hull-a-full-dome-projection-by-brandon-morse-tickets-27152890025?aff=eac2'>here</a> for reservations, and a 
+  <p class = 'anncep'> 
+  We are proud to present an exclusive, specially commissioned full dome video, <i>In This Convex Hull</i>, made exclusively for the David M. Brown Planetarium by artist <a href='http://www.coplanar.org'>Brandon Morse</a>. Thanks to your generous donations to the Morse Video fund, and our partnership with the Arlington Cultural Affairs Department, we get to share this new artwork with you FREE of charge!  We will have several free showings of the piece each night. Just go <a href = 'https://www.eventbrite.com/e/in-this-convex-hull-a-full-dome-projection-by-brandon-morse-tickets-27152890025?aff=eac2'>here</a> for reservations, and a 
   description of the artist’s concept.
   </p>
-  <p style = ' background: rgba(100,100,100,0.7); width: 70%; margin-left: 15%;'>
+  <p class = 'anncep'>
     Other events during this weekend include a special guest lecture by Carissa Christensen, who will talk about
 the Commercial Space Program; a children’s movie starring Big Bird and Elmo; and another kids’ favorite 
 featuring the Zula Patrol in full-dome splendor. 
@@ -45,11 +43,11 @@ featuring the Zula Patrol in full-dome splendor.
   </p>
 
 </div>
-<div class = 'postcontent' style = 'position:absolute; top: 55rem; left: 1rem;'>
+<div class = ' postcontent'>
   <h2>Talk About the Commercial Space Program with Carissa Christensen</h2>
 
   <p>
-The aerospace industry is no longer defined by government space agencies. We live in a time when commercial firms have found ways to profit from the space environment. <img src = '/static/Carissa.jpg' style = 'position:absolute; left: 50rem; width: 40%;' alt = '' />Today's space businesses include satellite television delivered to millions of subscribers, images of the whole Earth taken by tiny remote sensing cubesats, suborbital vehicles that will carry tourists, and companies like SpaceX delivering supplies (and eventually astronauts) to the  International Space Station, as well as many others. Space entrepreneurship and investment have undergone unprecedented growth in recent years, and an exhilarating future awaits.
+The aerospace industry is no longer defined by government space agencies. We live in a time when commercial firms have found ways to profit from the space environment. <img src = '/static/Carissa.jpg' class = 'mpic' alt = '' />Today's space businesses include satellite television delivered to millions of subscribers, images of the whole Earth taken by tiny remote sensing cubesats, suborbital vehicles that will carry tourists, and companies like SpaceX delivering supplies (and eventually astronauts) to the  International Space Station, as well as many others. Space entrepreneurship and investment have undergone unprecedented growth in recent years, and an exhilarating future awaits.
   
 
   </p>
@@ -60,16 +58,16 @@ Carissa Bryce Christensen is a founder and Managing Partner of The Tauri Group, 
 7:30 PM – 8:30 PM. <a href = 'https://www.eventbrite.com/e/talk-with-carissa-christensen-about-the-commercial-space-program-tickets-28264235088'>Go here for tickets.</a></p>
 
 <h2>One World, One Sky: Big Bird’s Adventure</h2>
-<img src = '/static/oneWorldBigBird.jpg' alt = '' style = 'position:absolute; left: 50rem; width: 40%;' />
+<img src = '/static/oneWorldBigBird.jpg' alt = '' class = 'mpic' />
 <p>Join Big Bird and Elmo as they explore the night sky with Hu Hu Zhu, a Muppet from "Zhima Jie," the Chinese co-production of Sesame Street. Together they take an imaginary trip from Sesame Street to the moon, where they discover how different it is from Earth. They also journey to Zhima Jie to learn about the similarities in our view of the sky.</p>
 <p>
 Sun, October 16, 2016. 1:40 PM – 2:05 PM. <a href = 'https://www.eventbrite.com/e/one-world-one-sky-big-birds-adventure-tickets-28264482829'>
  Go here for tickets.
 </a></p>
-<h2>The Zulu Patrol: Under The Weather</h2>
+<h2>The Zula Patrol: Under The Weather</h2>
 
 
-<p>From the far reaches of outer space, from the bright orange planet Zula, comes the Zula Patrol! Based on the #1-rated NBC Saturday Morning TV series "The Zula Patrol," The Zula Patrol: Under the Weather is one of the top-performing digital dome shows of its genre.</p><img src = '/static/zulaPatrol.jpg' alt = '' style = 'position:absolute; left: 50rem; width: 40%;' />
+<p>From the far reaches of outer space, from the bright orange planet Zula, comes the Zula Patrol! Based on the #1-rated NBC Saturday Morning TV series "The Zula Patrol," The Zula Patrol: Under the Weather is one of the top-performing digital dome shows of its genre.</p><img src = '/static/zulaPatrol.jpg' alt = '' class = 'mpic' />
 <p>The story: the stalwart heroes of the Zula Patrol are on an expedition collecting samples of weather for scientist Multo's research -- using their loyal pet Gorga's ability to collect and bottle all kinds of weather. But when the Zula gang inadvertently hurts Gorga's feelings, he decides to leave Zula and find another planet to live on. Interplanetary villain Dark Truder then tricks Gorga into stealing the weather from other planets - part of his latest nefarious scheme to rule the Universe. The ZPers find out and go after him - in the process learning all about weather, both terrestrial and interplanetary.</p>
 <p>Under the Weather is designed for children ages 4-9 and their families. Like the TV series (also airing on qubo, Telemundo, ION and PBS nationwide), it supports many national and state science education standards.</p>
 <p>
@@ -81,13 +79,13 @@ Sun, October 16, 2016.
 
 </div>
 
-<div style = 'position:absolute; left: 1rem; top: 200rem; font-size: 1.4rem;' >
+<div id = 'mlt'>
          <h2 style = 'color: white;' >Recent Items:</h2>
    {% for p in latestentries %}
       <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
    {% endfor %}
 </div>
-<div style = 'position:absolute; left: 50rem; top: 200rem; font-size: 2rem;' >
+<div id = 'mml' >
 <p><a href="/event">Events &amp; Shows</a></p>
 <p><a href="/join">Join, Donate, Subscribe</a></p>
 <p><a href="/post">Articles &amp; News</a></p>
