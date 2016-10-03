@@ -947,6 +947,7 @@ div.plannav{
    font-family: "Helvetica", sans-serif;
    font-size: 1em;
    font-weight: bold;
+   text-align: center;
    padding-top: 0.5em;
    padding-bottom: 0.5em;
 }
@@ -1076,7 +1077,7 @@ h2 {
   height: 5rem;
 }
 #csfa {
-  width: 98%; color: white; margin-top: 7rem; height: auto;
+  width: 98%; color: white; margin-top: 5rem; height: auto;
 }
 #mbg {
  color: rgb(0,0,0); background: black; font-size: 1.4rem; font-weight: bold; width: 96%; background-image: none; margin-top: 1rem; padding: 2mm; height: auto;
@@ -1114,6 +1115,7 @@ float: right;width: 30%;
    color: black;
    background: #ddf;
    font-family: "Helvetica", sans-serif;
+   text-align: center;
    font-size: 1em;
    font-weight: bold;
    padding-top: 0.5em;
