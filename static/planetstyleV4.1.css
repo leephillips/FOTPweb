@@ -29,10 +29,25 @@ body {
 .vdiv *:last-child {
   margin-bottom: 0;
 }
+#bigreserve {
+  padding: 1rem;
+  background: rgba(255,255,0,0.6);
+  font-weight: bold;
+  font-size: 1.7rem;
+  color: black;
+  width: 25rem;
+  position:absolute;
+  top: 72.5rem;
+  left: 25rem;
+  text-align: center;
+}
+#bigreserve a:link, #bigreserve a:visited{
+  color: black;
+}
 #bigtimetable {
   position:absolute;
-  top: 75rem;
-  width: 70rem;
+  top: 78rem;
+  left: 1rem; width: 76rem;
 }
 #csfa {
 position:absolute; top: 2rem; left: 34rem; height: 20.3rem; width: 40rem; 
@@ -43,10 +58,10 @@ position:absolute; top: 2rem; left: 34rem; height: 20.3rem; width: 40rem;
  overflow: auto;
 }
 #mlt {
-position:absolute; left: 1rem; top: 245rem; font-size: 1.4rem; width:30rem; 
+position:absolute; left: 1rem; top: 247rem; font-size: 1.4rem; width:30rem; 
 }
 #mml {
-position:absolute; left: 40rem; top: 245rem; font-size: 2rem; width: 30rem;
+position:absolute; left: 40rem; top: 247rem; font-size: 2rem; width: 30rem;
 }
 .mpic {
 position:absolute; left: 44rem; width: 15rem; 
@@ -373,7 +388,7 @@ p.postlist a:hover{
    width: 70rem;
    color: #ddd;
    min-height: 800px;
-   position:absolute; top: 110rem; left: 1rem;
+   position:absolute; top: 114rem; left: 1rem;
    overflow: auto;
 }
 .postcontent p {
@@ -1048,6 +1063,14 @@ html, body{
 #bigtimetable {
   width: auto;
 }
+#bigtimetable ul {
+  margin-left: 0;
+  text-indent: 0.0rem;
+  padding-left: 1.3rem;
+}
+#bigtimetable li{
+  text-indent: 0.1rem;
+}
 .respvdiv {
   padding: 0.3rem;
   margin: 1rem;
@@ -1055,6 +1078,7 @@ html, body{
 .respvdiv *{
   position:static !important;
   margin-top: 1rem;
+  width: auto !important;
 }
 .respvdiv *:first-child {
   margin-top: 0;
