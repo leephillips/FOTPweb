@@ -2,19 +2,21 @@
 {% block title %}Support the Planetarium{% endblock %}
 {% block pagecontent %}
    <div class = "postcontent" id = "target">
-       <h2>Become a Friend of the Arlington Planetarium</h2>
-       <p>Past membership donations have saved the Planetarium from extinction.  Be a supporter of Arlington’s grassroots, community-supported source of all things science.  Become a member today and help your planetarium shine!</p>
-       <h3>Members Receive:</h3>
-       <ul>
-<li>Friends of the Planetarium e-newsletter (approximately monthly)
-<li>Advance notification of Friends-sponsored events including new planetarium shows, schedules, and science programs
-<li>FREE members-only show in December
-<li>FREE tickets and new Friends’ window clings for all members!</li>
-<li>Voting rights at the annual meeting
-<li>Friends of the Planetarium is a 501(c)(3) non-profit organization, so all membership dues are 100% tax deductible  
-      </ul>
-      <div class = "joinform">
-      <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+     <h2>Become a Friend of the Arlington Planetarium</h2>
+     <p>Past membership donations have saved the Planetarium from extinction.  Be a supporter of Arlington’s grassroots, community-supported source of all things science.  Become a member today and help your planetarium shine!</p>
+     <h3>Members Receive:</h3>
+     <ul>
+      <li>Friends of the Planetarium e-newsletter (approximately monthly)</li>
+      <li>Advance notification of Friends-sponsored events including new planetarium shows and science programs</li>
+      <li>Invitations to members-only, FREE events, including the special December show</li>
+      <li>A goody-bag with Friends and astronomy-related surprises</li>
+      <li>Voting rights at the annual meeting</li>
+      <li>Friends of the Planetarium is a 501(c)(3) non-profit organization, so all membership dues are 100% tax deductible</li>
+    </ul>
+<h3>How to Become a Friend of the Planetarium 
+    or Renew Your Membershp:</h3>
+    <div class = "joinform">
+    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="SFH9ABR43RWEA">
 <input type="hidden" name="currency_code" value="USD">
@@ -22,15 +24,14 @@
 <p>Membership Options:</p>
 <select name="os0">
 	<option value="Individual">Individual $15.00</option>
-        <option value="Student">Student $10.00</option>
 	<option value="Family">Family $25.00</option>
 	<option value="Sponsor">Sponsor $50.00</option>
 	<option value="Patron">Patron $100.00</option>
+	<option value="Lifetime">Lifetime $1000.00</option>
 </select> 
 <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
 </form> 
 </div>
-<h3>How to Become a Friend of the Planetarium:</h3>
 <p>
 <b>Online</b>: Select the category of membership from the drop-down menu at the left and click <b>Add to Cart</b>. You can pay online with your credit card via PayPal.<br />
 <b>Check</b>: Send a check to the Friends of the Planetarium, P.O. Box 7029, Arlington, VA 22207. Please include a copy of the completed <a href = "{{ STATIC_URL }}FOP-Application-for-Membership.pdf">membership application form</a>. 
