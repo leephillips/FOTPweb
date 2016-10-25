@@ -69,17 +69,27 @@ a:hover, a:hover p {
 }
 
 #picturebackground {
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 80rem;
+  height: 200rem;
   background-position: 0 0;
   background-image: url(koBg.jpg);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 80rem;
   background-attachment: fixed;
   z-index: 0;
 }
 #pictureoverlay {
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 80rem;
+  height: 150rem;
   background-position: 0 0;
   background-image: none;  /*fallback*/
-  background-image: linear-gradient(rgba(179, 210, 245, 0.0), rgba(179, 210, 245, 1.0) 700px);
+  background-image: linear-gradient(rgba(256, 256, 256, 0.0) 40rem, rgba(179, 210, 245, 1.0) 1200px);
   z-index: 11;
 }
 p { 
@@ -274,14 +284,14 @@ div.eventlist span.eventlisttitle{
 }
 #upcoming {
    position: absolute;
-   top: 0%;
-   left: 57%;
-   width: 40%;
+   top: 0;
+   left: 60rem;
+   width: 15rem;
    border: solid 0.5mm #f00;
    padding: 3mm;
    font-size: 100%;
    font-weight: bold;
-   background: rgba(250, 100, 100, 0.6);
+   background: rgba(100, 100, 100, 0.6);
    text-align: center;
 }
 #upcoming a {
@@ -295,8 +305,11 @@ div.eventlist span.eventlisttitle{
    text-align: center;
    margin: 0em auto;
    padding: 3mm;
-   width: 80%;
-   font-size: 1.5em;
+   width: 65rem;
+   position:absolute;
+   top: 113rem;
+   left: 5rem;
+   font-size: 1.5rem;
    border: solid black 1mm;
    line-height: 2em;
    }
@@ -473,10 +486,10 @@ abbr {
    background: none;
 }
 .mainbanner{
-   width: 43%;
+   width: 40rem;
    position: absolute;
-   left: 5pt;
-   top: 5pt;
+   left: 1rem;
+   top: 1rem;
 }
 .mainbanner img{
    width: 100%;
@@ -614,14 +627,18 @@ a.lnl:hover{
 .slideshow {
   animation: slideFadeIn 10s linear;
   webkit-animation: slideFadeIn 10s linear;
-  width: 600px;
-  height: 400px;
-  margin: 24% auto 120px;
+  width: 50rem;
+  height: 40rem;
+  position:absolute;
+  left: 15rem;
+  top: 63rem;
 }
 #frontcontent {
-  width: 90%;
-  margin: 4em auto;
+  width: 70rem;
   text-align: center;
+  position:absolute;
+  left: 5rem;
+  top: 123rem;
 }
 #centerline {
   position:absolute;
