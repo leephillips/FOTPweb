@@ -16,9 +16,10 @@ body {
 }
 #stack {
   position:absolute;
-  left: 5rem;
-  top: 55rem;
-  width: 70rem;
+  left: 0rem;
+  top: 105rem;
+  width: 75rem;
+  /* padding-left: 5rem; */
 }
 #stack div {
   position:relative;
@@ -29,6 +30,7 @@ body {
 
 #searchbox {
   margin: 0.0em auto 0;
+  margin-top: 3rem;
   /* border: solid black 1mm; */
   width: 60%;
   }
@@ -81,7 +83,7 @@ a:hover, a:hover p {
   position:absolute;
   top: 0;
   left: 0;
-  width: 80rem;
+  width: 75rem;
   height: 200rem;
   background-position: 0 0;
   background-image: url(koBg.jpg);
@@ -94,19 +96,21 @@ a:hover, a:hover p {
   position:absolute;
   top: 0;
   left: 0;
-  width: 80rem;
-  height: 250rem;
+  width: 75rem;
+  height: 100%;
   background-position: 0 0;
   background-image: none;  /*fallback*/
-  background-image: linear-gradient(rgba(256, 256, 256, 0.0) 40rem, rgba(179, 210, 245, 1.0) 1200px);
+  background-image: linear-gradient(rgba(256, 256, 256, 0.0) 30rem, rgba(179, 210, 245, 1.0) 150rem);
   z-index: 11;
+}
+#solidbg {
+  background-color: rgba(179, 210, 245, 1.0);
 }
 p { 
 margin-top: 1.0em; margin-bottom: 1.0em;
 }
 #social {
   /* width: auto; */
-  width: 500px;
   text-align: center;
   font-family: "Baumans", sans-serif;
   margin: -1em auto;
@@ -160,7 +164,6 @@ img {
 }
 #planetfooter{
    height: 1em;
-   width: 100%;
    margin-top: 5rem;;
    font-size: 0.75em;
    background: #8FACC9;
@@ -312,7 +315,7 @@ div.eventlist span.eventlisttitle{
 #frontnav {
    text-align: center;
    margin: 0em auto;
-   margin-top: 12rem;
+   margin-top: 2rem;
    padding: 3mm;
    width: 65rem;
    font-size: 1.5rem;
@@ -578,10 +581,13 @@ a.lnl:hover{
    margin: 2em auto;
    width: 20%;
 }
-#sponsors h2, #mainarray h2 {
+#sponsors h2, #mainarray h2, #schedule h2 {
    font-size: 1em;
    text-align: center;
    border: none;
+}
+#schedule iframe {
+  margin-left: 28rem;
 }
 #sponsorlogos {
    width: 150px;
@@ -607,8 +613,8 @@ a.lnl:hover{
    background: #006;
 }
 #mainarray {
-   width: 90%;
    text-align: center;
+   padding-left: 3.0rem;
    margin: 2em auto;
 }
 #mainarray div.maincircle {
@@ -630,16 +636,18 @@ a.lnl:hover{
 #mainarray a:hover {
   background: none;
   }
+#slidecontainer {
+  position:absolute;
+  left: 15rem;
+  top: 52rem;
+}
 .slideshow {
   /* animation: slideFadeIn 10s linear; */
   /* webkit-animation: slideFadeIn 10s linear; */
   width: 50rem;
   height: 40rem;
-  margin-left: 15rem;
-  margin-top: 3rem;
 }
 #frontcontent {
-  width: 70rem;
   text-align: center;
 }
 #centerline {
@@ -666,9 +674,9 @@ a.lnl:hover{
 }
 #frontlatest{
    text-align: center;
-   margin: 1em auto;
+   margin: 4rem auto;
    margin-top: 3rem;
-   width: 36%;
+   /* width: 36%; */
    font-family: "Baumans", sans-serif;
    font-size: 1.2em;
    color: black;

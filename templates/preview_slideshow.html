@@ -17,7 +17,7 @@
     }
   #slideshow {list-style:none; color:#fff}
   #slideshow span {display:none}
-  #wrapper {width:100%; height: 100%; margin:0px auto; margin-top:10px; margin-bottom:0px;}
+  #wrapper {width:45rem; height: 35rem; margin:0px auto; margin-top:10px; margin-bottom:0px;}
   #wrapper * {margin:0; padding:0}
   #fullsize {overflow:hidden; position:relative; width:100%; height:100%; padding:2px; border:1px solid #ccc; background:#000}
   #information {position:absolute; bottom:0; width:100%; height:0; max-height: 60px; background:#000; color:#fff; overflow:hidden; z-index:200; opacity:.7; filter:alpha(opacity=70)}
@@ -30,15 +30,15 @@
   #imgnext {right:0; background:url(/static/right.gif) right center no-repeat}
   #imglink {position:absolute; height:100%; width:100%; z-index:100; opacity:.4; filter:alpha(opacity=40)}
   .linkhover {background:url(/static/link.gif) center center no-repeat}
-  #thumbnails {margin-top:15px}
-  #thumbnails img {width:70px; vertical-align: top;}
-  #slideleft {float:left; width:20px; height:81px; background:url(/static/scroll-left.gif) center center no-repeat; background-color:#222}
+  #thumbnails {margin-top:1rem; width: 45.5rem;}
+  #thumbnails img {width:6rem; vertical-align: top;}
+  #slideleft {float:left; width:1.3rem; height:6rem; background:url(/static/scroll-left.gif) center center no-repeat; background-color:#222}
   #slideleft:hover {background-color:#333}
-  #slideright {float:right; width:20px; height:81px; background:#222 url(/static/scroll-right.gif) center center no-repeat}
+  #slideright {float:right; width:1.3rem; height:6rem; background:#222 url(/static/scroll-right.gif) center center no-repeat}
   #slideright:hover {background-color:#333}
-  #slidearea {float:left; position:relative; width:550px; margin-left:5px; height:81px; overflow:hidden}
-  #slider {position:absolute; left:0; height:81px}
-  #slider img {cursor:pointer; border:1px solid #666; padding:2px}
+  #slidearea {float:left; position:relative; width:40rem;; margin-left:0.2rem; height:6rem; overflow:hidden}
+  #slider {position:absolute; left:0; height:6rem;}
+  #slider img {cursor:pointer; border:1px solid #666; padding:0.1rem;}
 </style>
 {% endblock %}
 {% block body %}
@@ -51,7 +51,7 @@
     <a href='http://www.apsva.us/Page/2706'>Arlington Public Schools programming.</a>
   </p>
   </div>
-  <div id = 'stack' class = 'vstack'> 
+  <div id = 'slidecontainer'>
      <div class = 'slideshow'>
       <ul id="slideshow">
         {% for slide in slides %}
@@ -102,6 +102,8 @@
         }
     </script>
     </div>
+  </div>
+  <div id = 'stack' class = 'vstack'> 
 
 <div id = "frontnav" class = 'll'>
 <p><a href="/event">Events &amp; Shows</a></p>
@@ -153,8 +155,8 @@
     <img src = '/static/sponsorlogos.jpg' alt = 'sponsor logos' /> 
   </div>
 </div>
+<div id = 'solidbg'>
 <div id = "mainarray">
-
   <div class = 'maincircle'>
    <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "http://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon" /></a>
    <p>Current Moon</p>
@@ -177,6 +179,8 @@
    <a href = 'http://www.nasa.gov/feature/ames/Kepler/caught-for-the-first-time-the-early-flash-of-an-exploding-star' title = '”The brilliant flash of an exploding star’s shockwave—what astronomers call the “shock breakout”—has been captured for the first time in the optical wavelength or visible light by NASA’s planet-hunter, the Kepler space telescope.”'><img src = '/static/starshock_decor.png' alt = '' /></a>
    <p>Exploding star shockwave</p>
   </div>
+ </div>
+ <div id = 'schedule'>
   <h2>Schedule of Shows:</h2>
 <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;bgcolor=%23999999&amp;src=u2k0tc9r2o3vt4s495itgnrol4%40group.calendar.google.com&amp;color=%2328754E&amp;ctz=America%2FNew_York" style="border:solid 1px #777" width="300" height="400" ></iframe>
 </div>
@@ -191,5 +195,6 @@
         </div>
      </div>
  </div> 
-  <!--<div id = 'centerline'></div>-->
+ </div> 
+  <div id = 'centerline'></div>
 {% endblock %}
