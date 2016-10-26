@@ -1,0 +1,15 @@
+<!DOCTYPE HTML><html><head><meta content="text/html;charset=utf-8" http-equiv="Content-Type" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><link href="{{ STATIC_URL }}favicon_v4.png" rel="shortcut icon" type="image/png" /><link href="//fonts.googleapis.com/css?family=Alegreya:normal,italic,bold%7CAlegreya+SC:normal,italic,bold%7CBaumans" rel = "stylesheet" media = "all" type = "text/css" />
+<title>Weekend Summary</title>
+</head>
+<h1>Weekend Publisher</h1>
+<body>
+  <h2>Weekends with events in the future</h2>
+     {% for w in wlst %}
+       <h3>{{w.0}}</h3>
+       {% for e in w.1 %}
+         <p>{{e}}</p>
+       {% endfor %}
+     {% endfor %}
+
+</body>
+</html>

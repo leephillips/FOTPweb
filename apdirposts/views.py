@@ -48,6 +48,38 @@ def makeweekend(id):
     #make tickets
     resp = eventbrite.post_event_ticket_class(event['id'], t5)
 
+def loctime2ev(t):
+    """converting times to UTC and formatting for Eventbrite"""
+    import pytz
+    eastern = pytz.timezone('US/Eastern')
+    fmt = '%Y-%m-%dT%H:%M:%S'
+    utc = pytz.utc
+    locdt = eastern.localize(t) #t must be a datetime
+    utcdt = locdt.astimezone(utc)
+    return  utcdt.strftime(fmt)
+
+@login_required
+def publishweekend(request, id):
+    now = datetime.now()
+    if id is None:
+        return HttpResponse('no id!')
+    post = Post.objects.get(id = id)
+    events = Event.objects.filter(rpost = id)
+    wlst = [] #Will be list of weekends with future events
+    for e in futureevents():
+        if e.rpost not in wlst:
+            wlst.append(e.rpost)
+    wlst = [[w] for w in wlst]
+    for w in wlst:
+        w.append(list(Event.objects.filter(rpost = w[0].id)))
+    # utctime = events[0].on
+    return render(request, 'weekendsummary.html', locals())
+
+def futureevents():
+    now = datetime.now()
+    then = datetime(2030, 1, 1)
+    events = Event.objects.filter(on__range = (now, then))
+    return events
 
 class NewArticleForm(forms.Form):
   byline = forms.CharField(max_length = '500')

@@ -13,10 +13,21 @@ user = eventbrite.get_user()
 print user
 dir(eventbrite)
 capacity = 38
-eventname = 'An Even Greater Event'
+eventname = 'An Superb Event'
 eventdescription = '<p>You will <i>not</i> want to miss this!</p>'
-eventstart = "2016-11-25T17:30:00Z"
-eventend = "2016-11-25T18:30:00Z"
+# converting times to UTC and formatting for Eventbrite
+l = [[1, 12], [2, 23], [1, 11], [2, 22]]
+import pytz
+eastern = pytz.timezone('US/Eastern')
+fmt = '%Y-%m-%dT%H:%M:%S'
+utc = pytz.utc
+locdt = eastern.localize(now)
+utcdt = locdt.astimezone(utc)
+print locdt.strftime(fmt)
+print utcdt.strftime(fmt)
+
+eventstart = "2016-11-24T17:30:00"
+eventend = "2016-11-25T18:30:00"
 eventzone = "America/New_York"
 t1 = {'ticket_class.name': 'Children (under 12)', 'ticket_class.cost': 'USD,300', 'ticket_class.quantity_total': capacity} 
 t2 = {'ticket_class.name': 'Member', 'ticket_class.cost': 'USD,500', 'ticket_class.quantity_total': capacity} 

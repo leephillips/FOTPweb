@@ -73,7 +73,7 @@ class Event(models.Model):
    content = models.TextField(blank = True)
    illustrations = models.ManyToManyField(Illustration, null = True, blank = True)
    def __unicode__(self):
-       if self.end is not null:
+       if self.end is not None:
            return "%s scheduled for %s until %s" % (self.title, self.on, self.end)
        else:
            return "%s scheduled for %s" % (self.title, self.on)
