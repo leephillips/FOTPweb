@@ -66,13 +66,17 @@ class Event(models.Model):
    title = models.CharField(max_length=200)
    pub_date = models.DateTimeField('date published', blank = True, editable = False, null = True)
    on = models.DateTimeField('When')
+   end = models.DateTimeField('Until', null = True, blank = True)
    ebcode = models.CharField('EventBrite Code', max_length = 400, blank = True)
    rpost = models.ForeignKey(Post, related_name = "revent", null = True, blank = True)
    publish = models.BooleanField()
    content = models.TextField(blank = True)
    illustrations = models.ManyToManyField(Illustration, null = True, blank = True)
    def __unicode__(self):
-      return "%s scheduled for %s" % (self.title, self.on)
+       if self.end is not null:
+           return "%s scheduled for %s until %s" % (self.title, self.on, self.end)
+       else:
+           return "%s scheduled for %s" % (self.title, self.on)
 
 class Notice(models.Model):
    """For the "In the News" page."""

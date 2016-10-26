@@ -8,6 +8,7 @@ from django import forms
 from django.forms.models import modelformset_factory
 from django.contrib.auth.decorators import login_required, user_passes_test, permission_required
 from tinymce.widgets import TinyMCE
+from django.conf  import settings
 
 now = datetime.now # to be called in views to get the fresh now
 today = datetime.now()
@@ -17,6 +18,36 @@ REALSOON  = today + timedelta(days = 4)
 # mm = Post.objects.get(id = 6)
 # mm.pub_date = datetime.datetime(2013, 8, 1, 13, 13, 13)
 # mm.save()
+
+def makeweekend(id):
+    """The post id is main article describing weekend. Looks up all event objects linked
+    to the post. For each object, uses Eventbrite API to create an event page on Eventbrite,
+    and creates all the usual tickets. Returns event id and adds it to event object.
+    Makes all the Eventbrite events live, and publishes the main post and all event posts."""
+    from eventbrite import Eventbrite
+    token = settings.token
+    eventbrite = Eventbrite(token)
+    capacity = 38
+    eventzone = "America/New_York"
+    t1 = {'ticket_class.name': 'Children (under 12)', 'ticket_class.cost': 'USD,300', 'ticket_class.quantity_total': capacity} 
+    t2 = {'ticket_class.name': 'Member', 'ticket_class.cost': 'USD,500', 'ticket_class.quantity_total': capacity} 
+    t3 = {'ticket_class.name': 'Adult', 'ticket_class.cost': 'USD,500', 'ticket_class.quantity_total': capacity} 
+    t4 = {'ticket_class.name': 'Senior (60+)', 'ticket_class.cost': 'USD,300', 'ticket_class.quantity_total': capacity} 
+    t5 = {'ticket_class.name': 'Support new programs for the Planetarium!', 'ticket_class.donation': True} 
+    tickets = [t1, t2, t3, t3, t5]
+
+    eventname = 'An Even Greater Event'
+    eventdescription = '<p>You will <i>not</i> want to miss this!</p>'
+    eventstart = "2016-11-25T17:30:00Z"
+    eventend = "2016-11-25T18:30:00Z"
+    #make a new event
+    event = eventbrite.post_event({'event.name.html':eventname, 'event.description.html':eventdescription,
+                                     'event.start.utc':eventstart, 'event.end.utc':eventend,
+                                     'event.start.timezone':eventzone, 'event.end.timezone':eventzone,
+                                     'event.currency': 'USD', 'event.capacity': capacity})
+    #make tickets
+    resp = eventbrite.post_event_ticket_class(event['id'], t5)
+
 
 class NewArticleForm(forms.Form):
   byline = forms.CharField(max_length = '500')
