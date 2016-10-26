@@ -296,7 +296,7 @@ div.eventlist span.eventlisttitle{
 #upcoming {
    position: absolute;
    top: 0;
-   left: 60rem;
+   left: 55rem;
    width: 15rem;
    border: solid 0.5mm #f00;
    padding: 3mm;
@@ -588,6 +588,7 @@ a.lnl:hover{
 }
 #schedule iframe {
   margin-left: 28rem;
+  width: 19rem;
 }
 #sponsorlogos {
    width: 150px;
@@ -638,7 +639,7 @@ a.lnl:hover{
   }
 #slidecontainer {
   position:absolute;
-  left: 15rem;
+  left: 14rem;
   top: 52rem;
 }
 .slideshow {
