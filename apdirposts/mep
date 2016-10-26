@@ -1,0 +1,43 @@
+# app name: fotpme
+# 	
+# key: FD6CEWQWY6NXXVTJQP
+# 	
+# Client secret ICNT5FHI4UYVRBZ6VAAWADLLGHQC4PR2MCEFIRMLSK4WTWQ3JP
+# Your personal OAuth token D6PTZERWZIFPRTY2ZEME
+# Anonymous access OAuth token QO4TCD7DOOWOOKKF45TV 
+token = 'D6PTZERWZIFPRTY2ZEME'
+# import requests
+from eventbrite import Eventbrite
+eventbrite = Eventbrite(token)
+user = eventbrite.get_user()
+print user
+dir(eventbrite)
+capacity = 38
+eventname = 'An Even Greater Event'
+eventdescription = '<p>You will <i>not</i> want to miss this!</p>'
+eventstart = "2016-11-25T17:30:00Z"
+eventend = "2016-11-25T18:30:00Z"
+eventzone = "America/New_York"
+t1 = {'ticket_class.name': 'Children (under 12)', 'ticket_class.cost': 'USD,300', 'ticket_class.quantity_total': capacity} 
+t2 = {'ticket_class.name': 'Member', 'ticket_class.cost': 'USD,500', 'ticket_class.quantity_total': capacity} 
+t3 = {'ticket_class.name': 'Adult', 'ticket_class.cost': 'USD,500', 'ticket_class.quantity_total': capacity} 
+t4 = {'ticket_class.name': 'Senior (60+)', 'ticket_class.cost': 'USD,300', 'ticket_class.quantity_total': capacity} 
+t5 = {'ticket_class.name': 'Support new programs for the Planetarium!', 'ticket_class.donation': True} 
+#make a new event
+event = eventbrite.post_event({'event.name.html':eventname, 'event.description.html':eventdescription,
+                                 'event.start.utc':eventstart, 'event.end.utc':eventend,
+                                 'event.start.timezone':eventzone, 'event.end.timezone':eventzone,
+                                 'event.currency': 'USD', 'event.capacity': capacity})
+#change event detail; got error when trying to change times
+resp = eventbrite.post('/events/%s/' % event['id'], {'event.name.html': 'A New Day'})
+#make tickets
+resp = eventbrite.post_event_ticket_class(event['id'], t5)
+# response = requests.get(
+#     "https://www.eventbriteapi.com/v3/users/me/owned_events/",
+#     headers = {
+#         "Authorization": "Bearer %s" % token,
+#     },
+#     verify = True,  # Verify SSL certificate
+# )
+# print response.json()['events'][0]['name']['text']
+# print response
