@@ -93,12 +93,8 @@ def loctime2ev(t):
     return  utcdt.strftime(fmt)
 
 @login_required
-def publishweekend(request, id):
+def publishweekend(request):
     now = datetime.now()
-    if id is None:
-        return HttpResponse('no id!')
-    post = Post.objects.get(id = id)
-    events = Event.objects.filter(rpost = id)
     wlst = [] #Will be list of weekends with future events
     for e in futureevents():
         if e.rpost not in wlst:

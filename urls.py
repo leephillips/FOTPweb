@@ -50,6 +50,6 @@ urlpatterns = patterns('',
      (r'^x7297/$', 'ap.apdirposts.views.x7297'),
      (r'^preview/$', 'ap.apdirposts.views.preview_front'),
      (r'^configure_slideshow/$', 'ap.apdirposts.views.configure_slideshow'),
-     (r'^publishweekend/(.*)/$', 'ap.apdirposts.views.publishweekend'),
+     (r'^publishweekend/$', 'ap.apdirposts.views.publishweekend'),
      (r'^ticketing/(.*)/$', 'ap.apdirposts.views.ticketing'),
 )
