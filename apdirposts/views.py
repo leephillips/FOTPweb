@@ -47,7 +47,12 @@ def ticketing(request, id):
         tkresponse = []
         for e in events:
             eventname = e.title
-            eventdescription = e.content
+            pics = Illustration.objects.filter(event=e.id)
+            if len(pics) > 0:
+               content = picparse(e.content, pics)
+            else:
+               content = e.content
+            eventdescription = content
             eventstart = loctime2ev(e.on)
             if e.end:
                 eventend = loctime2ev(e.end)
@@ -67,6 +72,12 @@ def ticketing(request, id):
             for ticket in ticketlist:
                 tkresponse.append(eventbrite.post_event_ticket_class(event.get('id'), ticket))
             evresponse['tickets'] = tkresponse
+            e.publish = True
+            e.ebcode = event.get('id') #For the ticketing box on our website
+            e.save()
+            eventbrite.publish_event(event.get('id')) #make live on Eventbrite
+    mainpost.publish = True
+    mainpost.save()
     else: # Last chance to bail.
         pass        
     return render(request, 'ticketing.html', locals())
