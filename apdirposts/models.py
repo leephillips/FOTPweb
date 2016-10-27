@@ -72,6 +72,7 @@ class Event(models.Model):
    publish = models.BooleanField()
    content = models.TextField(blank = True)
    illustrations = models.ManyToManyField(Illustration, null = True, blank = True)
+   free = models.BooleanField(default = False)
    def __unicode__(self):
        if self.end is not None:
            return "%s scheduled for %s until %s" % (self.title, self.on, self.end)

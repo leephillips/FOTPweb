@@ -19,14 +19,13 @@ REALSOON  = today + timedelta(days = 4)
 # mm.pub_date = datetime.datetime(2013, 8, 1, 13, 13, 13)
 # mm.save()
 
-def makeweekend(id):
-    """The post id is main article describing weekend. Looks up all event objects linked
-    to the post. For each object, uses Eventbrite API to create an event page on Eventbrite,
+@login_required
+def ticketing(request, events):
+    """events is a list of events. For each event in the list, uses Eventbrite API to create an event page on Eventbrite,
     and creates all the usual tickets. Returns event id and adds it to event object.
     Makes all the Eventbrite events live, and publishes the main post and all event posts."""
     from eventbrite import Eventbrite
-    token = settings.token
-    eventbrite = Eventbrite(token)
+    eventbrite = Eventbrite(settings.token)
     capacity = 38
     eventzone = "America/New_York"
     t1 = {'ticket_class.name': 'Children (under 12)', 'ticket_class.cost': 'USD,300', 'ticket_class.quantity_total': capacity} 
@@ -47,6 +46,7 @@ def makeweekend(id):
                                      'event.currency': 'USD', 'event.capacity': capacity})
     #make tickets
     resp = eventbrite.post_event_ticket_class(event['id'], t5)
+    return render(request, 'makeweekend.html', locals())
 
 def loctime2ev(t):
     """converting times to UTC and formatting for Eventbrite"""

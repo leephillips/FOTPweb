@@ -1,9 +1,15 @@
 <!DOCTYPE HTML><html><head><meta content="text/html;charset=utf-8" http-equiv="Content-Type" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><link href="{{ STATIC_URL }}favicon_v4.png" rel="shortcut icon" type="image/png" /><link href="//fonts.googleapis.com/css?family=Alegreya:normal,italic,bold%7CAlegreya+SC:normal,italic,bold%7CBaumans" rel = "stylesheet" media = "all" type = "text/css" />
-<title>Weekend Summary</title>
+<title>Publish Weekend</title>
 </head>
-<h1>Weekend Selector</h1>
 <body>
-  <h2>Weekends with events in the future</h2>
+  <p class = 'warn'>
+     When you click the “Publish” button below, the weekend writeup and all its associated event
+     pages will be immediately made live on the FOTP website. Also, Eventbrite pages will be
+     created for each event that is part of this weekend. They will be live, and tickets will
+     be made available for purchase. This is immediate and will proceed without further warning.
+     These actions can not be undone from here.
+  </p>
+  <h2>{{}}</h2>
      {% for w in wlst %}
      <h3><a href = '/makeweekend/{{w.0.id}}/'>{{w.0.title}}</a></h3>
        {% for e in w.1 %}
