@@ -40,6 +40,8 @@ def ticketing(request, events):
     t5free = {'ticket_class.name': 'Support new programs for the Planetarium!', 'ticket_class.donation': True} 
     tickets = [t1, t2, t3, t3, t5]
     freetickets = [t1free, t2free, t3free, t3free, t5free]
+    evresponse = {}
+    tkresponse = []
     for e in events:
 
         eventname = e.title
@@ -54,15 +56,15 @@ def ticketing(request, events):
                                      'event.start.utc':eventstart, 'event.end.utc':eventend,
                                      'event.start.timezone':eventzone, 'event.end.timezone':eventzone,
                                      'event.currency': 'USD', 'event.capacity': capacity})
+        evresponse['event'] = event
         #make tickets
         if e.free:
             ticketlist = tickets
         else:
             ticketlist = freetickets
         for ticket in ticketlist:
-
-
-        resp = eventbrite.post_event_ticket_class(event['id'], t5)
+            tkresponse.append(eventbrite.post_event_ticket_class(event['id'], ticket))
+        evresponse['tickets'] = tkresponse
     return render(request, 'makeweekend.html', locals())
 
 def loctime2ev(t):
