@@ -1,5 +1,6 @@
 <!DOCTYPE HTML><html><head><meta content="text/html;charset=utf-8" http-equiv="Content-Type" /><meta content="width=device-width, initial-scale=1.0" name="viewport" /><link href="{{ STATIC_URL }}favicon_v4.png" rel="shortcut icon" type="image/png" /><link href="//fonts.googleapis.com/css?family=Alegreya:normal,italic,bold%7CAlegreya+SC:normal,italic,bold%7CBaumans" rel = "stylesheet" media = "all" type = "text/css" />
 <title>Publish Weekend</title>
+<link rel = 'stylesheet' href = "{{ STATIC_URL }}/adminstyle.css" />
 </head>
 <body>
   <p class = 'warn'>
@@ -9,8 +10,11 @@
      be made available for purchase. This is immediate and will proceed without further warning.
      These actions can not be undone from here.
   </p>
-  <h2>{{}}</h2>
-     {% for w in wlst %}
+  <h1>h1 head</h1>
+  <h2>h2 head</h2>
+  <h3>h3 head</h3>
+  <h2></h2>
+     {% for w in events %}
      <h3><a href = '/makeweekend/{{w.0.id}}/'>{{w.0.title}}</a></h3>
        {% for e in w.1 %}
          <p>{{e}}</p>
