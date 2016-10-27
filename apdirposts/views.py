@@ -108,7 +108,7 @@ def publishweekend(request):
 def futureevents():
     now = datetime.now()
     then = datetime(2030, 1, 1)
-    events = Event.objects.filter(on__range = (now, then))
+    events = Event.objects.filter(on__range = (now, then)).exclude(publish = True)
     return events
 
 class NewArticleForm(forms.Form):
