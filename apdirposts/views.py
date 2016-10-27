@@ -41,8 +41,8 @@ def ticketing(request, id):
         t3free = {'ticket_class.name': 'Adult', 'ticket_class.free': True, 'ticket_class.quantity_total': capacity} 
         t4free = {'ticket_class.name': 'Senior (60+)', 'ticket_class.free': True, 'ticket_class.quantity_total': capacity} 
         t5free = {'ticket_class.name': 'Support new programs for the Planetarium!', 'ticket_class.donation': True} 
-        tickets = [t1, t2, t3, t3, t5]
-        freetickets = [t1free, t2free, t3free, t3free, t5free]
+        tickets = [t1, t2, t3, t4, t5]
+        freetickets = [t1free, t2free, t3free, t4free, t5free]
         evresponse = {}
         tkresponse = []
         for e in events:
