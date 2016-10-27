@@ -15,7 +15,7 @@
      {% for e in events %}
        <p>{{e}}</p>
      {% endfor %}
-     <form action = '/ticketing/mainpost.id/' method = 'POST'>
+     <form action = '/ticketing/{{mainpost.id}}/' method = 'POST'>
        {% csrf_token %}
        <button type = 'submit'>Publish</button>
      </form>

@@ -26,8 +26,8 @@ utcdt = locdt.astimezone(utc)
 print locdt.strftime(fmt)
 print utcdt.strftime(fmt)
 
-eventstart = "2016-11-24T17:30:00"
-eventend = "2016-11-25T18:30:00"
+eventstart = "2016-11-24T17:30:00Z"
+eventend = "2016-11-25T18:30:00Z"
 eventzone = "America/New_York"
 t1 = {'ticket_class.name': 'Children (under 12)', 'ticket_class.cost': 'USD,300', 'ticket_class.quantity_total': capacity} 
 t2 = {'ticket_class.name': 'Member', 'ticket_class.cost': 'USD,500', 'ticket_class.quantity_total': capacity} 
@@ -40,6 +40,7 @@ event = eventbrite.post_event({'event.name.html':eventname, 'event.description.h
                                  'event.start.timezone':eventzone, 'event.end.timezone':eventzone,
                                  'event.currency': 'USD', 'event.capacity': capacity})
 #change event detail; got error when trying to change times
+event
 resp = eventbrite.post('/events/%s/' % event['id'], {'event.name.html': 'A New Day'})
 #make tickets
 resp = eventbrite.post_event_ticket_class(event['id'], t5)

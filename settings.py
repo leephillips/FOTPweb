@@ -115,4 +115,4 @@ MEDIA_ROOT = '/home/lee/ap/media/'
 MEDIA_URL = '/media/'
 
 from secret_settings import *
-# secret import get "token", used with EventBrite
+# secret import gets "token", used with EventBrite

@@ -28,7 +28,7 @@ def ticketing(request, id):
     events = Event.objects.filter(rpost = id)
     if request.method == 'POST': #We're going for it
         from eventbrite import Eventbrite
-        eventbrite = Eventbrite(settings.token)
+        eventbrite = Eventbrite(settings.TOKEN)
         capacity = 38
         eventzone = "America/New_York"
         t1 = {'ticket_class.name': 'Children (under 12)', 'ticket_class.cost': 'USD,300', 'ticket_class.quantity_total': capacity} 
@@ -36,10 +36,10 @@ def ticketing(request, id):
         t3 = {'ticket_class.name': 'Adult', 'ticket_class.cost': 'USD,500', 'ticket_class.quantity_total': capacity} 
         t4 = {'ticket_class.name': 'Senior (60+)', 'ticket_class.cost': 'USD,300', 'ticket_class.quantity_total': capacity} 
         t5 = {'ticket_class.name': 'Support new programs for the Planetarium!', 'ticket_class.donation': True} 
-        t1free = {'ticket_class.name': 'Children (under 12)', 'ticket_class.cost': 'USD,0', 'ticket_class.quantity_total': capacity} 
-        t2free = {'ticket_class.name': 'Member', 'ticket_class.cost': 'USD,0', 'ticket_class.quantity_total': capacity} 
-        t3free = {'ticket_class.name': 'Adult', 'ticket_class.cost': 'USD,0', 'ticket_class.quantity_total': capacity} 
-        t4free = {'ticket_class.name': 'Senior (60+)', 'ticket_class.cost': 'USD,0', 'ticket_class.quantity_total': capacity} 
+        t1free = {'ticket_class.name': 'Children (under 12)', 'ticket_class.free': True, 'ticket_class.quantity_total': capacity} 
+        t2free = {'ticket_class.name': 'Member', 'ticket_class.free': True, 'ticket_class.quantity_total': capacity} 
+        t3free = {'ticket_class.name': 'Adult', 'ticket_class.free': True, 'ticket_class.quantity_total': capacity} 
+        t4free = {'ticket_class.name': 'Senior (60+)', 'ticket_class.free': True, 'ticket_class.quantity_total': capacity} 
         t5free = {'ticket_class.name': 'Support new programs for the Planetarium!', 'ticket_class.donation': True} 
         tickets = [t1, t2, t3, t3, t5]
         freetickets = [t1free, t2free, t3free, t3free, t5free]
@@ -52,7 +52,7 @@ def ticketing(request, id):
             if e.end:
                 eventend = loctime2ev(e.end)
             else:
-                eventend = loctime2ev(e.end + timedelta(minutes = 60))
+                eventend = loctime2ev(e.on + timedelta(minutes = 60))
             #make a new event
             event = eventbrite.post_event({'event.name.html':eventname, 'event.description.html':eventdescription,
                                          'event.start.utc':eventstart, 'event.end.utc':eventend,
@@ -61,11 +61,11 @@ def ticketing(request, id):
             evresponse['event'] = event
             #make tickets
             if e.free:
-                ticketlist = tickets
-            else:
                 ticketlist = freetickets
+            else:
+                ticketlist = tickets
             for ticket in ticketlist:
-                tkresponse.append(eventbrite.post_event_ticket_class(event['id'], ticket))
+                tkresponse.append(eventbrite.post_event_ticket_class(event.get('id'), ticket))
             evresponse['tickets'] = tkresponse
     else: # Last chance to bail.
         pass        
@@ -75,7 +75,7 @@ def loctime2ev(t):
     """converting times to UTC and formatting for Eventbrite"""
     import pytz
     eastern = pytz.timezone('US/Eastern')
-    fmt = '%Y-%m-%dT%H:%M:%S'
+    fmt = '%Y-%m-%dT%H:%M:%SZ'
     utc = pytz.utc
     locdt = eastern.localize(t) #t must be a datetime
     utcdt = locdt.astimezone(utc)
