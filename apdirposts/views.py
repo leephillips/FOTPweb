@@ -24,6 +24,7 @@ def ticketing(request, id):
     to the post. For each object, uses Eventbrite API to create an event page on Eventbrite,
     and creates all the usual tickets. Returns event id and adds it to event object.
     Makes all the Eventbrite events live, and publishes the main post and all event posts."""
+    mainpost = Post.objects.get(id = id)
     events = Event.objects.filter(rpost = id)
     if request.method == 'POST': #We're going for it
         from eventbrite import Eventbrite

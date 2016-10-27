@@ -802,7 +802,7 @@ p.warn {
 }
 
 a:link {
-    color: #9cf;
+    color: blue;
     border-color: transparent;
     border-style: none none dotted none;
     border-width: 0.1em;
@@ -810,7 +810,7 @@ a:link {
 }
 
 a:visited {
-    color: #f99;
+    color: #66f;
     border-color: transparent;
     border-width: 0.1em;
     border-style: none none dotted none;

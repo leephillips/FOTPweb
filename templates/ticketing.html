@@ -10,18 +10,10 @@
      be made available for purchase. This is immediate and will proceed without further warning.
      These actions can not be undone from here.
   </p>
-  <h1>h1 head</h1>
-  <h2>h2 head</h2>
-  <h3>h3 head</h3>
-  <h2></h2>
-     {% for w in events %}
-     <h3><a href = '/makeweekend/{{w.0.id}}/'>{{w.0.title}}</a></h3>
-       {% for e in w.1 %}
-         <p>{{e}}</p>
-         <p>{{e.tt}}</p>
-       {% endfor %}
+  <h1>{{mainpost.title}}</h1>
+  <h2>Events to be made live</h2>
+     {% for e in events %}
+     <p>{{e}}</p>
      {% endfor %}
-     {{t}}
-     {{tt}}
 </body>
 </html>
