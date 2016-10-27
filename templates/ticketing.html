@@ -13,7 +13,18 @@
   <h1>{{mainpost.title}}</h1>
   <h2>Events to be made live</h2>
      {% for e in events %}
-     <p>{{e}}</p>
+       <p>{{e}}</p>
      {% endfor %}
+     <form action = '/ticketing/mainpost.id/' method = 'POST'>
+       {% csrf_token %}
+       <button type = 'submit'>Publish</button>
+     </form>
+  {% if evresponse %}
+     <h2>Response from Eventbrite server</h2>
+         <p>{{evresponse.event}}</p>
+         {% for tr in evresponse.tickets %}
+           <p>{{tr}}</p>
+         {% endfor %}
+  {% endif %} 
 </body>
 </html>
