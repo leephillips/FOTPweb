@@ -75,7 +75,7 @@ def ticketing(request, id):
             e.publish = True
             e.ebcode = event.get('id') #For the ticketing box on our website
             e.save()
-            eventbrite.publish_event(event.get('id')) #make live on Eventbrite
+            #eventbrite.publish_event(event.get('id')) #make live on Eventbrite - does not work, API incomplete.
         mainpost.publish = True
         mainpost.save()
     else: # Last chance to bail.

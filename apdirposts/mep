@@ -41,9 +41,11 @@ event = eventbrite.post_event({'event.name.html':eventname, 'event.description.h
                                  'event.currency': 'USD', 'event.capacity': capacity})
 #change event detail; got error when trying to change times
 event
+eventbrite.publish_event(event.get('id')) #make live on Eventbrite
 resp = eventbrite.post('/events/%s/' % event['id'], {'event.name.html': 'A New Day'})
 #make tickets
 resp = eventbrite.post_event_ticket_class(event['id'], t5)
+resp
 # response = requests.get(
 #     "https://www.eventbriteapi.com/v3/users/me/owned_events/",
 #     headers = {
@@ -53,3 +55,4 @@ resp = eventbrite.post_event_ticket_class(event['id'], t5)
 # )
 # print response.json()['events'][0]['name']['text']
 # print response
+eventbrite.get_event(28264482829)
