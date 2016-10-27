@@ -76,8 +76,8 @@ def ticketing(request, id):
             e.ebcode = event.get('id') #For the ticketing box on our website
             e.save()
             eventbrite.publish_event(event.get('id')) #make live on Eventbrite
-    mainpost.publish = True
-    mainpost.save()
+        mainpost.publish = True
+        mainpost.save()
     else: # Last chance to bail.
         pass        
     return render(request, 'ticketing.html', locals())
@@ -280,7 +280,7 @@ def piccredit(caption, credit):
 
 def picparse(s, pics):
    picins = """<div class = "%s" style = 'width: %s;'>
-                                <img src = "%s" alt = "" />
+   <img src = "http://friendsoftheplanetarium.org%s" alt = "" />
                                 <p class = "caption">%s</p></div>"""
    p = {}
    captions = {}
