@@ -33,19 +33,36 @@ def ticketing(request, events):
     t3 = {'ticket_class.name': 'Adult', 'ticket_class.cost': 'USD,500', 'ticket_class.quantity_total': capacity} 
     t4 = {'ticket_class.name': 'Senior (60+)', 'ticket_class.cost': 'USD,300', 'ticket_class.quantity_total': capacity} 
     t5 = {'ticket_class.name': 'Support new programs for the Planetarium!', 'ticket_class.donation': True} 
+    t1free = {'ticket_class.name': 'Children (under 12)', 'ticket_class.cost': 'USD,0', 'ticket_class.quantity_total': capacity} 
+    t2free = {'ticket_class.name': 'Member', 'ticket_class.cost': 'USD,0', 'ticket_class.quantity_total': capacity} 
+    t3free = {'ticket_class.name': 'Adult', 'ticket_class.cost': 'USD,0', 'ticket_class.quantity_total': capacity} 
+    t4free = {'ticket_class.name': 'Senior (60+)', 'ticket_class.cost': 'USD,0', 'ticket_class.quantity_total': capacity} 
+    t5free = {'ticket_class.name': 'Support new programs for the Planetarium!', 'ticket_class.donation': True} 
     tickets = [t1, t2, t3, t3, t5]
+    freetickets = [t1free, t2free, t3free, t3free, t5free]
+    for e in events:
 
-    eventname = 'An Even Greater Event'
-    eventdescription = '<p>You will <i>not</i> want to miss this!</p>'
-    eventstart = "2016-11-25T17:30:00Z"
-    eventend = "2016-11-25T18:30:00Z"
-    #make a new event
-    event = eventbrite.post_event({'event.name.html':eventname, 'event.description.html':eventdescription,
+        eventname = e.title
+        eventdescription = e.content
+        eventstart = loctime2ev(e.on)
+        if e.end:
+            eventend = loctime2ev(e.end)
+        else:
+            eventend = loctime2ev(e.end + timedelta(minutes = 60))
+        #make a new event
+        event = eventbrite.post_event({'event.name.html':eventname, 'event.description.html':eventdescription,
                                      'event.start.utc':eventstart, 'event.end.utc':eventend,
                                      'event.start.timezone':eventzone, 'event.end.timezone':eventzone,
                                      'event.currency': 'USD', 'event.capacity': capacity})
-    #make tickets
-    resp = eventbrite.post_event_ticket_class(event['id'], t5)
+        #make tickets
+        if e.free:
+            ticketlist = tickets
+        else:
+            ticketlist = freetickets
+        for ticket in ticketlist:
+
+
+        resp = eventbrite.post_event_ticket_class(event['id'], t5)
     return render(request, 'makeweekend.html', locals())
 
 def loctime2ev(t):
