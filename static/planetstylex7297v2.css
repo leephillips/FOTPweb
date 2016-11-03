@@ -639,14 +639,17 @@ a.lnl:hover{
   }
 #slidecontainer {
   position:absolute;
-  left: 14rem;
+  left: 4rem;
+  top: 52rem;
+}
+#slidecontainer2 {
+  position:absolute;
+  left: 40rem;
   top: 52rem;
 }
 .slideshow {
   /* animation: slideFadeIn 10s linear; */
   /* webkit-animation: slideFadeIn 10s linear; */
-  width: 50rem;
-  height: 40rem;
 }
 #frontcontent {
   text-align: center;
