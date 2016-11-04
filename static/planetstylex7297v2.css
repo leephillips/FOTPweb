@@ -14,6 +14,18 @@ body {
   width: 100%;
   color: black;
 }
+#frontcontainer {
+    position:relative;
+    margin: 0 auto;
+    width: 75rem;
+    height: 400rem;
+    background-color: #99f;
+}
+.frontbox {
+    position:absolute;
+    padding: 2mm;
+    text-align: center;
+}
 #stack {
   position:absolute;
   left: 0rem;
@@ -294,16 +306,11 @@ div.eventlist span.eventlisttitle{
   margin-left: 25%;
 }
 #upcoming {
-   position: absolute;
    top: 0;
-   left: 55rem;
+   left: 59rem;
    width: 15rem;
-   border: solid 0.5mm #f00;
-   padding: 3mm;
-   font-size: 100%;
    font-weight: bold;
-   background: rgba(100, 100, 100, 0.6);
-   text-align: center;
+   background: rgb(250, 15, 15);
 }
 #upcoming a {
   border: none;
@@ -495,7 +502,7 @@ abbr {
    background: none;
 }
 .mainbanner{
-   width: 40rem;
+   width: 35rem;
    position: absolute;
    left: 1rem;
    top: 1rem;
@@ -639,13 +646,23 @@ a.lnl:hover{
   }
 #slidecontainer {
   position:absolute;
-  left: 4rem;
+  left: 0rem;
   top: 52rem;
 }
 #slidecontainer2 {
   position:absolute;
   left: 40rem;
   top: 52rem;
+}
+#slidecontainer3 {
+  position:absolute;
+  left: 0rem;
+  top: 24rem;
+}
+#slidecontainer4 {
+  position:absolute;
+  left: 40rem;
+  top: -1rem;
 }
 .slideshow {
   /* animation: slideFadeIn 10s linear; */
