@@ -67,7 +67,7 @@
       <ul id="slideshow">
         {% for slide in slides|slice:"0:8" %}
           <li>
-              <h3>{{ slide.caption }}</h3>
+            <h3>{{ slide.caption }}</h3>
             <span>{{ slide.pic.url }}</span>
             <p>{{ slide.credit }}</p>
             <a href='{{ slide.target }}'><img src = '{{ slide.pic.url }}' /></a>
@@ -93,7 +93,7 @@
       <ul id="slideshow2">
         {% for slide in slides %}
           <li>
-              <h3>{{ slide.caption }}</h3>
+            <h3>{{ slide.caption }}</h3>
             <span>{{ slide.pic.url }}</span>
             <p>{{ slide.credit }}</p>
             <a href='{{ slide.target }}'><img src = '{{ slide.pic.url }}' /></a>
