@@ -78,7 +78,7 @@
     <div id="wrapper">
             <div class="fullsize">
                     <div id="imglink" class = 'imglink'></div>
-                    <div id="image" class = 'image'></div>
+                    <div id="image" class = 'image imgnav'></div>
                     <div id="information" class = 'information'>
                             <h3></h3>
                             <p></p>
@@ -94,7 +94,8 @@
         {% for slide in slides %}
           <li>
             <h3>{{ slide.caption }}</h3>
-            <span>{{ slide.pic.url }}</span>
+            <!--<span>{{ slide.pic.url }}</span>-->
+            <span>https://google.com/</span>
             <p>{{ slide.credit }}</p>
             <a href='{{ slide.target }}'><img src = '{{ slide.pic.url }}' /></a>
           </li>
@@ -104,7 +105,7 @@
     <div id="wrapper">
             <div class="fullsize">
                     <div id="imglink2" class = 'imglink'></div>
-                    <div id="image2" class = 'image'></div>
+                    <div id="image2" class = 'image imgnav'></div>
                     <div id="information2" class = 'information'>
                             <h3></h3>
                             <p></p>
