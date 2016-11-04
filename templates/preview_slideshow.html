@@ -94,8 +94,8 @@
         {% for slide in slides %}
           <li>
             <h3>{{ slide.caption }}</h3>
-            <!--<span>{{ slide.pic.url }}</span>-->
-            <span>https://google.com/</span>
+            <span>{{ slide.pic.url }}</span>
+            <!--<span>https://google.com/</span>-->
             <p>{{ slide.credit }}</p>
             <a href='{{ slide.target }}'><img src = '{{ slide.pic.url }}' /></a>
           </li>
