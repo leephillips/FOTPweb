@@ -5,12 +5,13 @@
 html {
   height: 100%;
   font-size: 100%;
+  margin: 0;
+  padding: 0;
 }
 body {
-  position: relative;
   font-size: 100%;
-  margin-left: 0%;
-  margin-top: 0%;
+  margin: 0;
+  padding: 0;
   width: 100%;
   color: black;
 }
@@ -23,7 +24,8 @@ body {
 }
 .frontbox {
     position:absolute;
-    padding: 2mm;
+    /* padding: 2mm; */
+    border: solid black 0.5mm;
     text-align: center;
 }
 #stack {
@@ -307,7 +309,7 @@ div.eventlist span.eventlisttitle{
 }
 #upcoming {
    top: 0;
-   left: 59rem;
+   left: 60rem;
    width: 15rem;
    font-weight: bold;
    background: rgb(250, 15, 15);
@@ -503,12 +505,17 @@ abbr {
 }
 .mainbanner{
    width: 35rem;
+   height: 17rem;
    position: absolute;
-   left: 1rem;
-   top: 1rem;
+   left: 0rem;
+   top: 0rem;
+   overflow:hidden;
 }
-.mainbanner img{
+.mainbanner img, .mainbanner video{
    width: 100%;
+   position: absolute;
+   left: 0rem;
+   top: 0rem;
 } 
 .mainbanner a:hover {
   background: none;
@@ -594,8 +601,7 @@ a.lnl:hover{
    border: none;
 }
 #schedule iframe {
-  margin-left: 28rem;
-  width: 19rem;
+  width: 14.8rem;
 }
 #sponsorlogos {
    width: 150px;
@@ -644,6 +650,13 @@ a.lnl:hover{
 #mainarray a:hover {
   background: none;
   }
+.slidecontainer {width:22.5rem; height: 15rem; margin:0px auto; margin: 0;
+  border: solid black 0.5mm;
+  overflow:hidden;
+}
+div.slidecontainer video, div.slidecontainer img{
+    width: 100%;
+}
 #slidecontainer {
   position:absolute;
   left: 0rem;

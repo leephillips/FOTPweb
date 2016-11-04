@@ -29,47 +29,6 @@
 </style>
 {% endblock %}
 {% block body %}
-    <script type="text/javascript" src="/static/js/tss.js"></script>
-    <script type="text/javascript">
-        var slideshow=new TINY.slideshow("slideshow");
-        var slideshow2=new TINY.slideshow("slideshow2");
-        var slideshow3=new TINY.slideshow("slideshow3");
-        var slideshow4=new TINY.slideshow("slideshow4");
-        window.onload=function(){
-        slideshow.auto=true;
-        slideshow.speed=5;
-        slideshow.link="linkhover";
-        slideshow.info="";
-        slideshow.scrollSpeed=4;
-        slideshow.spacing=5;
-        slideshow.active="#fff";
-        slideshow.init('slideshow','image','','','imglink');
-        slideshow2.auto=true;
-        slideshow2.speed=7;
-        slideshow2.link="linkhover";
-        slideshow2.info="";
-        slideshow2.scrollSpeed=4;
-        slideshow2.spacing=5;
-        slideshow2.active="#fff";
-        slideshow2.init('slideshow2','image2','','','imglink2');
-        slideshow3.auto=true;
-        slideshow3.speed=5;
-        slideshow3.link="linkhover";
-        slideshow3.info="";
-        slideshow3.scrollSpeed=4;
-        slideshow3.spacing=5;
-        slideshow3.active="#fff";
-        slideshow3.init('slideshow3','image3','','','imglink3');
-        slideshow4.auto=true;
-        slideshow4.speed=5;
-        slideshow4.link="linkhover";
-        slideshow4.info="";
-        slideshow4.scrollSpeed=4;
-        slideshow4.spacing=5;
-        slideshow4.active="#fff";
-        slideshow4.init('slideshow4','image4','','','imglink4');
-        }
-    </script>
 
 <div id = 'frontcontainer'>
   <div id="upcoming" class = 'frontbox'>
@@ -79,115 +38,17 @@
     <a href='http://www.apsva.us/Page/2706'>Arlington Public Schools programming.</a>
   </p>
   </div>
-  <div id = 'slidecontainer'>
-     <div class = 'slideshow'>
-      <ul id="slideshow">
-        {% for slide in slides|slice:"0:8" %}
-          <li>
-            <h3>{{ slide.caption }}</h3>
-            <span>{{ slide.pic.url }}</span>
-            <p>{{ slide.credit }}</p>
-            <a href='{{ slide.target }}'><img src = '{{ slide.pic.url }}' /></a>
-          </li>
-        {% endfor %}
-      </ul>
-    
-    <div id="wrapper">
-            <div class="fullsize">
-                    <div id="imglink" class = 'imglink'></div>
-                    <div id="image" class = 'image imgnav'></div>
-                    <div id="information" class = 'information'>
-                            <h3></h3>
-                            <p></p>
-                    </div>
-            </div>
-    </div>
-
-    </div>
-  </div>
-  <div id = 'slidecontainer2'>
-     <div class = 'slideshow'>
-      <ul id="slideshow2">
-        {% for slide in slides %}
-          <li>
-            <h3>{{ slide.caption }}</h3>
-            <span>{{ slide.pic.url }}</span>
-            <!--<span>https://google.com/</span>-->
-            <p>{{ slide.credit }}</p>
-            <a href='{{ slide.target }}'><img src = '{{ slide.pic.url }}' /></a>
-          </li>
-        {% endfor %}
-      </ul>
-    
-    <div id="wrapper">
-            <div class="fullsize">
-                    <div id="imglink2" class = 'imglink'></div>
-                    <div id="image2" class = 'image imgnav'></div>
-                    <div id="information2" class = 'information'>
-                            <h3></h3>
-                            <p></p>
-                    </div>
-            </div>
-    </div>
-
-    </div>
-  </div>
-  <div id = 'slidecontainer3'>
-     <div class = 'slideshow'>
-      <ul id="slideshow3">
-        {% for slide in slides %}
-          <li>
-            <h3>{{ slide.caption }}</h3>
-            <span>{{ slide.pic.url }}</span>
-            <!--<span>https://google.com/</span>-->
-            <p>{{ slide.credit }}</p>
-            <a href='{{ slide.target }}'><img src = '{{ slide.pic.url }}' /></a>
-          </li>
-        {% endfor %}
-      </ul>
-    
-    <div id="wrapper">
-            <div class="fullsize">
-                    <div id="imglink3" class = 'imglink'></div>
-                    <div id="image3" class = 'image imgnav'></div>
-                    <div id="information3" class = 'information'>
-                            <h3></h3>
-                            <p></p>
-                    </div>
-            </div>
-    </div>
-
-    </div>
-  </div>
-  <div id = 'slidecontainer4'>
-     <div class = 'slideshow'>
-      <ul id="slideshow4">
-        {% for slide in slides %}
-          <li>
-            <h3>{{ slide.caption }}</h3>
-            <span>{{ slide.pic.url }}</span>
-            <!--<span>https://google.com/</span>-->
-            <p>{{ slide.credit }}</p>
-            <a href='{{ slide.target }}'><img src = '{{ slide.pic.url }}' /></a>
-          </li>
-        {% endfor %}
-      </ul>
-    
-    <div id="wrapper">
-            <div class="fullsize">
-                    <div id="imglink4" class = 'imglink'></div>
-                    <div id="image4" class = 'image imgnav'></div>
-                    <div id="information4" class = 'information'>
-                            <h3></h3>
-                            <p></p>
-                    </div>
-            </div>
-    </div>
-
-    </div>
-  </div>
-<div class = "mainbanner"><a href="/"><img src = "{{ STATIC_URL }}logo_new.png" alt="" /></a></div>
-<div id = 'stack' class = 'vstack'> 
+<div class = 'slidecontainer frontbox' style = 'top:0rem; left:37.5rem;'>
+    <!--<video src = '/static/s0.gif' autoplay no-controls></video>-->
+    <img src = '/static/s0.gif' />
+</div>
+<div class = 'slidecontainer frontbox' style = 'top: 34rem; left:0;'></div>
+<div class = 'slidecontainer frontbox' style = 'top:27rem; left:49.3rem;'></div>
+<div class = "mainbanner">
+    <video src = '/static/persipythonedlogo.mp4' loop autoplay no-controls></video>
+</div>
+<div class = "mainbanner" style = 'background-color: rgba(200,50,50,0.5)'>
+    <a href="/"><img src = "{{ STATIC_URL }}logo_new.png" alt="" /></a></div>
 
 <div id = "frontnav" class = 'll'>
 <p><a href="/event">Events &amp; Shows</a></p>
@@ -264,8 +125,7 @@
    <p>Exploding star shockwave</p>
   </div>
  </div>
- <div id = 'schedule'>
-  <h2>Schedule of Shows:</h2>
+ <div id = 'schedule' class = 'frontbox' style = 'top: 5.8rem; left: 60rem;'>
 <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;bgcolor=%23999999&amp;src=u2k0tc9r2o3vt4s495itgnrol4%40group.calendar.google.com&amp;color=%2328754E&amp;ctz=America%2FNew_York" style="border:solid 1px #777" width="300" height="400" ></iframe>
 </div>
      <div id = "planetfooter">
@@ -280,5 +140,4 @@
      </div>
 </div> 
   <!--<div id = 'centerline'></div>-->
-</div>
 {% endblock %}
