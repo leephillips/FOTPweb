@@ -38,27 +38,30 @@
     <a href='http://www.apsva.us/Page/2706'>Arlington Public Schools programming.</a>
   </p>
   </div>
-<div class = 'slidecontainer frontbox' style = 'top:0rem; left:37.5rem;'>
-    <!--<video src = '/static/s0.gif' autoplay no-controls></video>-->
+<div class = 'slidecontainer frontbox' style = 'top:0rem; left:37.5rem;background:hsl(120,40%,80%)'>
     <img src = '/static/s0.gif' />
+</div>
+<div class = 'frontbox ctxt' style = 'z-index:2;top: 15rem;left:37.5rem;width:21.7rem;height: 34rem;background: hsl(120,40%,80%)'>
+   <h3>Recent:</h3>
+   {% for p in latestentries %}
+      <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
+   {% endfor %}
 </div>
 <div class = 'slidecontainer frontbox' style = 'top: 34rem; left:0;'></div>
 <div class = 'slidecontainer frontbox' style = 'top:27rem; left:49.3rem;'></div>
 <div class = "mainbanner">
     <video src = '/static/persipythonedlogo.mp4' loop autoplay no-controls></video>
 </div>
-<div class = "mainbanner" style = 'background-color: rgba(200,50,50,0.5)'>
-    <a href="/"><img src = "{{ STATIC_URL }}logo_new.png" alt="" /></a></div>
-
-<div id = "frontnav" class = 'll'>
-<p><a href="/event">Events &amp; Shows</a></p>
-<p><a href="/join">Join, Donate, Subscribe</a></p>
-<p><a href="/post">Articles &amp; News</a></p>
-<p><a href="/notice">Press</a></p>
-<p><a href="/movies">Movies</a></p>
-<p><a href="/about">About the Planetarium</a></p>
-<p><a href="http://www.cafepress.com/friendsarlplanetarium/8533104">Shop<span id = "shopitem"><img alt = "mugshot" src="/static/mugforsale.png" /></span></a></p>
+<div class = "mainbanner" style = 'background-color: rgba(200,50,50,0.5)'><img src = "{{ STATIC_URL }}logo_new.png" alt="" /></div>
+<div class = 'ctxt frontbox' style = 'top:17rem; left:0; width: 19rem; background: hsl(308, 75.5%, 79.2%);'>
+    <p><a href="/event">Upcoming Events &amp; Shows</a></p>
 </div>
+    <p><a href="/join">Join, Donate, Subscribe</a></p>
+    <p><a href="/post">Articles &amp; News</a></p>
+    <p><a href="/notice">Press</a></p>
+    <p><a href="/movies">Movies</a></p>
+    <p><a href="/about">About the Planetarium</a></p>
+    <p><a href="http://www.cafepress.com/friendsarlplanetarium/8533104">Shop<span id = "shopitem"><img alt = "mugshot" src="/static/mugforsale.png" /></span></a></p>
 <script>
   (function() {
     var cx = '007968053313794302273:aypyetdofbi';
@@ -80,53 +83,47 @@
   <a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/insta.png" alt="" />Instagram</a>
   </p>
 </div>
-<div id = 'frontcontent'>
-  <div id = "frontlatest">
-   <h1>Recent:</h1>
-   {% for p in latestentries %}
-      <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
-   {% endfor %}
-  </div>
+
+  
 
   {% if not smiled %}
     <div id = 'smile' class = "newsletterform rhform">
     <p>Support the Planetarium every time you buy from Amazon, at no cost to you: <a href="/smile/"><img alt="Amazon Smile" src="/static/smile.png" /></a></p>
-    </div>
+    
   {% endif %}
 </div>
-<div id = 'sponsors'>
-  <h2>Thanks to our major donors</h2>
+<div id = 'sponsors' class = 'frontbox ctxt' style = 'left:0; top:23rem;width: 19rem;background: hsl(0, 71.9%, 74.9%)'>
+    <h3>Thanks<br />to our major donors</h3>
   <div id = 'sponsorlogos'>
     <img src = '/static/sponsorlogos.jpg' alt = 'sponsor logos' /> 
   </div>
 </div>
 
-<div id = "mainarray">
-  <div class = 'maincircle'>
+
+<div class = 'frontbox circlebox' style = 'top:17rem; left:20rem; background: hsl(59, 92.2%, 74.9%); '> 
    <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "http://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon" /></a>
-   <p>Current Moon</p>
+</div>
   
-  <div class = 'maincircle'>
-<a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "http://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
-   <p>Current Sun</p>
-  </div>
   <div class = 'maincircle'>
    <a href = 'http://www.nasa.gov/feature/goddard/2016/mars-gravity-map' title = '”A new map of Mars’ gravity made with three NASA spacecraft is the most detailed to date, providing a revealing glimpse into the hidden interior of the Red Planet.”'>
         <img src = '/static/northMarsGravity.png' alt = 'Gravity map of Mars northern hemisphere' />
    </a>
    <p>Mars gravity map</p>
-  </div>
-  <div class = 'maincircle'>
+  
+  
    <a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a>
    <p>Link to starchart</p>
-  </div>
-  <div class = 'maincircle'>
+  
+  
    <a href = 'http://www.nasa.gov/feature/ames/Kepler/caught-for-the-first-time-the-early-flash-of-an-exploding-star' title = '”The brilliant flash of an exploding star’s shockwave—what astronomers call the “shock breakout”—has been captured for the first time in the optical wavelength or visible light by NASA’s planet-hunter, the Kepler space telescope.”'><img src = '/static/starshock_decor.png' alt = '' /></a>
    <p>Exploding star shockwave</p>
-  </div>
- </div>
- <div id = 'schedule' class = 'frontbox' style = 'top: 5.8rem; left: 60rem;'>
-<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;bgcolor=%23999999&amp;src=u2k0tc9r2o3vt4s495itgnrol4%40group.calendar.google.com&amp;color=%2328754E&amp;ctz=America%2FNew_York" style="border:solid 1px #777" width="300" height="400" ></iframe>
+  
+ 
+ <div id = 'schedule' class = 'frontbox' style = 'top: 5.7rem; left: 60rem;height: 20rem;width:15.5rem;'>
+<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;bgcolor=%23999999&amp;src=u2k0tc9r2o3vt4s495itgnrol4%40group.calendar.google.com&amp;color=%2328754E&amp;ctz=America%2FNew_York" style="border:solid 1px #777"></iframe>
+</div>
+<div class = 'frontbox circlebox' style = 'left: 58.8rem; top: 24rem;background: hsl(59, 92.2%, 74.9%)'>
+    <a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "http://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
 </div>
      <div id = "planetfooter">
         <div class = "footerlinks">

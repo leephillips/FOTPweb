@@ -21,11 +21,10 @@ body {
     width: 75rem;
     height: 400rem;
     background-color: #99f;
+    overflow:hidden;
 }
 .frontbox {
     position:absolute;
-    /* padding: 2mm; */
-    border: solid black 0.5mm;
     text-align: center;
 }
 #stack {
@@ -504,7 +503,7 @@ abbr {
    background: none;
 }
 .mainbanner{
-   width: 35rem;
+   width: 37.5rem;
    height: 17rem;
    position: absolute;
    left: 0rem;
@@ -591,17 +590,17 @@ a.lnl:hover{
    text-indent: 0px;
    font-size: 1.7em;
 }
+#schedule iframe {
+  height: 100%;
+  width: 100%;
+}
 #sponsors {
-   margin: 2em auto;
-   width: 20%;
+   margin: .5rem auto;
 }
 #sponsors h2, #mainarray h2, #schedule h2 {
    font-size: 1em;
    text-align: center;
    border: none;
-}
-#schedule iframe {
-  width: 14.8rem;
 }
 #sponsorlogos {
    width: 150px;
@@ -644,14 +643,22 @@ a.lnl:hover{
    margin-top: 2mm;
    text-indent: 0;
 }
-#mainarray a {
+.circlebox {
+    width: 17.5rem;height: 11rem;
+    padding-top: 1rem;
+}
+.circlebox a:link, .circlebox a:visited, .circlebox a:hover {
   border: none;
+  text-decoration: none;
+  background: none;
   }
+.circlebox img {
+    width: 10rem;
+}
 #mainarray a:hover {
   background: none;
   }
 .slidecontainer {width:22.5rem; height: 15rem; margin:0px auto; margin: 0;
-  border: solid black 0.5mm;
   overflow:hidden;
 }
 div.slidecontainer video, div.slidecontainer img{
@@ -705,6 +712,42 @@ div.slidecontainer video, div.slidecontainer img{
   padding: 0;
   margin: 0;
   vertical-align: middle;
+}
+.ctxt {
+   text-align: center;
+   font-size: 1.4rem;
+   padding: 2mm;
+   overflow: auto;
+}
+.ctxt h1, .ctxt h2, .ctxt h3 {
+   text-align: center;
+   margin: 0;
+   margin-bottom: 1rem;
+   font-weight: bold;
+   border: none;
+}
+.ctxt a:link, .ctxt a:visited {
+    color: black;
+    border: none;
+    text-decoration: none;
+}
+.ltxt {
+   text-align: left;
+   font-size: 1.4rem;
+   padding: 2mm;
+   overflow: auto;
+}
+.ltxt h1, .ltxt h2, .ltxt h3 {
+   text-align: left;
+   margin: 0;
+   margin-bottom: 1rem;
+   font-weight: bold;
+   border: none;
+   }
+.ltxt a:link, .ctxt a:visited {
+    color: black;
+    border: none;
+    text-decoration: none;
 }
 #frontlatest{
    text-align: center;
