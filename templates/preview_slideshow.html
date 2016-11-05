@@ -53,9 +53,9 @@
     <video src = '/static/persipythonedlogo.mp4' loop autoplay no-controls></video>
 </div>
 <div class = "mainbanner" style = 'background-color: rgba(200,50,50,0.5)'><img src = "{{ STATIC_URL }}logo_new.png" alt="" /></div>
-<div class = 'ctxt frontbox' style = 'top:17rem; left:0; width: 19rem; background: hsl(308, 75.5%, 79.2%);'>
-    <p><a href="/event">Upcoming Events &amp; Shows</a></p>
-</div>
+<a href="/event"><div class = 'ctxt frontbox' style = 'top:17rem; left:0; width: 19rem; background: hsl(308, 75.5%, 79.2%);'>
+    <p>Upcoming Events &amp; Shows</p>
+</div></a>
     <p><a href="/join">Join, Donate, Subscribe</a></p>
     <p><a href="/post">Articles &amp; News</a></p>
     <p><a href="/notice">Press</a></p>
@@ -92,8 +92,8 @@
     
   {% endif %}
 </div>
-<div id = 'sponsors' class = 'frontbox ctxt' style = 'left:0; top:23rem;width: 19rem;background: hsl(0, 71.9%, 74.9%)'>
-    <h3>Thanks<br />to our major donors</h3>
+<div id = 'sponsors' class = 'frontbox ctxt' style = 'left:0; top:23rem;width: 19rem;height: 13rem;background: hsl(0, 71.9%, 74.9%)'>
+    <p>Thanks<br />to our major donors</p>
   <div id = 'sponsorlogos'>
     <img src = '/static/sponsorlogos.jpg' alt = 'sponsor logos' /> 
   </div>
@@ -104,6 +104,8 @@
    <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "http://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon" /></a>
 </div>
   
+<a href="/join"><div class = 'frontbox ctxt' style = 'top: 29rem; left:20rem; width:16.5rem;background: hsl(260, 75.5%, 79.2%)'><p>Join</p> <p>Donate</p> <p>Subscribe</p></div></a>
+
   <div class = 'maincircle'>
    <a href = 'http://www.nasa.gov/feature/goddard/2016/mars-gravity-map' title = '”A new map of Mars’ gravity made with three NASA spacecraft is the most detailed to date, providing a revealing glimpse into the hidden interior of the Red Planet.”'>
         <img src = '/static/northMarsGravity.png' alt = 'Gravity map of Mars northern hemisphere' />
@@ -125,6 +127,9 @@
 <div class = 'frontbox circlebox' style = 'left: 58.8rem; top: 24rem;background: hsl(59, 92.2%, 74.9%)'>
     <a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "http://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
 </div>
+
+    <a href="/notice"><div class = 'frontbox ctxt' style = 'top:>Planetarium in<br />the news</div></a>
+
      <div id = "planetfooter">
         <div class = "footerlinks">
            <a href = "/post/7/">About the corporation</a> 
