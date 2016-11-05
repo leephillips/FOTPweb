@@ -185,7 +185,8 @@ img {
    height: 1em;
    margin-top: 5rem;;
    font-size: 0.75em;
-   background: #8FACC9;
+   /* background: #8FACC9; */
+   background: hsl(200,50%,20%);
    padding: 0.7rem;
    padding-left: 5mm;;
    border-top: solid #4A84BD 0.5mm;
