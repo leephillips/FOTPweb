@@ -653,6 +653,7 @@ a.lnl:hover{
 .circlebox {
     width: 17.5rem;height: 11rem;
     padding-top: 1rem;
+    overflow:hidden;
 }
 .circlebox a:link, .circlebox a:visited, .circlebox a:hover {
   border: none;
@@ -720,11 +721,34 @@ div.slidecontainer video, div.slidecontainer img{
   margin: 0;
   vertical-align: middle;
 }
+.cutoff {
+    overflow:hidden;
+}
+.scroll {
+    overflow: auto;
+}
+.btxt {
+   text-align: center;
+   font-weight: bold;
+   font-size: 1.4rem;
+   padding: 2mm;
+}
+.btxt h1, .btxt h2, .btxt h3 {
+   text-align: center;
+   margin: 0;
+   margin-bottom: 1rem;
+   font-weight: bold;
+   border: none;
+}
+.btxt a:link, .btxt a:visited {
+    color: black;
+    border: none;
+    text-decoration: none;
+}
 .ctxt {
    text-align: center;
    font-size: 1.4rem;
    padding: 2mm;
-   overflow: auto;
 }
 .ctxt h1, .ctxt h2, .ctxt h3 {
    text-align: center;
@@ -742,7 +766,6 @@ div.slidecontainer video, div.slidecontainer img{
    text-align: left;
    font-size: 1.4rem;
    padding: 2mm;
-   overflow: auto;
 }
 .ltxt h1, .ltxt h2, .ltxt h3 {
    text-align: left;

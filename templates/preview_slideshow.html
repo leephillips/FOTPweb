@@ -31,21 +31,27 @@
 {% block body %}
 
 <div id = 'frontcontainer'>
-  <div id="upcoming" class = 'frontbox'>
+  <div id="upcoming" class = 'frontbox cutoff'>
     <p>This weekend: 
     <!--<a href='http://www.apsva.us/Page/2706'> Season of Light.</a>-->
     <!-- (reservations recommended).-->
     <a href='http://www.apsva.us/Page/2706'>Arlington Public Schools programming.</a>
   </p>
   </div>
-<div class = 'slidecontainer frontbox' style = 'top:0rem; left:37.5rem;background:hsl(120,40%,80%)'>
+<div class = 'slidecontainer frontbox' style = 'top:0rem; left:37.5rem;background:hsl(313, 80%, 69%)'>
     <img src = '/static/s0.gif' />
 </div>
-<div class = 'frontbox ctxt' style = 'z-index:2;top: 15rem;left:37.5rem;width:21.7rem;height: 34rem;background: hsl(120,40%,80%)'>
-   <h3>Recent:</h3>
+<div class = 'frontbox btxt cutoff' style = 'z-index:2;top: 15rem;left:37.5rem;width:21.7rem;height: 14rem;background: hsl(313, 80%, 69%)'>
+   {% for p in promoted %}
+      <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
+   {% endfor %}
+</div>
+<div class = 'frontbox ctxt scroll' style = 'z-index:2;top: 25rem;left:37.5rem;width:21.7rem;height: 34rem;background: hsl(120,40%,80%)'>
+   <h3>Recent Articles:</h3>
    {% for p in latestentries %}
       <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
    {% endfor %}
+   <p><a href = '/post/'>→ More ←</a></p>
 </div>
 <div class = 'slidecontainer frontbox' style = 'top: 34rem; left:0;'></div>
 <div class = 'slidecontainer frontbox' style = 'top:27rem; left:49.3rem;'></div>
@@ -53,8 +59,8 @@
     <video src = '/static/persipythonedlogo.mp4' loop autoplay no-controls></video>
 </div>
 <div class = "mainbanner" style = 'background-color: rgba(200,50,50,0.5)'><img src = "{{ STATIC_URL }}logo_new.png" alt="" /></div>
-<a href="/event"><div class = 'ctxt frontbox' style = 'top:17rem; left:0; width: 19rem; background: hsl(308, 75.5%, 79.2%);'>
-    <p>Upcoming Events &amp; Shows</p>
+<a href="/event"><div class = 'ctxt frontbox cutoff' style = 'top:17rem; left:0; width: 19rem; height: 6.2rem; background: hsl(308, 75.5%, 79.2%);'>
+        <p>Upcoming<br />Events &amp; Shows</p>
 </div></a>
     <p><a href="/join">Join, Donate, Subscribe</a></p>
     <p><a href="/post">Articles &amp; News</a></p>
@@ -92,7 +98,7 @@
     
   {% endif %}
 </div>
-<div id = 'sponsors' class = 'frontbox ctxt' style = 'left:0; top:23rem;width: 19rem;height: 13rem;background: hsl(0, 71.9%, 74.9%)'>
+<div id = 'sponsors' class = 'frontbox ctxt cutoff' style = 'left:0; top:23rem;width: 19rem;height: 13rem;background: hsl(0, 71.9%, 74.9%)'>
     <p>Thanks<br />to our major donors</p>
   <div id = 'sponsorlogos'>
     <img src = '/static/sponsorlogos.jpg' alt = 'sponsor logos' /> 
