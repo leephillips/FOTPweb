@@ -731,7 +731,7 @@ div.slidecontainer video, div.slidecontainer img{
    text-align: center;
    font-weight: bold;
    font-size: 1.4rem;
-   padding: 2mm;
+   padding: 0.4rem;;
 }
 .btxt h1, .btxt h2, .btxt h3 {
    text-align: center;
@@ -748,7 +748,7 @@ div.slidecontainer video, div.slidecontainer img{
 .ctxt {
    text-align: center;
    font-size: 1.4rem;
-   padding: 2mm;
+   padding: 0.4rem;
 }
 .ctxt h1, .ctxt h2, .ctxt h3 {
    text-align: center;
@@ -765,7 +765,7 @@ div.slidecontainer video, div.slidecontainer img{
 .ltxt {
    text-align: left;
    font-size: 1.4rem;
-   padding: 2mm;
+   padding: 0.4rem;
 }
 .ltxt h1, .ltxt h2, .ltxt h3 {
    text-align: left;

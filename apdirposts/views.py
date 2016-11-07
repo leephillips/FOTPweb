@@ -588,7 +588,8 @@ def front(request):
 
 def x7297(request):
    today = now()
-   latestentries = latest(number = 3)
+   latestentries = latest(number = 5)
+   promoted = Post.objects.filter(promote = True)   
    slides = Illustration.objects.filter(slideshow = True)
    smiled = request.session.get('smiled')
    rsevents = Event.objects.filter(on__range = (today, REALSOON)).exclude(

@@ -41,9 +41,9 @@
 <div class = 'slidecontainer frontbox' style = 'top:0rem; left:37.5rem;background:hsl(313, 80%, 69%)'>
     <img src = '/static/s0.gif' />
 </div>
-<div class = 'frontbox btxt cutoff' style = 'z-index:2;top: 15rem;left:37.5rem;width:21.7rem;height: 14rem;background: hsl(313, 80%, 69%)'>
+<div class = 'frontbox btxt cutoff' style = 'padding-top: 1rem; z-index:2;top: 15rem;left:37.5rem;width:21.7rem;height: 14rem;background: hsl(313, 80%, 69%)'>
    {% for p in promoted %}
-      <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
+      <p> <a href = "/post/{{ p.id }}">{{ p.title }}</a></p>
    {% endfor %}
 </div>
 <div class = 'frontbox ctxt scroll' style = 'z-index:2;top: 25rem;left:37.5rem;width:21.7rem;height: 34rem;background: hsl(120,40%,80%)'>
@@ -53,13 +53,11 @@
    {% endfor %}
    <p><a href = '/post/'>→ More ←</a></p>
 </div>
-<div class = 'slidecontainer frontbox' style = 'top: 34rem; left:0;'></div>
-<div class = 'slidecontainer frontbox' style = 'top:27rem; left:49.3rem;'></div>
 <div class = "mainbanner">
     <video src = '/static/persipythonedlogo.mp4' loop autoplay no-controls></video>
 </div>
 <div class = "mainbanner" style = 'background-color: rgba(200,50,50,0.5)'><img src = "{{ STATIC_URL }}logo_new.png" alt="" /></div>
-<a href="/event"><div class = 'ctxt frontbox cutoff' style = 'top:17rem; left:0; width: 19rem; height: 6.2rem; background: hsl(308, 75.5%, 79.2%);'>
+<a href="/event"><div class = 'ctxt frontbox cutoff' style = 'top:17rem; left:0; width: 20rem; height: 6.2rem; background: hsl(308, 75.5%, 79.2%);'>
         <p>Upcoming<br />Events &amp; Shows</p>
 </div></a>
     <p><a href="/join">Join, Donate, Subscribe</a></p>
@@ -98,12 +96,14 @@
     
   {% endif %}
 </div>
-<div id = 'sponsors' class = 'frontbox ctxt cutoff' style = 'left:0; top:23rem;width: 19rem;height: 13rem;background: hsl(0, 71.9%, 74.9%)'>
+<div id = 'sponsors' class = 'frontbox ctxt cutoff' style = 'left:0; top:23rem;width: 20rem;height: 13.2rem;background: hsl(0, 71.9%, 74.9%)'>
     <p>Thanks<br />to our major donors</p>
   <div id = 'sponsorlogos'>
     <img src = '/static/sponsorlogos.jpg' alt = 'sponsor logos' /> 
   </div>
 </div>
+    <a href="/notice"><div class = 'frontibox' style = 'top:47.2rem; left: 0; background: hsla(0,0%,90%,.7 );width:15rem; height:7.82rem; '><img src='/static/dome.png' alt = '' /></div></a>
+    <a href="/notice"><div class = 'frontbox ctxt' style = 'padding-top: 2rem;top:0; left: 60rem; background: hsla(0,0%,90%,.2 );width:15rem; height:7.82rem; '>About the<br />Planetarium</div></a>
 
 <div class = 'slidecontainer frontbox' style = 'top:37.5rem; left:0;width: 20rem;background:hsl(120,40%,80%)'>
     <img src = '/static/s0.gif' />
@@ -113,7 +113,7 @@
    <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "http://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon" /></a>
 </div>
   
-<a href="/join"><div class = 'frontbox ctxt' style = 'top: 29rem; left:20rem; width:16.5rem;background: hsl(260, 75.5%, 79.2%)'><p>Join</p> <p>Donate</p> <p>Subscribe</p></div></a>
+<a href="/join"><div class = 'frontbox ctxt' style = 'top: 29rem; left:20rem; width:16.7rem;background: hsl(260, 75.5%, 79.2%)'><p>Join</p> <p>Donate</p> <p>Subscribe</p></div></a>
 
 <div class = 'frontbox circlebox' style = 'top:40rem; left:20rem; background: hsl(180, 92.2%, 74.9%); '><a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a></div>
   
@@ -136,10 +136,10 @@
     <a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "http://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
 </div>
 
-    <div class = 'frontibox' style = 'top:36rem; left: 60rem; width:15rem; height:8rem; '>
+    <div class = 'frontibox' style = 'top:36rem; left: 60rem; width:15rem; height:7.8rem; '>
        <img src = '/static/newsbg.jpg' alt = '' />
     </div>
-    <a href="/notice"><div class = 'frontbox ctxt' style = 'padding-top: 3rem;top:36rem; left: 60rem; background: hsla(0,0%,90%,.7 );width:15rem; height:7.8rem; '>Planetarium in<br />the news</div></a>
+    <a href="/notice"><div class = 'frontbox ctxt' style = 'padding-top: 3rem;top:36rem; left: 60rem; background: hsla(0,0%,90%,.7 );width:15rem; height:7.82rem; '>Planetarium in<br />the news</div></a>
 
      <div id = "planetfooter">
         <div class = "footerlinks">
@@ -152,5 +152,4 @@
         </div>
      </div>
 </div> 
-  <!--<div id = 'centerline'></div>-->
 {% endblock %}

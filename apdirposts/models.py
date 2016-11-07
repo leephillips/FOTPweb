@@ -47,6 +47,7 @@ class Post(models.Model):
    content = models.TextField(blank = True)
    illustrations = models.ManyToManyField(Illustration, null = True, blank = True)
    category = models.ForeignKey(Postcategory)
+   promote = models.BooleanField(default = False)
    def __unicode__(self):
       return "%s, by %s" % (self.title, self.author)
 
