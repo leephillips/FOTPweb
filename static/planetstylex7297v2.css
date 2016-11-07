@@ -16,6 +16,7 @@ body {
   color: black;
 }
 #frontcontainer {
+    font-family: "Baumans", sans-serif;
     position:relative;
     margin: 0 auto;
     width: 75rem;
@@ -183,7 +184,8 @@ img {
 }
 #planetfooter{
    height: 1em;
-   margin-top: 5rem;;
+   margin-top: 5rem;
+   width: 100%;
    font-size: 0.75em;
    /* background: #8FACC9; */
    background: hsl(200,50%,20%);
@@ -314,15 +316,17 @@ div.eventlist span.eventlisttitle{
   margin-left: 25%;
 }
 #upcoming {
+   font-size: 1.2rem;
    top: 0;
    left: 60rem;
    width: 15rem;
+   height: 7.7rem;
    font-weight: bold;
    background: rgb(250, 15, 15);
 }
 #upcoming a {
   border: none;
-  text-decoration: underline;
+  text-decoration: none;
   }
 #upcoming a:hover {
   background: #f00;
@@ -666,31 +670,11 @@ a.lnl:hover{
 #mainarray a:hover {
   background: none;
   }
-.slidecontainer {width:22.5rem; height: 15rem; margin:0px auto; margin: 0;
+.slidecontainer {width:22.5rem; height: 15rem; margin: 0;
   overflow:hidden;
 }
 div.slidecontainer video, div.slidecontainer img{
     width: 100%;
-}
-#slidecontainer {
-  position:absolute;
-  left: 0rem;
-  top: 52rem;
-}
-#slidecontainer2 {
-  position:absolute;
-  left: 40rem;
-  top: 52rem;
-}
-#slidecontainer3 {
-  position:absolute;
-  left: 0rem;
-  top: 24rem;
-}
-#slidecontainer4 {
-  position:absolute;
-  left: 40rem;
-  top: -1rem;
 }
 .slideshow {
   /* animation: slideFadeIn 10s linear; */
