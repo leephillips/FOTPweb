@@ -56,7 +56,7 @@
 <div class = "mainbanner">
     <video src = '/static/persipythonedlogo.mp4' loop autoplay no-controls></video>
 </div>
-<div class = "mainbanner" style = 'background-color: rgba(200,50,50,0.5)'><img src = "{{ STATIC_URL }}logo_new.png" alt="" /></div>
+<div class = "mainbanner" style = 'background-color: hsla(200,50%,60%,0.4)'><img src = "{{ STATIC_URL }}logo_new.png" alt="" /></div>
 <a href="/event"><div class = 'ctxt frontbox cutoff' style = 'top:17rem; left:0; width: 20rem; height: 7.2rem; background: hsl(308, 75.5%, 79.2%);'>
         <p>Upcoming<br />Events &amp; Shows</p>
 </div></a>
@@ -87,15 +87,6 @@
   <a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/insta.png" alt="" />Instagram</a>
   </p>
 </div>
-
-  
-
-  {% if not smiled %}
-    <div id = 'smile' class = "newsletterform rhform">
-    <p>Support the Planetarium every time you buy from Amazon, at no cost to you: <a href="/smile/"><img alt="Amazon Smile" src="/static/smile.png" /></a></p>
-    
-  {% endif %}
-</div>
 <div id = 'sponsors' class = 'frontbox ctxt cutoff' style = 'left:0; top:24rem;width: 20rem;height: 13.2rem;background: hsl(0, 71.9%, 74.9%)'>
     <p>Thanks<br />to our major donors</p>
   <div id = 'sponsorlogos'>
@@ -107,6 +98,11 @@
 
 <div class = 'slidecontainer frontbox' style = 'top:50rem; left:0;background:hsl(120,40%,80%)'>
     <img src = '/static/s1.gif' />
+</div>
+<div class = "frontbox ctxt" style = 'top:49rem; left: 22.5rem; width: 14.3rem; background: hsl(222, 40%, 80%);' >
+{% if not smiled %}
+       <p>Support the Planetarium every time you buy from Amazon, at no cost to you: <a href="/smile/"><img alt="Amazon Smile" src="/static/smile.png" /></a></p>
+{% endif %}
 </div>
 
 <div class = 'frontbox circlebox' style = 'top:17rem; left:20rem; background: hsl(59, 92.2%, 74.9%); '> 
