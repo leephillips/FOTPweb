@@ -1,6 +1,18 @@
 {% extends "sitex7297.html" %}
 {% block title %}The Friends of Arlington’s Planetarium{% endblock %}
 {% block style %}
+<script>
+  (function() {
+    var cx = '007968053313794302273:aypyetdofbi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
 <style>
   .center {
        float: none;
@@ -53,6 +65,15 @@
    {% endfor %}
    <p><a href = '/post/'>→ More ←</a></p>
 </div>
+<div id = "social" class = 'frontbox ctxt' style = 'z-index:2;top: 59.8rem;left:37.5rem;width:21.7rem;height: 5rem;background: hsl(120,40%,30%)'>
+  <p><a href="http://facebook.com/friendsoftheplanetarium"><img src = "/static/fb.png" alt="" />acebook</a>&nbsp;
+  <a href="http://twitter.com/FrnzPlanetarium"><img src = "/static/twit.png" alt="" />witter</a>&nbsp;
+  <a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/insta.png" alt="" />Instagram</a>
+  </p>
+</div>
+<div id = 'searchbox' class = 'frontbox ctxt cutoff' style = 'z-index:2;top: 61.9rem;left:0;width:21.7rem;height: 5rem;background: hsl(222, 58%, 62%)'>
+  <div class="gcse-search"></div>
+</div>
 <div class = "mainbanner">
     <video src = '/static/persipythonedlogo.mp4' loop autoplay no-controls></video>
 </div>
@@ -60,27 +81,6 @@
 <a href="/event"><div class = 'ctxt frontbox cutoff' style = 'top:17rem; left:0; width: 20rem; height: 7.2rem; background: hsl(308, 75.5%, 79.2%);'>
         <p>Upcoming<br />Events &amp; Shows</p>
 </div></a>
-<script>
-  (function() {
-    var cx = '007968053313794302273:aypyetdofbi';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<div id = 'searchbox'>
-  <div class="gcse-search"></div>
-</div>
-<div id = "social">
-  <p><a href="http://facebook.com/friendsoftheplanetarium"><img src = "/static/fb.png" alt="" />acebook</a>&nbsp;
-  <a href="http://twitter.com/FrnzPlanetarium"><img src = "/static/twit.png" alt="" />witter</a>&nbsp;
-  <a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/insta.png" alt="" />Instagram</a>
-  </p>
-</div>
 <div id = 'sponsors' class = 'frontbox ctxt cutoff' style = 'left:0; top:24rem;width: 20rem;height: 13.2rem;background: hsl(0, 71.9%, 74.9%)'>
     <p>Thanks<br />to our major donors</p>
   <div id = 'sponsorlogos'>

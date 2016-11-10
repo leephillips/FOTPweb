@@ -129,22 +129,6 @@ a:hover, a:hover p {
 p { 
 margin-top: 1.0em; margin-bottom: 1.0em;
 }
-#social {
-  /* width: auto; */
-  text-align: center;
-  font-family: "Baumans", sans-serif;
-  margin: -1em auto;
-  font-size: 1.2em;
-  color: black;
-}
-#social p {
-  text-indent: 0;
-  text-align: center;
-}
-#social a{
- color: black;
- border: none;
-}
 #social img{
   width: 0.8em;
 }
