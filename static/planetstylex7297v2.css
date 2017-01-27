@@ -3,7 +3,6 @@
   src: url(telegrama_render.otf) format("opentype");
 }
 html {
-  height: 100%;
   font-size: 100%;
   margin: 0;
   padding: 0;
@@ -20,7 +19,7 @@ body {
     position:relative;
     margin: 0 auto;
     width: 75rem;
-    height: 400rem;
+    height: 64.5rem;
     background-color: #99f;
     overflow:hidden;
 }
@@ -171,11 +170,10 @@ img {
    margin-top: 5rem;
    width: 100%;
    font-size: 0.75em;
-   /* background: #8FACC9; */
    background: hsl(200,50%,20%);
    padding: 0.7rem;
    padding-left: 5mm;;
-   border-top: solid #4A84BD 0.5mm;
+   z-index:100;
 } 
 #planetfooter .footerlinks {
   text-align: center;

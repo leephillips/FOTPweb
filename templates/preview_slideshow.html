@@ -13,40 +13,16 @@
     s.parentNode.insertBefore(gcse, s);
   })();
 </script>
-<style>
-  .center {
-       float: none;
-       margin-left: auto;
-       margin-right: auto;
-  }
-  div.slideshow ul{
-    display: none;
-    list-style:none; color:#fff
-  }
-  #wrapper {
-    display: block;
-  }
-  #wrapper {width:20rem; height: 15rem; margin:0px auto; margin-top:10px; margin-bottom:0px;}
-  #wrapper * {margin:0; padding:0}
-  .fullsize {overflow:hidden; position:relative; width:100%; height:100%; padding:2px; border:1px solid #ccc; background:#000}
-  .information {position:absolute; bottom:0; width:100%; height:0; max-height: 60px; background:#000; color:#fff;
-      overflow: hidden; z-index:200; opacity:.7; filter:alpha(opacity=70)}
-  .information h3 {padding:4px 8px 3px; font-size:18px; color: #ccc;}
-  .information p {padding:0 8px 8px; font-size:12px; font-style: oblique;}
-  div.fullsize div.image {width:100%}
-  div.image img {position:absolute; z-index:25; width:100%}
-  .imgnav {position:absolute; width:25%; height:100%; cursor:pointer; z-index:150}
-  div.fullsize div.imglink {position:absolute; height:100%; width:100%; z-index:100; opacity:.4; filter:alpha(opacity=40)}
-  .linkhover {background:url(/static/link.gif) center center no-repeat}
-</style>
 {% endblock %}
 {% block body %}
 
 <div id = 'frontcontainer'>
   <div id="upcoming" class = 'frontbox cutoff'>
-    <p>This weekend: 
-    <!--<a href='http://www.apsva.us/Page/2706'> Season of Light.</a>-->
-    <!-- (reservations recommended).-->
+        <p>This weekend: 
+        <a href = 'https://friendsoftheplanetarium.org/post/86/'>Citizen Science + Annual Meeting</a>
+         (Reservations recommended).
+        <!--<a href='http://www.apsva.us/Page/2706'>Arlington Public Schools programming.</a>-->
+      </p>
     <a href='http://www.apsva.us/Page/2706'>Arlington Public Schools programming.</a>
   </p>
   </div>
@@ -58,20 +34,20 @@
       <p> <a href = "/post/{{ p.id }}">{{ p.title }}</a></p>
    {% endfor %}
 </div>
-<div class = 'frontbox ctxt scroll' style = 'z-index:2;top: 25rem;left:37.5rem;width:21.7rem;height: 34rem;background: hsl(120,40%,80%)'>
+<div class = 'frontbox ctxt scroll' style = 'z-index:2;top: 25rem;left:37.5rem;width:21.7rem;height: 35.7rem;background: hsl(120,40%,80%)'>
    <h3>Recent Articles:</h3>
    {% for p in latestentries %}
       <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
    {% endfor %}
    <p><a href = '/post/'>→ More ←</a></p>
 </div>
-<div id = "social" class = 'frontbox ctxt' style = 'z-index:2;top: 59.8rem;left:37.5rem;width:21.7rem;height: 5rem;background: hsl(120,40%,30%)'>
+<div id = "social" class = 'frontbox ctxt' style = 'z-index:2;top: 55.8rem;left:0rem;width:21.7rem;height: 5rem;background: hsl(120,40%,30%)'>
   <p><a href="http://facebook.com/friendsoftheplanetarium"><img src = "/static/fb.png" alt="" />acebook</a>&nbsp;
   <a href="http://twitter.com/FrnzPlanetarium"><img src = "/static/twit.png" alt="" />witter</a>&nbsp;
   <a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/insta.png" alt="" />Instagram</a>
   </p>
 </div>
-<div id = 'searchbox' class = 'frontbox ctxt cutoff' style = 'z-index:2;top: 61.9rem;left:0;width:21.7rem;height: 5rem;background: hsl(222, 58%, 62%)'>
+<div id = 'searchbox' class = 'frontbox ctxt cutoff' style = 'z-index:2;top: 47rem;left:0;width:21.7rem;height: 5rem;background: hsl(222, 58%, 62%)'>
   <div class="gcse-search"></div>
 </div>
 <div class = "mainbanner">
@@ -90,9 +66,6 @@
     <a href="/notice"><div class = 'frontibox' style = 'top:38.2rem; left: 0; width:20rem; height:13.333rem; '><img src='/static/dome.png' alt = '' /></div></a>
     <a href="/about/"><div class = 'frontbox ctxt' style = 'top:38.2rem; left: 0; background: hsla(0,0%,90%,.6 );width:20rem; height:11rem; '><p>About the<br />Planetarium</p></div></a>
 
-<div class = 'slidecontainer frontbox' style = 'top:50rem; left:0;background:hsl(120,40%,80%)'>
-    <img src = '/static/s1.gif' />
-</div>
 <div class = "frontbox ctxt" style = 'top:49rem; left: 22.5rem; width: 14.3rem; background: hsl(222, 40%, 80%);' >
 {% if not smiled %}
        <p>Support the Planetarium every time you buy from Amazon, at no cost to you: <a href="/smile/"><img alt="Amazon Smile" src="/static/smile.png" /></a></p>
@@ -127,20 +100,20 @@
     <a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "http://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
 </div>
 
-    <div class = 'frontibox' style = 'top:36rem; left: 60rem; width:15rem; height:7.8rem; '>
+    <div class = 'frontibox' style = 'top:36rem; left: 60rem; width:15rem; height:6.0rem; '>
        <img src = '/static/newsbg.jpg' alt = '' />
     </div>
     <a href="/notice"><div class = 'frontbox ctxt' style = 'padding-top: 3rem;top:36rem; left: 60rem; background: hsla(0,0%,90%,.7 );width:15rem; height:7.82rem; '>Planetarium in<br />the news</div></a>
     
     <a href="http://www.cafepress.com/friendsarlplanetarium/8533104">
-        <div class = 'frontbox ctxt' style = 'left: 60rem; top:47rem; width:14.4rem; height: 3.2rem;background: hsl(290, 40%, 85%);'>
+        <div class = 'frontbox ctxt' style = 'left: 60rem; top:45rem; width:14.4rem; height: 3.2rem;background: hsl(290, 40%, 85%);'>
         Shop<span id = "shopitem"><img alt = "mugshot" src="/static/mugforsale.png" /></span></div></a>
-    <div class = 'frontibox' style = 'top:51rem; left: 60rem; width:15rem; height: 6rem;'>
-      <img src = '/static/moviecamera.png' alt = '' />
+    <div class = 'frontibox' style = 'top:49rem; left: 60rem; width:15rem; height: 6rem;'>
+      <img src = '/static/moviecamera.png' alt = ''  height="200" />
     </div>
-    <a href = '/movies/'><div class = 'frontbox ctxt' style = 'padding-top: 3rem;top:51rem; left: 60rem; width:14.4rem; height: 11.8rem;background: hsla(311, 80%, 68%, .85)'><p>Videos in<br />and about<br />the Planetarium</p></div></a>
+    <a href = '/movies/'><div class = 'frontbox ctxt' style = 'padding-top: 3rem;top:49rem; left: 60rem; width:14.4rem; height: 9.2rem;background: hsla(311, 80%, 68%, .85)'><p>Videos in<br />and about<br />the Planetarium</p></div></a>
     
-     <div id = "planetfooter" style='position:absolute; top: 100rem;left:0;'>
+     <div id = "planetfooter" style='position:absolute; top: 56.5rem;left:0;'>
         <div class = "footerlinks">
            <a href = "/post/7/">About the corporation</a> 
            <a href = "http://www.apsva.us/Page/2706">Arlington Public Schools</a>
