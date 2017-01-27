@@ -517,6 +517,12 @@ def movies(request):
                   'latest': latest()}
                 )
 
+def scholarship(request):
+   return render(request, 'apdirposts/scholarship.html',
+                 {'joinone': 'thisone',
+                  'latest': latest()}
+                )
+
 def donate(request):
    return render(request, 'apdirposts/donate.html',
                  {'joinone': 'thisone',

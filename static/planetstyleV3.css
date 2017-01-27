@@ -177,6 +177,14 @@ div.eventlist span.eventlisttitle span.subtitle{
    margin-right: 14px;
    width: 50%;
  }
+.tinyrightpic{
+   float: right;
+   margin-right: 14px;
+   width: 20%;
+ }
+ .tinyrightpic img{
+   width: 100%;
+ }
 .tinyleftpic{
    float: left;
    margin-right: 14px;
