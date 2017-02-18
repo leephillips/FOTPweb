@@ -27,6 +27,10 @@ def ticketing(request, id):
     mainpost = Post.objects.get(id = id)
     events = Event.objects.filter(rpost = id)
     if request.method == 'POST': #We're going for it
+        if request.POST.get('delay') == 'yes':
+            delay = True
+        else:
+            delay = False
         from eventbrite import Eventbrite
         eventbrite = Eventbrite(settings.TOKEN)
         capacity = 38
@@ -72,12 +76,14 @@ def ticketing(request, id):
             for ticket in ticketlist:
                 tkresponse.append(eventbrite.post_event_ticket_class(event.get('id'), ticket))
             evresponse['tickets'] = tkresponse
-            e.publish = True
+            if not delay:
+                e.publish = True
             e.ebcode = event.get('id') #For the ticketing box on our website
             e.save()
             #eventbrite.publish_event(event.get('id')) #make live on Eventbrite - does not work, API incomplete.
-        mainpost.publish = True
-        mainpost.save()
+        if not delay:
+            mainpost.publish = True
+            mainpost.save()
     else: # Last chance to bail.
         pass        
     return render(request, 'ticketing.html', locals())
@@ -582,8 +588,6 @@ def preview_front(request):
    return render(request, 'preview_front.html', locals())
 
 def front(request):
-   randomdict = dict()
-   randomdict['thehell'] = 17
    today = now()
    latestentries = latest()
    slides = Illustration.objects.filter(slideshow = True)

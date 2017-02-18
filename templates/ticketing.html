@@ -5,11 +5,12 @@
 <body>
   <h1>Publish Weekend</h1>
   <p class = 'warn'>
-     When you click the “Publish” button below, the weekend writeup and all its associated event
-     pages will be immediately made live on the FOTP website. Also, Eventbrite pages will be
-     created for each event that is part of this weekend. This is immediate and will proceed without further warning.
-     These actions can not be undone from here.
-  </p>
+     When you click the “Publish” button below, the weekend writeup and all its
+     associated event pages will be immediately made live on the FOTP website
+     unless the “delay” choice is selected. Also, Eventbrite pages will be
+     created for each event that is part of this weekend. This is immediate and
+     will proceed without further warning.  These actions can not be undone
+     from here.  </p>
   <p class = 'warn'>
      Since (at the moment) there is no way to remotely make live Eventbrite events that use Paypal,
      you need to visit the Eventbrite website to publish the events. Until you do, the Purchase or
@@ -23,6 +24,10 @@
      {% endfor %}
      <form action = '/ticketing/{{mainpost.id}}/' method = 'POST'>
        {% csrf_token %}
+       <p>Check the box below if you want to publish the Eventbrite pages but <b>not</b>
+          make the FOTP website pages live yet. This is used, for example, if we
+          want to allow members to reserve in advance of the public.</p>
+       <p>Delay website publishing: <input type = 'checkbox' name = 'delay' value = 'yes' /></p>
        <button type = 'submit'>Publish</button>
      </form>
   {% if evresponse %}
