@@ -50,38 +50,39 @@ def ticketing(request, id):
         evresponse = {}
         tkresponse = []
         for e in events:
-            eventname = e.title
-            pics = Illustration.objects.filter(event=e.id)
-            if len(pics) > 0:
-               content = picparse(e.content, pics)
-            else:
-               content = e.content
-            eventdescription = content
-            eventstart = loctime2ev(e.on)
-            if e.end:
-                eventend = loctime2ev(e.end)
-            else:
-                eventend = loctime2ev(e.on + timedelta(minutes = 60))
-            #make a new event
-            event = eventbrite.post_event({'event.name.html':eventname, 'event.description.html':eventdescription,
-                                         'event.start.utc':eventstart, 'event.end.utc':eventend,
-                                         'event.start.timezone':eventzone, 'event.end.timezone':eventzone,
-                                         'event.currency': 'USD', 'event.capacity': capacity})
-            evresponse['event'] = event
-            #make tickets
-            if e.free:
-                ticketlist = freetickets
-            else:
-                ticketlist = tickets
-            for ticket in ticketlist:
-                tkresponse.append(eventbrite.post_event_ticket_class(event.get('id'), ticket))
-            evresponse['tickets'] = tkresponse
-            if not delay:
+            if e.ebcode is not None and len(e.ebcode) > 3:
+                eventname = e.title
+                pics = Illustration.objects.filter(event=e.id)
+                if len(pics) > 0:
+                   content = picparse(e.content, pics)
+                else:
+                   content = e.content
+                eventdescription = content
+                eventstart = loctime2ev(e.on)
+                if e.end:
+                    eventend = loctime2ev(e.end)
+                else:
+                    eventend = loctime2ev(e.on + timedelta(minutes = 60))
+                #make a new event
+                event = eventbrite.post_event({'event.name.html':eventname, 'event.description.html':eventdescription,
+                                             'event.start.utc':eventstart, 'event.end.utc':eventend,
+                                             'event.start.timezone':eventzone, 'event.end.timezone':eventzone,
+                                             'event.currency': 'USD', 'event.capacity': capacity})
+                evresponse['event'] = event
+                #make tickets
+                if e.free:
+                    ticketlist = freetickets
+                else:
+                    ticketlist = tickets
+                for ticket in ticketlist:
+                    tkresponse.append(eventbrite.post_event_ticket_class(event.get('id'), ticket))
+                evresponse['tickets'] = tkresponse
+                e.ebcode = event.get('id') #For the ticketing box on our website
+            if not delay and e.publish == False:
                 e.publish = True
-            e.ebcode = event.get('id') #For the ticketing box on our website
-            e.save()
+                e.save()
             #eventbrite.publish_event(event.get('id')) #make live on Eventbrite - does not work, API incomplete.
-        if not delay:
+        if not delay and mainpost.publish == False:
             mainpost.publish = True
             mainpost.save()
     else: # Last chance to bail.
