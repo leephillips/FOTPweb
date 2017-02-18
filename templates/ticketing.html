@@ -18,9 +18,16 @@
      enter the Paypal address for each event (planetarium.donations@gmail.com). 
   </p>
   <h2>{{mainpost.title}}</h2>
+  {% if mainpost.publish %}
+      <p>Already published on website</p>
+  {% endif %}
   <h3>Events to be made live</h3>
      {% for e in events %}
-       <p>{{e}}</p>
+       <p>{{e}}
+         {% if e.ebcode %}
+         Already <a href = "https://www.eventbrite.com/myevent?eid={{e.ebcode}}">published</a> on Eventbrite.
+         {% endif %}
+       </p>
      {% endfor %}
      <form action = '/ticketing/{{mainpost.id}}/' method = 'POST'>
        {% csrf_token %}

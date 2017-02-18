@@ -50,7 +50,7 @@ def ticketing(request, id):
         evresponse = {}
         tkresponse = []
         for e in events:
-            if e.ebcode is not None and len(e.ebcode) > 3:
+            if e.ebcode is None or len(e.ebcode) < 3:
                 eventname = e.title
                 pics = Illustration.objects.filter(event=e.id)
                 if len(pics) > 0:
