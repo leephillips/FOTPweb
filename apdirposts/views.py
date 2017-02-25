@@ -80,7 +80,7 @@ def ticketing(request, id):
                 e.ebcode = event.get('id') #For the ticketing box on our website
             if not delay and e.publish == False:
                 e.publish = True
-                e.save()
+            e.save()
             #eventbrite.publish_event(event.get('id')) #make live on Eventbrite - does not work, API incomplete.
         if not delay and mainpost.publish == False:
             mainpost.publish = True
