@@ -600,7 +600,7 @@ def front(request):
 
 def x7297(request):
    today = now()
-   latestentries = latest(number = 5)
+   latestentries = latest(number = 9)
    promoted = Post.objects.filter(promote = True)   
    slides = Illustration.objects.filter(slideshow = True)
    smiled = request.session.get('smiled')

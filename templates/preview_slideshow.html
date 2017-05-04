@@ -43,7 +43,7 @@
 </div>
 <div id = 'rightcontainer'>
   <div class = 'frontibox' style = 'background:url(/static/dome.png);background-repeat: no-repeat;background-size: 100%;'>
-      <div class = 'boxoverlay'>
+      <div class = 'boxoverlay mainlinks'>
          <p><a href="/event"> Events &amp; Shows</a></p>
          <p><a href="/join">Join, Donate, Subscribe</a></p>
          <p><a href="/post">Articles &amp; News</a></p>
@@ -52,7 +52,7 @@
          <div class="gcse-search"></div>
       </div>
   </div>
-  <div class = 'frontbox'>
+  <div class = 'frontbox' style = 'height: 30rem;'>
        <h2>Recent</h2>
        {% for p in latestentries %}
           <p><a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>

@@ -14,6 +14,9 @@ body {
   width: 100%;
   color: black;
 }
+.mainlinks {
+    font-size: 1.4rem;
+}
 #frontcontainer {
     font-family: "Baumans", sans-serif;
     position:relative;
@@ -52,7 +55,8 @@ body {
     padding: 0;
 }
 #___gcse_0{
-    margin-top: -1.5rem;
+    margin-top: -1.0rem;
+    margin-bottom: -0.5rem;
 }
 .boxoverlay {
     background-color: rgba(175,175,175,0.8);
@@ -75,6 +79,9 @@ body {
 }
 .frontbox a:link, .frontibox a:link{
     border: none;
+}
+.mainlinks p {
+    margin-bottom: 0.5rem;
 }
 #stack {
   position:absolute;
