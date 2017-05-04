@@ -17,20 +17,31 @@
 {% block body %}
 <div id = 'frontcontainer'>
 <div id = 'leftcontainer'>
-    <div class = 'frontibox'>
+    <div class = 'frontibox' style = 'margin-bottom: 0.6rem;padding:3mm;'>
         <img src = "/static/logo_new.png" alt="" />
     </div>
     <div class = 'frontibox'>
        <img src = '/static/s1.gif' />
     </div>
+   <div id = "social" class = 'frontbox ' style = ''>
+          <p><a href="http://facebook.com/friendsoftheplanetarium"><img src = "/static/fb.png" alt="" />acebook</a>&nbsp;
+          <a href="http://twitter.com/FrnzPlanetarium"><img src = "/static/twit.png" alt="" />witter</a>&nbsp;
+          <a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/insta.png" alt="" />Instagram</a>
+  </p>
+   </div>
+    <div id = 'sponsors' class = 'frontbox ctxt cutoff' style = 'height: 13.2rem;'>
+        <p>Thanks<br />to our major donors</p>
+      <div id = 'sponsorlogos'>
+        <img src = '/static/sponsorlogos.jpg' alt = 'sponsor logos' /> 
+      </div>
+    </div>
+</div>
+<div id="upcoming" class = 'frontbox'>
+    This weekend: 
+      <a href = 'https://friendsoftheplanetarium.org/post/86/'>Citizen Science + Annual Meeting</a>
+       (Reservations recommended).
 </div>
 <div id = 'rightcontainer'>
-    <div id="upcoming" class = 'frontbox'>
-        This weekend: 
-          <a href = 'https://friendsoftheplanetarium.org/post/86/'>Citizen Science + Annual Meeting</a>
-           (Reservations recommended).
-      
-  </div>
   <div class = 'frontibox' style = 'background:url(/static/dome.png);background-repeat: no-repeat;background-size: 100%;'>
       <div class = 'boxoverlay'>
          <p><a href="/event"> Events &amp; Shows</a></p>
@@ -38,18 +49,27 @@
          <p><a href="/post">Articles &amp; News</a></p>
          <p><a href="/about">About the Planetarium</a></p>
          <p><a href="http://www.cafepress.com/friendsarlplanetarium/8533104">Shop</a></p>
+         <div class="gcse-search"></div>
       </div>
   </div>
-  <div class = 'frontibox' style = ' '><img src='/static/newsbg.jpg' alt = '' /></div>
-  <div class = 'frontibox' style = 'background:url(/static/moviecamera.png);
-      background-size: 20%;background-repeat: no-repeat;background-position: 50% 50%;'>
-      <div class = 'boxoverlay'>
-          <p>Videos</p>
-          <p>Videos</p>
-          <p>Videos</p>
-      </div>
+  <div class = 'frontbox'>
+       <h2>Recent</h2>
+       {% for p in latestentries %}
+          <p><a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
+       {% endfor %}
   </div>
-</div>
+  </div>
+     <div id = "planetfooter" style='position:absolute; top: 56.5rem;left:0;'>
+        <div class = "footerlinks">
+           <a href = "/post/7/">About the corporation</a> 
+           <a href = "http://www.apsva.us/Page/2706">Arlington Public Schools</a>
+           <a href = "/about/">Contact the Friends</a>
+           <a href = "/website/">About the website</a>
+           <a href = "mailto:lee.phillips@alogus.com">Contact the webmaster</a>
+           <a href = "/join/">Keep the Planetarium open</a>
+        </div>
+     </div>
+  </div>
 <!---->
 <!--<div class = 'frontbox btxt cutoff' style = 'padding-top: 1rem; z-index:2;height: 14rem;background: hsl(313, 80%, 69%)'>-->
 <!--   {% for p in promoted %}-->
@@ -63,12 +83,6 @@
 <!--   {% endfor %}-->
 <!--   <p><a href = '/post/'>→ More ←</a></p>-->
 <!--</div>-->
-<!--<div id = "social" class = 'frontbox ctxt' style = 'z-index:2;height: 5rem;background: hsl(120,40%,30%)'>-->
-<!--  <p><a href="http://facebook.com/friendsoftheplanetarium"><img src = "/static/fb.png" alt="" />acebook</a>&nbsp;-->
-<!--  <a href="http://twitter.com/FrnzPlanetarium"><img src = "/static/twit.png" alt="" />witter</a>&nbsp;-->
-<!--  <a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/insta.png" alt="" />Instagram</a>-->
-<!--  </p>-->
-<!--</div>-->
 <!--<div id = 'searchbox' class = 'frontbox ctxt cutoff' style = 'z-index:2;height: 5rem;background: hsl(222, 58%, 62%)'>-->
 <!--  <div class="gcse-search"></div>-->
 <!--</div>-->
@@ -77,12 +91,6 @@
 <!--</div>-->
 <!--</div>-->
 <!---->
-<!--<div id = 'sponsors' class = 'frontbox ctxt cutoff' style = ';height: 13.2rem;background: hsl(0, 71.9%, 74.9%)'>-->
-<!--    <p>Thanks<br />to our major donors</p>-->
-<!--  <div id = 'sponsorlogos'>-->
-<!--    <img src = '/static/sponsorlogos.jpg' alt = 'sponsor logos' /> -->
-<!--  </div>-->
-<!--</div>-->
 <!--    <a href="/notice"><div class = 'frontibox' style = ' '><img src='/static/dome.png' alt = '' /></div></a>-->
 <!--    <a href="/about/"><div class = 'frontbox ctxt' style = 'background: hsla(0,0%,90%,.6 ); '><p>About the<br />Planetarium</p></div></a>-->
 <!---->
@@ -133,16 +141,5 @@
 <!--    </div>-->
 <!--    <a href = '/movies/'><div class = 'frontbox ctxt' style = 'padding-top: 3rem; background: hsla(311, 80%, 68%, .85)'><p>Videos in<br />and about<br />the Planetarium</p></div></a>-->
 <!--    -->
-<!--     <div id = "planetfooter" style='position:absolute; top: 56.5rem;left:0;'>-->
-<!--        <div class = "footerlinks">-->
-<!--           <a href = "/post/7/">About the corporation</a> -->
-<!--           <a href = "http://www.apsva.us/Page/2706">Arlington Public Schools</a>-->
-<!--           <a href = "/about/">Contact the Friends</a>-->
-<!--           <a href = "/website/">About the website</a>-->
-<!--           <a href = "mailto:lee.phillips@alogus.com">Contact the webmaster</a>-->
-<!--           <a href = "/join/">Keep the Planetarium open</a>-->
-<!--        </div>-->
-<!--     </div>-->
 <!--</div> -->
-</div> 
 {% endblock %}
