@@ -16,16 +16,44 @@ body {
 }
 #frontcontainer {
     font-family: "Baumans", sans-serif;
-    position:relative;
+    position:absolute;
+    top:0;
     margin: 0 auto;
-    width: 75rem;
-    height: 64.5rem;
+    left:0;
+    right:0;
+    width: 60rem;
+    height: auto;
+    min-height: 65rem;
+    overflow:hidden;
+    padding: 0;
+}
+#leftcontainer {
+    position:absolute;
+    top:0;
+    left:0;
+    width: 50%;
+    height: auto;
+    min-height: 65rem;
     background-color: #99f;
     overflow:hidden;
+    padding: 0;
+}
+#rightcontainer {
+    position:absolute;
+    top:0;
+    left: 50%;
+    width: 50%;
+    height: auto;
+    min-height: 65rem;
+    background-color: #9af;
+    overflow:hidden;
+    padding: 0;
 }
 .frontbox, .frontibox {
-    position:absolute;
+    /* position:relative; */
     text-align: center;
+    margin: 0;
+    padding: 0.3rem;
 }
 .frontibox {
     padding: 0;
@@ -299,10 +327,10 @@ div.eventlist span.eventlisttitle{
 }
 #upcoming {
    font-size: 1.2rem;
-   top: 0;
-   left: 60rem;
-   width: 15rem;
-   height: 7.7rem;
+   /* top: 0; */
+   /* left: 60rem; */
+   /* width: 15rem; */
+   /* height: 5rem; */
    font-weight: bold;
    background: rgb(250, 15, 15);
 }
@@ -496,12 +524,8 @@ abbr {
    background: none;
 }
 .mainbanner{
-   width: 37.5rem;
+   /* width: 37.5rem; */
    height: 17rem;
-   position: absolute;
-   left: 0rem;
-   top: 0rem;
-   overflow:hidden;
 }
 .mainbanner img, .mainbanner video{
    width: 100%;
