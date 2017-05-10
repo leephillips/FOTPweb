@@ -29,7 +29,7 @@
           <a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/insta.png" alt="" />Instagram</a>
   </p>
    </div>
-    <div id = 'sponsors' class = 'frontbox ctxt cutoff' style = 'height: 13.2rem;'>
+    <div id = 'sponsors' class = 'frontbox ctxt' style = 'height: 13.2rem;'>
         <p>Thanks<br />to our major donors</p>
       <div id = 'sponsorlogos'>
         <img src = '/static/sponsorlogos.jpg' alt = 'sponsor logos' /> 
@@ -48,16 +48,38 @@
          <p><a href="/join">Join, Donate, Subscribe</a></p>
          <p><a href="/post">Articles &amp; News</a></p>
          <p><a href="/about">About the Planetarium</a></p>
-         <p><a href="http://www.cafepress.com/friendsarlplanetarium/8533104">Shop</a></p>
          <div class="gcse-search"></div>
       </div>
   </div>
-  <div class = 'frontbox' style = 'height: 30rem;'>
+  <div class = 'frontbox' style = 'height: 25rem;'>
        <h2>Recent</h2>
        {% for p in latestentries %}
           <p><a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
        {% endfor %}
+       {% if not latestentries %}
+       <p>XXX</p>
+       <p>XXX</p>
+       <p>XXX</p>
+       <p>XXX</p>
+       <p>XXX</p>
+       <p>XXX</p>
+       {% endif %}
   </div>
+  <div class = 'ctxt' style = 'padding:0;'>
+      <p>More to Explore</p>
+  </div>
+        <div class = 'circlebox'> 
+           <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "https://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon" /></a>
+        </div>
+        <div class = 'circlebox'> 
+            <a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "https://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
+        </div>
+        <div class = 'circlebox'> 
+        <a href = 'https://www.nasa.gov/feature/annie-easley-computer-scientist'><img src = '/static/easleyC.png' alt = 'Annie Easley' title = 'Annie Easley was born on April 23, 1933.  She was a computer scientist, mathematician, and rocket scientist who worked for NASA and its predecessor, NACA. She became one of the leaders  of the team that developed software for the Centaur rocket stage, providing the foundation for many future space projects. Annie Easley died June 25, 2011.' /></a>
+        </div>
+        <div class = 'circlebox'> 
+            <a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a>
+        </div>
   </div>
      <div id = "planetfooter" style='position:absolute; top: 56.5rem;left:0;'>
         <div class = "footerlinks">
@@ -101,9 +123,6 @@
 <!--{% endif %}-->
 <!--</div>-->
 <!---->
-<!--<div class = 'frontbox circlebox' style = 'background: hsl(59, 92.2%, 74.9%); '> -->
-<!--   <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "http://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon" /></a>-->
-<!--</div>-->
 <!--  -->
 <!--<a href="/join"><div class = 'frontbox ctxt' style = 'height: 8.2rem;background: hsl(260, 75.5%, 79.2%)'><p>Join • Donate</p><p>Subscribe</p></div></a>-->
 <!---->
