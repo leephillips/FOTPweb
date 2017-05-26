@@ -2,13 +2,15 @@
 {% block title %}The Friends of Arlington’s Planetarium{% endblock %}
 {% block body %}
   <div id = "frontlatest">
+     <!--<a href = 'https://friendsoftheplanetarium.org/post/90/'>-->
       <div class="upcoming">
-        <p>This weekend: 
-         <!--(Reservations recommended for these special programs).-->
+        <p>This weekend:
+        <!--“Summertime and the Viewing is Easy”-->
+        <!-- (Reservations recommended for these special programs).-->
         <a href='http://www.apsva.us/Page/2706'>Arlington Public Schools programming.</a>
         </p>
       </div>
-    
+    <!--</a>-->
          <h2>Recent Items:</h2>
    {% for p in latestentries %}
       <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
@@ -54,7 +56,7 @@
 <div id = "mainarray">
 
 <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "https://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon." /></a>
-<a href = 'https://www.nasa.gov/feature/annie-easley-computer-scientist'><img src = '/static/easleyC.png' alt = 'Annie Easley' title = 'Annie Easley was born on April 23, 1933.  She was a computer scientist, mathematician, and rocket scientist who worked for NASA and its predecessor, NACA. She became one of the leaders  of the team that developed software for the Centaur rocket stage, providing the foundation for many future space projects. Annie Easley died June 25, 2011.' /></a>
+<a href = 'http://www.towelday.org/'><img src = '/static/towelC.png' /></a>
 <!--<a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a>-->
 <!--<a href = 'https://www.arlnow.com/2017/01/31/david-m-brown-planetarium-stars-in-winning-vehicle-decal-contest-entry/'-->
 <!-- alt = '' title = 'The new Arlington County car tax decal.'>-->
