@@ -14,6 +14,13 @@ body {
   width: 100%;
   color: black;
   background-color: #dfe9f2;
+/* 223,233,242,1 */
+  background-image: linear-gradient(to left, rgba(223,233,242,1), rgba(223,233,242,0)),url(xbg.jpg),
+                    linear-gradient(to right, rgba(223,233,242,1), rgba(223,233,242,0)),url(xbg.jpg);
+  background-position: left, left, right, right;
+  background-repeat: repeat-y;
+  background-size: 14%;
+  background-attachment: fixed;
 }
 #frontcontainer {
     font-family: "Baumans", sans-serif;
@@ -178,6 +185,9 @@ a:visited {
 }
 p { 
 margin-top: 1.0em; margin-bottom: 1.0em;
+}
+#social {
+    text-align: center;
 }
 #social img{
   width: 0.8em;
