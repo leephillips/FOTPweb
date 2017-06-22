@@ -14,26 +14,38 @@ body {
   width: 100%;
   color: black;
   background-color: #dfe9f2;
-/* 223,233,242,1 */
-  background-image: linear-gradient(to left, rgba(223,233,242,1), rgba(223,233,242,0)),url(xbg.jpg),
-                    linear-gradient(to right, rgba(223,233,242,1), rgba(223,233,242,0)),url(xbg.jpg);
-  background-position: left, left, right, right;
-  background-repeat: repeat-y;
-  background-size: 14%;
+                    /* 223,233,242,1 */
+  background-image: url(xbg.jpg);
+  background-repeat: repeat;
+  background-size: 11%;
   background-attachment: fixed;
 }
 #frontcontainer {
+    background-image:
+             linear-gradient(to right, rgba(223,223,242,0), rgba(223,223,242,1) 5rem, 
+             rgba(223,223,242,1) 75rem, rgba(223,223,242,0) 80rem);
+    /* visibility: hidden; */
+    /* background-clip: padding-box; */
+    /* background-color: rgba(223,223,242,.5); */
+    /* background-color: #dfe9f2; */
+    /* border-color: rgba(223,0,242,.5); */
+    /* border-style: solid; */
+    /* border-width: 0 30mm 0 30mm; */
+    /* border-left-image: linear-gradient(to left, rgba(223,0,0,1), rgba(223,0,0,0)); */
+    /* border-image-width: auto ; */
     font-family: "Baumans", sans-serif;
     position:relative;
     top:0;
     margin: 0 auto;
     left:0;
     right:0;
-    width: 60rem;
-    /* height: auto; */
+    width: 70rem;
     height: 64rem;
     overflow:hidden;
-    padding: 0;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 #leftcontainer {
     position:relative;

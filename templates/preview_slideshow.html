@@ -15,11 +15,12 @@
 </script>
 {% endblock %}
 {% block body %}
+
 <div id = 'frontcontainer'>
 <div id = 'leftcontainer'>
     <div class = 'frontibox' style = 'margin-bottom: 0.6rem;padding:3mm;'>
         <img src = "/static/logo_new.png" alt="" />
-    </div>
+    
     <div class = 'frontibox'>
        <img src = '/static/s1.gif' />
     </div>
@@ -40,6 +41,7 @@
     This weekend: 
       <a href = 'https://friendsoftheplanetarium.org/post/86/'>Citizen Science + Annual Meeting</a>
        (Reservations recommended).
+</div>
 </div>
 <div id = 'rightcontainer'>
   <div class = 'frontibox' style = 'background:url(/static/dome.png);background-repeat: no-repeat;background-size: 100%;'>
@@ -81,6 +83,7 @@
             <a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a>
         </div>
   </div>
+</div>
      <div id = "planetfooter" style='position:absolute; top: 56.5rem;left:0;'>
         <div class = "footerlinks">
            <a href = "/post/7/">About the corporation</a> 
@@ -91,74 +94,4 @@
            <a href = "/join/">Keep the Planetarium open</a>
         </div>
      </div>
-  </div>
-<!---->
-<!--<div class = 'frontbox btxt cutoff' style = 'padding-top: 1rem; z-index:2;height: 14rem;background: hsl(313, 80%, 69%)'>-->
-<!--   {% for p in promoted %}-->
-<!--      <p> <a href = "/post/{{ p.id }}">{{ p.title }}</a></p>-->
-<!--   {% endfor %}-->
-<!--</div>-->
-<!--<div class = 'frontbox ctxt scroll' style = 'z-index:2;height: 35.7rem;background: hsl(120,40%,80%)'>-->
-<!--   <h3>Recent Articles:</h3>-->
-<!--   {% for p in latestentries %}-->
-<!--      <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>-->
-<!--   {% endfor %}-->
-<!--   <p><a href = '/post/'>→ More ←</a></p>-->
-<!--</div>-->
-<!--<div id = 'searchbox' class = 'frontbox ctxt cutoff' style = 'z-index:2;height: 5rem;background: hsl(222, 58%, 62%)'>-->
-<!--  <div class="gcse-search"></div>-->
-<!--</div>-->
-<!--<div class = "mainbanner">-->
-<!--    <video src = '/static/persipythonedlogo.mp4' loop autoplay no-controls></video>-->
-<!--</div>-->
-<!--</div>-->
-<!---->
-<!--    <a href="/notice"><div class = 'frontibox' style = ' '><img src='/static/dome.png' alt = '' /></div></a>-->
-<!--    <a href="/about/"><div class = 'frontbox ctxt' style = 'background: hsla(0,0%,90%,.6 ); '><p>About the<br />Planetarium</p></div></a>-->
-<!---->
-<!--<div class = "frontbox ctxt" style = '' >-->
-<!--{% if not smiled %}-->
-<!--       <p>Support the Planetarium every time you buy from Amazon, at no cost to you: <a href="/smile/"><img alt="Amazon Smile" src="/static/smile.png" /></a></p>-->
-<!--{% else %}-->
-<!--{% endif %}-->
-<!--</div>-->
-<!---->
-<!--  -->
-<!--<a href="/join"><div class = 'frontbox ctxt' style = 'height: 8.2rem;background: hsl(260, 75.5%, 79.2%)'><p>Join • Donate</p><p>Subscribe</p></div></a>-->
-<!---->
-<!--<div class = 'frontbox circlebox' style = 'background: hsl(180, 92.2%, 74.9%); '><a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a></div>-->
-<!--  -->
-<!--  <div class = 'maincircle'>-->
-<!--   <a href = 'http://www.nasa.gov/feature/goddard/2016/mars-gravity-map' title = '”A new map of Mars’ gravity made with three NASA spacecraft is the most detailed to date, providing a revealing glimpse into the hidden interior of the Red Planet.”'>-->
-<!--        <img src = '/static/northMarsGravity.png' alt = 'Gravity map of Mars northern hemisphere' />-->
-<!--   </a>-->
-<!--   <p>Mars gravity map</p>-->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--   <a href = 'http://www.nasa.gov/feature/ames/Kepler/caught-for-the-first-time-the-early-flash-of-an-exploding-star' title = '”The brilliant flash of an exploding star’s shockwave—what astronomers call the “shock breakout”—has been captured for the first time in the optical wavelength or visible light by NASA’s planet-hunter, the Kepler space telescope.”'><img src = '/static/starshock_decor.png' alt = '' /></a>-->
-<!--   <p>Exploding star shockwave</p>-->
-<!--  -->
-<!-- -->
-<!-- <div id = 'schedule' class = 'frontbox' style = 'height: 20rem;'>-->
-<!--<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;bgcolor=%23999999&amp;src=u2k0tc9r2o3vt4s495itgnrol4%40group.calendar.google.com&amp;color=%2328754E&amp;ctz=America%2FNew_York" style="border:solid 1px #777"></iframe>-->
-<!--</div>-->
-<!--<div class = 'frontbox circlebox' style = 'background: hsl(59, 92.2%, 74.9%)'>-->
-<!--    <a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "http://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>-->
-<!--</div>-->
-<!---->
-<!--    <div class = 'frontibox' style = ' '>-->
-<!--       <img src = '/static/newsbg.jpg' alt = '' />-->
-<!--    </div>-->
-<!--    <a href="/notice"><div class = 'frontbox ctxt' style = 'padding-top: 3rem; background: hsla(0,0%,90%,.7 ); '>Planetarium in<br />the news</div></a>-->
-<!--    -->
-<!--    <a href="http://www.cafepress.com/friendsarlplanetarium/8533104">-->
-<!--        <div class = 'frontbox ctxt' style = ' '>-->
-<!--        Shop<span id = "shopitem"><img alt = "mugshot" src="/static/mugforsale.png" /></span></div></a>-->
-<!--    <div class = 'frontibox' style = ' '>-->
-<!--      <img src = '/static/moviecamera.png' alt = ''  height="200" />-->
-<!--    </div>-->
-<!--    <a href = '/movies/'><div class = 'frontbox ctxt' style = 'padding-top: 3rem; background: hsla(311, 80%, 68%, .85)'><p>Videos in<br />and about<br />the Planetarium</p></div></a>-->
-<!--    -->
-<!--</div> -->
 {% endblock %}
