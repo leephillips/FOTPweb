@@ -3,21 +3,20 @@
   src: url(telegrama_render.otf) format("opentype");
 }
 html {
-  font-size: 16px;
+  font-size: 100%;
   margin: 0;
   padding: 0;
 }
 body {
-  font-size: 100%;
   margin: 0;
   padding: 0;
   width: 100%;
   color: black;
   background-color: rgb(223,233,242);
                     /* 223,233,242,1 */
-  background-image: url(xbg.jpg);
+  background-image: url(xbgn.jpg);
   background-repeat: repeat;
-  background-size: 11%;
+  background-size: 50%;
   background-attachment: fixed;
 }
 #background {
@@ -31,22 +30,23 @@ body {
 #frontcontainer {
     /* border: solid red 0.5mm; */
     background-image:
-             linear-gradient(to right, rgba(223,223,242,0),       rgba(223,223,242,.5)  3rem, rgba(223,223,242,1) 12rem, 
-                                       rgba(223,223,242,1) 68rem, rgba(223,223,242,.5) 77rem, rgba(223,223,242,0) 80rem);
+             linear-gradient(to right, rgba(223,223,242,0) 0rem,  rgba(223,223,242,.5)  3rem, rgba(223,223,242,1) 20rem, 
+                                       rgba(223,223,242,1) 58rem, rgba(223,223,242,.5) 75rem, rgba(223,223,242,0) 78rem);
     font-family: "Baumans", sans-serif;
     position:relative;
     top:0;
     margin: 0 auto;
     left:0;
     right:0;
-    width: 80rem;
+    width: 78rem;
+    /* width: 100%; */
     height: 64rem;
     overflow:hidden;
 }
 #leftcontainer {
     position:relative;
     top: 2.1rem;
-    left: 10rem;
+    left: 9rem;
     width: 30rem;
     height: 63rem;
     /* height: auto; */
@@ -58,7 +58,7 @@ body {
 #rightcontainer {
     position:absolute;
     top: 2.1rem;
-    left: 40rem;
+    left: 39rem;
     width: 30rem;
     height: 63rem;
     /* height: auto; */
@@ -1199,3 +1199,8 @@ label{
         from { left: 0; }
         to   { left: -429px; }
       }
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+    /* special rules for consistency with Chrome */
+html {
+  font-size: 80%;
+}

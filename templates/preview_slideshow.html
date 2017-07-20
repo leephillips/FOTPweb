@@ -52,7 +52,7 @@
       </div>
   </div>
   <div class = 'frontbox' style = 'height: 25rem;'>
-       <h2>Recent</h2>
+       <!--<h2 style = 'text-align: left;'>Recent</h2>-->
        {% for p in latestentries %}
           <p><a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
        {% endfor %}
