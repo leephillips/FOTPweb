@@ -71,6 +71,16 @@ body {
     margin-top: -0.9rem;
     margin-bottom: -0.5rem;
 }
+.frontpagedonate {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+.frontpagedonate input[type=image]{
+    width: 5rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0.3rem;
+}
 .boxoverlay {
     background-color: rgba(175,175,175,0.8);
     padding: 0.3rem;
@@ -239,7 +249,7 @@ img {
    margin-top: 5rem;
    width: 70%;
    font-size: 0.75em;
-   background: hsl(200,50%,20%);
+   /* background: hsl(200,50%,20%); */
    padding: 0.7rem;
    padding-left: 5mm;
    z-index:100;

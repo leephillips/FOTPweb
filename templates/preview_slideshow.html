@@ -45,7 +45,13 @@
   <div class = 'frontibox' style = 'background:url(/static/dome.png);background-repeat: no-repeat;background-size: 100%;'>
       <div class = 'boxoverlay mainlinks'>
          <p><a href="/event"> Events &amp; Shows</a></p>
-         <p><a href="/join">Join, Donate, Subscribe</a></p>
+         <form class = 'frontpagedonate' action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <a href="/join">Join</a> • 
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="MQKTXL3EDRM74">
+            <input type="image" src="/static/paypaldonatebutton.png" name="submit" alt="Donate through PayPal.">
+            • <a href="/join">Subscribe</a>
+         </form>
          <p><a href="/post">Articles &amp; News</a></p>
          <p><a href="/about">About the Planetarium</a></p>
          <div class="gcse-search"></div>
