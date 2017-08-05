@@ -27,6 +27,29 @@ body {
    height: 80rem;
    background-color: rgba(223,223,242,.5);
    }
+#contentcontainer {
+    /* border: solid red 0.5mm; */
+    background-image:
+             linear-gradient(to right, rgba(223,223,242,0) 0rem,  rgba(223,223,242,.5)  3rem, rgba(223,223,242,1) 20rem, 
+                                       rgba(223,223,242,1) 58rem, rgba(223,223,242,.5) 75rem, rgba(223,223,242,0) 78rem);
+    font-family: "Baumans", sans-serif;
+    position:relative;
+    top:0;
+    margin: 0 auto;
+    left:0;
+    right:0;
+    width: 78rem;
+    overflow:hidden;
+}
+#articlecontent {
+   font-family: Alegreya, serif;
+   line-height: 1.5em;
+   font-size: 1.4em;
+   width: 39rem;
+   min-height: 800px;
+   margin-left: 19.5rem;
+
+}
 #frontcontainer {
     /* border: solid red 0.5mm; */
     background-image:
@@ -400,6 +423,40 @@ div.eventlist span.eventlisttitle{
 #upcoming a:hover {
   background: #afa;
 }
+#insidenav {
+   width: 12rem;
+   position: absolute;
+   left: -5mm;
+   top: -4mm;
+}
+#insidenav img {
+    width: 100%;
+}
+#insidenav ul {
+    list-style-type: none;
+}
+#insidenav li {
+   font-size: 1rem;
+   background-color: rgba(223,223,242,.5);
+   margin-bottom: 2rem;
+   font-family: "Baumans", sans-serif;
+   padding: 1mm;
+}
+#insidenav button {
+   margin-bottom: -0.3rem;
+   margin-top: .2rem;
+   margin-left: -.56rem;
+   cursor: pointer;
+   border: none;
+   font-size: 1rem;
+   background-color: rgba(223,223,242,.0);
+   font-family: "Baumans", sans-serif;
+   /* padding: 1mm; */
+}
+#insidenav a {
+    text-decoration: none;
+    border: none;
+}
 #frontnav {
    text-align: center;
    margin: 0em auto;
@@ -540,16 +597,6 @@ p.postlist a:hover{
     margin-right: 0.5em;
  }
 .postcontent{
-   float: left;
-   font-family: Alegreya, serif;
-   line-height: 1.5em;
-   font-size: 1.4em;
-   width: 50%;
-   margin-top: 0%;
-   padding-top: 22%;
-   margin-left: 2.2%;
-   margin-bottom: 2.5em;
-   min-height: 800px;
 }
 .morecontent{
    float: left;
@@ -1123,19 +1170,18 @@ h1
 h2{
    line-height: 1.0em;
    text-align: center;
-   font-size: 2rem;
+   font-size: 1.6rem;
    margin-top: 1rem;
    margin-bottom: 0.2rem;
-   font-weight: normal;
+   font-weight: bold;
 }
 h3 {
-    text-align: left;
+    text-align: center;
     line-height: 1.1em;
-    font-weight: normal;
+    font-weight: bold;
     margin-top: 1em;
-   margin-bottom: 0.2em;
-    font-size: 1.0em;
-    border-top: solid #c35 0.5mm;
+    margin-bottom: 0.2em;
+    font-size: 1.2rem;
     padding-top: 0.7em;
     }
     
@@ -1144,7 +1190,7 @@ h4 {
     line-height: 1.1em;
     font-weight: normal;
     margin-top: 1em;
-   margin-bottom: 0.2em;
+    margin-bottom: 0.2em;
     font-size: 1.0em;
     padding-top: 0.7em;
     font-style: oblique;

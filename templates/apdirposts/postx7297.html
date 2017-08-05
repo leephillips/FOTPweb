@@ -1,7 +1,28 @@
-{% extends "apdirposts/page.html" %}
+{% extends "sitex7297.html" %}
 {% block title %}{{ title }}{% endblock %}
-{% block pagecontent %}
-<div class = "postcontent" id = "target">
+{% block body %}
+<div id = 'contentcontainer'>
+<div id = 'insidenav'>
+    <ul>
+       <li><a href = '/'><img src = "/static/logo_new.png" alt="Front page" /></a></li>
+       <li><a href="/event">Events &amp; Shows</a></li>
+       <li><a href="/join">Membership</a></li>
+       <li><a href="/post">Articles &amp; News</a></li>
+       <li>
+         <form class = 'frontpagedonate' action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="MQKTXL3EDRM74">
+            <button name = 'submit' >Donate</button>
+         </form>
+       </li>
+       <li><a href="/notice">Media coverage</a></li>
+       <li><a href="/movies">Movies</a></li>
+       <li><a href="/about">The Planetarium</a></li>
+       <li><a href="http://www.cafepress.com/friendsarlplanetarium/8533104">Shop</a></li>
+    </ul>
+</div>
+<div id = 'articlecontent'>
+<div class = "postcontent">
    {% if author.director.bio|length > 2 %}
    <div class='title-article'>{{ title }}</div> 
       {% if byline %} 
@@ -44,5 +65,17 @@
    {% endfor %}
 </div>
 {% endif %}
+</div>
+</div>
+    <div id = "planetfooter">
+        <div class = "footerlinks">
+           <a href = "/post/7/">About the corporation</a> 
+           <a href = "http://www.apsva.us/Page/2706">Arlington Public Schools</a>
+           <a href = "/about/">Contact the Friends</a>
+           <a href = "/website/">About the website</a>
+           <a href = "mailto:lee.phillips@alogus.com">Contact the webmaster</a>
+           <a href = "/join/">Keep the Planetarium open</a>
+        </div>
+     </div>
 </div>
 {% endblock %}

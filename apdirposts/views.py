@@ -232,6 +232,8 @@ def latest(exclude = None, number = 9):
    except:
       xid = 0
     #articles from the past RECENT days (changed to SOON to deal with stale "today"):
+   promoted = list(Post.objects.filter(promote = True).order_by('-pub_date'))
+   promoted = zip(len(promoted)*['post'],promoted)[:number]
    articles = list(Post.objects.filter(pub_date__range = (RECENT, SOON)).exclude(
                    category__postcategory = exclude).exclude(id = xid).exclude(
                    publish = False).order_by('-pub_date'))
@@ -251,7 +253,7 @@ def latest(exclude = None, number = 9):
    if exclude == "notices":
       notices = []
    #combine these into a list:
-   return (events + articles + notices)[:number]
+   return (promoted + events + articles + notices)[:number]
 
 def bio(request, who):
    try:
@@ -349,7 +351,6 @@ def preview_post(request, which):
                              'events': r,
                              'title': p.title})
 
-@login_required
 def postx(request, which):
    try:
       p = get_object_or_404(Post, id = which)
@@ -376,7 +377,7 @@ def postx(request, which):
                                  categoryclass: 'thisone',
                                  'byline': p.byline,
                                  'date' : p.pub_date,
-                                 'events': r,
+                                 'events': None,
                                  'title': p.title})
    else:
       return HttpResponseRedirect("/")
@@ -607,6 +608,9 @@ def x7297(request):
    rsevents = Event.objects.filter(on__range = (today, REALSOON)).exclude(
                                        publish = False).count()
    return render(request, 'preview_slideshow.html', locals())
+
+def x7297inside(request):
+    return postx(request, 90)
 
 @xframe_options_exempt
 def aps_banner(request):
