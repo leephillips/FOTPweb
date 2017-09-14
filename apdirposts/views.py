@@ -126,6 +126,12 @@ class NewArticleForm(forms.Form):
   content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
   publish = forms.BooleanField()
 
+class EclipseUpload(forms.Form):
+    title = forms.CharField(max_length=50)
+    photographer = forms.CharField(max_length = 100)
+    notes = forms.TextInput()
+    file = forms.FileField()
+
 @login_required
 def newarticle(request, pid = None):
    main = Postcategory.objects.filter(postcategory = 'main')[0]
@@ -619,4 +625,5 @@ def aps_banner(request):
                                        publish = False)
    return render(request, 'aps_banner.html', locals())
 
+def eclipse_upload(request):
 

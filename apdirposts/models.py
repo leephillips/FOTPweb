@@ -33,6 +33,13 @@ class Illustration(models.Model):
       n = self.pic
       return "%s: %s" % (n, self.caption[:70])
 
+class EclipseUpload(models.Model):
+    title = forms.CharField(max_length=50)
+    photographer = forms.CharField(max_length = 100)
+    notes = forms.TextInput()
+    file = forms.ImageField(upload_to = 'eclipse')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
 class Postcategory(models.Model):
    postcategory = models.CharField(max_length = 200)
    def __unicode__(self):
