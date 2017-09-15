@@ -34,10 +34,10 @@ class Illustration(models.Model):
       return "%s: %s" % (n, self.caption[:70])
 
 class EclipseUpload(models.Model):
-    title = forms.CharField(max_length=50)
-    photographer = forms.CharField(max_length = 100)
-    notes = forms.CharField(max_length = 500, blank = True, null = True)
-    file = forms.ImageField(upload_to = 'eclipse')
+    title = models.CharField(max_length=50)
+    photographer = models.CharField(max_length = 100)
+    notes = models.CharField(max_length = 500, blank = True, null = True)
+    image = models.ImageField(upload_to = 'eclipse')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
 class Postcategory(models.Model):

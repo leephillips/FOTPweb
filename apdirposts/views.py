@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render_to_response, render, get_object_or_404
 from django.views.decorators.clickjacking import xframe_options_exempt
-from models import Director, Post, Postcategory, Illustration, Notice, Event, Smile, CommunityEvent
+from models import *
 from datetime import datetime, timedelta
 import re
 from django import forms
@@ -126,11 +126,11 @@ class NewArticleForm(forms.Form):
   content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
   publish = forms.BooleanField()
 
-class EclipseUpload(forms.Form):
+class EclipseForm(forms.Form):
     title = forms.CharField(max_length=50)
     photographer = forms.CharField(max_length = 100)
-    notes = forms.TextInput()
-    file = forms.FileField()
+    notes = forms.CharField(max_length = 500, widget=forms.Textarea)
+    image = forms.ImageField()
 
 @login_required
 def newarticle(request, pid = None):
@@ -627,10 +627,15 @@ def aps_banner(request):
 
 def eclipse_upload(request):
     if request.method == 'POST':
-        form = EclipseUpload(request.POST, request.FILES)
+        form = EclipseForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            eclipse = EclipseUpload(title = request.POST.get('title'),
+                                    photographer = request.POST.get('photographer'),
+                                    notes = request.POST.get('notes'),
+                                    image = request.FILES.get('image')
+                                   )
+            eclipse.save()
             return HttpResponseRedirect("/")
     else:
-        form = EclipseUpload()
-    return render(request, 'eclipse.html', locals())
+        form = EclipseForm()
+    return render(request, 'apdirposts/eclipse.html', locals())

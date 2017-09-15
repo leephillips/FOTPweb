@@ -102,7 +102,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admin.apps.SimpleAdminConfig',
     'ap.apdirposts',
     'ap.boarddocs',
-    'todo',
+    # 'todo',
 )
 
 ALLOWED_INCLUDE_ROOTS = ('/home/lee/www/arlplanet',)
