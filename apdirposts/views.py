@@ -626,6 +626,7 @@ def aps_banner(request):
    return render(request, 'aps_banner.html', locals())
 
 def eclipse_upload(request):
+    thanks = False
     if request.method == 'POST':
         form = EclipseForm(request.POST, request.FILES)
         if form.is_valid():
@@ -635,7 +636,8 @@ def eclipse_upload(request):
                                     image = request.FILES.get('image')
                                    )
             eclipse.save()
-            return HttpResponseRedirect("/")
+            thanks = True
+            return render(request, 'apdirposts/eclipse.html', locals())
     else:
         form = EclipseForm()
     return render(request, 'apdirposts/eclipse.html', locals())
