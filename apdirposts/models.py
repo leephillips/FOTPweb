@@ -36,7 +36,7 @@ class Illustration(models.Model):
 class EclipseUpload(models.Model):
     title = forms.CharField(max_length=50)
     photographer = forms.CharField(max_length = 100)
-    notes = forms.TextInput()
+    notes = forms.CharField(max_length = 500, blank = True, null = True)
     file = forms.ImageField(upload_to = 'eclipse')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
