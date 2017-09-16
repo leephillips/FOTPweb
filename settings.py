@@ -114,5 +114,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = '/home/lee/ap/media/'
 MEDIA_URL = '/media/'
 
+LOGIN_URL = '/admin/login/'
+
 from secret_settings import *
 # secret import gets "token", used with EventBrite

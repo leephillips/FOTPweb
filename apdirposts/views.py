@@ -641,3 +641,8 @@ def eclipse_upload(request):
     else:
         form = EclipseForm()
     return render(request, 'apdirposts/eclipse.html', locals())
+
+@login_required
+def eclipse_table(request):
+    lines = EclipseUpload.objects.all().order_by('-uploaded_at')
+    return render(request, 'boarddocs/eclipse_table.html', locals())

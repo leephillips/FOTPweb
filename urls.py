@@ -55,4 +55,5 @@ urlpatterns = patterns('',
      (r'^publishweekend/$', 'ap.apdirposts.views.publishweekend'),
      (r'^ticketing/(.*)/$', 'ap.apdirposts.views.ticketing'),
      (r'^eclipseTest2716/$', 'ap.apdirposts.views.eclipse_upload'),
+     (r'^eclipseTable2716/$', 'ap.apdirposts.views.eclipse_table'),
 )
