@@ -2,15 +2,10 @@
 {% block title %}The Friends of Arlington’s Planetarium{% endblock %}
 {% block body %}
   <div id = "frontlatest">
-     <!--<a href = 'https://friendsoftheplanetarium.org/post/90/'>-->
-      <div class="upcoming">
-        <p>This weekend:
-        <!--“Summertime and the Viewing is Easy”-->
-        <!-- (Reservations recommended for these special programs).-->
-        <a href='http://www.apsva.us/Page/2706'>Arlington Public Schools programming.</a>
-        </p>
+    <a href='http://www.apsva.us/Page/2706'>
+      <div class="upcoming">This weekend: Arlington Public Schools programming.
       </div>
-    <!--</a>-->
+    </a>
          <h2>Recent Items:</h2>
    {% for p in latestentries %}
       <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
@@ -56,16 +51,11 @@
 <div id = "mainarray">
 
 <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "https://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon." /></a>
-<a href = 'http://www.towelday.org/'><img src = '/static/towelC.png' /></a>
+<a href = 'https://www.nasa.gov/image-feature/jpl/pia21895/cassinis-final-image'><img src = '/static/pia21895_impactsite_figa_finalimageC.png'  alt = "Impact Site: Cassini's Final Image" title = "“This monochrome view is the last image taken by the imaging cameras on NASA's Cassini spacecraft. It looks toward the planet's night side, lit by reflected light from the rings, and shows the location at which the spacecraft would enter the planet's atmosphere hours later.”"/></a>
 <!--<a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a>-->
 <!--<a href = 'https://www.arlnow.com/2017/01/31/david-m-brown-planetarium-stars-in-winning-vehicle-decal-contest-entry/'-->
-<!-- alt = '' title = 'The new Arlington County car tax decal.'>-->
-<!--    <img src = '/static/decal2017C.png' />-->
 <!--</a>-->
-<a href = 'https://www.nasa.gov/press-release/a-whole-new-jupiter-first-science-results-from-nasa-s-juno-mission'>
-    <img src = '/static/jupC.png' alt = 'The Juno mission to Jupiter' />
-</a>
-<!--<a href="http://cleardarksky.com/c/USNOkey.html?1"><img src = "/static/csc.png" alt="Observing Conditions" title = "Observing Conditions" /></a>-->
+<a href="http://cleardarksky.com/c/USNOkey.html?1"><img src = "/static/csc.png" alt="Observing Conditions" title = "Observing Conditions" /></a>
 <a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "https://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
 
 </div>

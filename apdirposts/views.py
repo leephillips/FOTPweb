@@ -129,6 +129,7 @@ class NewArticleForm(forms.Form):
 class EclipseForm(forms.Form):
     title = forms.CharField(max_length=50)
     photographer = forms.CharField(max_length = 100)
+    email = forms.EmailField()
     notes = forms.CharField(max_length = 500, widget=forms.Textarea)
     image = forms.ImageField()
 
@@ -242,7 +243,7 @@ def latest(exclude = None, number = 9):
    promoted = zip(len(promoted)*['post'],promoted)[:number]
    articles = list(Post.objects.filter(pub_date__range = (RECENT, SOON)).exclude(
                    category__postcategory = exclude).exclude(id = xid).exclude(
-                   publish = False).order_by('-pub_date'))
+                   publish = False).exclude(promote = True).order_by('-pub_date'))
    articles = zip(len(articles)*['post'],articles)[:number]
    #news mentions from the past RECENT days:
    notices = list(Notice.objects.filter(on__range = (RECENT, SOON)).exclude(id = xid).order_by('-pub_date'))
@@ -615,6 +616,12 @@ def x7297(request):
                                        publish = False).count()
    return render(request, 'preview_slideshow.html', locals())
 
+def x7298(request):
+   today = now()
+   latestentries = latest(number = 5)
+   promoted = Post.objects.filter(promote = True)   
+   return render(request, '7298.html', locals())
+
 def x7297inside(request):
     return postx(request, 90)
 
@@ -632,6 +639,7 @@ def eclipse_upload(request):
         if form.is_valid():
             eclipse = EclipseUpload(title = request.POST.get('title'),
                                     photographer = request.POST.get('photographer'),
+                                    email = request.POST.get('email'),
                                     notes = request.POST.get('notes'),
                                     image = request.FILES.get('image')
                                    )

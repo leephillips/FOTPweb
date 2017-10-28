@@ -15,24 +15,32 @@
 
        <h1>Upload Your 2017 Eclipse Image</h1>
 
-       <p>We would love to include your pictures of or relating to the August, 2017
-          solar eclipse in our show. Visit this page more than once to upload
+       <p>
+    Do you have pictures of your August, 2017 eclipse experience that you want
+    to share? We’re putting together a slide show of eclipse related pictures
+    to display in the Planetarium. Send us your best images for the show!
+    Feel free to include notes about the images and your
+    experience that we can share with our audience. Visit this page more than once to upload
           as many images as you like.
        </p>
+
+
+              
 
      <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
+        <p><i><small>We suggest uploading images at least 800 × 600 px in size.</small></i></p>
         <button type="submit">Upload</button>
      </form>
 
      <p class = 'warn'>
-       By pressing the “Upload” button, I grant the Friends of the Planetarium (FOTP)
+       By pressing the “Upload” button, I grant the Friends of the Planetarium 
        nonexclusive rights to show and display the uploaded image within the Arlington
        Planetarium at any dates and times of their choosing. I understand that the image
        may be cropped or otherwise modified for purposes of display. I affirm that I
        own the copyright to the uploaded image, either because I am its author or because
-       I have legally acquired it, or that I have been delegated the authority to grant this
+       I have legally acquired the copyright, or that I have been delegated the authority to grant this
        license by the copyright holder.
      </p>
 

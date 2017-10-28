@@ -5,7 +5,7 @@ from django.db import models
 from django.forms import ModelForm, CharField, TextInput
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('byline', 'title', 'category', 'publish', 'pub_date')
+    list_display = ('promote', 'byline', 'title', 'category', 'publish', 'pub_date')
     list_display_links = ('title',)
     readonly_fields = ['pub_date'] 
     # form = PostAdminForm
