@@ -193,7 +193,7 @@ def smile(request):
 
 @login_required
 def configure_slideshow(request):
-   ilform = modelformset_factory(Illustration, extra = 0, widgets = {'caption': forms.TextInput(), 'credit': forms.TextInput()})
+   ilform = modelformset_factory(Illustration, extra = 0, fields = ['pic', 'slideshow'])
    if request.method == 'POST':
      ilformset = ilform(request.POST)
      if ilformset.is_valid():

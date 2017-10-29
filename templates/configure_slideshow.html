@@ -129,12 +129,10 @@
             <p class = 'photoname'>{{f.pic.value|cut:"illustrations/"}}</p>
               {{ f.slideshow }}
               Include in slideshow <br />
-              {{ f.caption }}
-              Caption <br />
-              {{ f.credit }}
-              Credit <br />
-              {{ f.target }}
-              Link target <br />
+              {{ f.caption.value }}
+              <br />
+              <i>{{ f.credit.value }}</i>
+              <br />
             <span class = 'divider'></span>
           </div>
         </div>
