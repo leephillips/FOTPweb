@@ -358,7 +358,7 @@ def preview_post(request, which):
                              'events': r,
                              'title': p.title})
 
-def postx(request, which):
+def x7298inside(request, which):
    try:
       p = get_object_or_404(Post, id = which)
    except:
@@ -372,12 +372,7 @@ def postx(request, which):
       content = p.content
       if len(pics) > 0:
          content = picparse(content, pics)
-      if ("<iframe" in content or "<object" in content or
-         "<embed" in content):
-            template = "objpage.html"
-      else:
-            template = "postx7297.html"
-      return render(request, 'apdirposts/'+template,
+      return render(request, '7298inside.html',
                                 {'content': content,
                                  'author': p.author,
                                  'latest': latest(which),
@@ -519,6 +514,22 @@ def about(request):
                   'latest': latest()}
                 )
 
+############### new special pages ###############
+
+def visit(request):
+   return render(request, 'apdirposts/visit.html')
+
+def history(request):
+   return render(request, 'apdirposts/history.html')
+
+def corporation(request):
+   return render(request, 'apdirposts/corporation.html')
+
+def projects(request):
+   return render(request, 'apdirposts/projects.html')
+
+################################################
+
 def starchart(request):
    return render(request, 'apdirposts/apppage.html',
                  {'framed': 'https://lee-phillips.org/arlplanet/skymaps/skymap.html',
@@ -620,7 +631,9 @@ def x7298(request):
    today = now()
    latestentries = latest(number = 5)
    promoted = Post.objects.filter(promote = True)   
+   slides = Illustration.objects.filter(slideshow = True)
    return render(request, '7298.html', locals())
+
 
 def x7297inside(request):
     return postx(request, 90)

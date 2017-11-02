@@ -112,10 +112,11 @@
     {% csrf_token %} 
     <button type = 'submit'>Save</button> 
     <div id = 'savehelp'>
-      Click to save changes to slideshow inclusion, captions, targets, and
-      credits.  Slideshow will immediately reflect your changes.
-      Go <a href= 'http://127.0.0.1:8001/admin/apdirposts/illustration/add/'>here</a>
+      Click to save changes to slideshow inclusion.  The slideshow will immediately reflect your changes.
+      Go <a href= '/admin/apdirposts/illustration/add/'>here</a>
       to add a new picture. Pictures currently in the slideshow are listed first below.
+      Only 10 pictures will be included in the slideshow; if you select some you may
+      need to delete some to ensure that your selections appear.
     </div>
     <div class = 'illist'>
       {{ ilformset.management_form }}
