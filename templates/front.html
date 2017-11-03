@@ -1,25 +1,12 @@
 {% extends "sitex7298.html" %}
 {% block title %}The Friends of Arlington’s Planetarium{% endblock %}
 {% block style %}
-<script>
-  (function() {
-    var cx = '007968053313794302273:aypyetdofbi';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
 {% endblock %}
-{% block body %}
-<div id = 'frontcontainer'>
+{% block content %}
 
     <div class = 'frontibox'>
         <img src = "/static/Logo-Blue-20170909-01.png" alt="" />
-    </div>
+    
     <div class = 'frontbox bigwords'>
          <form class = 'frontpagedonate' action="https://www.paypal.com/cgi-bin/webscr" method="post">
             <a href="/join">Join</a> • 
@@ -29,9 +16,9 @@
             <!--<input type="image" src="/static/paypaldonatebutton.png" name="submit" alt="Donate through PayPal.">-->
          </form>
     </div>
-<div id = 'upcoming'  class = 'frontbox'><a href = 'https://friendsoftheplanetarium.org/post/86/'>
-        <a href='http://www.apsva.us/Page/2706'>This weekend: Arlington Public Schools programming.</a>
-</div>
+    <div id = 'upcoming'  class = 'frontbox'> <a href='http://www.apsva.us/Page/2706'>
+            This weekend: Arlington Public Schools programming.
+    </a></div>
 
 
   {% for post in promoted %}
@@ -73,17 +60,6 @@
 
        
        </div>
-      <!--<img src = '/static/s1.gif' />-->
    </div>
-     <div id = "planetfooter" class = 'frontbox'>
-        <div class = "footerlinks">
-           <a href = "/post/7/">The corporation</a> 
-           <a href = "http://www.apsva.us/Page/2706">Arlington Public Schools</a>
-           <a href = "/website/">About the website</a>
-           <a href = "mailto:lee.phillips@alogus.com">Email the webmaster</a>
-           <a href = "/about/">Contact us</a>
-           <a href = "/join/">Keep the Planetarium open</a>
-        </div>
-     </div>
   </div>
 {% endblock %}

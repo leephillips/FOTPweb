@@ -25,6 +25,9 @@ a:link {
 a:visited {
     color: #666666;
 }
+/* a { */
+/*     text-decoration: none; */
+/*     } */
 #background {
    position:absolute;
    top: 0;
@@ -92,7 +95,7 @@ a:visited {
 /* #searchbox { */
 /*   margin: 0.0em auto 0; */
 /*   margin-top: 3rem; */
-/*   /* border: solid black 1mm; */ */
+/*   /* border: solid black 1mm; */ 
 /*   width: 60%; */
 /*   } */
 .gsc-url-bottom {
@@ -152,17 +155,6 @@ border-color: black;
   background-size: 80rem;
   background-attachment: fixed;
   z-index: 0;
-}
-#pictureoverlay {
-  position:absolute;
-  top: 0;
-  left: 0;
-  width: 75rem;
-  height: 100%;
-  background-position: 0 0;
-  background-image: none;  /*fallback*/
-  background-image: linear-gradient(rgba(256, 256, 256, 0.0) 30rem, rgba(179, 210, 245, 1.0) 150rem);
-  z-index: 11;
 }
 #solidbg {
   background-color: rgba(179, 210, 245, 1.0);
@@ -326,14 +318,11 @@ div.eventlist span.eventlisttitle{
    padding: 1.3rem;
    padding-bottom: 1.5rem;
 }
-#upcoming a {
+#upcoming a{
+    text-decoration: none;
   border: none;
-  text-decoration: none;
    color: white;
   }
-#upcoming a:hover {
-  background: #afa;
-}
 #insidenav {
    width: 12rem;
    position: absolute;
@@ -680,12 +669,12 @@ a.lnl:hover{
    margin-top: 2mm;
    text-indent: 0;
 }
-.circlebox {
-    width: 6rem;
-    padding-top: 1rem;
+img.circle {
+    width: 7rem;
+    /* padding-top: 1rem; */
     overflow:hidden;
     display: inline-block;
-    margin-left: 1.3rem;
+    margin-left: 1.0rem;
 }
 .circlebox a:link, .circlebox a:visited, .circlebox a:hover {
   border: none;
@@ -1268,6 +1257,7 @@ div.bigwords button {
 }
 a div.frontbox{
     color: black;
+    text-decoration: none;
 }
 div.bigwords button {
     border-bottom: solid 1mm;
@@ -1326,7 +1316,7 @@ div.domebox a:link{
     width: auto;
     height: auto;
 }
-keyframes slide {
+@keyframes slide {
 10% {margin-left:   0   ;}
 20% {margin-left:  -50rem;}
 30% {margin-left:  -100rem;}

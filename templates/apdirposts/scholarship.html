@@ -1,0 +1,34 @@
+{% extends "apdirposts/page.html" %}
+{% block title %}Support the David M. Brown Scholarship{% endblock %}
+{% block pagecontent %}
+<div class = "postcontent" id = "target">
+<h1>Donate to the Dave Brown Scholarship!</h1>
+<p>
+The Friends of Arlington's David M. Brown Planetarium partnered with the
+Arlington Community Foundation in 2012 to establish the David M. Brown Memorial
+<img class = 'tinyrightpic' src = '/static/DMB.jpg' alt = '' />
+Scholarship. Awarded each year to an Arlington high school student who plans to
+major in science, technology, engineering, or mathematics in college, this
+$8,000 scholarship honors the remarkable career and service of Arlington native
+son, David M. Brown - Navy pilot, medical doctor, gymnast, film maker, and NASA
+astronaut.
+
+</p>
+<p>
+The goal is to raise $8,000 by December 31<sup>st</sup>. Please join us in reaching our goal, and then attend the presentation ceremony and reception next spring at the David M. Brown Planetarium.
+</p>
+<form class = "donateform" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+    <h2>Donate Now to the David M. Brown Scholarship Fund</h2>
+    <br />
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="EWYK6WQRZZKLQ">
+    <input type="hidden" name="item_name" value="DMB Scholarship">
+    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+<p class = 'afternotes'>
+The Friends of Arlington’s David M. Brown Planetarium is a 501(c)(3) charitable and educational organization. Your contribution is tax-deductible to the extent allowed by law.
+</p>
+</div>
+{% endblock %}
+
