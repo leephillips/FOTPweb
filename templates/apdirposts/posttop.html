@@ -1,13 +1,16 @@
-{% extends "apdirposts/page.html" %}
-{% block title %}Articles and Things{% endblock %}
-   {% block ulate %}
-      {% ssi '/home/lee/www/arlplanet/astronews.html' %}
-   {% endblock %}
-{% block pagecontent %}
-   <div class = "postcontent" id = "target">
-   <div class = "articlelist">
+{% extends "apdirposts/special.html" %}
+{% block title %}Articles and News{% endblock %}
+{% block content %}
+   
+<div class = "scrollleft">
+    <h2>Past Articles</h2>
       {% for post in p %}
          <a href = "/post/{{ post.id }}">
+        <p class = 'lefttext'>{{ post.title }}</a>
+        <br />
+         {% if post.byline %}
+         <span class="byline">by&nbsp;{{ post.byline }}</span>
+         {% endif %}<span class = 'byline'> ({{post.pub_date}})</span></p>
          {% if post.illustrations %}
             {% for illustration in post.illustrations.all %}
                {% if forloop.first %}
@@ -15,15 +18,15 @@
                   <img src="{{ illustration.pic.url }}" alt = "" />
                </div>
                {% endif %}
-            {% endfor %}
+           {% endfor %}
          {% endif %}
-         <p>{{ post.title }}
-         {% if post.byline %}
-         <br /><span class="byline">by&nbsp;{{ post.byline }}</span>
-         {% endif %}</p></a> 
+         
          <div class="floatbuster">&nbsp;</div>
       {% endfor %}
    </div>
-   <p><a href="/starchart/">Star chart for Arlington</a></p>
+<div class = 'scrollleft'>
+    <h2>Astronomy News</h2>
+      {% ssi '/home/lee/www/arlplanet/astronews.html' %}
 </div>
+   <p><a href="/starchart/">Star chart for Arlington</a></p>
 {% endblock %}

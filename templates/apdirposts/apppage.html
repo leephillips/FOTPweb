@@ -1,21 +1,10 @@
-{% extends "site.html" %}
-{% block body %}
-   <div id = "dots" class = "ll" alt="">
-   <img src = "{{ STATIC_URL }}dots.png" />
-   </div>
-   <div id = "littlelinklist" class = "ll">
-   <p class = "{{ eventone }}"><a href="/event">Events &amp; Shows</a></p>
-   <p class = "{{ joinone }}"><a href="/join">Join, Donate, Subscribe</a></p>
-   <p class = "{{ mainarticleone }}"><a href="/post">Main Articles</a></p>
-</div>
-{% block pagecontent %}
+{% extends "apdirposts/special.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block content %}
 {% autoescape off %}
-<div class = "postcontent">
-   <h2>{{ title }}</h2>
    <p>{{ intro }}</p>
-   <iframe src = "{{ framed }}" style = "width: 150%; height: 1000px;" seamless></iframe>
+   <iframe src = "{{ framed }}" style = "width: 100%; height: 1000px;" seamless></iframe>
    <p class = "afternotes">{{ afternotes }}</p>
-</div>
+
 {% endautoescape %}
-{% endblock %}
 {% endblock %}

@@ -1,0 +1,13 @@
+{% extends "boarddocs/page.html" %}
+{% block title %}Directory of Directors{% endblock %}
+{% block pagecontent %}
+<h1>Uploaded Eclipse Images</h1>
+<p>Click on filename to access image.</p>
+<table style='border-spacing: 2em;'>
+    <tr><th>Photographer</th><th>Email</th><th>Title</th><th>When uploaded</th><th>Notes</th><th>Image</th></tr>
+{% for l in lines %}
+<tr><td>{{l.photographer}}</td><td>{{l.email}}</td><td>{{l.title}}</td><td>{{l.uploaded_at}}</td><td>{{l.notes}}</td>
+    <td><a href='/media/{{l.image}}'>Image</a></td></tr>
+{% endfor %}
+</table>
+{% endblock %}

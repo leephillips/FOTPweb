@@ -1,0 +1,22 @@
+<!DOCTYPE HTML><html><head>
+<style>
+  a,p {
+     text-decoration: none;
+     text-align: center;
+   }
+</style>
+</head><body>
+{% if rsevents %}
+    <a target='_top' href='http://friendsoftheplanetarium.org/event/'>
+      <div class="upcoming">
+        <p>This weekend at the Planetarium: Friends’ special programming.</p>
+        <p>▶ Reservations required. ◀</p>
+       </div>
+     </a>
+  {% else %}
+      <div class="upcoming">
+        <p>This weekend at the Planetarium:</p> 
+        <p>Arlington Public Schools programming.</p> 
+       </div>
+    {% endif %}
+</body></html>

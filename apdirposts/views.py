@@ -519,9 +519,6 @@ def about(request):
 def visit(request):
    return render(request, 'apdirposts/visit.html')
 
-def history(request):
-   return render(request, 'apdirposts/history.html')
-
 def corporation(request):
    return render(request, 'apdirposts/corporation.html')
 

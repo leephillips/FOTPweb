@@ -1,0 +1,36 @@
+<!DOCTYPE HTML><html><head><meta content="text/html;charset=utf-8"
+        http-equiv="Content-Type" /><meta content="width=device-width,
+        initial-scale=1.0" name="viewport" /><link href="{{ STATIC_URL }}planetstylex7298.css" media="all" rel="stylesheet" type="text/css"
+        /><link href="{{ STATIC_URL }}favicon_v4.png" rel="shortcut icon"
+        type="image/png" /><link
+        href="//fonts.googleapis.com/css?family=Alegreya:normal,italic,bold%7CAlegreya+SC:normal,italic,bold%7CBaumans"
+        rel = "stylesheet" media = "all" type = "text/css" />
+
+<title>{% block title %}{% endblock %}</title>
+{% block style %}{% endblock %}
+</head>
+<body>
+<div id = 'frontcontainer'>
+ {% block top %}
+ {% endblock %}
+<div class = "postcontent">
+ {% block abovecontent %}
+ {% endblock %}
+ {% block content %}
+ {% endblock %}
+</div>
+ {% block bottom %}
+ {% endblock %}
+ <div id = "planetfooter" class = 'frontbox'>
+    <div class = "footerlinks">
+       <a href = "/post/7/">The corporation</a> 
+       <a href = "http://www.apsva.us/Page/2706">Arlington Public Schools</a>
+       <a href = "/website/">About the website</a>
+       <a href = "mailto:lee.phillips@alogus.com">Email the webmaster</a>
+       <a href = "/about/">Contact us</a>
+       <a href = "/join/">Keep the Planetarium open</a>
+    </div>
+ </div>
+</div>
+</body>
+</html>

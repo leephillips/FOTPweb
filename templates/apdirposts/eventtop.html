@@ -1,8 +1,38 @@
 {% extends "apdirposts/special.html" %}
-{% block title %}About the Friends of the Planetarium{% endblock %}
+{% block title %}Upcoming Events{% endblock %}
 {% block content %}
    
-Arlington
+      <h1>In the Planetarium</h1>
+      <p style = "font-weight:bold;"><a href="/post/78/">See an overview</a> of the Friends’ weekends for the entire season.</p>
+      {% regroup p by rpost as rp %}
+      {% for r in rp %}
+         {% if r.grouper %}
+            <h3 class = "eventgrouptitle">
+               <a class = "lnl" href="/post/{{ r.grouper.id }}/">{{ r.grouper.title }}</a>
+            </h3>
+            <div class = "relatedevents">
+               {% for event in r.list %}
+      <p class = "postlist"><a class = "lnl" href = "/event/{{ event.id }}"><span class = "eventdate">{{ event.on }}</span>: {{ event.title }}</a></p>         
+               {% endfor %}
+            
+         {% else %}
+               {% for event in r.list %}
+      <p class = "postlist"><a class = "lnl" href = "/event/{{ event.id }}"><span class = "eventdate">{{ event.on }}</span>: {{ event.title }}</a></p>         
+               {% endfor %}
+         {% endif %}
+      {% endfor %}
+      {% if community_events %}
+      <h1>In the Community</h1>
+        {% for e in community_events %}
+          <h3 class = "eventgrouptitle"><a href = '/community_event/{{e.id}}'>{{e.title}}</a>:
+           <span class = "eventdate">{{ e.on }}</span></h3>
+        {% endfor %}
+       {% endif %}
+      <h1>APS Programming</h1>
+      <p>
+The Arlington Planetarium is open for public multimedia programs on
+weekends throughout the school year. For weekends not covered by Friends of
+the Planetarium programming listed above, please consult the <a href="http://www.apsva.us/Page/2706">Arlington
    Public Schools website</a> for more details.
 </p><p>
 APS show times are: Fridays and Saturdays at 7:30PM and Sunday matinees at
@@ -14,7 +44,7 @@ each school month at 7:30 PM (moved to second Monday during holidays).</p>
 <p>
 For these regularly scheduled weekend shows, simply come to the Planetarium 15-20 minutes before the start of the show.  Seating is first come, first served, and no advance reservations are necessary.  There is an admission charge of $5 for ages from 13 to 59, $3 otherwise, cash only. Sky theater has a 58 seat capacity; once this is reached, the doors will be closed.
 </p>
-<h2>Planetarium Calendar</h2>
+<h1>Planetarium Calendar</h1>
 <p>Here is a Google calendar containing all shows and events at the Arlington Planetarium,
 including regularly scheduled APS events as well as Friends weekends.
 If you use Google Calendars, you can <a href = 'https://www.google.com/calendar/embed?src=u2k0tc9r2o3vt4s495itgnrol4%40group.calendar.google.com&ctz=America/New_York'>subscribe</a>

@@ -91,6 +91,14 @@ a:visited {
 #stack div {
   position:relative;
 }
+.thinright {
+    float:right;
+    color: gray;
+    margin-top: 0.38rem;
+}
+.thinright a {
+    text-decoration: none;
+}
 
 /* #searchbox { */
 /*   margin: 0.0em auto 0; */
@@ -171,17 +179,25 @@ margin-top: 1.0em; margin-bottom: 1.0em;
 }
 .floatbuster{
    clear:both;
+   line-height: 0.001px;
 }
 .listimage{
-   width: 15%;
+   width: 20%;
    float: left;
-   clear: left;
-   margin-right: 1.0em;
+   /* clear: left; */
+   /* margin-right: 1.0em; */
    margin-top: 1em;
    margin-bottom: 0em;
 }
 .listimage img{
    width: 100%;
+}
+.scrollleft {
+    width: 49%;
+    float: left;
+    height: 85rem;
+    overflow: auto;
+    border: solid navy .5mm;
 }
 .articlelist p{
    display: inline-block;
@@ -607,12 +623,12 @@ a.lnl:hover{
 #mainlinklist a:hover{
    background: blue;
 }
-.sitenewsitem a:visited{
-   color: #F38C90;
-}
-.sitenewsitem a:link{
-   color: #F38C90;
-}
+/* .sitenewsitem a:visited{ */
+/*    color: #F38C90; */
+/* } */
+/* .sitenewsitem a:link{ */
+/*    color: #F38C90; */
+/* } */
 #littlelinklist{
    position: absolute;
    left: 60%;
@@ -896,13 +912,14 @@ div.authorlist-article + p {
    text-indent: 0em;
 }
 .sitenewsitem {
-text-indent: 0em; margin-top: 1em; margin-bottom: 1em;
+text-indent: 0em; margin-top: 1rem; margin-bottom: 1rem;
+margin-left: 0.4rem;
 line-height: 1.2em;
 font-family: "Noticia Text", serif;
-font-size: 0.85em;
-color: white; 
+font-size: 0.65em;
+color: black; 
 }
-.newsdate {color: #DF88F5; font-weight: normal;}
+.newsdate {color: #992222; font-weight: normal;}
 .headlinesummary{
 }
 
@@ -1184,11 +1201,17 @@ div#frontcontainer {
     padding: 0;
 }
 .lefttext {
-    width: 45%;
+    width: 75%;
     float: left;
+    margin-left: 0.2rem;
+}
+div.medwords .lefttext{
+    width: 45%;
+    margin-top: 2rem;
 }
 .halfbox {
-    width: 23.0rem;
+    width: 49.75%;
+    height: 10.4rem;
     /* text-align: left; */
     margin: 0;
     /* border: solid blue 0.5mm; */
@@ -1229,6 +1252,11 @@ div.bigwords {
     font-size: 4rem;
     padding: 2rem;
 }
+div.medwordsnp {
+    font-size: 2rem;
+    padding: 0rem;
+    text-align: center;
+}
 div.medwords {
     font-size: 2rem;
     padding: 1rem;
@@ -1236,7 +1264,7 @@ div.medwords {
     /* padding-top: 1rem; */
     /* padding-bottom:: 1rem; */
 }
-div.medwords button {
+div.medwords button, div.medwordsnp button {
     padding: 0;
     font-size: 2rem;
     font-family: "Baumans", sans-serif;
@@ -1277,7 +1305,7 @@ div.bigwords a:link, div.bigwords a:visited {
     border-color: #ccaacc;
     color: black;
 }
-div.medwords a:link, div.medwords a:visited {
+div.medwords a, div.medwordsnp a {
     text-decoration: none;
     border-bottom: solid 1mm;
     border-color: #ccaacc;

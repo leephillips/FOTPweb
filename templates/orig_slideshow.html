@@ -1,0 +1,200 @@
+{% extends "sitex7297.html" %}
+{% block title %}The Friends of Arlington’s Planetarium{% endblock %}
+{% block style %}
+<style>
+
+
+    .center {
+         float: none;
+         margin-left: auto;
+         margin-right: auto;
+    }
+    #slideshow {
+      display: none;
+    }
+    #wrapper {
+      display: block;
+    }
+  #slideshow {list-style:none; color:#fff}
+  #slideshow span {display:none}
+  #wrapper {width:45rem; height: 35rem; margin:0px auto; margin-top:10px; margin-bottom:0px;}
+  #wrapper * {margin:0; padding:0}
+  #fullsize {overflow:hidden; position:relative; width:100%; height:100%; padding:2px; border:1px solid #ccc; background:#000}
+  #information {position:absolute; bottom:0; width:100%; height:0; max-height: 60px; background:#000; color:#fff; overflow:hidden; z-index:200; opacity:.7; filter:alpha(opacity=70)}
+  #information h3 {padding:4px 8px 3px; font-size:18px; color: #ccc;}
+  #information p {padding:0 8px 8px; font-size:12px; font-style: oblique;}
+  #image {width:100%}
+  #image img {position:absolute; z-index:25; width:100%}
+  .imgnav {position:absolute; width:25%; height:100%; cursor:pointer; z-index:150}
+  #imgprev {left:0; background:url(/static/left.gif) left center no-repeat}
+  #imgnext {right:0; background:url(/static/right.gif) right center no-repeat}
+  #imglink {position:absolute; height:100%; width:100%; z-index:100; opacity:.4; filter:alpha(opacity=40)}
+  .linkhover {background:url(/static/link.gif) center center no-repeat}
+  #thumbnails {margin-top:1rem; width: 45.5rem;}
+  #thumbnails img {width:6rem; vertical-align: top;}
+  #slideleft {float:left; width:1.3rem; height:6rem; background:url(/static/scroll-left.gif) center center no-repeat; background-color:#222}
+  #slideleft:hover {background-color:#333}
+  #slideright {float:right; width:1.3rem; height:6rem; background:#222 url(/static/scroll-right.gif) center center no-repeat}
+  #slideright:hover {background-color:#333}
+  #slidearea {float:left; position:relative; width:40rem;; margin-left:0.2rem; height:6rem; overflow:hidden}
+  #slider {position:absolute; left:0; height:6rem;}
+  #slider img {cursor:pointer; border:1px solid #666; padding:0.1rem;}
+</style>
+{% endblock %}
+{% block body %}
+
+
+  <div id="upcoming">
+    <p>This weekend: 
+    <!--<a href='http://www.apsva.us/Page/2706'> Season of Light.</a>-->
+    <!-- (reservations recommended).-->
+    <a href='http://www.apsva.us/Page/2706'>Arlington Public Schools programming.</a>
+  </p>
+  </div>
+  <div id = 'slidecontainer'>
+     <div class = 'slideshow'>
+      <ul id="slideshow">
+        {% for slide in slides %}
+          <li>
+            <h3>{{ slide.caption }}</h3>
+            <span>{{ slide.pic.url }}</span>
+            <p>{{ slide.credit }}</p>
+            <a href='{{ slide.target }}'><img src = '{{ slide.pic.url }}' /></a>
+          </li>
+        {% endfor %}
+      </ul>
+    
+    <div id="wrapper">
+            <div id="fullsize">
+                    <div id="imgprev" class="imgnav" title="Previous Image"></div>
+                    <div id="imglink"></div>
+                    <div id="imgnext" class="imgnav" title="Next Image"></div>
+                    <div id="image"></div>
+                    <div id="information">
+                            <h3></h3>
+                            <p></p>
+                    </div>
+            </div>
+            <div id="thumbnails">
+                    <div id="slideleft" title="Slide Left"></div>
+                    <div id="slidearea">
+                            <div id="slider"></div>
+                    </div>
+                    <div id="slideright" title="Slide Right"></div>
+            </div>
+    </div>
+
+    <script type="text/javascript" src="/static/js/tss.js"></script>
+    <script type="text/javascript">
+        var slideshow=new TINY.slideshow("slideshow");
+        window.onload=function(){
+        slideshow.auto=true;
+        slideshow.speed=5;
+        slideshow.link="linkhover";
+        slideshow.info="information";
+        slideshow.thumbs="slider";
+        slideshow.left="slideleft";
+        slideshow.right="slideright";
+        slideshow.scrollSpeed=4;
+        slideshow.spacing=5;
+        slideshow.active="#fff";
+        slideshow.init('slideshow','image','imgprev','imgnext','imglink');
+        }
+    </script>
+    </div>
+  </div>
+  <div id = 'stack' class = 'vstack'> 
+
+<div id = "frontnav" class = 'll'>
+<p><a href="/event">Events &amp; Shows</a></p>
+<p><a href="/join">Join, Donate, Subscribe</a></p>
+<p><a href="/post">Articles &amp; News</a></p>
+<p><a href="/notice">Press</a></p>
+<p><a href="/movies">Movies</a></p>
+<p><a href="/about">About the Planetarium</a></p>
+<p><a href="http://www.cafepress.com/friendsarlplanetarium/8533104">Shop<span id = "shopitem"><img alt = "mugshot" src="/static/mugforsale.png" /></span></a></p>
+</div>
+<script>
+  (function() {
+    var cx = '007968053313794302273:aypyetdofbi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div id = 'searchbox'>
+  <div class="gcse-search"></div>
+</div>
+<div id = "social">
+  <p><a href="http://facebook.com/friendsoftheplanetarium"><img src = "/static/fb.png" alt="" />acebook</a>&nbsp;
+  <a href="http://twitter.com/FrnzPlanetarium"><img src = "/static/twit.png" alt="" />witter</a>&nbsp;
+  <a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/insta.png" alt="" />Instagram</a>
+  </p>
+</div>
+<div id = 'frontcontent'>
+  <div id = "frontlatest">
+   <h1>Recent:</h1>
+   {% for p in latestentries %}
+      <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
+   {% endfor %}
+  </div>
+
+  {% if not smiled %}
+    <div id = 'smile' class = "newsletterform rhform">
+    <p>Support the Planetarium every time you buy from Amazon, at no cost to you: <a href="/smile/"><img alt="Amazon Smile" src="/static/smile.png" /></a></p>
+    </div>
+  {% endif %}
+</div>
+<div id = 'sponsors'>
+  <h2>Thanks to our major donors</h2>
+  <div id = 'sponsorlogos'>
+    <img src = '/static/sponsorlogos.jpg' alt = 'sponsor logos' /> 
+  </div>
+</div>
+<div id = 'solidbg'>
+<div id = "mainarray">
+  <div class = 'maincircle'>
+   <a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "http://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon" /></a>
+   <p>Current Moon</p>
+  </div>
+  <div class = 'maincircle'>
+<a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "http://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
+   <p>Current Sun</p>
+  </div>
+  <div class = 'maincircle'>
+   <a href = 'http://www.nasa.gov/feature/goddard/2016/mars-gravity-map' title = '”A new map of Mars’ gravity made with three NASA spacecraft is the most detailed to date, providing a revealing glimpse into the hidden interior of the Red Planet.”'>
+        <img src = '/static/northMarsGravity.png' alt = 'Gravity map of Mars northern hemisphere' />
+   </a>
+   <p>Mars gravity map</p>
+  </div>
+  <div class = 'maincircle'>
+   <a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a>
+   <p>Link to starchart</p>
+  </div>
+  <div class = 'maincircle'>
+   <a href = 'http://www.nasa.gov/feature/ames/Kepler/caught-for-the-first-time-the-early-flash-of-an-exploding-star' title = '”The brilliant flash of an exploding star’s shockwave—what astronomers call the “shock breakout”—has been captured for the first time in the optical wavelength or visible light by NASA’s planet-hunter, the Kepler space telescope.”'><img src = '/static/starshock_decor.png' alt = '' /></a>
+   <p>Exploding star shockwave</p>
+  </div>
+ </div>
+ <div id = 'schedule'>
+  <h2>Schedule of Shows:</h2>
+<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;bgcolor=%23999999&amp;src=u2k0tc9r2o3vt4s495itgnrol4%40group.calendar.google.com&amp;color=%2328754E&amp;ctz=America%2FNew_York" style="border:solid 1px #777" width="300" height="400" ></iframe>
+</div>
+     <div id = "planetfooter">
+        <div class = "footerlinks">
+           <a href = "/post/7/">About the corporation</a> 
+           <a href = "http://www.apsva.us/Page/2706">Arlington Public Schools</a>
+           <a href = "/about/">Contact the Friends</a>
+           <a href = "/website/">About the website</a>
+           <a href = "mailto:lee.phillips@alogus.com">Contact the webmaster</a>
+           <a href = "/join/">Keep the Planetarium open</a>
+        </div>
+     </div>
+ </div> 
+ </div> 
+  <!--<div id = 'centerline'></div>-->
+{% endblock %}
