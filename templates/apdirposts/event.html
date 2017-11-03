@@ -1,7 +1,7 @@
-{% extends "apdirposts/page.html" %}
+{% extends "apdirposts/post.html" %}
 {% block title %}{{ title }}{% endblock %}
-{% block pagecontent %}
-<div class = "postcontent">
+{% block content %}
+
    <h2>{{ title }}</h2> 
    <p class = 'eventdate'>{{ on }}</p>
    {% if free %}
@@ -9,7 +9,7 @@
    {% endif %}
    {{ content|safe }}
 {% if rpost %}
-<div class = 'rpost'>For more information, see <a href = "/post/{{ rpost.id }}">{{ rpost.title }}</a></div>
+<div class = ''>For more information, see <a href = "/post/{{ rpost.id }}">{{ rpost.title }}</a>
 {% endif %}
 <p><b>Doors open:</b> {{ doors|date:"f a" }} <b>Show begins:</b> {{ on|date:"f a" }}</p>
 </div>
@@ -17,12 +17,12 @@
 <div class = 'ebrite'>
 <iframe  src="https://www.eventbrite.com/tickets-external?eid={{ ebcode }}&ref=etckt&v=2" frameborder="0" height="750"  vspace="0" hspace="0" marginheight="0" marginwidth="0" scrolling="auto" allowtransparency="true"></iframe>
 </div>
-<div class = "morecontent">
+
 <p>Our capacity is 58 seats. We set aside 20 seats to accommodate those who 
 arrive without a reservation, so if the show is sold out you can still 
 try to attend by arriving close to {{ doors|date:"f a" }} However, although
 we will do whatever we can to seat all comers, there is no guarantee of admission
 without a reservation.</p>
-</div>
+
 {% endif %}
 {% endblock %}

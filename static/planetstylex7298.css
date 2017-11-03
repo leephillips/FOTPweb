@@ -454,15 +454,16 @@ div.eventlist span.eventlisttitle{
          background: none;
       }
       div.plannav div.timecell:hover{
-         background: #006;
+         background: #acc;
       }
       div.plannav a{
          /* display: block; */
       }
       div.plannav {
+          width: 98%;
         font-size: 1.0rem;
         line-height: 1.1em;
-        border: solid 0.5mm #ddd;
+        border: solid 0.5mm navy;
         margin-bottom: 1em;
         display: table;
       }
@@ -476,11 +477,13 @@ div.eventlist span.eventlisttitle{
       div.plannav div.daycell{
          display: table-cell;
          padding: 1em;
+         padding-right: 0;
          font-weight: bold;
          font-size: 1.25em;
       }
       div.plannav div.timecell{
          display: table-cell;
+         padding-left: 1rem;
       }
 /* ******************** */
 .ebrite{
@@ -1210,7 +1213,7 @@ div.medwords .lefttext{
     margin-top: 2rem;
 }
 .halfbox {
-    width: 49.75%;
+    width: 49.65%;
     height: 10.4rem;
     /* text-align: left; */
     margin: 0;
