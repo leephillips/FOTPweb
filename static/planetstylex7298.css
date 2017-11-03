@@ -1099,7 +1099,10 @@ h3 {
 h4 {
     /* Please don’t */
     }
-
+#searchloading {
+    height: 2.7rem;
+    color: #cccccc;
+}
 
 p.warn {
     border: solid #c35 1mm;
