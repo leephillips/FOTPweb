@@ -1375,7 +1375,12 @@ keyframes slide {
 /*    background: rgba(20, 20, 20, 0.65); */
 /* } */
 
-
+a:link {
+    color: #6600aa;
+}
+a:visited {
+    color: #666666;
+}
 
 @keyframes slideFadeIn {
 	from { opacity: 0.0; }
