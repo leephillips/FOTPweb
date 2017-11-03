@@ -19,6 +19,12 @@ body {
   /* background-size: 50%; */
   /* background-attachment: fixed; */
 }
+a:link {
+    color: #6600aa;
+}
+a:visited {
+    color: #666666;
+}
 #background {
    position:absolute;
    top: 0;
@@ -134,17 +140,6 @@ border-color: black;
    height: auto !important;
    border: none !important;
 }
-/* a:link { */
-/*   color: black; */
-/*   text-decoration: none; */
-/*   /* border-bottom: solid #565A84 1.5mm; */ */
-/* } */
-/* a:visited { */
-/*   color: black; */
-/*   text-decoration: none; */
-/*   /* border-bottom: solid #725176 1.5mm; */ */
-/* } */
-/*  */
 #picturebackground {
   position:absolute;
   top: 0;
@@ -176,6 +171,7 @@ p {
 margin-top: 1.0em; margin-bottom: 1.0em;
 }
 #social {
+    margin-top: 3rem;
     text-align: center;
 }
 #social img{
@@ -1072,44 +1068,36 @@ span.fnclicked span.fntext span.fntext{
     margin-bottom: 1em;
     text-align: center;
 }
-h1
-{
+h1 {
    padding-top: 0.7em;
    line-height: 0.8em;
-   text-align: left;
-   font-weight: normal;
-   font-size: 1.4em;
-   font-weight: normal;
+   text-align: center;
+   font-weight: bold;
+   font-size: 1.8rem;
    margin-top: 0.5em;
    margin-bottom: 0.5em;
 }
-h2{
+h2 {
    line-height: 1.0em;
    text-align: center;
    font-size: 1.6rem;
    margin-top: 1rem;
    margin-bottom: 0.2rem;
-   font-weight: bold;
+   font-weight: normal;
 }
 h3 {
     text-align: center;
-    line-height: 1.1em;
-    font-weight: bold;
-    margin-top: 1em;
+    line-height: 1.4rem;
+    font-weight: normal;
+    margin-top: 1rem;
     margin-bottom: 0.2em;
     font-size: 1.2rem;
     padding-top: 0.7em;
+    font-style: oblique;
     }
     
 h4 {
-    text-align: center;
-    line-height: 1.1em;
-    font-weight: normal;
-    margin-top: 1em;
-    margin-bottom: 0.2em;
-    font-size: 1.0em;
-    padding-top: 0.7em;
-    font-style: oblique;
+    /* Please don’t */
     }
 
 
@@ -1209,13 +1197,16 @@ label{
     display: inline-block;
     vertical-align: top;
 }
-.frontbox, .frontibox {
+div.frontbox, div.frontibox {
     text-align: center;
     margin: 0;
     padding: 0.0rem;
     padding-left: 0rem;
     font-size: 1.2rem;
     overflow:hidden;
+}
+div.frontbox a:link, div.frontibox a:visited{
+    color: black;
 }
 .smalltopstack {
     margin-right: 1.67rem;
@@ -1234,11 +1225,11 @@ label{
 .teal {
     background-color: #00aaaa;
 }
-.bigwords {
+div.bigwords {
     font-size: 4rem;
     padding: 2rem;
 }
-.medwords {
+div.medwords {
     font-size: 2rem;
     padding: 1rem;
     text-align: center;
@@ -1272,8 +1263,8 @@ div.bigwords button {
     border-bottom: solid 1mm;
     border-color: #ccaacc;
 }
-.frontbox a:link {
-    /* border-bottom: solid 1mm; */
+a div.frontbox{
+    color: black;
 }
 div.bigwords button {
     border-bottom: solid 1mm;
@@ -1382,12 +1373,6 @@ keyframes slide {
 /*    background: rgba(20, 20, 20, 0.65); */
 /* } */
 
-a:link {
-    color: #6600aa;
-}
-a:visited {
-    color: #666666;
-}
 
 @keyframes slideFadeIn {
 	from { opacity: 0.0; }

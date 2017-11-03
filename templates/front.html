@@ -1,25 +1,6 @@
-{% extends "site.html" %}
+{% extends "sitex7298.html" %}
 {% block title %}The Friends of Arlington’s Planetarium{% endblock %}
-{% block body %}
-  <div id = "frontlatest">
-    <a href='http://www.apsva.us/Page/2706'>
-      <div class="upcoming">This weekend: Arlington Public Schools programming.
-      </div>
-    </a>
-         <h2>Recent Items:</h2>
-   {% for p in latestentries %}
-      <p> <a href = "/{{ p.0 }}/{{ p.1.id }}">{{ p.1.title }}</a></p>
-   {% endfor %}
-</div>
-<div id = "mainlinklist" class = "ll">
-<p><a href="/event">Events &amp; Shows</a></p>
-<p><a href="/join">Join, Donate, Subscribe</a></p>
-<p><a href="/post">Articles &amp; News</a></p>
-<p><a href="/notice">Press</a> ● <a href="/movies">Movies</a></p>
-<p><a href="/about">About the Planetarium</a></p>
-
-<div id = "shoplinkdiv"><a href="http://www.cafepress.com/friendsarlplanetarium/8533104"><div id = "shoplink"><p>Shop</p></div><div id = "shopitem"><img alt = "mugshot" width = "80" src="/static/mugforsale.png" /></div></a></div>
-
+{% block style %}
 <script>
   (function() {
     var cx = '007968053313794302273:aypyetdofbi';
@@ -32,31 +13,77 @@
     s.parentNode.insertBefore(gcse, s);
   })();
 </script>
-<div class="gcse-search"></div>
+{% endblock %}
+{% block body %}
+<div id = 'frontcontainer'>
 
-<div id = "social">
-<p><a href="http://facebook.com/friendsoftheplanetarium"><img src = "/static/fb.png" alt="" />acebook</a>&nbsp;
-<a href="http://twitter.com/FrnzPlanetarium"><img src = "/static/twit.png" alt="" />witter</a>&nbsp;
-<a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/insta.png" alt="" />Instagram</a></p>
+    <div class = 'frontibox'>
+        <img src = "/static/Logo-Blue-20170909-01.png" alt="" />
+    </div>
+    <div class = 'frontbox bigwords'>
+         <form class = 'frontpagedonate' action="https://www.paypal.com/cgi-bin/webscr" method="post">
+            <a href="/join">Join</a> • 
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input type="hidden" name="hosted_button_id" value="MQKTXL3EDRM74" />
+            <button>Donate</button>
+            <!--<input type="image" src="/static/paypaldonatebutton.png" name="submit" alt="Donate through PayPal.">-->
+         </form>
+    </div>
+<div id = 'upcoming'  class = 'frontbox'><a href = 'https://friendsoftheplanetarium.org/post/86/'>
+        <a href='http://www.apsva.us/Page/2706'>This weekend: Arlington Public Schools programming.</a>
 </div>
 
-{% if not smiled %}
-  <div class = "newsletterform rhform">
-  <p class="normal_font_size">Support the Planetarium every time you buy from Amazon, at no cost to you:</p><a href="/smile/"><img alt="Amazon Smile" src="/static/smile.png" /></a>
-</div>
-<p>&nbsp;</p>
-{% endif %}
-<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;bgcolor=%23999999&amp;src=u2k0tc9r2o3vt4s495itgnrol4%40group.calendar.google.com&amp;color=%2328754E&amp;ctz=America%2FNew_York" style="border:solid 1px #777" width="300" height="400" frameborder="0" scrolling="no"></iframe>
-</div>
-<div id = "mainarray">
 
-<a href = "http://www.usno.navy.mil/USNO/astronomical-applications/data-services/"><img src = "https://lee-phillips.org/arlplanet/currentmoon.png" alt="Current Moon" title = "Current Moon." /></a>
-<a href = 'https://www.nasa.gov/image-feature/jpl/pia21895/cassinis-final-image'><img src = '/static/pia21895_impactsite_figa_finalimageC.png'  alt = "Impact Site: Cassini's Final Image" title = "“This monochrome view is the last image taken by the imaging cameras on NASA's Cassini spacecraft. It looks toward the planet's night side, lit by reflected light from the rings, and shows the location at which the spacecraft would enter the planet's atmosphere hours later.”"/></a>
-<!--<a href = "/starchart"><img src = "/static/azgt.png" alt="Star Chart" title = "Star Chart" /></a>-->
-<!--<a href = 'https://www.arlnow.com/2017/01/31/david-m-brown-planetarium-stars-in-winning-vehicle-decal-contest-entry/'-->
-<!--</a>-->
-<a href="http://cleardarksky.com/c/USNOkey.html?1"><img src = "/static/csc.png" alt="Observing Conditions" title = "Observing Conditions" /></a>
-<a href = "http://umbra.nascom.nasa.gov/images/"><img id = "sun" src = "https://lee-phillips.org/arlplanet/currentsun.png" alt="Current Sun" title = "Current Sun" /></a>
+  {% for post in promoted %}
+     <a href = "/post/{{ post.id }}">
 
-</div>
-{{pid}}/{% endblock %}
+        <div class = 'frontbox teal medwords'>
+            <p class = 'lefttext'>{{post.title}}</p>
+             {% if post.illustrations %}
+                {% for illustration in post.illustrations.all %}
+                   {% if forloop.first %}
+                   <div class = "rightpic">
+                      <img src="{{ illustration.pic.url }}" alt = "" />
+                   </div>
+                   {% endif %}
+                {% endfor %}
+             {% endif %}
+        </div>
+     </a>
+  {% endfor %}
+
+
+    <div class = 'frontbox medwords'>
+        <div class = 'smallcstack'>
+            <a  href = '/join'>More about us</a><br />
+            <a href = '/event'>Events &amp; Shows</a>
+        </div>
+        <div class = 'smallcstack'>
+            <a href = '/about#visit'> Ample free parking<br />
+            Close to Ballston Metro</a>
+        </div> 
+   </div> 
+   <div class = 'frontibox '>
+       <div class = 'slidewrapper'>
+           {% for pic in slides %}
+                <div class="slide">
+                    <img src = '{{pic.pic.url}}' alt = '' />
+                </div>
+           {% endfor %}
+
+       
+       </div>
+      <!--<img src = '/static/s1.gif' />-->
+   </div>
+     <div id = "planetfooter" class = 'frontbox'>
+        <div class = "footerlinks">
+           <a href = "/post/7/">The corporation</a> 
+           <a href = "http://www.apsva.us/Page/2706">Arlington Public Schools</a>
+           <a href = "/website/">About the website</a>
+           <a href = "mailto:lee.phillips@alogus.com">Email the webmaster</a>
+           <a href = "/about/">Contact us</a>
+           <a href = "/join/">Keep the Planetarium open</a>
+        </div>
+     </div>
+  </div>
+{% endblock %}

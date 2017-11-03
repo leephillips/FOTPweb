@@ -612,6 +612,7 @@ def front(request):
    today = now()
    latestentries = latest()
    slides = Illustration.objects.filter(slideshow = True)
+   promoted = Post.objects.filter(promote = True)   
    smiled = request.session.get('smiled')
    rsevents = Event.objects.filter(on__range = (today, REALSOON)).exclude(
                                        publish = False).count()
@@ -630,7 +631,6 @@ def x7297(request):
 def x7298(request):
    today = now()
    latestentries = latest(number = 5)
-   promoted = Post.objects.filter(promote = True)   
    slides = Illustration.objects.filter(slideshow = True)
    return render(request, '7298.html', locals())
 
