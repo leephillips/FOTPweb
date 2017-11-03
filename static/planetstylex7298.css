@@ -50,10 +50,6 @@ body {
    margin-left: 19.5rem;
 
 }
-#___gcse_0{
-    margin-top: -0.9rem;
-    margin-bottom: -0.5rem;
-}
 .frontpagedonate {
     display: inline-block;
     margin-bottom: .5rem;
@@ -86,18 +82,24 @@ body {
 #stack div {
   position:relative;
 }
+
+/* #searchbox { */
+/*   margin: 0.0em auto 0; */
+/*   margin-top: 3rem; */
+/*   /* border: solid black 1mm; */ */
+/*   width: 60%; */
+/*   } */
 .gsc-url-bottom {
    display: none;
 }
-
-#searchbox {
-  margin: 0.0em auto 0;
-  margin-top: 3rem;
-  /* border: solid black 1mm; */
-  width: 60%;
-  }
 input.gsc-input {
 border-color: black; 
+}
+#___gcse_0{
+    margin-top: -1.2rem;
+    margin-bottom: -0.5rem;
+    margin-left: -1.18rem;
+    width: 20rem;
 }
 .gsc-control-cse {
    background-color: rgba(0, 0, 0, 0.0) !important;
@@ -105,17 +107,22 @@ border-color: black;
 }
 .gsc-input {
    background-color: rgba(0, 0, 0, 0.0) !important;
-   color: black;
+   color: gray;
+}
+#gsc-i-id1{
+    text-indent: 100rem !important;
 }
 .gsc-input input {
-   background-position: 50% 50% !important;
+    width: 18rem !important;
+    border-color: gray !important;
+   /* background-position: 50% 50% !important; */
 }
 .gsc-search-button{
   border: none;
   margin: 0mm;
   /* margin-top: -0.3em !important; */
-  color: black !important;
-  font-size: 1.3em !important;
+  color: gray !important;
+  font-size: 1rem !important;
   font-weight: normal !important;
   font-family:  "Baumans", sans-serif !important;
   background: rgba(0, 0, 0, 0.0) !important;
