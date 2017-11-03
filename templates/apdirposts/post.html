@@ -1,41 +1,6 @@
-{% extends "sitex7298.html" %}
-{% block title %}The Friends of Arlington’s Planetarium{% endblock %}
-{% block style %}
-<script>
-  (function() {
-    var cx = '007968053313794302273:aypyetdofbi';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-{% endblock %}
-{% block body %}
-<div id = 'frontcontainer'>
+{% extends "apdirposts/article.html" %}
 
-<div class = 'halfbox'>
-    <a href = '/'>
-            <img src = "/static/Logo-Blue-20170909-01.png" alt="" />
-    </a>
-</div>
-<div class = 'halfbox medwords domebox'>
-  <div class = 'linkoverlay'>
-     <form class = 'frontpagedonate' action="https://www.paypal.com/cgi-bin/webscr" method="post">
-        <a href="/join">Join</a>
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="MQKTXL3EDRM74" />
-        <br />
-        <button>Donate</button><br />
-        <a href = '/visit/'>Visit</a>
-     </form>
- </div>
-</div>
-<div class="gcse-search"></div>
-<div class = "postcontent" id = "target">
+{% block content %}
    {% if author.director.bio|length > 2 %}
    <div class='title-article'>{{ title }}</div> 
       {% if byline %} 
@@ -78,23 +43,5 @@
    {% endfor %}
 </div>
 {% endif %}
-</div>
 
-   </div>
-<div id = "social" class = 'll'>
-<p><a href="http://facebook.com/friendsoftheplanetarium"><img src = "/static/fbB.png" alt="" />acebook</a>&nbsp;&nbsp;
-<a href="http://twitter.com/FrnzPlanetarium"><img src = "/static/twitB.png" alt="" />witter</a>&nbsp;&nbsp;
-<a href="http://instagram.com/FrnzPlanetarium"><img src = "/static/instaB.png" alt="" />Instagram</a></p>
-</div>
-     <div id = "planetfooter" class = 'frontbox'>
-        <div class = "footerlinks">
-           <a href = "/post/7/">The corporation</a> 
-           <a href = "http://www.apsva.us/Page/2706">Arlington Public Schools</a>
-           <a href = "/website/">About the website</a>
-           <a href = "mailto:lee.phillips@alogus.com">Email the webmaster</a>
-           <a href = "/about/">Contact us</a>
-           <a href = "/join/">Keep the Planetarium open</a>
-        </div>
-     </div>
-  </div>
 {% endblock %}
