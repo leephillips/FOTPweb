@@ -220,7 +220,7 @@ img {
    clear: both;
 }
 .maintextbanner{
-  visibility: hidden;
+  display: none;
 }
 .afternotes{
    font-size: 0.7em;
@@ -1423,8 +1423,52 @@ div.domebox a:link{
         from { left: 0; }
         to   { left: -429px; }
       }
+
+
+
+@media screen and (max-width: 700px){
+div#frontcontainer {
+    width: 100%;
+}
+div.frontibox {
+    display: none;
+}
+.maintextbanner{
+   display: block;
+   background: black;
+   color: #ccc;
+   /* background: #ddf; */
+   /* font-family: "Helvetica", sans-serif; */
+   font-size: 1.6rem;
+   font-weight: bold;
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+}
+div.bigwords{
+    font-size: 2rem;
+}
+div.bigwords button {
+    font-size: 2rem;
+}
+div#upcoming {
+    height: auto;
+}
+div.medwords {
+    text-align: left;
+    font-size: 1.4rem;
+}
+.smallcstack {
+    margin-right: 0rem;
+    display: block;
+    vertical-align: middle;
+    width: auto;
+    height: auto;
+}
+
+}
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
     /* special rules for consistency with Chrome */
 html {
   font-size: 80%;
 }
+
