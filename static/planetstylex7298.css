@@ -413,9 +413,9 @@ div.eventlist span.eventlisttitle{
 .joinform{
    width: 30%;
    float: left;
-   margin-right: 1.7em;
-   border: solid 0.5mm #ddd;
-   padding: 1.2em;
+   margin: 1.2rem;
+   border: solid 0.5mm #33d;
+   padding: 1.2rem;
 }
 .joinform p{
    text-indent: 0em;
@@ -424,6 +424,14 @@ div.eventlist span.eventlisttitle{
 }
 .joinform select{
    margin-bottom: 0.7em;
+}
+.formbox {
+   width: 40%;
+   margin: 1.0rem;
+   border: solid 0.5mm #33d;
+   padding: 1.0rem;
+   display: inline-block;
+   vertical-align: top;
 }
 /* Shows table */
       div.plannav a:link, div.plannav a:visited{
