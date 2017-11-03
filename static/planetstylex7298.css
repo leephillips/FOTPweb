@@ -1464,6 +1464,25 @@ div.medwords {
     width: auto;
     height: auto;
 }
+.domebox {
+ background: none;
+ line-height: 1.7rem;
+
+}
+img.circle{
+    display: none;
+}
+.thinright {
+    float: none;
+    color: gray;
+    margin-top: 0.0rem;
+    margin-bottom: 0.4rem;
+}
+div.halfbox {
+    height: auto;
+    width: 49.62%;
+}
+
 
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) { 
