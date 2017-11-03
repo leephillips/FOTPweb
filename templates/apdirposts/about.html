@@ -1,17 +1,27 @@
-{% extends "apdirposts/page.html" %}
-{% block title %}About the Planetarium{% endblock %}
-{% block pagecontent %}
-   <div class = "postcontent" id = "target">
-      <h2>Contact</h2>
-      <h3>Email</h3>
-      contact@friendsoftheplanetarium.org
-      <h3>Postal Mail</h3>
-      <p class = "address">Friends of the Planetarium<br>P.O. Box 7029<br>Arlington, VA 22207</p>
-      <h2>APS</h2>
-      <p>While the Friends of Arlington's David M. Brown Planetarium organization is an avid supporter of public programming and community exposure to the Planetarium, we are not involved in its use outside of the programming listed on our Programs page. &nbsp;All requests for use of the Planetarium are handled by Arlington Public Schools personnel. If you have questions in this area, please call&nbsp;<a href="tel:703-228-6070">703-228-6070</a>. &nbsp;This number&nbsp;will connect users to a recording with detailed information about APS&nbsp;programs, schedules, and how to request special events/programs. &nbsp;Please also&nbsp;visit&nbsp;<a href="http://www.apsva.us/planetarium">http://www.apsva.us/planetarium</a>&nbsp;for more information.</p>
-   <h2 id='visit'>Visit</h2>
+{% extends "apdirposts/special.html" %}
+{% block title %}About the Friends of the Planetarium{% endblock %}
+{% block content %}
+<p>
+ Founded in 2010 to save the Planetarium from being closed, Friends of Arlington's David M. Brown Planetarium is a 501(c)(3) nonprofit organization that continues to raise funds to make the Planetarium even better, and to support Arlington Public Schools in providing enhanced science education in Arlington County. The Friends of Arlington’s David M. Brown Planetarium has an all-volunteer Board of Directors and Advisory Council.  
+</p>
+<p>
+    One weekend per month the FOTP organizes a special three-day program around a particular theme.
+    This program replaces the regular <a href="http://www.apsva.us/planetarium">APS</a> schedule for that month, and typically includes full-dome
+    movies, talks, and special activities.
+</p>
+<h2>Contact</h2>
+<h3>Email</h3>
+contact@friendsoftheplanetarium.org
+<h3>Postal Mail</h3>
+<p class = "address">Friends of the Planetarium<br>P.O. Box 7029<br>Arlington, VA 22207</p>
+<h2>APS</h2>
+<p>While the Friends of Arlington's David M. Brown Planetarium organization is an avid supporter of public programming and community exposure to the Planetarium, we are not involved in its use outside of the programming listed on our Events page. &nbsp;All requests for use of the Planetarium are handled by Arlington Public Schools personnel. If you have questions in this area, please call&nbsp;<a href="tel:703-228-6070">703-228-6070</a>. &nbsp;This number&nbsp;will connect users to a recording with detailed information about APS&nbsp;programs, schedules, and how to request special events/programs. &nbsp;Please also&nbsp;visit&nbsp;<a href="http://www.apsva.us/planetarium">http://www.apsva.us/planetarium</a>&nbsp;for more information.</p>
+   <h2 id='visit'>Visit the Planetarium</h2>
    <p>1426 N Quincy St, Arlington, VA</p>
    <iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Arlington+Planetarium,+North+Quincy+Street,+Arlington,+VA&amp;aq=0&amp;oq=arlington+planetar&amp;sll=38.003385,-79.420925&amp;sspn=5.149802,6.075439&amp;t=m&amp;ie=UTF8&amp;hq=Arlington+Planetarium,&amp;hnear=N+Quincy+St,+Arlington,+Virginia&amp;ll=38.890144,-77.108393&amp;spn=0.006295,0.006295&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Arlington+Planetarium,+North+Quincy+Street,+Arlington,+VA&amp;aq=0&amp;oq=arlington+planetar&amp;sll=38.003385,-79.420925&amp;sspn=5.149802,6.075439&amp;t=m&amp;ie=UTF8&amp;hq=Arlington+Planetarium,&amp;hnear=N+Quincy+St,+Arlington,+Virginia&amp;ll=38.890144,-77.108393&amp;spn=0.006295,0.006295" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+   <p>
+       We are a short walk from the Ballston Metro and have ample free parking.
+   </p>
    <h2>Movies</h2>
    <p>A <a href = "/movies">collection of movies</a> depicting the recent history of the Planetarium and recording some related events and lectures.</p>
    <img style = "float:left; margin-bottom: 1em; margin-right:0.5em;" src = "{{ STATIC_URL }}dome.png" alt = '' />
@@ -20,5 +30,5 @@
    <p>A <a href="/post/7/">list</a> of our Board of Directors and Advisory Council, and information about the Corporation.</p>
    <h2>Annual Review</h2>
    <p><a href="/post/11">Covering 2012 — 2013</a>.</p>
-   </div>
+   
 {% endblock %}

@@ -1143,7 +1143,7 @@ label{
 }
 
 
-#frontcontainer {
+div#frontcontainer {
     /* border: solid red 0.5mm; */
     /* background-image: */
     /*          linear-gradient(to right, rgba(223,223,242,0) 0rem,  rgba(223,223,242,.5)  3rem, rgba(223,223,242,1) 20rem,  */

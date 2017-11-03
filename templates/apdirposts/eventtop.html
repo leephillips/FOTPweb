@@ -1,37 +1,8 @@
-{% extends "apdirposts/page.html" %}
-{% block title %}Upcoming Events{% endblock %}
-{% block pagecontent %}
-   <div class = "postcontent" id = "target">
-      <h1>Upcoming Events</h1>
-      <h2>In the Planetarium</h2>
-      <p style = "font-weight:bold;"><a href="http://friendsoftheplanetarium.org/post/78/">See an overview</a> of the Friends’ weekends for the entire season.</p>
-      {% regroup p by rpost as rp %}
-      {% for r in rp %}
-         {% if r.grouper %}
-            <h3 class = "eventgrouptitle">
-               <a class = "lnl" href="/post/{{ r.grouper.id }}/">{{ r.grouper.title }}</a>
-            </h3>
-            <div class = "relatedevents">
-               {% for event in r.list %}
-      <p class = "postlist"><a class = "lnl" href = "/event/{{ event.id }}"><span class = "eventdate">{{ event.on }}</span>: {{ event.title }}</a></p>         
-               {% endfor %}
-            </div>
-         {% else %}
-               {% for event in r.list %}
-      <p class = "postlist"><a class = "lnl" href = "/event/{{ event.id }}"><span class = "eventdate">{{ event.on }}</span>: {{ event.title }}</a></p>         
-               {% endfor %}
-         {% endif %}
-      {% endfor %}
-      <h2>In the Community</h2>
-        {% for e in community_events %}
-          <h3 class = "eventgrouptitle"><a href = '/community_event/{{e.id}}'>{{e.title}}</a>:
-           <span class = "eventdate">{{ e.on }}</span></h3>
-        {% endfor %}
-      <h2>APS Programming</h2>
-      <p>
-The Arlington Planetarium is open for public multimedia programs on
-weekends throughout the school year. For weekends not covered by Friends of
-the Planetarium programming listed above, please consult the <a href="http://www.apsva.us/Page/2706">Arlington
+{% extends "apdirposts/special.html" %}
+{% block title %}About the Friends of the Planetarium{% endblock %}
+{% block content %}
+   
+Arlington
    Public Schools website</a> for more details.
 </p><p>
 APS show times are: Fridays and Saturdays at 7:30PM and Sunday matinees at
