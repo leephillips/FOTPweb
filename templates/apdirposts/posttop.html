@@ -5,8 +5,8 @@
 <div class = "scrollleft">
     <h2>Past Articles</h2>
       {% for post in p %}
-         <a href = "/post/{{ post.id }}">
-        <p class = 'lefttext'>{{ post.title }}</a>
+         
+        <p class = 'lefttext'><a href = "/post/{{ post.id }}">{{ post.title }}</a>
         <br />
          {% if post.byline %}
          <span class="byline">by&nbsp;{{ post.byline }}</span>

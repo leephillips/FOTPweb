@@ -2,7 +2,6 @@
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
 
-   <h2>{{ title }}</h2> 
    <p class = 'eventdate'>{{ on }}</p>
    {% if free %}
      <p class = 'warn centerbanner'>This is a free show.</p>
@@ -18,11 +17,12 @@
 <iframe  src="https://www.eventbrite.com/tickets-external?eid={{ ebcode }}&ref=etckt&v=2" frameborder="0" height="750"  vspace="0" hspace="0" marginheight="0" marginwidth="0" scrolling="auto" allowtransparency="true"></iframe>
 </div>
 
+{% endif %}
+
 <p>Our capacity is 58 seats. We set aside 20 seats to accommodate those who 
 arrive without a reservation, so if the show is sold out you can still 
 try to attend by arriving close to {{ doors|date:"f a" }} However, although
 we will do whatever we can to seat all comers, there is no guarantee of admission
 without a reservation.</p>
 
-{% endif %}
 {% endblock %}

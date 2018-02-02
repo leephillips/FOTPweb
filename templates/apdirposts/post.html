@@ -1,8 +1,7 @@
 {% extends "apdirposts/article.html" %}
-
+{% block title %}{{title}}{% endblock %}
 {% block content %}
    {% if author.director.bio|length > 2 %}
-   <div class='title-article'>{{ title }}</div> 
       {% if byline %} 
       <div class = "byline">by <a href="/bio/{{ author.id }}">{{ byline }}</a> — <span class = "articledate">{{ date|date:'N j, Y' }}</span></div>
          {% else %}
