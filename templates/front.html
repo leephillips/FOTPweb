@@ -18,11 +18,9 @@
             <!--<input type="image" src="/static/paypaldonatebutton.png" name="submit" alt="Donate through PayPal.">-->
          </form>
     </div>
-<a class = 'plainlinks' href='http://www.apsva.us/Page/2706'>
-    <div id = 'upcoming'  class = 'frontbox'>
+<a class = 'plainlinks' href='http://www.apsva.us/Page/2706'><div id = 'upcoming'  class = 'frontbox'>
          This weekend: APS programming 
-    </div>
-</a>
+        </div></a>
 
 
   {% for post in promoted %}
@@ -54,15 +52,25 @@
             Close to Ballston Metro</a>
         </div> 
    </div> 
+
+    <div class = 'frontbox '>
+   <video src = '/static/leonov_spacewalk_mute_smaller.mp4' autoplay loop >Your browser does not support modern video</video>
+   <p>On March 18, 1965, Alexey Leonov performed the <a class = 'plainlinks' href = 'https://gizmodo.com/50-years-ago-the-first-spacewalk-nearly-ended-in-trage-1692303108'>first spacewalk</a>.</p>
+   </div> 
+
+   <br />
+
+
+
    <div class = 'frontibox '>
+       <a href = '/about/'>
        <div class = 'slidewrapper'>
            {% for pic in slides %}
                 <div class="slide">
                     <img src = '{{pic.pic.url}}' alt = '' />
                 </div>
            {% endfor %}
-
-       
        </div>
+       </a>
    </div>
 {% endblock %}

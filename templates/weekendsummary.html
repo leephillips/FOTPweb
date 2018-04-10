@@ -4,16 +4,9 @@
 </head>
 <h1>Weekend Selector</h1>
 <body>
-  <h2>Weekends with events in the future</h2>
-  <p>Click on the name of the weekend to make it live.</p>
-     {% for w in wlst %}
-     <h3><a href = '/ticketing/{{w.0.id}}/'>{{w.0.title}}</a></h3>
-       {% for e in w.1 %}
-         <p>{{e}}</p>
-         <p>{{e.tt}}</p>
-       {% endfor %}
-     {% endfor %}
-     {{t}}
-     {{tt}}
+  <h2>Under Repair</h2>
+  <p>Due to the switch to Ticketleap, the Weekend Publisher, which communicated with Eventbrite,
+  no longer works. For now, you need to generate the ticketing widgets on Ticketleap and paste
+  them into our event pages.</p>
 </body>
 </html>
