@@ -1248,6 +1248,7 @@ div.frontbox a:link, div.frontibox a:visited{
 }
 .teal {
     background-color: #00aaaa;
+    border-top: solid black 0.5mm;
 }
 div.bigwords {
     font-size: 4rem;
