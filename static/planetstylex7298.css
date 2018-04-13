@@ -107,7 +107,7 @@ a.plainlinks {
    display: none;
 }
 input.gsc-input {
-border-color: black; 
+border-color: black !important; 
 }
 #___gcse_0{
     margin-top: -1.2rem;
@@ -131,17 +131,29 @@ border-color: black;
     border-color: gray !important;
    /* background-position: 50% 50% !important; */
 }
-.gsc-search-button{
-  border: none;
+.gsc-input-box {
+    border: none !important;
+}
+
+.gsc-search-button, .gsc-search-button-v2{
+  border: none !important;
   margin: 0mm;
+  margin-left: -1rem !important;
+  margin-top: 0.5rem !important;
   /* margin-top: -0.3em !important; */
-  color: gray !important;
+  color: black !important;
   font-size: 1rem !important;
   font-weight: normal !important;
   font-family:  "Baumans", sans-serif !important;
   background: rgba(0, 0, 0, 0.0) !important;
   cursor: pointer;
+  fill: black;
 }
+
+.gsc-search-button-v2 svg{
+  fill: black !important;
+}
+
 .gsc-clear-button {
    display: none !important;
 }
