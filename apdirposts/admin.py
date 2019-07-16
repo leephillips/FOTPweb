@@ -1,5 +1,5 @@
 from models import Post
-from models import Director, Illustration, Postcategory, Event, Notice, CommunityEvent
+from models import Director, Illustration, Postcategory, Event, Notice, CommunityEvent, Weekend
 from django.contrib import admin
 from django.db import models
 from django.forms import ModelForm, CharField, TextInput
@@ -54,6 +54,11 @@ class CommunityEventAdmin(PostAdmin):
     #                        max_length = 500,
     #                        widget=TextInput(attrs={'size':'40'}))
     #    return super(CommunityEventAdmin, self).formfield_for_dbfield(field, **kwargs)
+
+# class WeekendAdmin(PostAdmin):
+class WeekendAdmin(admin.ModelAdmin):
+    list_display = ('start_date', 'happening') 
+    list_display_links = ('start_date',)
      
 class EventAdmin(PostAdmin):
     list_display = ('title', 'publish', 'on', 'ebcode')
@@ -95,6 +100,7 @@ admin.site.register(Illustration)
 admin.site.register(Postcategory)
 admin.site.register(Notice, NoticeAdmin)
 admin.site.register(Event, EventAdmin)
+admin.site.register(Weekend, WeekendAdmin)
 admin.site.register(CommunityEvent, CommunityEventAdmin)
 
 

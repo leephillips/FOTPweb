@@ -332,6 +332,17 @@ div.eventlist span.eventlisttitle{
 .rhform img {
   margin-left: 25%;
 }
+.centerfillthing {
+    width: 100%;
+    margin-left: auto;
+}
+.centertfthing { /* center 3/4 */
+    width: 75%;
+    margin: 0em 12.5%;
+}
+p.topabut {
+    margin-top: 0;
+}
 #upcoming {
    font-size: 1.6rem;
    /* left: 60rem; */
@@ -1110,7 +1121,7 @@ h2 {
    font-size: 1.6rem;
    margin-top: 1rem;
    margin-bottom: 0.2rem;
-   font-weight: normal;
+   font-weight: bold;
 }
 h3 {
     text-align: center;

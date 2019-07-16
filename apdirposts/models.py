@@ -59,6 +59,16 @@ class Post(models.Model):
    def __unicode__(self):
       return "%s, by %s" % (self.title, self.author)
 
+class Weekend(models.Model):
+    start_date = models.DateTimeField('First day of the weekend', blank = True, editable = True, null = True)
+    end_date = models.DateTimeField('Last day of the weekend', blank = True, editable = True, null = True)
+    teaser = models.ForeignKey(Post, related_name = 'tweekend', null = True, blank = True)
+    announcement = models.ForeignKey(Post, related_name = 'rweekend', null = True, blank = True)
+    happening = models.BooleanField(default = True)
+    def __unicode__(self):
+        return self.start_date + ' weekend.'
+
+
 class CommunityEvent(models.Model):
    author = models.ForeignKey(User)
    title = models.CharField(max_length=200)

@@ -1,7 +1,7 @@
 #! /bin/bash
 # ImageMagick must be installed.
 # Makes a picture (in png format) into a circularly masked png, with transparent
-# edges, for use on the FOTP website front page. Start with an image that is at
+# edges, for use on the FOTP website article pages. Start with an image that is at
 # least 150 px square, and close to those dimensions, with the element of interest centered. The mask image 
 # maske.png (stored in /static) must be available. But it can be reconstructed
 # with: 
