@@ -54,6 +54,7 @@ class Post(models.Model):
    publish = models.BooleanField()
    content = models.TextField(blank = True)
    illustrations = models.ManyToManyField(Illustration, null = True, blank = True)
+   useillustration = models.BooleanField()
    category = models.ForeignKey(Postcategory)
    promote = models.BooleanField(default = False)
    def __unicode__(self):

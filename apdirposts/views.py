@@ -291,7 +291,11 @@ def piccredit(caption, credit):
                 Credit: </span>%s</span>""" % credit
    return caption + credit
 
-def picparse(s, pics):
+def picparse(s, pics, useillustration = True):
+   if useillustration:
+       pkstart = 1
+   else:
+       pkstart = 2 #Do not display first illustration on article page, only on front page.
    picins = """<div class = "%s" style = 'width: %s;'>
    <img src = "https://friendsoftheplanetarium.org%s" alt = "" />
                                 <p class = "caption">%s</p></div>"""
@@ -312,7 +316,7 @@ def picparse(s, pics):
          c = s.find('>>') 
          if c > 0:
             a = s[o+2 : c]
-            for pic in p.keys():
+            for pic in p.keys()[pkstart-1:]:
                if a in pic:
                   s = s.replace(s[o:c+2], picins % (p[pic], widths[pic], pic, captions[pic]))
                   picmatch = True
@@ -325,12 +329,13 @@ def picparse(s, pics):
             return s
       return s
    else:
-      pk = p.keys()
-      s = picins % (p[pk[0]], widths[pk[0]], pk[0], captions[pk[0]]) + s
+      pk = p.keys()[pkstart-1:]
+      if len(pk) > 0:
+          s = picins % (p[pk[0]], widths[pk[0]], pk[0], captions[pk[0]]) + s
       if len(pk) == 1:
          return s
       return s + "\n".join([picins % (p[pic], widths[pic], pic, captions[pic]) 
-                            for pic in pk[1:]])
+                            for pic in pk[pkstart:]])
 
 @login_required
 def preview_post(request, which):
@@ -397,7 +402,7 @@ def post(request, which):
       pics = Illustration.objects.filter(post=which)
       content = p.content
       if len(pics) > 0:
-         content = picparse(content, pics)
+         content = picparse(content, pics, p.useillustration)
       if ("<iframe" in content or "<object" in content or
          "<embed" in content):
             template = "objpage.html"
