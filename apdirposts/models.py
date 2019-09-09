@@ -109,6 +109,7 @@ class Supporter(models.Model):
     phone_type = models.CharField('Type', max_length=20, choices = PHONE_TYPE, default = 1, blank = True, null = True)
     wants_email = models.BooleanField(default = False)
     comments = models.TextField(blank = True, null = True)
+    donation = models.DecimalField(max_digits=8, decimal_places=2, blank = True, null = True)
 
 
 class CommunityEvent(models.Model):
