@@ -133,6 +133,25 @@ class EclipseForm(forms.Form):
     notes = forms.CharField(max_length = 500, widget=forms.Textarea)
     image = forms.ImageField()
 
+class DonationForm(forms.Form):
+    first_name = forms.CharField(max_length=100)
+    last_name = forms.CharField(max_length=100)
+    middle_name = forms.CharField(max_length=100)
+    suffix_name = forms.CharField(max_length=10)
+    purpose = forms.CharField(max_length=100, choices = PURPOSE, default = 1)
+    member_type = forms.CharField(max_length=100, choices = MEMBER_TYPE, default = 1)
+    mailing_street = forms.CharField(max_length=100)
+    mailing_city = forms.CharField(max_length=100)
+    mailing_state = forms.CharField(max_length=100)
+    mailing_zip = forms.CharField(max_length=30)
+    phone = forms.CharField(max_length=30)
+    phone_type = forms.CharField(max_length=20, choices = PHONE_TYPE, default = 1)
+    wants_email = forms.BooleanField(default = False)
+    comments = forms.TextField()
+
+def donationpage(request):
+   return render(request, 'donationpage.html', locals())
+
 @login_required
 def newarticle(request, pid = None):
    main = Postcategory.objects.filter(postcategory = 'main')[0]

@@ -106,7 +106,9 @@ class Supporter(models.Model):
     mailing_state = models.CharField('State or province', max_length=100, blank = True, null = True)
     mailing_zip = models.CharField('Zip or postal code', max_length=30, blank = True, null = True)
     phone = models.CharField('Phone number', max_length=30, blank = True, null = True)
-    phone_type =  models.CharField('Type', max_length=20, choices = PHONE_TYPE, default = 1)
+    phone_type = models.CharField('Type', max_length=20, choices = PHONE_TYPE, default = 1, blank = True, null = True)
+    wants_email = models.BooleanField(default = False)
+    comments = models.TextField(blank = True, null = True)
 
 
 class CommunityEvent(models.Model):
