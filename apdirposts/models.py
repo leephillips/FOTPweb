@@ -78,6 +78,9 @@ class Supporter(models.Model):
     SPONSOR = 3
     PATRON = 4
     LIFETIME = 5
+    MOBILE = 1
+    HOME = 2
+    WORK = 3
     PURPOSE = (
         (DONOR, 'Contribution only'),
         (NEW_MEMBER, 'New membership'),
@@ -88,23 +91,22 @@ class Supporter(models.Model):
         (SPONSOR, '$50 - Sponsor'),
         (PATRON, '$100 - Patron'),
         (LIFETIME, '$1,000 - Lifetime'))
+    PHONE_TYPE = (
+        (MOBILE, 'Mobile'),
+        (HOME, 'Home'),
+        (WORK, 'Work'))
     first_name = models.CharField('First name', max_length=100)
     last_name = models.CharField('Last name', max_length=100)
     middle_name = models.CharField('Middle name', max_length=100, blank = True, null = True)
     suffix_name = models.CharField('Suffix', max_length=10, blank = True, null = True)
     purpose = models.CharField('What is the purpose of your payment?', max_length=100, choices = PURPOSE, default = 1)
     member_type = models.CharField('Type of membership', max_length=100, choices = MEMBER_TYPE, default = 1)
-
-Mailing street address:
-Mailing city:
-Mailing state/province:
-Mailing zip/postal code:
-Mailing country:
     mailing_street = models.CharField('Street address', max_length=100, blank = True, null = True)
     mailing_city = models.CharField('City', max_length=100, blank = True, null = True)
     mailing_state = models.CharField('State or province', max_length=100, blank = True, null = True)
     mailing_zip = models.CharField('Zip or postal code', max_length=30, blank = True, null = True)
-
+    phone = models.CharField('Phone number', max_length=30, blank = True, null = True)
+    phone_type =  models.CharField('Type', max_length=20, choices = PHONE_TYPE, default = 1)
 
 
 class CommunityEvent(models.Model):
