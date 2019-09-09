@@ -69,6 +69,43 @@ class Weekend(models.Model):
     def __unicode__(self):
         return self.start_date + ' weekend.'
 
+class Supporter(models.Model):
+    DONOR = 1
+    NEW_MEMBER = 2
+    RENEWING_MEMBER = 3
+    INDIVIDUAL = 1
+    FAMILY = 2
+    SPONSOR = 3
+    PATRON = 4
+    LIFETIME = 5
+    PURPOSE = (
+        (DONOR, 'Contribution only'),
+        (NEW_MEMBER, 'New membership'),
+        (RENEWING_MEMBER, 'Renewing membership'))
+    MEMBER_TYPE = (
+        (INDIVIDUAL, '$15 - Individual'),
+        (FAMILY, '$25 - Family'),
+        (SPONSOR, '$50 - Sponsor'),
+        (PATRON, '$100 - Patron'),
+        (LIFETIME, '$1,000 - Lifetime'))
+    first_name = models.CharField('First name', max_length=100)
+    last_name = models.CharField('Last name', max_length=100)
+    middle_name = models.CharField('Middle name', max_length=100, blank = True, null = True)
+    suffix_name = models.CharField('Suffix', max_length=10, blank = True, null = True)
+    purpose = models.CharField('What is the purpose of your payment?', max_length=100, choices = PURPOSE, default = 1)
+    member_type = models.CharField('Type of membership', max_length=100, choices = MEMBER_TYPE, default = 1)
+
+Mailing street address:
+Mailing city:
+Mailing state/province:
+Mailing zip/postal code:
+Mailing country:
+    mailing_street = models.CharField('Street address', max_length=100, blank = True, null = True)
+    mailing_city = models.CharField('City', max_length=100, blank = True, null = True)
+    mailing_state = models.CharField('State or province', max_length=100, blank = True, null = True)
+    mailing_zip = models.CharField('Zip or postal code', max_length=30, blank = True, null = True)
+
+
 
 class CommunityEvent(models.Model):
    author = models.ForeignKey(User)
