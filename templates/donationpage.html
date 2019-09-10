@@ -9,12 +9,30 @@
    </div>
    <div class = 'maintextbanner'>The Friends of Arlington’s Planetarium</div>
 
-   <h1>Thank you for your interest and support. Please use the form on this page
-   to purchase a membership and/or make a donation to the Friends of the Planetarium.</h1>
+   <p>Thank you for your interest and support. Please use the form on this page
+   to purchase a membership and/or make a donation to the Friends of the Planetarium.
+   <span class = 'required'>These entries</span> are required.
+   </p>
 
    <h2>About you</h2>
 
-   First name: {{form.first_name}}
+   <div class = 'form_minor_section'>
+       <p><span class= 'required'>First name</span>: {{form.first_name}}</p>
+       <p><span class = 'required'>Last name</span>: {{form.last_name}}</p>
+       <p>Middle name: {{form.middle_name}}</p>
+       <p>Suffix (Jr., etc.) {{form.suffix_name}}</p>
+   </div>
+   <div class = 'form_minor_section'>
+       <p>Street address: {{form.mailing_street}}</p>
+       <p>City: {{form.mailing_city}}</p>
+       <p>State: {{form.mailing_state}}</p>
+       <p>Zip code: {{form.mailing_zip}}</p>
+       <p>Phone number: {{form.phone}}&nbsp;&nbsp;&nbsp;Type: {{form.phone_type}}</p>
+   </div>
+   <div class = 'form_minor_section'>
+
+
+   </div>
     
 
 {% endblock %}

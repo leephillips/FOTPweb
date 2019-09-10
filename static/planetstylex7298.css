@@ -1273,6 +1273,15 @@ div.frontbox a:link, div.frontibox a:visited{
     background-color: #00aaaa;
     border-top: solid black 0.5mm;
 }
+.required {
+    color: #cc9944;
+}
+div.form_minor_section {
+    margin-bottom: 2rem;
+}
+div.form_minor_section p {
+    margin-top: 0.4rem; margin-bottom: 0.4rem;
+}
 div.bigwords {
     font-size: 4rem;
     padding: 2rem;

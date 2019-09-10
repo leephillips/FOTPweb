@@ -107,6 +107,7 @@ class Supporter(models.Model):
     mailing_zip = models.CharField('Zip or postal code', max_length=30, blank = True, null = True)
     phone = models.CharField('Phone number', max_length=30, blank = True, null = True)
     phone_type = models.CharField('Type', max_length=20, choices = PHONE_TYPE, default = 1, blank = True, null = True)
+    email = models.EmailField('Primary email', blank = True, null = True)
     wants_email = models.BooleanField(default = False)
     comments = models.TextField(blank = True, null = True)
     donation = models.DecimalField(max_digits=8, decimal_places=2, blank = True, null = True)

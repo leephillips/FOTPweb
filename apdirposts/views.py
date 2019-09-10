@@ -134,6 +134,31 @@ class EclipseForm(forms.Form):
     image = forms.ImageField()
 
 class DonationForm(forms.Form):
+    DONOR = 1
+    NEW_MEMBER = 2
+    RENEWING_MEMBER = 3
+    INDIVIDUAL = 1
+    FAMILY = 2
+    SPONSOR = 3
+    PATRON = 4
+    LIFETIME = 5
+    MOBILE = 1
+    HOME = 2
+    WORK = 3
+    PURPOSE = (
+        (DONOR, 'Contribution only'),
+        (NEW_MEMBER, 'New membership'),
+        (RENEWING_MEMBER, 'Renewing membership'))
+    MEMBER_TYPE = (
+        (INDIVIDUAL, '$15 - Individual'),
+        (FAMILY, '$25 - Family'),
+        (SPONSOR, '$50 - Sponsor'),
+        (PATRON, '$100 - Patron'),
+        (LIFETIME, '$1,000 - Lifetime'))
+    PHONE_TYPE = (
+        (MOBILE, 'Mobile'),
+        (HOME, 'Home'),
+        (WORK, 'Work'))
     first_name = forms.CharField(max_length=100)
     last_name = forms.CharField(max_length=100)
     middle_name = forms.CharField(max_length=100)
@@ -145,11 +170,12 @@ class DonationForm(forms.Form):
     mailing_state = forms.CharField(max_length=100)
     mailing_zip = forms.CharField(max_length=30)
     phone = forms.CharField(max_length=30)
-    # phone_type = forms.CharField(max_length=20, choices = PHONE_TYPE, default = 1)
+    phone_type = forms.ChoiceField(choices = PHONE_TYPE)
     wants_email = forms.BooleanField()
     # comments = forms.TextField()
 
 def donationpage(request):
+   form = DonationForm()
    return render(request, 'donationpage.html', locals())
 
 @login_required
