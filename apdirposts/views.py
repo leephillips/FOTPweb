@@ -134,7 +134,7 @@ class EclipseForm(forms.Form):
     image = forms.ImageField()
 
 class DonationForm(forms.Form):
-    DONOR = 1
+    NOMEMBERSHIP = 0
     NEW_MEMBER = 2
     RENEWING_MEMBER = 3
     INDIVIDUAL = 1
@@ -146,10 +146,10 @@ class DonationForm(forms.Form):
     HOME = 2
     WORK = 3
     PURPOSE = (
-        (DONOR, 'Contribution only'),
         (NEW_MEMBER, 'New membership'),
         (RENEWING_MEMBER, 'Renewing membership'))
     MEMBER_TYPE = (
+        (NOMEMBERSHIP, 'I am not purchasing a membership.'),
         (INDIVIDUAL, '$15 - Individual'),
         (FAMILY, '$25 - Family'),
         (SPONSOR, '$50 - Sponsor'),
@@ -163,16 +163,18 @@ class DonationForm(forms.Form):
     last_name = forms.CharField(max_length=100)
     middle_name = forms.CharField(max_length=100)
     suffix_name = forms.CharField(max_length=10)
-    # purpose = forms.CharField(max_length=100, choices = PURPOSE, default = 1)
-    # member_type = forms.CharField(max_length=100, choices = MEMBER_TYPE, default = 1)
+    purpose = forms.ChoiceField(choices = PURPOSE, widget = forms.RadioSelect)
+    member_type = forms.ChoiceField(choices = MEMBER_TYPE)
     mailing_street = forms.CharField(max_length=100)
     mailing_city = forms.CharField(max_length=100)
     mailing_state = forms.CharField(max_length=100)
     mailing_zip = forms.CharField(max_length=30)
     phone = forms.CharField(max_length=30)
     phone_type = forms.ChoiceField(choices = PHONE_TYPE)
+    email = forms.EmailField()
     wants_email = forms.BooleanField()
-    # comments = forms.TextField()
+    comments = forms.CharField(max_length = 250)
+    donation = forms.DecimalField(max_digits=8, decimal_places=2)
 
 def donationpage(request):
    form = DonationForm()

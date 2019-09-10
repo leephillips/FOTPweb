@@ -30,9 +30,21 @@
        <p>Phone number: {{form.phone}}&nbsp;&nbsp;&nbsp;Type: {{form.phone_type}}</p>
    </div>
    <div class = 'form_minor_section'>
+       <p> <span class = 'required'>Email address</span>: {{form.email}} </p>
+        <p>Do you want to receive email communications including advance notice of shows and events, and the Friends’ newsletter?
+           {{form.wants_email}} (Check the box if you do.)</p>
 
+        <h2>What would you like to do?</h2>
 
-   </div>
-    
+       <div class = 'form_minor_section'>
+           <p>If you would like to purchase a membership, please choose which type:</p>
+           <p>{{form.member_type}}</p>
+           <p>If you are purchasing a membership, is this a:</p>
+            {{form.purpose}}
+       </div>
+       <div class = 'form_minor_section'>
+           If you would like to make a donation in addition to, or instead of, purchasing a membership,
+           please enter the amount here: {{form.donation}}
+       </div>
 
 {% endblock %}

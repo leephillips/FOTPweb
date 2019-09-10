@@ -70,7 +70,6 @@ class Weekend(models.Model):
         return self.start_date + ' weekend.'
 
 class Supporter(models.Model):
-    DONOR = 1
     NEW_MEMBER = 2
     RENEWING_MEMBER = 3
     INDIVIDUAL = 1
@@ -82,7 +81,6 @@ class Supporter(models.Model):
     HOME = 2
     WORK = 3
     PURPOSE = (
-        (DONOR, 'Contribution only'),
         (NEW_MEMBER, 'New membership'),
         (RENEWING_MEMBER, 'Renewing membership'))
     MEMBER_TYPE = (
