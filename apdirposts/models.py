@@ -70,41 +70,32 @@ class Weekend(models.Model):
         return self.start_date + ' weekend.'
 
 class Supporter(models.Model):
-    NEW_MEMBER = 2
-    RENEWING_MEMBER = 3
-    INDIVIDUAL = 1
-    FAMILY = 2
-    SPONSOR = 3
-    PATRON = 4
-    LIFETIME = 5
-    MOBILE = 1
-    HOME = 2
-    WORK = 3
     PURPOSE = (
-        (NEW_MEMBER, 'New membership'),
-        (RENEWING_MEMBER, 'Renewing membership'))
+        ('New', 'New membership'),
+        ('Renewing', 'Renewing membership'))
     MEMBER_TYPE = (
-        (INDIVIDUAL, '$15 - Individual'),
-        (FAMILY, '$25 - Family'),
-        (SPONSOR, '$50 - Sponsor'),
-        (PATRON, '$100 - Patron'),
-        (LIFETIME, '$1,000 - Lifetime'))
+        ('Nomembership', 'I am not purchasing a membership.'),
+        ('Individual', '$15 - Individual'),
+        ('Family', '$25 - Family'),
+        ('Sponsor', '$50 - Sponsor'),
+        ('Patron', '$100 - Patron'),
+        ('Lifetime', '$1,000 - Lifetime'))
     PHONE_TYPE = (
-        (MOBILE, 'Mobile'),
-        (HOME, 'Home'),
-        (WORK, 'Work'))
+        ('Mobile', 'Mobile'),
+        ('Home', 'Home'),
+        ('Work', 'Work'))
     first_name = models.CharField('First name', max_length=100)
     last_name = models.CharField('Last name', max_length=100)
     middle_name = models.CharField('Middle name', max_length=100, blank = True, null = True)
     suffix_name = models.CharField('Suffix', max_length=10, blank = True, null = True)
-    purpose = models.CharField('What is the purpose of your payment?', max_length=100, choices = PURPOSE, default = 1)
-    member_type = models.CharField('Type of membership', max_length=100, choices = MEMBER_TYPE, default = 1)
+    purpose = models.CharField('What is the purpose of your payment?', max_length=100, choices = PURPOSE, default = 'New')
+    member_type = models.CharField('Type of membership', max_length=100, choices = MEMBER_TYPE, default = 'Nomembership')
     mailing_street = models.CharField('Street address', max_length=100, blank = True, null = True)
     mailing_city = models.CharField('City', max_length=100, blank = True, null = True)
     mailing_state = models.CharField('State or province', max_length=100, blank = True, null = True)
     mailing_zip = models.CharField('Zip or postal code', max_length=30, blank = True, null = True)
     phone = models.CharField('Phone number', max_length=30, blank = True, null = True)
-    phone_type = models.CharField('Type', max_length=20, choices = PHONE_TYPE, default = 1, blank = True, null = True)
+    phone_type = models.CharField('Type', max_length=20, choices = PHONE_TYPE, default = 'Mobile', blank = True, null = True)
     email = models.EmailField('Primary email', blank = True, null = True)
     wants_email = models.BooleanField(default = False)
     comments = models.TextField(blank = True, null = True)

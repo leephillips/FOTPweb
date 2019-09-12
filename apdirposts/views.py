@@ -134,51 +134,60 @@ class EclipseForm(forms.Form):
     image = forms.ImageField()
 
 class DonationForm(forms.Form):
-    NOMEMBERSHIP = 0
-    NEW_MEMBER = 2
-    RENEWING_MEMBER = 3
-    INDIVIDUAL = 1
-    FAMILY = 2
-    SPONSOR = 3
-    PATRON = 4
-    LIFETIME = 5
-    MOBILE = 1
-    HOME = 2
-    WORK = 3
     PURPOSE = (
-        (NEW_MEMBER, 'New membership'),
-        (RENEWING_MEMBER, 'Renewing membership'))
+        ('New', 'New membership'),
+        ('Renewing', 'Renewing membership'))
     MEMBER_TYPE = (
-        (NOMEMBERSHIP, 'I am not purchasing a membership.'),
-        (INDIVIDUAL, '$15 - Individual'),
-        (FAMILY, '$25 - Family'),
-        (SPONSOR, '$50 - Sponsor'),
-        (PATRON, '$100 - Patron'),
-        (LIFETIME, '$1,000 - Lifetime'))
+        ('Nomembership', 'I am not purchasing a membership.'),
+        ('Individual', '$15 - Individual'),
+        ('Family', '$25 - Family'),
+        ('Sponsor', '$50 - Sponsor'),
+        ('Patron', '$100 - Patron'),
+        ('Lifetime', '$1,000 - Lifetime'))
     PHONE_TYPE = (
-        (MOBILE, 'Mobile'),
-        (HOME, 'Home'),
-        (WORK, 'Work'))
+        ('Mobile', 'Mobile'),
+        ('Home', 'Home'),
+        ('Work', 'Work'))
     first_name = forms.CharField(max_length=100)
     last_name = forms.CharField(max_length=100)
-    middle_name = forms.CharField(max_length=100)
-    suffix_name = forms.CharField(max_length=10)
-    purpose = forms.ChoiceField(choices = PURPOSE, widget = forms.RadioSelect)
-    member_type = forms.ChoiceField(choices = MEMBER_TYPE)
-    mailing_street = forms.CharField(max_length=100)
-    mailing_city = forms.CharField(max_length=100)
-    mailing_state = forms.CharField(max_length=100)
-    mailing_zip = forms.CharField(max_length=30)
-    phone = forms.CharField(max_length=30)
+    middle_name = forms.CharField(max_length=100, required = False)
+    suffix_name = forms.CharField(max_length=10, required = False)
+    purpose = forms.ChoiceField(choices = PURPOSE, widget = forms.RadioSelect, required = False)
+    member_type = forms.ChoiceField(choices = MEMBER_TYPE, required = False)
+    mailing_street = forms.CharField(max_length=100, required = False)
+    mailing_city = forms.CharField(max_length=100, required = False)
+    mailing_state = forms.CharField(max_length=100, required = False)
+    mailing_zip = forms.CharField(max_length=30, required = False)
+    phone = forms.CharField(max_length=30, required = False)
     phone_type = forms.ChoiceField(choices = PHONE_TYPE)
     email = forms.EmailField()
-    wants_email = forms.BooleanField()
-    comments = forms.CharField(max_length = 250)
-    donation = forms.DecimalField(max_digits=8, decimal_places=2)
+    wants_email = forms.BooleanField(required=False)
+    comments = forms.CharField(max_length = 250, required = False)
+    donation = forms.DecimalField(max_digits=8, decimal_places=2, required = False)
 
 def donationpage(request):
    form = DonationForm()
    return render(request, 'donationpage.html', locals())
+
+def donation_submit(request):
+    #Calculate total
+    if request.method == 'POST':
+        form = DonationForm(request.POST)
+        if form.is_valid():
+            c = form.cleaned_data
+            new_supporter = Supporter(**c)
+            new_supporter.save()
+            return HttpResponseRedirect('/donation_thanks/')
+        else:
+            # kill = 1./0.
+            return render(request, 'donationpage.html', {'form': form})
+    else:
+        return HttpResponseRedirect('/donationpage/')
+
+def donation_thanks(request):
+    return render(request, 'donation_thanks.html', locals())
+
+
 
 @login_required
 def newarticle(request, pid = None):

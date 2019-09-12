@@ -14,37 +14,45 @@
    <span class = 'required'>These entries</span> are required.
    </p>
 
+ <form action = '/donation_submit/' method = 'POST'>
    <h2>About you</h2>
-
+ {{ form.non_field_errors }}
+ 
+   {% csrf_token %}
    <div class = 'form_minor_section'>
-       <p><span class= 'required'>First name</span>: {{form.first_name}}</p>
-       <p><span class = 'required'>Last name</span>: {{form.last_name}}</p>
-       <p>Middle name: {{form.middle_name}}</p>
-       <p>Suffix (Jr., etc.) {{form.suffix_name}}</p>
+       <p><span class= 'required'>First name</span>: {{form.first_name}} {{form.first_name.errors}}</p> 
+       <p><span class = 'required'>Last name</span>: {{form.last_name}} {{form.last_name.errors}}</p>
+       <p>Middle name: {{form.middle_name}} {{form.middle_name.errors}}</p>
+       <p>Suffix (Jr., etc.) {{form.suffix_name}} {{form.suffix_name.errors}}</p>
    </div>
    <div class = 'form_minor_section'>
-       <p>Street address: {{form.mailing_street}}</p>
-       <p>City: {{form.mailing_city}}</p>
-       <p>State: {{form.mailing_state}}</p>
-       <p>Zip code: {{form.mailing_zip}}</p>
-       <p>Phone number: {{form.phone}}&nbsp;&nbsp;&nbsp;Type: {{form.phone_type}}</p>
+       <p>Street address: {{form.mailing_street}} {{form.mailing_street.errors}}</p>
+       <p>City: {{form.mailing_city}} {{form.mailing_city.errors}}</p>
+       <p>State: {{form.mailing_state}} {{form.mailing_state.errors}}</p>
+       <p>Zip code: {{form.mailing_zip}} {{form.mailing_zip.errors}}</p>
+       <p>Phone number: {{form.phone}}&nbsp;&nbsp;&nbsp;Type: {{form.phone_type}} {{form.phone_type.errors}}</p>
    </div>
    <div class = 'form_minor_section'>
-       <p> <span class = 'required'>Email address</span>: {{form.email}} </p>
+       <p> <span class = 'required'>Email address</span>: {{form.email}} {{form.email.errors}} </p>
         <p>Do you want to receive email communications including advance notice of shows and events, and the Friends’ newsletter?
-           {{form.wants_email}} (Check the box if you do.)</p>
+           {{form.wants_email}} {{form.wants_email.errors}} (Check the box if you do.)</p>
 
         <h2>What would you like to do?</h2>
 
        <div class = 'form_minor_section'>
            <p>If you would like to purchase a membership, please choose which type:</p>
-           <p>{{form.member_type}}</p>
+           <p>{{form.member_type}} {{form.member_type.errors}}</p>
            <p>If you are purchasing a membership, is this a:</p>
-            {{form.purpose}}
+            {{form.purpose}} {{form.purpose.errors}}
        </div>
        <div class = 'form_minor_section'>
            If you would like to make a donation in addition to, or instead of, purchasing a membership,
-           please enter the amount here: {{form.donation}}
+           please enter the amount here: {{form.donation}} {{form.donation.errors}}
        </div>
+       <div class = 'form_minor_section'>
+           <p>Any comments: {{form.comments}} {{form.comments.errors}}
+       </div>
+   <button type = 'submit'>Submit form and go to PayPal</button>
+</form>
 
 {% endblock %}
