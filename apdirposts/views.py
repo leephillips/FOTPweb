@@ -164,7 +164,7 @@ class DonationForm(forms.Form):
     email = forms.EmailField()
     wants_email = forms.BooleanField(required=False)
     comments = forms.CharField(max_length = 250, required = False)
-    donation = forms.DecimalField(max_digits=8, decimal_places=2, required = False, min_value=Decimal('0.01'))
+    donation = forms.DecimalField(max_digits=8, decimal_places=2, required = False, min_value=Decimal('0.00'))
 
 def donationpage(request):
    form = DonationForm()
