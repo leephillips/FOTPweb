@@ -171,20 +171,21 @@ def donationpage(request):
    return render(request, 'donationpage.html', locals())
 
 def donation_submit(request):
-    member_prices = {'Individual': 15., 'Family': 25., 'Sponsor': 50., 'Lifetime': 1000.}
+    member_prices = {'Nomembership': 0., 'Individual': 15., 'Family': 25., 'Sponsor': 50., 'Lifetime': 1000.}
     if request.method == 'POST':
         form = DonationForm(request.POST)
         if form.is_valid():
             c = form.cleaned_data
             #Calculate total
             try:
-                membershipCharge = member_prices[c['member_type']]
+                membershipCharge = member_prices[c['member_type']] or 0.0
             except:
                 membershipCharge = 0.0
             try:
-                donationCharge = c['donation']
+                donationCharge = c['donation'] or 0.0
             except:
                 donationCharge = 0.0
+            # kill = 1./0.
             new_supporter = Supporter(**c)
             new_supporter.total = Decimal(membershipCharge) + Decimal(donationCharge)
             new_supporter.save()
