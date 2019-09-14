@@ -9,6 +9,7 @@ from django.forms.models import modelformset_factory
 from django.contrib.auth.decorators import login_required, user_passes_test, permission_required
 from tinymce.widgets import TinyMCE
 from django.conf  import settings
+from decimal import *
 
 now = datetime.now # to be called in views to get the fresh now
 today = datetime.now()
@@ -170,16 +171,25 @@ def donationpage(request):
    return render(request, 'donationpage.html', locals())
 
 def donation_submit(request):
-    #Calculate total
+    member_prices = {'Individual': 15., 'Family': 25., 'Sponsor': 50., 'Lifetime': 1000.}
     if request.method == 'POST':
         form = DonationForm(request.POST)
         if form.is_valid():
             c = form.cleaned_data
+            #Calculate total
+            try:
+                membershipCharge = member_prices[c['member_type']]
+            except:
+                membershipCharge = 0.0
+            try:
+                donationCharge = c['donation']
+            except:
+                donationCharge = 0.0
             new_supporter = Supporter(**c)
+            new_supporter.total = Decimal(membershipCharge) + Decimal(donationCharge)
             new_supporter.save()
             return HttpResponseRedirect('/donation_thanks/')
         else:
-            # kill = 1./0.
             return render(request, 'donationpage.html', {'form': form})
     else:
         return HttpResponseRedirect('/donationpage/')

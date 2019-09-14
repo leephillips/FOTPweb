@@ -100,6 +100,8 @@ class Supporter(models.Model):
     wants_email = models.BooleanField(default = False)
     comments = models.TextField(blank = True, null = True)
     donation = models.DecimalField(max_digits=8, decimal_places=2, blank = True, null = True)
+    total = models.DecimalField(max_digits=8, decimal_places=2, default = 0) #Addition of membership fee and donation, set to 0 in view
+                                                                #if both of those are blank (only wants announcements, perhaps).
 
 
 class CommunityEvent(models.Model):
