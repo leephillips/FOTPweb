@@ -1,0 +1,56 @@
+ {% extends "sitex7298.html" %}
+{% block title %}Donation and Member Signup Page{% endblock %}
+{% block style %}
+{% endblock %}
+{% block top %}
+
+    <div class = 'frontibox'>
+        <img src = "/static/Logo-Blue-20170909-01.png" alt="" />
+   </div>
+   <div class = 'maintextbanner'>The Friends of Arlington’s Planetarium</div>
+   <div class = 'donorformpage'>
+
+   <p>Thank you for supporting the Friends of the Planetarium.
+   Please check the information on this page and, if it is correct, click the button to go on to Paypal.
+   If you need to correct anything, please use your browser's back button.
+   </p>
+
+   <h2>About you</h2>
+ 
+   {% csrf_token %}
+   <div class = 'form_minor_section'>
+       <p>First name: {{c.first_name}} </p> 
+       <p>Last name: {{c.last_name}} </p>
+       <p>Middle name: {{c.middle_name}} </p>
+       <p>Suffix (Jr., etc.) {{c.suffix_name}} </p>
+   </div>
+   <div class = 'form_minor_section'>
+       <p>Street address: {{c.mailing_street}} </p>
+       <p>City: {{c.mailing_city}} </p>
+       <p>State: {{c.mailing_state}} </p>
+       <p>Zip code: {{c.mailing_zip}} </p>
+       <p>Phone number: {{c.phone}}&nbsp;&nbsp;&nbsp;Type: {{form.phone_type}} </p>
+   </div>
+   <div class = 'form_minor_section'>
+       <p> Email address: {{c.email}}  </p>
+        <p>Do you want to receive email communications including advance notice of shows and events, and the Friends’ newsletter?
+           {{c.wants_email}}  (Check the box if you do.)</p>
+
+        <h2>What would you like to do?</h2>
+
+       <div class = 'form_minor_section'>
+           <p>If you would like to purchase a membership, please choose which type:</p>
+           <p>{{c.member_type}} </p>
+           <p>If you are purchasing a membership, is this a:</p>
+            {{c.purpose}} 
+       </div>
+       <div class = 'form_minor_section'>
+           If you would like to make a donation in addition to, or instead of, purchasing a membership,
+           please enter the amount here: {{c.donation}} 
+       </div>
+       <div class = 'form_minor_section'>
+           <p>Any comments: {{c.comments}} 
+       </div>
+   <button type = 'submit'>Submit form and go to PayPal</button>
+  </div>
+{% endblock %}

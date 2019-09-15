@@ -171,6 +171,7 @@ def donationpage(request):
    return render(request, 'donationpage.html', locals())
 
 def donation_submit(request):
+    """Gather information, store in Supporter table in DB, and direct to information check on the way to Paypal."""
     member_prices = {'Nomembership': 0., 'Individual': 15., 'Family': 25., 'Sponsor': 50., 'Lifetime': 1000.}
     if request.method == 'POST':
         form = DonationForm(request.POST)
@@ -188,11 +189,18 @@ def donation_submit(request):
             new_supporter = Supporter(**c)
             new_supporter.total = Decimal(membershipCharge) + Decimal(donationCharge)
             new_supporter.save()
-            return HttpResponseRedirect('/donation_thanks/')
+            c['donation'] = float(c['donation']) #Can't sent Decimals through the session
+            c['total'] = float(new_supporter.total)            
+            request.session['c'] = c
+            return HttpResponseRedirect('/donation_topaypal/')
         else:
             return render(request, 'donationpage.html', {'form': form})
     else:
         return HttpResponseRedirect('/donationpage/')
+
+def donation_topaypal(request):
+    c = request.session.get('c')
+    return render(request, 'donation_topaypal.html', {'c': c})
 
 def donation_thanks(request):
     #Upon return from Paypal.

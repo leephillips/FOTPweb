@@ -60,4 +60,5 @@ urlpatterns = patterns('',
      (r'^donationpage/$', 'ap.apdirposts.views.donationpage'),
      (r'^donation_submit/$', 'ap.apdirposts.views.donation_submit'),
      (r'^donation_thanks/$', 'ap.apdirposts.views.donation_thanks'),
+     (r'^donation_topaypal/$', 'ap.apdirposts.views.donation_topaypal'),
 )
