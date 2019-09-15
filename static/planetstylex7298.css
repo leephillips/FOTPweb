@@ -62,6 +62,12 @@ a.plainlinks {
    margin-left: 19.5rem;
 
 }
+.donorformpage {
+   font-size: 1.6em;
+   }
+.donorformpage h2 {
+    margin-bottom: 1.4rem;
+}
 .errorlist { /*Django uses this class to style form errors.*/
    color: #ff3333; 
    font-weight: bold;

@@ -185,7 +185,6 @@ def donation_submit(request):
                 donationCharge = c['donation'] or 0.0
             except:
                 donationCharge = 0.0
-            # kill = 1./0.
             new_supporter = Supporter(**c)
             new_supporter.total = Decimal(membershipCharge) + Decimal(donationCharge)
             new_supporter.save()
@@ -196,6 +195,7 @@ def donation_submit(request):
         return HttpResponseRedirect('/donationpage/')
 
 def donation_thanks(request):
+    #Upon return from Paypal.
     return render(request, 'donation_thanks.html', locals())
 
 
