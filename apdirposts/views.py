@@ -191,6 +191,7 @@ def donation_submit(request):
             new_supporter.save()
             c['donation'] = float(c['donation']) #Can't sent Decimals through the session
             c['total'] = float(new_supporter.total)            
+            c['membershipCharge'] = membershipCharge
             request.session['c'] = c
             return HttpResponseRedirect('/donation_topaypal/')
         else:

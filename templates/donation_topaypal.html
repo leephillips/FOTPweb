@@ -19,37 +19,45 @@
  
    {% csrf_token %}
    <div class = 'form_minor_section'>
-       <p>First name: {{c.first_name}} </p> 
-       <p>Last name: {{c.last_name}} </p>
-       <p>Middle name: {{c.middle_name}} </p>
-       <p>Suffix (Jr., etc.) {{c.suffix_name}} </p>
+       <p>First name: <span class = 'formregurgitation'>{{c.first_name}}</span> </p> 
+       <p>Last name: <span class = 'formregurgitation'>{{c.last_name}}</span> </p>
+       <p>Middle name: <span class = 'formregurgitation'>{{c.middle_name}}</span> </p>
+       <p>Suffix (Jr., etc.) <span class = 'formregurgitation'>{{c.suffix_name}}</span> </p>
    </div>
    <div class = 'form_minor_section'>
-       <p>Street address: {{c.mailing_street}} </p>
-       <p>City: {{c.mailing_city}} </p>
-       <p>State: {{c.mailing_state}} </p>
-       <p>Zip code: {{c.mailing_zip}} </p>
-       <p>Phone number: {{c.phone}}&nbsp;&nbsp;&nbsp;Type: {{form.phone_type}} </p>
+       <p>Street address: <span class = 'formregurgitation'>{{c.mailing_street}}</span> </p>
+       <p>City: <span class = 'formregurgitation'>{{c.mailing_city}}</span> </p>
+       <p>State: <span class = 'formregurgitation'>{{c.mailing_state}}</span> </p>
+       <p>Zip code: <span class = 'formregurgitation'>{{c.mailing_zip}}</span> </p>
+       <p>Phone number: <span class = 'formregurgitation'>{{c.phone}}&nbsp;({{c.phone_type}})</span> </p>
    </div>
    <div class = 'form_minor_section'>
-       <p> Email address: {{c.email}}  </p>
-        <p>Do you want to receive email communications including advance notice of shows and events, and the Friends’ newsletter?
-           {{c.wants_email}}  (Check the box if you do.)</p>
+       <p> Email address: <span class = 'formregurgitation'>{{c.email}}</span>  </p>
+       {% if c.wants_email %}
+       <p>You <b>do</b> want to receive email communications.
+       {% else %}
+       <p>You <b>do not</b> want to receive email communications.
+       {% endif %}
 
-        <h2>What would you like to do?</h2>
+        <h2>Transactions</h2>
 
        <div class = 'form_minor_section'>
-           <p>If you would like to purchase a membership, please choose which type:</p>
-           <p>{{c.member_type}} </p>
-           <p>If you are purchasing a membership, is this a:</p>
-            {{c.purpose}} 
+           <p>Membership type:<span class = 'formregurgitation'>
+           {% if c.member_type != 'Nomembership' %}
+               {{c.member_type}},
+               {% if c.purpose == 'New' %} new: ${{c.membershipCharge|floatformat:2}}
+               {% else %} renewal: ${{c.membershipCharge|floatformat:2}}
+               {% endif %}
+           {% else %}
+               None.
+               </span>
+           {% endif %}
+           </p> 
+           <p>Donation: <span class = 'formregurgitation'>${{c.donation|floatformat:2}}</span></p>
+           <p>Total for Paypal: <span class = 'formregurgitation'>${{c.total|floatformat:2}}</span>.</p>
        </div>
        <div class = 'form_minor_section'>
-           If you would like to make a donation in addition to, or instead of, purchasing a membership,
-           please enter the amount here: {{c.donation}} 
-       </div>
-       <div class = 'form_minor_section'>
-           <p>Any comments: {{c.comments}} 
+           <p>Comments: <span class = 'formregurgitation'>{{c.comments}}</span> 
        </div>
    <button type = 'submit'>Submit form and go to PayPal</button>
   </div>

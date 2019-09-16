@@ -1292,6 +1292,11 @@ div.form_minor_section {
 div.form_minor_section p {
     margin-top: 0.4rem; margin-bottom: 0.4rem;
 }
+
+.formregurgitation {
+    font-family: "Lucida Console", Courier, monospace;
+    color: #996633;
+}
 div.bigwords {
     font-size: 4rem;
     padding: 2rem;
