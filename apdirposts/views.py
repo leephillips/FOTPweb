@@ -163,7 +163,7 @@ class DonationForm(forms.Form):
     phone_type = forms.ChoiceField(choices = PHONE_TYPE)
     email = forms.EmailField()
     wants_email = forms.BooleanField(required=False)
-    comments = forms.CharField(max_length = 250, required = False)
+    comments = forms.CharField(max_length = 250, required = False, widget=forms.Textarea(attrs={'placeholder':'Any comments.'}))
     donation = forms.DecimalField(max_digits=8, decimal_places=2, required = False, min_value=Decimal('0.00'))
 
 def donationpage(request):

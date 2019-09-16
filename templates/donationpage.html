@@ -35,7 +35,7 @@
    </div>
    <div class = 'form_minor_section'>
        <p> <span class = 'required'>Email address</span>: {{form.email}} {{form.email.errors}} </p>
-        <p>Do you want to receive email communications including advance notice of shows and events, and the Friends’ newsletter?
+       <p>Do you want to receive email communications including advance notice of shows and events, and the Friends’ newsletter?<br />
            {{form.wants_email}} {{form.wants_email.errors}} (Check the box if you do.)</p>
 
         <h2>What would you like to do?</h2>
@@ -48,10 +48,10 @@
        </div>
        <div class = 'form_minor_section'>
            If you would like to make a donation in addition to, or instead of, purchasing a membership,
-           please enter the amount here: {{form.donation}} {{form.donation.errors}}
+           please enter the amount<br/>here:&nbsp;{{form.donation}} {{form.donation.errors}}
        </div>
        <div class = 'form_minor_section'>
-           <p>Any comments: {{form.comments}} {{form.comments.errors}}
+           <p>{{form.comments}} {{form.comments.errors}}
        </div>
    <button type = 'submit'>Submit form and go to PayPal</button>
   </form>
