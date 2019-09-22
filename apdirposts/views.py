@@ -165,6 +165,7 @@ class DonationForm(forms.Form):
     wants_email = forms.BooleanField(required=False)
     comments = forms.CharField(max_length = 250, required = False, widget=forms.Textarea(attrs={'placeholder':'Any comments.'}))
     donation = forms.DecimalField(max_digits=8, decimal_places=2, required = False, min_value=Decimal('0.00'))
+    brown_donation = forms.DecimalField(max_digits=8, decimal_places=2, required = False, min_value=Decimal('0.00'))
 
 def donationpage(request):
    form = DonationForm()
@@ -186,12 +187,17 @@ def donation_submit(request):
                 donationCharge = c['donation'] or 0.0
             except:
                 donationCharge = 0.0
+            try:
+                brownCharge = c['brown_donation'] or 0.0
+            except:
+                brownCharge = 0.0
             new_supporter = Supporter(**c)
-            new_supporter.total = Decimal(membershipCharge) + Decimal(donationCharge)
+            new_supporter.total = Decimal(membershipCharge) + Decimal(donationCharge) + Decimal(brownCharge)
             new_supporter.save()
             c['donation'] = float(c['donation']) #Can't sent Decimals through the session
-            c['total'] = float(new_supporter.total)            
+            c['brown_donation'] = float(c['brown_donation']) #Can't sent Decimals through the session
             c['membershipCharge'] = membershipCharge
+            c['total'] = float(new_supporter.total)            
             request.session['c'] = c
             return HttpResponseRedirect('/donation_topaypal/')
         else:
