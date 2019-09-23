@@ -10,7 +10,10 @@ from django.contrib.auth.decorators import login_required, user_passes_test, per
 from tinymce.widgets import TinyMCE
 from django.conf  import settings
 from decimal import *
+import string
+import random
 
+chars = string.letters + string.digits
 now = datetime.now # to be called in views to get the fresh now
 today = datetime.now()
 RECENT = today - timedelta(days = 180)
@@ -208,13 +211,29 @@ def donation_submit(request):
 
 def donation_topaypal(request):
     c = request.session.get('c')
-    return render(request, 'donation_topaypal.html', {'c': c})
+    orders = 1
+    while orders:  # Check that we haven't used this invoice string already
+      invoice = "".join(random.sample(chars, 5))
+      orders = Supporter.objects.filter(invoice = invoice)
+      return render(request, 'donation_topaypal.html', {'c': c, 'invoice': invoice})
 
-def donation_thanks(request):
-    #Upon return from Paypal.
-    return render(request, 'donation_thanks.html', locals())
-
-
+def return_from_paypal(request):
+  #Upon return from Paypal.
+  #https://developer.paypal.com/docs/classic/ipn/integration-guide/IPNandPDTVariables/#id092BE0U605Z
+  transactioncode = request.GET.get('tx') or 'nothing'
+  status = request.GET.get('st') or 'nothing'
+  amount = request.GET.get('amt') or 'nothing'
+  invoice = request.GET.get('item_number') or 'nothing'
+  try:
+    order = Supporter.objects.filter(invoice = invoice)[0]
+  except:
+    order = Supporter(invoice = invoice)
+    order.notes = 'Order created from paypal return. Did not exist.'
+  order.amount = amount
+  order.status = status
+  order.transactioncode = transactioncode
+  order.save()
+  return render(request, 'donation_thanks.html', locals())
 
 @login_required
 def newarticle(request, pid = None):

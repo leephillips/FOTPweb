@@ -104,6 +104,10 @@ class Supporter(models.Model):
     total = models.DecimalField(max_digits=8, decimal_places=2, default = 0) #Addition of membership fee and donation, set to 0 in view
     invoice = models.CharField('Invoice number or brief description', max_length = 100, null = True, blank = True)
                                                                 #if both of those are blank (only wants announcements, perhaps).
+    notes = models.CharField('notes', max_length = 10000, blank = True, null = True)
+    status = models.CharField('Status', max_length = 100, null = True, blank = True)#Reported by Paypal
+    amount =  models.DecimalField('Amount in $U.S.', max_digits=7, decimal_places=2, null = True,  blank = True)#Reported by Paypal
+    transactioncode = models.CharField('Transaction code', max_length = 100, blank = True)#Reported by Paypal
 
 
 class CommunityEvent(models.Model):
