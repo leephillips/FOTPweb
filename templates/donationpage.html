@@ -16,6 +16,7 @@
    </p>
 
  <form action = '/donation_submit/' method = 'POST'>
+     <span class = "errorlist">{{errormessage}}</span>
    <h2>About you</h2>
  {{ form.non_field_errors }}
  
@@ -49,7 +50,8 @@
        <div class = 'form_minor_section'>
            If you would like to make a donation in addition to, or instead of, purchasing a membership,
            please enter the amounts here:<br/>
-           {{form.donation}} {{form.donation.errors}}
+           Unrestricted donation: {{form.donation}} {{form.donation.errors}}<br />
+           David M. Brown scholarship fund: {{form.brown_donation}} {{form.brown_donation.errors}}
        </div>
        <div class = 'form_minor_section'>
            <p>{{form.comments}} {{form.comments.errors}}

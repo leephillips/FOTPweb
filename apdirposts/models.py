@@ -102,6 +102,7 @@ class Supporter(models.Model):
     donation = models.DecimalField(max_digits=8, decimal_places=2, blank = True, null = True)
     brown_donation = models.DecimalField(max_digits=8, decimal_places=2, blank = True, null = True)
     total = models.DecimalField(max_digits=8, decimal_places=2, default = 0) #Addition of membership fee and donation, set to 0 in view
+    invoice = models.CharField('Invoice number or brief description', max_length = 100, null = True, blank = True)
                                                                 #if both of those are blank (only wants announcements, perhaps).
 
 

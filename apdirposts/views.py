@@ -173,7 +173,7 @@ def donationpage(request):
 
 def donation_submit(request):
     """Gather information, store in Supporter table in DB, and direct to information check on the way to Paypal."""
-    member_prices = {'Nomembership': 0., 'Individual': 15., 'Family': 25., 'Sponsor': 50., 'Lifetime': 1000.}
+    member_prices = {'Nomembership': 0., 'Individual': 15., 'Family': 25., 'Sponsor': 50., 'Patron': 100., 'Lifetime': 1000.}
     if request.method == 'POST':
         form = DonationForm(request.POST)
         if form.is_valid():
@@ -201,7 +201,8 @@ def donation_submit(request):
             request.session['c'] = c
             return HttpResponseRedirect('/donation_topaypal/')
         else:
-            return render(request, 'donationpage.html', {'form': form})
+            errormessage = "Please correct the errors below."
+            return render(request, 'donationpage.html', {'form': form, 'errormessage': errormessage})
     else:
         return HttpResponseRedirect('/donationpage/')
 

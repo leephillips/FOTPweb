@@ -1,4 +1,4 @@
- {% extends "sitex7298.html" %}
+{% extends "sitex7298.html" %}
 {% block title %}Donation and Member Signup Page{% endblock %}
 {% block style %}
 {% endblock %}
@@ -53,14 +53,31 @@
                </span>
            {% endif %}
            </p> 
-           <p>Donation: <span class = 'formregurgitation'>${{c.donation|floatformat:2}}</span></p>
+           <p>General Donation: <span class = 'formregurgitation'>${{c.donation|floatformat:2}}</span></p>
+           <p>David M. Brown Scholarship Donation: <span class = 'formregurgitation'>${{c.brown_donation|floatformat:2}}</span></p>
            <p>Total for Paypal: <span class = 'formregurgitation'>${{c.total|floatformat:2}}</span>.</p>
        </div>
        <div class = 'form_minor_section'>
            <p>Comments: <span class = 'formregurgitation'>{{c.comments}}</span> 
        </div>
-   <form action = '' method = 'POST'>
+<!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">-->
+<!--<input type="hidden" name="cmd" value="_s-xclick">-->
+<!--<input type="hidden" name="hosted_button_id" value="4CBANRHF2YN2G">-->
+<!--<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">-->
+<!--<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">-->
+<!--</form>-->
+   <form action = 'https://www.paypal.com/cgi-bin/webscr' method = 'POST' target="_top">
+       <input type="hidden" name="cmd" value="_xclick">
+       <input type="hidden" name="business" value="planetarium.donations@gmail.com" />
+       <input type="hidden" name="item_name" 
+          value="don{{c.donationCharge}}brn{{c.brown_donation}}mem-{{c.member_type}}{{c.membershipCharge}}" />
+       <input type="hidden" name="item_number" value="{{invoice}}" />
+       <input type="hidden" name="amount" value="{{c.total|floatformat:2}}" />
+       <input type="hidden" name="no_shipping" value="1" />
+       <input type="hidden" name="return" value="http://friendsoftheplanetarium.org/return_from_paypal" />
+       <!--<input type="hidden" name="return" value="http://friendsoftheplanetarium.org/" />-->
        <button type = 'submit'>Looks good: take me to PayPal</button>
+      <!--<input style = 'margin: 0; margin-top: 3.2mm; border: solid #55f 0.5mm; padding: 3mm; padding-top: 1mm; padding-bottom: 1mm;' type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png" border="0" name="submit" alt="Pay with Paypal" />-->
    </form>
   </div>
 {% endblock %}
