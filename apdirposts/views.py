@@ -197,8 +197,8 @@ def donation_submit(request):
             new_supporter = Supporter(**c)
             new_supporter.total = Decimal(membershipCharge) + Decimal(donationCharge) + Decimal(brownCharge)
             new_supporter.save()
-            c['donation'] = float(c['donation']) #Can't sent Decimals through the session
-            c['brown_donation'] = float(c['brown_donation']) #Can't sent Decimals through the session
+            c['donation'] = float(c['donation'] or '0.00') #Can't send Decimals through the session
+            c['brown_donation'] = float(c['brown_donation'] or '0.00') #Can't send Decimals through the session
             c['membershipCharge'] = membershipCharge
             c['total'] = float(new_supporter.total)            
             request.session['c'] = c
