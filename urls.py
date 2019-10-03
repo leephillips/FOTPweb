@@ -59,7 +59,6 @@ urlpatterns = patterns('',
      (r'^eclipseTable2716/$', 'ap.apdirposts.views.eclipse_table'),
      (r'^donationpage/$', 'ap.apdirposts.views.donationpage'),
      (r'^donation_submit/$', 'ap.apdirposts.views.donation_submit'),
-     (r'^donation_thanks/$', 'ap.apdirposts.views.donation_thanks'),
      (r'^donation_topaypal/$', 'ap.apdirposts.views.donation_topaypal'),
      (r'^return_from_paypal/$', 'ap.apdirposts.views.return_from_paypal'),
 )
