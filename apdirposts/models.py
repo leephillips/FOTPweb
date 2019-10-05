@@ -108,6 +108,7 @@ class Supporter(models.Model):
     status = models.CharField('Status', max_length = 100, null = True, blank = True)#Reported by Paypal
     amount =  models.DecimalField('Amount in $U.S.', max_digits=7, decimal_places=2, null = True,  blank = True)#Reported by Paypal
     transactioncode = models.CharField('Transaction code', max_length = 100, blank = True)#Reported by Paypal
+    date = models.DateTimeField('transaction date', blank = True, editable = False, null = True, auto_now=True)
 
 
 class CommunityEvent(models.Model):

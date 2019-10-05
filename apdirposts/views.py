@@ -225,6 +225,9 @@ def return_from_paypal(request):
   #Account settings apparently do not permit return values, so we’ll just say thanks.
   return render(request, 'donation_thanks.html', locals())
 
+def sup_to_csv():
+    sups = Supporter.objects.all().order_by('date')
+
 @login_required
 def newarticle(request, pid = None):
    main = Postcategory.objects.filter(postcategory = 'main')[0]
