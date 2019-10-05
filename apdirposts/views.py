@@ -222,11 +222,21 @@ def donation_topaypal(request):
 def return_from_paypal(request):
   #Upon return from Paypal.
   #https://developer.paypal.com/docs/classic/ipn/integration-guide/IPNandPDTVariables/#id092BE0U605Z
-  #Account settings apparently do not permit return values, so we’ll just say thanks.
+  #Account settings apparently do not permit return values, so we'll just say thanks.
   return render(request, 'donation_thanks.html', locals())
 
-def sup_to_csv():
+def sup_to_csv(request, cachekill):
     sups = Supporter.objects.all().order_by('date')
+    ssa = [', '.join(['date', 'first_name', 'last_name', 'middle_name', 'suffix_name',
+                             'purpose', 'member_type', 'mailing_street', 'mailing_city', 'mailing_state',
+                             'mailing_zip', 'phone', 'phone_type', 'email', 'wants_email',
+                             'comments', 'donation', 'brown_donation'])]
+    for sup in sups:
+        ssa.append(', '.join([str(sup.date), str(sup.first_name), str(sup.last_name), str(sup.middle_name), str(sup.suffix_name), 
+                             str(sup.purpose), str(sup.member_type), str(sup.mailing_street), str(sup.mailing_city), str(sup.mailing_state),
+                             str(sup.mailing_zip), str(sup.phone), str(sup.phone_type), str(sup.email), str(sup.wants_email),
+                             str(sup.comments), str(sup.donation), str(sup.brown_donation)]))
+    return HttpResponse("\n".join(ssa))
 
 @login_required
 def newarticle(request, pid = None):

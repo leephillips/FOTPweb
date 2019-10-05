@@ -61,4 +61,5 @@ urlpatterns = patterns('',
      (r'^donation_submit/$', 'ap.apdirposts.views.donation_submit'),
      (r'^donation_topaypal/$', 'ap.apdirposts.views.donation_topaypal'),
      (r'^return_from_paypal/$', 'ap.apdirposts.views.return_from_paypal'),
+     (r'^sup_to_csv09348r098230984/(.*)$', 'ap.apdirposts.views.sup_to_csv'),
 )
