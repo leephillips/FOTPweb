@@ -222,19 +222,7 @@ def donation_topaypal(request):
 def return_from_paypal(request):
   #Upon return from Paypal.
   #https://developer.paypal.com/docs/classic/ipn/integration-guide/IPNandPDTVariables/#id092BE0U605Z
-  transactioncode = request.GET.get('tx') or 'nothing'
-  status = request.GET.get('st') or 'nothing'
-  amount = request.GET.get('amt') or 0.0
-  invoice = request.GET.get('item_number') or 'nothing'
-  try:
-    order = Supporter.objects.filter(invoice = invoice)[0]
-  except:
-    order = Supporter(invoice = invoice)
-    order.notes = 'Order created from paypal return. Did not exist.'
-  order.amount = Decimal(amount)
-  order.status = status
-  order.transactioncode = transactioncode
-  order.save()
+  #Account settings apparently do not permit return values, so we’ll just say thanks.
   return render(request, 'donation_thanks.html', locals())
 
 @login_required

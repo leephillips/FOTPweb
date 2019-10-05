@@ -70,11 +70,12 @@
        <input type="hidden" name="cmd" value="_xclick">
        <input type="hidden" name="business" value="planetarium.donations@gmail.com" />
        <input type="hidden" name="item_name" 
-          value="don{{c.donationCharge}}brn{{c.brown_donation}}mem-{{c.member_type}}{{c.membershipCharge}}" />
-       <input type="hidden" name="item_number" value="{{invoice}}" />
+          value="don{{c.donation}}brn{{c.brown_donation}}{{c.member_type}}{{c.membershipCharge}}" />
+       <input type="hidden" name="item_number" value="{{c.invoice}}" />
        <input type="hidden" name="amount" value="{{c.total|floatformat:2}}" />
        <input type="hidden" name="no_shipping" value="1" />
-       <input type="hidden" name="return" value="http://friendsoftheplanetarium.org/return_from_paypal" />
+       <input type="hidden" name="rm" value="1" />
+       <input type="hidden" name="return" value="https://friendsoftheplanetarium.org/return_from_paypal/" />
        <!--<input type="hidden" name="return" value="http://friendsoftheplanetarium.org/" />-->
        <button type = 'submit'>Looks good: take me to PayPal</button>
       <!--<input style = 'margin: 0; margin-top: 3.2mm; border: solid #55f 0.5mm; padding: 3mm; padding-top: 1mm; padding-bottom: 1mm;' type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png" border="0" name="submit" alt="Pay with Paypal" />-->
