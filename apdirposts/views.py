@@ -174,6 +174,10 @@ def donationpage(request):
    form = DonationForm()
    return render(request, 'donationpage.html', locals())
 
+def givingtuesday(request):
+   form = DonationForm()
+   return render(request, 'givingTuesday2019.html', locals())
+
 def donation_submit(request):
     """Gather information, store in Supporter table in DB, and direct to information check on the way to Paypal."""
     member_prices = {'Nomembership': 0., 'Individual': 15., 'Family': 25., 'Sponsor': 50., 'Patron': 100., 'Lifetime': 1000.}
@@ -215,9 +219,45 @@ def donation_submit(request):
     else:
         return HttpResponseRedirect('/donationpage/')
 
+def tuesday_submit(request):
+    """Gather information, store in Supporter table in DB, and direct to information check on the way to Paypal."""
+    if request.method == 'POST':
+        form = DonationForm(request.POST)
+        if form.is_valid():
+            c = form.cleaned_data
+            try:
+                brownCharge = c['brown_donation'] or 0.0
+            except:
+                brownCharge = 0.0
+            #generate invoice string
+            orders = 1
+            while orders:  # Check that we haven't used this invoice string already
+              invoice = "".join(random.sample(chars, 5))
+              orders = Supporter.objects.filter(invoice = invoice)
+            c['invoice'] = invoice
+            new_supporter = Supporter(**c)
+            # new_supporter.total = Decimal(brownCharge)
+            new_supporter.total = Decimal(brownCharge)
+            new_supporter.comments = new_supporter.comments + "***Giving Tuesday***"
+            new_supporter.save()
+            c['donation'] = float(c['donation'] or '0.00') #Can't send Decimals through the session
+            c['brown_donation'] = float(c['brown_donation'] or '0.00') #Can't send Decimals through the session
+            c['total'] = float(new_supporter.total)            
+            request.session['c'] = c
+            return HttpResponseRedirect('/tuesday_topaypal/')
+        else:
+            errormessage = "Please correct the errors below."
+            return render(request, 'donationpage.html', {'form': form, 'errormessage': errormessage})
+    else:
+        return HttpResponseRedirect('/donationpage/')
+
 def donation_topaypal(request):
     c = request.session.get('c')
     return render(request, 'donation_topaypal.html', {'c': c})
+
+def tuesday_topaypal(request):
+    c = request.session.get('c')
+    return render(request, 'tuesday_topaypal.html', {'c': c})
 
 def return_from_paypal(request):
   #Upon return from Paypal.
@@ -232,10 +272,10 @@ def sup_to_csv(request, cachekill):
                              'mailing_zip', 'phone', 'phone_type', 'email', 'wants_email',
                              'comments', 'donation', 'brown_donation'])]
     for sup in sups:
-        ssa.append(', '.join([str(sup.date), str(sup.first_name), str(sup.last_name), str(sup.middle_name), str(sup.suffix_name), 
-                             str(sup.purpose), str(sup.member_type), str(sup.mailing_street), str(sup.mailing_city), str(sup.mailing_state),
-                             str(sup.mailing_zip), str(sup.phone), str(sup.phone_type), str(sup.email), str(sup.wants_email),
-                             str(sup.comments), str(sup.donation), str(sup.brown_donation)]))
+        ssa.append(', '.join([str(sup.date).replace(","," "), str(sup.first_name).replace(","," "), str(sup.last_name).replace(","," "), str(sup.middle_name).replace(","," "), str(sup.suffix_name).replace(","," "), 
+                             str(sup.purpose).replace(","," "), str(sup.member_type).replace(","," "), str(sup.mailing_street).replace(","," "), str(sup.mailing_city).replace(","," "), str(sup.mailing_state).replace(","," "),
+                             str(sup.mailing_zip).replace(","," "), str(sup.phone).replace(","," "), str(sup.phone_type).replace(","," "), str(sup.email).replace(","," "), str(sup.wants_email).replace(","," "),
+                             str(sup.comments).replace(","," "), str(sup.donation).replace(","," "), str(sup.brown_donation)]))
     return HttpResponse("\n".join(ssa))
 
 @login_required
