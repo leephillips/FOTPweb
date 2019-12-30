@@ -23,6 +23,9 @@ REALSOON  = today + timedelta(days = 4)
 # mm.pub_date = datetime.datetime(2013, 8, 1, 13, 13, 13)
 # mm.save()
 
+def sql_cleanup(s):
+    return s.replace("\r", " - ").replace("\m", " - ").replace("\n", " - ").replace("\j", " - ")
+
 def ticketing(request, id):
     """The post id is main article describing weekend. Looks up all event objects linked
     to the post. For each object, uses Eventbrite API to create an event page on Eventbrite,
@@ -204,6 +207,7 @@ def donation_submit(request):
               invoice = "".join(random.sample(chars, 5))
               orders = Supporter.objects.filter(invoice = invoice)
             c['invoice'] = invoice
+            c['comments'] = sql_cleanup(c['comments'])
             new_supporter = Supporter(**c)
             new_supporter.total = Decimal(membershipCharge) + Decimal(donationCharge) + Decimal(brownCharge)
             new_supporter.save()
@@ -270,12 +274,12 @@ def sup_to_csv(request, cachekill):
     ssa = [', '.join(['date', 'first_name', 'last_name', 'middle_name', 'suffix_name',
                              'purpose', 'member_type', 'mailing_street', 'mailing_city', 'mailing_state',
                              'mailing_zip', 'phone', 'phone_type', 'email', 'wants_email',
-                             'comments', 'donation', 'brown_donation'])]
+                             'comments', 'donation', 'brown_donation', 'total'])]
     for sup in sups:
         ssa.append(', '.join([str(sup.date).replace(","," "), str(sup.first_name).replace(","," "), str(sup.last_name).replace(","," "), str(sup.middle_name).replace(","," "), str(sup.suffix_name).replace(","," "), 
                              str(sup.purpose).replace(","," "), str(sup.member_type).replace(","," "), str(sup.mailing_street).replace(","," "), str(sup.mailing_city).replace(","," "), str(sup.mailing_state).replace(","," "),
                              str(sup.mailing_zip).replace(","," "), str(sup.phone).replace(","," "), str(sup.phone_type).replace(","," "), str(sup.email).replace(","," "), str(sup.wants_email).replace(","," "),
-                             str(sup.comments).replace(","," "), str(sup.donation).replace(","," "), str(sup.brown_donation)]))
+                             str(sup.comments).replace(","," "), str(sup.donation).replace(","," "), str(sup.brown_donation), str(sup.total)]))
     return HttpResponse("\n".join(ssa))
 
 @login_required
