@@ -168,7 +168,7 @@ class DonationForm(forms.Form):
     phone = forms.CharField(max_length=30, required = False)
     phone_type = forms.ChoiceField(choices = PHONE_TYPE)
     email = forms.EmailField()
-    wants_email = forms.BooleanField(required=False)
+    wants_email = forms.BooleanField(required=False, initial=True)
     comments = forms.CharField(max_length = 250, required = False, widget=forms.Textarea(attrs={'placeholder':'Any comments.'}))
     donation = forms.DecimalField(max_digits=8, decimal_places=2, required = False, min_value=Decimal('0.00'))
     brown_donation = forms.DecimalField(max_digits=8, decimal_places=2, required = False, min_value=Decimal('0.00'))

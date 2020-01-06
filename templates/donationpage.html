@@ -12,7 +12,7 @@
 
    <p>Thank you for your interest and support. Please use the form on this page
    to purchase a membership and/or make a donation to the Friends of the Planetarium.
-   <span class = 'required'>These entries</span> are required.
+   <span class = 'required'>The entries with a *</span> are required.
    </p>
 
  <form action = '/donation_submit/' method = 'POST'>
@@ -23,8 +23,8 @@
  
    {% csrf_token %}
    <div class = 'form_minor_section'>
-       <p><span class= 'required'>First name</span>: {{form.first_name}} {{form.first_name.errors}}</p> 
-       <p><span class = 'required'>Last name</span>: {{form.last_name}} {{form.last_name.errors}}</p>
+       <p><span class= 'required'>* First name</span>: {{form.first_name}} {{form.first_name.errors}}</p> 
+       <p><span class = 'required'>* Last name</span>: {{form.last_name}} {{form.last_name.errors}}</p>
        <p>Middle name: {{form.middle_name}} {{form.middle_name.errors}}</p>
        <p>Suffix (Jr., etc.) {{form.suffix_name}} {{form.suffix_name.errors}}</p>
    </div>
@@ -36,9 +36,9 @@
        <p>Phone number: {{form.phone}}&nbsp;&nbsp;&nbsp;Type: {{form.phone_type}} {{form.phone_type.errors}}</p>
    </div>
    <div class = 'form_minor_section'>
-       <p> <span class = 'required'>Email address</span>: {{form.email}} {{form.email.errors}} </p>
-       <p>Do you want to receive email communications including advance notice of shows and events, and the Friends’ newsletter?<br />
-           {{form.wants_email}} {{form.wants_email.errors}} (Check the box if you do.)</p>
+       <p> <span class = 'required'>* Email address</span>: {{form.email}} {{form.email.errors}} </p>
+       <p>{{form.wants_email}} {{form.wants_email.errors}} I want to receive email communications including advance notice of shows and events, and the Friends’ newsletter.<br />
+           (Uncheck the box if prefer not to receive our announcements.)</p>
 
         <h2>What would you like to do?</h2>
 
