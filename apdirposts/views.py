@@ -160,7 +160,7 @@ class DonationForm(forms.Form):
     middle_name = forms.CharField(max_length=100, required = False)
     suffix_name = forms.CharField(max_length=10, required = False)
     purpose = forms.ChoiceField(choices = PURPOSE, widget = forms.RadioSelect, required = False)
-    member_type = forms.ChoiceField(choices = MEMBER_TYPE, required = False)
+    member_type = forms.ChoiceField(choices = MEMBER_TYPE, widget = forms.RadioSelect, required = True, initial=False)
     mailing_street = forms.CharField(max_length=100, required = False)
     mailing_city = forms.CharField(max_length=100, required = False)
     mailing_state = forms.CharField(max_length=100, required = False)
