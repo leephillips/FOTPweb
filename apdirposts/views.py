@@ -172,6 +172,17 @@ class DonationForm(forms.Form):
     comments = forms.CharField(max_length = 250, required = False, widget=forms.Textarea(attrs={'placeholder':'Any comments.'}))
     donation = forms.DecimalField(max_digits=8, decimal_places=2, required = False, min_value=Decimal('0.00'))
     brown_donation = forms.DecimalField(max_digits=8, decimal_places=2, required = False, min_value=Decimal('0.00'))
+    def clean(self):
+        c = super(DonationForm, self).clean()
+        purpose = c.get('purpose')
+        member_type = c.get('member_type')
+        # If user purchases a donation we need to know if it is a new one or a renewal.
+        if member_type != 'Nomembership':
+            if purpose == '': #Did not indicate a purpose
+                self.add_error('purpose', 'Please indicate if this is a new membership or a renewal.')
+
+
+
 
 def donationpage(request):
    form = DonationForm()
